@@ -1,0 +1,46 @@
+:root{
+    --main-blue:#192f9c;
+}
+
+body{
+    background:#f0f0f0;
+}
+
+.letter-logo{
+    font-family:Algerian;
+    color:var(--main-blue);
+    font-size:65px;
+}
+.navi{
+    background: white;
+    box-shadow: 0px 0px 6px 3px rgba(224,224,224,1);
+}
+.search input[type=search]{
+    border:1px solid #d0d0d0;
+    background:#f0f0f0;
+    padding:1px;
+    border-radius:5px;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+.search input[type=search]:focus{
+    outline:none;
+    background: #e0e0e0;
+}
+.picture-nav{
+    border-radius:50%;
+    background: #e5e5e5;
+    width: 50px;
+    height: 50px;
+}
+.user-nav{
+    margin-left:25px;
+}
+.dd-btn{
+    margin-left:0px;
+    border:none;
+    background: none;
+}
+.dd-btn::after{
+    display:none;
+}

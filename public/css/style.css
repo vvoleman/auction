@@ -1,9 +1,11 @@
 :root{
     --main-blue:#192f9c;
+    --main-font:"Century Gothic";
 }
 
 body{
     background:#f0f0f0;
+    font-family: var(--main-font);
 }
 
 .letter-logo{
@@ -12,6 +14,7 @@ body{
     font-size:65px;
 }
 .navi{
+    z-index: 99;
     background: white;
     box-shadow: 0px 0px 6px 3px rgba(224,224,224,1);
 }
@@ -43,4 +46,34 @@ body{
 }
 .dd-btn::after{
     display:none;
+}
+.white_box{
+    background:white;
+    padding:15px;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px 0px rgba(224,224,224,1);
+}
+.m-top{
+    margin-top:15px;
+}
+.form label{
+    font-size:13px;
+    text-transform: uppercase;
+}
+.form input[type=email],.form input[type=password]{
+    border:0;
+    border-bottom:1px solid #777;
+    border-radius:0;
+    padding:0;
+    background:#fafafa;
+}
+.form input[type=submit]{
+    background: var(--main-blue);
+    color:white;
+    border:none;
+    border-radius: 5px;
+    padding:5px;
+}
+.login{
+    margin-top:20vh;
 }

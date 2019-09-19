@@ -15,5 +15,8 @@ class LoginController extends Controller
 
         return view('login/login');
     }
+    public function postLogin($id){
+    	dd($id);
+    }
 
 }

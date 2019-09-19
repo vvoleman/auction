@@ -9,5 +9,6 @@
     @include("partials/_nav")
     @yield('content')
     @include("partials/_scripts")
+    @yield("scripts")
 </body>
 </html>

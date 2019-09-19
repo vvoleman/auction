@@ -77,3 +77,10 @@ body{
 .login{
     margin-top:20vh;
 }
+.login .error{
+    font-size:12px;
+}
+.input-error{
+    background:#ffcccb !important;
+    font-size:1rem;
+}

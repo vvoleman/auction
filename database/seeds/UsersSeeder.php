@@ -11,11 +11,10 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pictures')->insert([
+        DB::table('users')->insert([
             "firstname"=>"Vojtěch",
             "surname"=>"Voleman",
             "email"=>"vojtavol@email.cz",
-            "picture_id"=>1,
             "password"=>"$2y$12$2Zm7rkv5fFpzlzF/NJBpoOMnN/jxp3BwWTUMs3sQ9rYpbjJZaHLdW"
         ]);
     }

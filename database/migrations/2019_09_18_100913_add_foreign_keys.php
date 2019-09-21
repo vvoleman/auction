@@ -14,11 +14,9 @@ class AddForeignKeys extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-
             $table->foreign('picture_id')->references('id_p')->on('pictures');
         });
         Schema::table('pictures', function (Blueprint $table) {
-
             $table->foreign("creator_id")->references("id_u")->on("users");
         });
     }

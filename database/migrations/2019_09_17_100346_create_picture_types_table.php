@@ -14,7 +14,7 @@ class CreatePictureTypesTable extends Migration
     public function up()
     {
         Schema::create('picture_types', function (Blueprint $table) {
-            $table->unsignedInteger('id_pt')->primary();
+            $table->increments('id_pt');
             $table->string("name");
             $table->string("label");
         });

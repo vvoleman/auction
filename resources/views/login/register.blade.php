@@ -2,11 +2,19 @@
 @section('title',"Test")
 @section('content')
     <div class="col-md-4 col-10 mx-auto white_box m-top login">
-        <h3>Přihlášení</h3>
+        <h3>Registrovat</h3>
         <hr>
         <form id="login_form" method="POST" action="{{route('login.postLogin')}}">
             @csrf
             <div class="form">
+                <div class="form-group">
+                    <label>Jméno</label>
+                    <input type="email" class="form-control" name="firstname">
+                </div>
+                <div class="form-group">
+                    <label>Přijmení</label>
+                    <input type="email" class="form-control" name="surname">
+                </div>
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" class="form-control" name="email">
@@ -15,11 +23,15 @@
                     <label>Heslo</label>
                     <input type="password" class="form-control" name="password">
                 </div>
+                <div class="form-group">
+                    <label>Heslo znovu</label>
+                    <input type="password" class="form-control" name="password2">
+                </div>
                 <div class="form-check">
                     <input type="checkbox" name="remember" class="form-check-input">
-                    <label for="remember" class="form-check-label">Pamatovat si mě</label>
+                    <label for="remember" class="form-check-label">Souhlasím s podmínkami</label>
                 </div>
-                <input class="btn-block m-top" type="submit" value="Přihlásit se">
+                <input class="btn-block m-top" type="submit" value="Registrovat se">
             </div>
         </form>
     </div>
@@ -27,8 +39,15 @@
 @section("scripts")
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <script type="text/javascript">
+        //firstname <2;32>
+        //surname <2;64>
+        //password <8;64>
+            //letters, at least one uppercase
         $("#login_form").validate({
             rules:{
+                password:{
+                    required:true
+                }
                 email:{
                     required:true,
                     email:true

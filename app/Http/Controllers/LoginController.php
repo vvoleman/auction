@@ -15,8 +15,20 @@ class LoginController extends Controller
 
         return view('login/login');
     }
-    public function postLogin($id){
-    	dd($id);
+   /* public function postLogin(){
+    	$data = request()->validate([
+    		"email"=>"required|email",
+    		"password"=>"required"
+    	]);
+    	$data["active"] = 1;
+    	if(Auth::attempt($data))
+    } */
+    public function getRegister(){
+        if(Auth::check()){
+            return redirect("/");
+        }
+
+        return view('login/register');
     }
 
 }

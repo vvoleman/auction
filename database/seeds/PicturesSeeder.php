@@ -13,7 +13,7 @@ class PicturesSeeder extends Seeder
     {
         DB::table('pictures')->insert([
             "picture_path"=>"/users/profile_pics/abcd123.png",
-            "creator_id"=1,
+            "creator_id"=>1,
       		"type_id"=>1
         ]);
     }

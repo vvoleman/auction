@@ -60,7 +60,7 @@ body{
     font-size:13px;
     text-transform: uppercase;
 }
-.form input[type=email],.form input[type=password]{
+.form input[type=email],.form input[type=password],.form input[type=text]{
     border:0;
     border-bottom:1px solid #777;
     border-radius:0;

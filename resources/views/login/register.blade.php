@@ -4,16 +4,16 @@
     <div class="col-md-4 col-10 mx-auto white_box m-top login">
         <h3>Registrovat</h3>
         <hr>
-        <form id="login_form" method="POST" action="{{route('login.postLogin')}}">
+        <form id="register_form" method="POST" action="{{route('login.postLogin')}}">
             @csrf
             <div class="form">
                 <div class="form-group">
                     <label>Jméno</label>
-                    <input type="email" class="form-control" name="firstname">
+                    <input type="text" class="form-control" name="firstname">
                 </div>
                 <div class="form-group">
                     <label>Přijmení</label>
-                    <input type="email" class="form-control" name="surname">
+                    <input type="text" class="form-control" name="surname">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
@@ -43,17 +43,30 @@
         //surname <2;64>
         //password <8;64>
             //letters, at least one uppercase
-        $("#login_form").validate({
+        $("#register_form").validate({
             rules:{
+                firstname:{
+                    required:true,
+                    min:2,
+                    max:32
+                },
+                surname:{
+                    required:true,
+                    min:2,
+                    max:64
+                },
                 password:{
+                    min:8,
+                    max:64,
                     required:true
-                }
+                },
                 email:{
                     required:true,
                     email:true
                 },
-                password:{
-                    required:true
+                password2:{
+                    required:true,
+                    equalTo:"password"
                 }
             },
             messages:{
@@ -62,8 +75,10 @@
             },
             errorPlacement: function(error, element) {
                 var el = $(element).parent().children("input");
-                console.log(el);
                 $(el).addClass('input-error');
+                console.log(error);
+                el.parent().append(error);
+
             },
             success(label,element){
                 var el = $(element).parent().children("input");

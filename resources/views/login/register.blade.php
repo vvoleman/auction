@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label>Heslo</label>
-                    <input type="password" class="form-control" name="password">
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="form-group">
                     <label>Heslo znovu</label>
@@ -47,17 +47,17 @@
             rules:{
                 firstname:{
                     required:true,
-                    min:2,
-                    max:32
+                    minlength:2,
+                    maxlength:32
                 },
                 surname:{
                     required:true,
-                    min:2,
-                    max:64
+                    minlength:2,
+                    maxlength:64
                 },
                 password:{
-                    min:8,
-                    max:64,
+                    minlength:8,
+                    maxlength:64,
                     required:true
                 },
                 email:{
@@ -65,18 +65,43 @@
                     email:true
                 },
                 password2:{
-                    required:true,
-                    equalTo:"password"
+                    equalTo:"#password"
+                },
+                remember:{
+                    required:true
                 }
             },
             messages:{
-                email:"Prosím, zadejte svojí emailovou adresu",
-                password:"Prosím, zadejte své heslo"
+                firstname:{
+                    required:"Prosím, zadejete své jméno",
+                    minlength:"Prosím, zadejte jméno o délce alespoň 2 znaky",
+                    maxlength:"Prosím, zadejte jméno kratší 32 znaků"
+                },
+                surname:{
+                    required:"Prosím, zadejete své příjmení",
+                    minlength:"Prosím, zadejte příjmení o délce alespoň 2 znaky",
+                    maxlength:"Prosím, zadejte příjmení kratší 64 znaků"
+                },
+                email:{
+                    required:"Prosím, zadejte emailovou adresu",
+                    email:"Prosím, zadejte platnou emailovou adresu"
+                },
+                password:{
+                    required:"Prosím, zadejte své heslo",
+                    minlength:"Prosím, zadejte heslo o délce alespoň 8 znaků",
+                    maxlength:"Prosím, zadejte heslo kratší 64 znaků"
+                },
+                password2:{
+                    equalTo:"Hesla se musí shodovat!"
+                },
+                remember:{
+                    required:"Musíte souhlasit s podmínkami!"
+                }
             },
             errorPlacement: function(error, element) {
                 var el = $(element).parent().children("input");
+                console.log(el[0]);
                 $(el).addClass('input-error');
-                console.log(error);
                 el.parent().append(error);
 
             },

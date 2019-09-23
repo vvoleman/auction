@@ -70,7 +70,7 @@ return [
         'string' => 'The :attribute must be less than :value characters.',
         'array' => 'The :attribute must have less than :value items.',
     ],
-    'lte' => [
+    'letters' => [
         'numeric' => 'The :attribute must be less than or equal :value.',
         'file' => 'The :attribute must be less than or equal :value kilobytes.',
         'string' => 'The :attribute must be less than or equal :value characters.',

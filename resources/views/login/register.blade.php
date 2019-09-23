@@ -4,7 +4,7 @@
     <div class="col-md-4 col-10 mx-auto white_box m-top login">
         <h3>Registrovat</h3>
         <hr>
-        <form id="register_form" method="POST" action="{{route('login.postLogin')}}">
+        <form id="register_form" method="POST" action="{{route('register.postRegister')}}">
             @csrf
             <div class="form">
                 <div class="form-group">
@@ -102,6 +102,7 @@
                 var el = $(element).parent().children("input");
                 console.log(el[0]);
                 $(el).addClass('input-error');
+                $(error).addClass("error_text");
                 el.parent().append(error);
 
             },

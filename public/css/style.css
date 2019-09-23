@@ -57,7 +57,7 @@ body{
     margin-top:15px;
 }
 .form label{
-    font-size:13px;
+    font-size:15px;
     text-transform: uppercase;
 }
 .form input[type=email],.form input[type=password],.form input[type=text]{
@@ -66,6 +66,7 @@ body{
     border-radius:0;
     padding:0;
     background:#fafafa;
+    font-size:14px;
 }
 .form input[type=submit]{
     background: var(--main-blue);
@@ -77,10 +78,12 @@ body{
 .login{
     margin-top:16vh;
 }
-.login .error{
-    font-size:12px;
-}
 .input-error{
     background:#ffcccb !important;
     font-size:1rem;
+}
+label.error_text{
+    display:block;
+    text-transform: none;
+    color:#980702;
 }

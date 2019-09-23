@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
-    public function index(){
+    public function getLogin(){
         if(Auth::check()){
             return redirect("/");
         }
 
         return view('login/login');
     }
-    public function create(){
+    public function postLogin(){
     	$data = request()->validate([
     		"email"=>"required|email|unique:users,email",
     		"password"=>"required"
@@ -23,5 +23,6 @@ class LoginController extends Controller
     	$data["active"] = 1;
     	dd($data);
     }
+
 
 }

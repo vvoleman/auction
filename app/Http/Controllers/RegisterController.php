@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
@@ -18,8 +20,9 @@ class RegisterController extends Controller
 
         return view('login/register');
     }
-    public function postRegister(){
-    	$data = request()->validate([
+    public function postRegister(Request $request){
+
+    	$data = $request->validate([
     		"firstname"=>"required|min:2|max:32",
     		"surname"=>"required|min:2|max:64",
     		"email"=>"required|email",
@@ -38,8 +41,15 @@ class RegisterController extends Controller
                 "email"=>$data["email"],
                 "password"=>Hash::make($data["password"])
             ]); //vytvoří už. účet
-            $user->notify(new AccountCreated());
 
+            if($user->save()){
+                Mail::to($user->email)->send(new \App\Mail\AccountCreated($user->activation_token));
+                $request->session()->flash('success', 'Účet byl vytvořen, nyní je potřeba ho potvrdit!');
+                return redirect('home.home');
+            }else{
+                $request->session()->flash('danger', 'Účet nebylo možné vytvořit!');
+                return redirect('home.home')->withInput($data);
+            }
         }
 
 

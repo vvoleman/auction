@@ -9,15 +9,15 @@
             <div class="form">
                 <div class="form-group">
                     <label>Jméno</label>
-                    <input type="text" class="form-control" name="firstname">
+                    <input type="text" class="form-control" name="firstname" value="{{old('firstname')}}">
                 </div>
                 <div class="form-group">
                     <label>Přijmení</label>
-                    <input type="text" class="form-control" name="surname">
+                    <input type="text" class="form-control" name="surname" value="{{old('surname')}}">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" class="form-control" name="email" value="{{old('email')}}">
                 </div>
                 <div class="form-group">
                     <label>Heslo</label>

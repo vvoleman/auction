@@ -12,16 +12,16 @@ class AccountCreated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $user;
+    protected $token;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct($token)
     {
-        $this->user = $user;
+        $this->token = $token;
     }
 
     /**
@@ -31,10 +31,8 @@ class AccountCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('emails/account/account_created')->with(
-            [
-                
-            ]
-        );
+        return $this->subject('Bidder - Verify your account!')->view('emails/account/account_created')->with([
+            "url"=>route("activate.activate",["token"=>$this->token])
+        ]);
     }
 }

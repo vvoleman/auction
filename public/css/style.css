@@ -53,9 +53,17 @@ body{
     border-radius:5px;
     box-shadow: 0px 0px 10px 0px rgba(224,224,224,1);
 }
+/* ---------------------------------------- */
 .m-top{
     margin-top:15px;
 }
+.m-top2{
+    margin-top:25px;
+}
+.m-top3{
+    margin-top:35px;
+}
+/* ---------------------------------------- */
 .form label{
     font-size:15px;
     text-transform: uppercase;
@@ -86,4 +94,14 @@ label.error_text{
     display:block;
     text-transform: none;
     color:#980702;
+}
+.btn-blue{
+    background: var(--main-blue);
+    color:white;
+    border:none;
+    border-radius: 5px;
+    padding:5px;
+}
+.status_sign{
+    font-size:50px;
 }

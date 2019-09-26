@@ -17,11 +17,19 @@ class LoginController extends Controller
     }
     public function postLogin(){
     	$data = request()->validate([
-    		"email"=>"required|email|unique:users,email",
-    		"password"=>"required"
-    	]);
-    	$data["active"] = 1;
-    	dd($data);
+    		"email"=>"required|email",
+    		"password"=>"required",
+            "remember"=>"nullable"
+    	]); //validation
+    	if(isset($data["remember"])){
+    	    $remember = true;
+    	    unset($data["remember"]);
+        }else{
+    	    $remember = false;
+        } //mapping of remember
+        if(Auth::attemp($data,$remember)){
+
+        }
     }
 
 

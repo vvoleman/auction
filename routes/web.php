@@ -13,12 +13,10 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home.home');
 Route::get('/login',"LoginController@getLogin")->name("login.index");
 Route::post('/login',"LoginController@postLogin")->name("login.postLogin");
 Route::get('/register',"RegisterController@getRegister")->name("register.index");
 Route::post('/register',"RegisterController@postRegister")->name("register.postRegister");
 
-Route::patch('/activate/mail',function(){
-    dd("here");
-})->name('activate.activate');
+Route::get('/activate/{token}',"ActivationController")->name('activate.activate')->where('token','[A-Za-z0-9]+');

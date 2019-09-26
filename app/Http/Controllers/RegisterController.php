@@ -43,13 +43,17 @@ class RegisterController extends Controller
             ]); //vytvoří už. účet
 
             if($user->save()){
-                Mail::to($user->email)->send(new \App\Mail\AccountCreated($user->activation_token));
-                $request->session()->flash('success', 'Účet byl vytvořen, nyní je potřeba ho potvrdit!');
-                return redirect('home.home');
+                try{
+                    Mail::to($user->email)->send(new \App\Mail\AccountCreated(route("activate.activate",["token"=>$user->activation_token])));
+                    $request->session()->flash('success', 'Účet byl vytvořen, nyní je potřeba ho potvrdit!');
+                    return redirect()->route('home.home');
+                }catch(\Exception $e){
+                    $request->session()->flash('danger','Účet vytvořen, nebylo možné zaslat ověřovací email!');
+                }
             }else{
                 $request->session()->flash('danger', 'Účet nebylo možné vytvořit!');
-                return redirect('home.home')->withInput($data);
             }
+            return redirect('home.home')->withInput($data);
         }
 
 

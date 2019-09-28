@@ -13,14 +13,10 @@ use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
-    public function getRegister(){
-        if(Auth::check()){
-            return redirect("/");
-        }
-
+    public function create(){
         return view('login/register');
     }
-    public function postRegister(Request $request){
+    public function store(Request $request){
 
     	$data = $request->validate([
     		"firstname"=>"required|min:2|max:32",
@@ -53,7 +49,7 @@ class RegisterController extends Controller
             }else{
                 $request->session()->flash('danger', 'Účet nebylo možné vytvořit!');
             }
-            return redirect('home.home')->withInput($data);
+            return redirect('register.index')->withInput($data);
         }
 
 

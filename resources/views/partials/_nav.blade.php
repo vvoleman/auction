@@ -1,13 +1,14 @@
 <div class="navi col-12 d-flex">
-    <div class="col-md-5 justify-content-between d-flex align-items-center">
-        <span class="letter-logo">B</span>
-        <div class="search d-none d-md-block">
+    <div class="col-md-5 justify-content-start d-flex align-items-center">
+        <span class="letter-logo col-1">B</span>
+        <div class="search d-none d-md-block offset-md-5 col-md-7">
             <input type="search" class="col-10">
             <i class="fa fa-search"></i>
         </div>
     </div>
     <div class="col-md-7 d-flex justify-content-end align-items-center">
         <span>Obchod</span>
+        @if(Auth::check())
         <div class="user-nav d-flex justify-content-between align-items-center">
             <div class="picture-nav"></div>
             <div class="btn-group">
@@ -23,5 +24,8 @@
                 </div>
             </div>
         </div>
+        @else
+        <a href="{{route('login.create')}}"><span class="m-left">Přihlášení</span></a>
+        @endif
     </div>
 </div>

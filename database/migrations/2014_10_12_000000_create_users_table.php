@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedInteger("picture_id")->nullable();
+            $table->timestamp('last_logged')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string("activation_token",16);
             $table->boolean('active')->default(1);

@@ -1,5 +1,5 @@
 @extends("mains/main")
-@section('title',"Test")
+@section('title',"Registrace | ")
 @section('content')
     <div class="col-md-4 col-10 mx-auto white_box m-top login">
         <h3>Registrovat</h3>

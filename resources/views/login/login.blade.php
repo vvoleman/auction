@@ -1,10 +1,10 @@
 @extends("mains/main")
-@section('title',"Test")
+@section('title',"Přihlášení | ")
 @section('content')
     <div class="col-md-4 col-10 mx-auto white_box m-top login">
         <h3>Přihlášení</h3>
         <hr>
-        <form id="login_form" method="POST" action="{{route('login.postLogin')}}">
+        <form id="login_form" method="POST" action="{{route('login.store')}}">
             @csrf
             <div class="form">
                 <div class="form-group">
@@ -20,6 +20,11 @@
                     <label for="remember" class="form-check-label">Pamatovat si mě</label>
                 </div>
                 <input class="btn-block m-top" type="submit" value="Přihlásit se">
+                <hr class="col-6 mx-auto">
+                <div class="text-center">
+                    <a href="{{route('forgot.create')}}"><span class="a-middle">Zapomněli jste heslo?</span></a>
+                    <a href="{{route('register.create')}}"><span class="a-middle">Nemáte ještě svůj účet?</span></a>
+                </div>
             </div>
         </form>
     </div>

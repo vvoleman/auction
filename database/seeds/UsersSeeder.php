@@ -15,7 +15,8 @@ class UsersSeeder extends Seeder
             "firstname"=>"Vojtěch",
             "surname"=>"Voleman",
             "email"=>"vojtavol@email.cz",
-            "password"=>"$2y$12$2Zm7rkv5fFpzlzF/NJBpoOMnN/jxp3BwWTUMs3sQ9rYpbjJZaHLdW"
+            "password"=>"$2y$12$2Zm7rkv5fFpzlzF/NJBpoOMnN/jxp3BwWTUMs3sQ9rYpbjJZaHLdW",
+            "activation_token"=>Str::random(16)
         ]);
     }
 }

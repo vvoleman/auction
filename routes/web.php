@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home.home');
+Route::get('/',"HomeController@getHome")->name('home.home');
 
 //LOGIN
 Route::get('/login',"LoginController@create")->name("login.create")->middleware('notauth');

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class UsersSeeder extends Seeder
 {
@@ -15,8 +17,9 @@ class UsersSeeder extends Seeder
             "firstname"=>"Vojtěch",
             "surname"=>"Voleman",
             "email"=>"vojtavol@email.cz",
-            "password"=>"$2y$12$2Zm7rkv5fFpzlzF/NJBpoOMnN/jxp3BwWTUMs3sQ9rYpbjJZaHLdW",
-            "activation_token"=>Str::random(16)
+            "password"=>Hash::make("heslo123"),
+            "activation_token"=>Str::random(16),
+            "email_verified_at"=>Carbon::now()
         ]);
     }
 }

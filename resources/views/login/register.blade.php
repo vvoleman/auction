@@ -4,7 +4,7 @@
     <div class="col-md-4 col-10 mx-auto white_box m-top login">
         <h3>Registrovat</h3>
         <hr>
-        <form id="register_form" method="POST" action="{{route('register.postRegister')}}">
+        <form id="register_form" method="POST" action="{{route('register.store')}}">
             @csrf
             <div class="form">
                 <div class="form-group">

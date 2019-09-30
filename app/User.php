@@ -20,4 +20,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     protected $primaryKey = 'id_u';
+
+    public function group(){
+        return $this->belongsTo("App\Group","group_id");
+    }
 }

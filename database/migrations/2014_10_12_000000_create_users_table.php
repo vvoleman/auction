@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->string('password');
+            $table->unsignedInteger("group_id");
             $table->unsignedInteger("picture_id")->nullable();
             $table->timestamp('last_logged')->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -26,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();
+
+            //+cizi klice
         });
     }
 

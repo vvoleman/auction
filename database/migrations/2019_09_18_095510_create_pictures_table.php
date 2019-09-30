@@ -21,6 +21,7 @@ class CreatePicturesTable extends Migration
             $table->timestamp("created_at")->useCurrent();
 
             $table->foreign("type_id")->references("id_pt")->on("picture_types");
+            $table->foreign("creator_id")->references("id_u")->on("users");
         });
     }
 

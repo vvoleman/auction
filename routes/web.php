@@ -28,4 +28,8 @@ Route::post('/forgot',"ForgotPasswordController@store")->name('forgot.store')->m
 Route::get('/resetpassword/{token}',"ForgotPasswordController@edit")->name('forgot.edit')->middleware('notauth')->where('token','[A-Za-z0-9]+');
 Route::patch('/resetpassword/{token}',"ForgotPasswordController@update")->name('forgot.update')->middleware('notauth')->where('token','[A-Za-z0-9]+');
 
+//ACTIVATION
 Route::get('/activate/{token}',"ActivationController")->name('activate.activate')->where('token','[A-Za-z0-9]+');
+
+//SETTINGS
+Route::get('/settings',"SettingController@edit")->name('setting.edit')->middleware('auth');

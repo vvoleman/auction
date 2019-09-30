@@ -117,3 +117,30 @@ label.error_text{
     color:#293598;
     display: block;
 }
+.item-box{
+    width:100%;
+    padding:10px;
+    transition: 0.1s;
+    border-radius: 2px;
+}
+.item-box:hover{
+    background: #d9d9d9;
+}
+.item-box img{
+    width:100px;
+    border:1px solid #e3e3e3;
+}
+.item-box h5{
+    margin-left:10px;
+}
+.scroll-auto{
+    overflow: auto;
+    padding-bottom: 15px;
+}
+.big-box{
+    background: #fcfcfc;
+    padding:10px;
+}
+.big-box img{
+    min-width:100px;
+}

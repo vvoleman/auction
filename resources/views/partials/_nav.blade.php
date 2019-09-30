@@ -16,9 +16,9 @@
                     <i class="fas fa-caret-down"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Profil</a>
+                    <a class="dropdown-item" href="#">Moje nabídky</a>
+                    <a class="dropdown-item" href="{{route('setting.edit')}}">Nastavení</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{route('login.destroy')}}">Odhlásit se</a>
                 </div>

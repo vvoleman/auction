@@ -9,7 +9,7 @@
         <form>
             <div class="form">
                 <div class="form-group">
-                    <input type="email" value="{{$email}}" class="form-control">
+                    <input type="email" name="email" value="{{$email}}" class="form-control">
                 </div>
                 <input type="submit" class="btn btn-block btn-blue" value="Změnit">
             </div>

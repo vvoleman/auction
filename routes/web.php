@@ -34,6 +34,4 @@ Route::get('/activate/{token}',"ActivationController")->name('activate.activate'
 //SETTINGS
 Route::get('/settings',"SettingController@edit")->name('setting.edit')->middleware('auth');
 
-Route::get("/admin",function(){
-	dd("Administrace");
-})->middleware('hasPerm:admin.admin');
+Route::post('/settings/emailchange',"SettingController@test");

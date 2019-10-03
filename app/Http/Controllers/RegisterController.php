@@ -49,8 +49,11 @@ class RegisterController extends Controller
             }else{
                 $request->session()->flash('danger', 'Účet nebylo možné vytvořit!');
             }
-            return redirect('register.index')->withInput($data);
+        }else{
+            $request->session()->flash('danger', 'Email již existuje!');
         }
+
+        return redirect()->route('register.create')->withInput($data);
 
 
     }

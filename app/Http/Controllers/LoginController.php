@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
 
-    public function create(){
+    public function getLogin(){
         return view('login/login');
     }
-    public function store(Request $request){
+    public function postLogin(Request $request){
         //validation
     	$data = $request->validate([
     		"email"=>"required|email",
@@ -50,7 +50,7 @@ class LoginController extends Controller
         return redirect()->route('login.create')->withInput($data);
 
     }
-    public function destroy(){
+    public function getLogout(){
         Auth::logout();
         request()->session()->flash("success","Odhlášení proběhlo úspěšně!");
         return redirect()->route('home.home');

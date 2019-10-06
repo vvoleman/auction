@@ -27,8 +27,7 @@ class EmailChange extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {
-        return $this->view('view.name');
+    public function build(){
+        return $this->subject("Změna emailu")->view('emails/account/email_change',["url"=>$this->url]);
     }
 }

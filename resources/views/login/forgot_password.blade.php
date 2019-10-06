@@ -4,7 +4,7 @@
     <div class="white_box col-md-4 col-10 mx-auto m-top">
         <h3>Zapomněli jste heslo?</h3>
         <hr>
-        <form id="form" action="{{route('forgot.store')}}" method="POST">
+        <form id="form" action="{{route('forgot.postForgot')}}" method="POST">
             @csrf
             <div class="form">
                 <div class="form-group">

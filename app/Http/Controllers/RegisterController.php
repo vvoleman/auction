@@ -13,10 +13,10 @@ use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
-    public function create(){
+    public function getRegister(){
         return view('login/register');
     }
-    public function store(Request $request){
+    public function postRegister(Request $request){
 
     	$data = $request->validate([
     		"firstname"=>"required|min:2|max:32",

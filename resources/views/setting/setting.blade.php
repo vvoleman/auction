@@ -6,7 +6,8 @@
     </div>
     <div class="col-md-4 mx-auto white_box m-top">
         <h5>E-mail</h5>
-        <form>
+        <form method="post" action="{{route('emailchange.store')}}">
+            @csrf
             <div class="form">
                 <div class="form-group">
                     <input type="email" name="email" value="{{$email}}" class="form-control">

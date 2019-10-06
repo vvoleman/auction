@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
-    public function edit(){
+    public function getSetting(){
         $user = Auth::user();
 
         $data = [

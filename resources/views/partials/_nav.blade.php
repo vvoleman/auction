@@ -18,14 +18,14 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#">Profil</a>
                     <a class="dropdown-item" href="#">Moje nabídky</a>
-                    <a class="dropdown-item" href="{{route('setting.edit')}}">Nastavení</a>
+                    <a class="dropdown-item" href="{{route('setting.setting')}}">Nastavení</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{route('login.destroy')}}">Odhlásit se</a>
+                    <a class="dropdown-item" href="{{route('login.logout')}}">Odhlásit se</a>
                 </div>
             </div>
         </div>
         @else
-        <a href="{{route('login.create')}}"><span class="m-left">Přihlášení</span></a>
+        <a href="{{route('login.login')}}"><span class="m-left">Přihlášení</span></a>
         @endif
     </div>
 </div>

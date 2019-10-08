@@ -27,6 +27,14 @@
                     <h5>Příjmení</h5>
                     <input type="text" value="{{$surname}}" class="form-control">
                 </div>
+                <div class="form-group">
+                    <h5>Kraj</h5>
+                    <select class="form-control">
+                        @foreach($regions as $r)
+                            <option value="{">{{$r->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <input type="submit" class="btn btn-block btn-blue" value="Změnit">
             </div>
         </form>

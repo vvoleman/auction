@@ -10,8 +10,13 @@ use Illuminate\Http\Request;
 class CityController extends Controller
 {
     public function getCity(){
-        $unl = City::where('name','Ústí nad Labem')->first();
-        dd($unl->regpart);
+        $reg = $this->regions();
+        $regparts = [];
+        foreach ($reg as $r){
+            $regparts = array_merge($regparts,$this->regparts($r["id"]));
+        }
+        die(json_encode($regparts,JSON_UNESCAPED_UNICODE));
+
     }
     private function regions(){
         $url = "https://b2c.cpost.cz/services/Address/getRegionListAsJson";

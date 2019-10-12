@@ -14,27 +14,41 @@
 Route::get('/',"HomeController@getHome")->name('home.home');
 
 //LOGIN
-Route::get('/login',"LoginController@getLogin")->name("login.login")->middleware('notauth');
-Route::post('/login',"LoginController@postLogin")->name("login.postLogin")->middleware('notauth');
-Route::get('/logout',"LoginController@getLogout")->name('login.logout')->middleware('auth');
+Route::name('login.')->group(function(){
+    Route::get('/login',"LoginController@getLogin")->name("login")->middleware('notauth');
+    Route::post('/login',"LoginController@postLogin")->name("postLogin")->middleware('notauth');
+    Route::get('/logout',"LoginController@getLogout")->name('logout')->middleware('auth');
+});
 
 //REGISTER
-Route::get('/register',"RegisterController@getRegister")->name("register.register")->middleware('notauth');
-Route::post('/register',"RegisterController@postRegister")->name("register.postRegister")->middleware('notauth');
+Route::name('register.')->middleware('notauth')->prefix('register')->group(function() {
+    Route::get('', "RegisterController@getRegister")->name("register");
+    Route::post('', "RegisterController@postRegister")->name("postRegister");
+});
 
 //FORGOT PASSWORD
-Route::get('/forgot',"ForgotPasswordController@create")->name('forgot.forgot')->middleware('notauth');
-Route::post('/forgot',"ForgotPasswordController@store")->name('forgot.postForgot')->middleware('notauth');
-Route::get('/resetpassword/{token}',"ForgotPasswordController@edit")->name('forgot.edit')->middleware('notauth')->where('token','[A-Za-z0-9]+');
-Route::patch('/resetpassword/{token}',"ForgotPasswordController@update")->name('forgot.update')->middleware('notauth')->where('token','[A-Za-z0-9]+');
+Route::name('forgot.')->middleware('notauth')->group(function (){
+    Route::get('/forgot',"ForgotPasswordController@create")->name('forgot');
+    Route::post('/forgot',"ForgotPasswordController@store")->name('postForgot');
+    Route::get('/resetpassword/{token}',"ForgotPasswordController@edit")->name('edit')->where('token','[A-Za-z0-9]+');
+    Route::patch('/resetpassword/{token}',"ForgotPasswordController@update")->name('update')->where('token','[A-Za-z0-9]+');
+});
 
 //ACTIVATION
 Route::get('/activate/{token}',"ActivationController")->name('activate.activate')->where('token','[A-Za-z0-9]+');
 
-//SETTINGS}}
+//SETTINGS
 Route::get('/settings',"SettingController@getSetting")->name('setting.setting')->middleware('auth');
+Route::post('/settings',"SettingController@postSetting")->name('setting.postSetting')->middleware('auth');
 
-Route::post('/settings/emailchange',"EmailChangeController@store")->name('emailchange.store')->middleware('auth');
-Route::get('/emailchange/{token}',"EmailChangeController@edit")->where('token','[A-Za-z0-9]+')->name('emailchange.edit')->middleware('auth');
+//EMAILCHANGE
+Route::name('emailchange.')->middleware('auth')->group(function(){
+    Route::post('/settings/emailchange',"EmailChangeController@store")->name('store');
+    Route::get('/emailchange/{token}',"EmailChangeController@edit")->where('token','[A-Za-z0-9]+')->name('edit');
+});
 
-Route::get('/cities','CityController@getCity')->name('city');
+
+//AJAX
+Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
+    Route::get('settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry")->middleware('auth');
+});

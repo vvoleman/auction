@@ -19,6 +19,7 @@ class UsersSeeder extends Seeder
             "email"=>"vojtavol@email.cz",
             "password"=>Hash::make("heslo123"),
             "group_id"=>1,
+            "region_id"=>6,
             "activation_token"=>Str::random(16),
             "email_verified_at"=>Carbon::now()
         ]);

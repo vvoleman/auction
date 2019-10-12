@@ -144,3 +144,6 @@ label.error_text{
 .big-box img{
     min-width:100px;
 }
+.form-error{
+    border-radius:3px;
+}

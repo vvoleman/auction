@@ -11,10 +11,7 @@ class Region extends Model
     public $timestamps = false;
     protected $fillable = ["id","name"];
 
-    public function regparts(){
-        return $this->hasMany("\App\Regpart","region_id");
-    }
-    public function cities(){
-        return $this->hasManyThrough("\App\City","\App\RegPart","region_id","regpart_id","id","id");
+    public function country(){
+        return $this->belongsTo("\App\Country","country_id");
     }
 }

@@ -12,10 +12,23 @@ class RegionsSeeder extends Seeder
      */
     public function run()
     {
-        $content = Storage::get("public/jsons/regions.json");
-        $arr = json_decode($content,JSON_UNESCAPED_UNICODE);
-        foreach ($arr as $a){
-            DB::table('regions')->insert($a);
+        $regions = [
+            [
+                "id"=>1,
+                "filename"=>"public/jsons/cz_regions.json"
+            ],
+            [
+                "id"=>2,
+                "filename"=>"public/jsons/sk_regions.json"
+            ]
+        ];
+        foreach($regions as $r){
+            $content = Storage::get($r["filename"]);
+            $arr = json_decode($content,JSON_UNESCAPED_UNICODE);
+            foreach ($arr as $a){
+                $a["country_id"] = $r["id"];
+                DB::table('regions')->insert($a);
+            }
         }
     }
 }

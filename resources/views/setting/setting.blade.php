@@ -17,26 +17,42 @@
         </form>
     </div>
     <div class="col-md-4 mx-auto white_box m-top">
-        <form>
+        <form method="post" action="{{route('setting.postSetting')}}">
+            @csrf
+            @include('partials/_formmsgs')
             <div class="form">
                 <div class="form-group">
                     <h5>Jméno</h5>
-                    <input type="text" value="{{$firstname}}" class="form-control">
+                    <input type="text" name="firstname" value="{{$firstname}}" class="form-control">
                 </div>
                 <div class="form-group">
                     <h5>Příjmení</h5>
-                    <input type="text" value="{{$surname}}" class="form-control">
+                    <input type="text" name="surname" value="{{$surname}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h5>Stát</h5>
+                    <select class="form-control" id="countryselect">
+                        @foreach($countries as $c)
+                            <option value="{{$c->short}}" {{($country_id == $c->id_c) ? "selected" : ""}}>{{$c->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <h5>Kraj</h5>
-                    <select class="form-control">
-                        @foreach($regions as $r)
-                            <option value="{">{{$r->name}}</option>
-                        @endforeach
+                    <select class="form-control" id="regionselect" name="region_id">
+
                     </select>
                 </div>
                 <input type="submit" class="btn btn-block btn-blue" value="Změnit">
             </div>
         </form>
     </div>
+@stop
+@section("scripts")
+    <script src="{{URL::asset('/assets/js/custom/settings/regionsLoader.js')}}"></script>
+    <script>
+        $("#countryselect").attr('disabled', true);
+        $("#countryselect").attr('disabled', false);
+        new RegionsLoader('{!! $regions->toJSON() !!}',{{$region_id}});
+    </script>
 @stop

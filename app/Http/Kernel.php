@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\OnlyAjax;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -54,6 +55,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'hasPerm'=> \App\Http\Middleware\Permissions::class,
         'notauth'=>\App\Http\Middleware\CheckNotLogged::class,
+        'ajax'=>\App\Http\Middleware\OnlyAjax::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

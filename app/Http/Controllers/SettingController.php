@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostSetting;
 use App\Region;
 use App\Country;
 use Illuminate\Http\Request;
@@ -31,22 +32,8 @@ class SettingController extends Controller
 
         return view("setting/setting",$data);
     }
-    public function postSetting(Request $request){
-        $data = $request->validate([
-            "firstname"=>"required|min:2|max:32",
-            "surname"=>"required|min:2|max:64",
-            "region_id"=>"required|exists:regions,id_r"
-        ],[
-            "firstname.required"=>"Jméno musí být vyplněno",
-            "firstname.min"=>"Minimální délka jména jsou 2 znaky",
-            "firstname.max"=>"Maximální délka jména je 64 znaků",
-            "surname.required"=>"Příjmení musí být vyplněno",
-            "surname.min"=>"Minimální délka příjmení jsou 2 znaky",
-            "surname.max"=>"Maximální délka příjmení je 64 znaků",
-            "region_id.required"=>"Chybějící údaj (kraj)",
-            "region_id.exists"=>"Neplatný údaj (kraj)"
-        ]);
-
+    public function postSetting(PostSetting $request){
+        $data = $request->validated();
         $user = Auth::user();
         $data["region_id"] = intval($data["region_id"]);
         if($user->update($data)){

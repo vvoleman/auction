@@ -38,8 +38,10 @@ Route::name('forgot.')->middleware('notauth')->group(function (){
 Route::get('/activate/{token}',"ActivationController")->name('activate.activate')->where('token','[A-Za-z0-9]+');
 
 //SETTINGS
-Route::get('/settings',"SettingController@getSetting")->name('setting.setting')->middleware('auth');
-Route::post('/settings',"SettingController@postSetting")->name('setting.postSetting')->middleware('auth');
+Route::name('setting.')->prefix("/settings")->middleware('auth')->group(function (){
+    Route::get('/',"SettingController@getSetting")->name('setting');
+    Route::post('/',"SettingController@postSetting")->name('postSetting');
+});
 
 //EMAILCHANGE
 Route::name('emailchange.')->middleware('auth')->group(function(){
@@ -47,8 +49,15 @@ Route::name('emailchange.')->middleware('auth')->group(function(){
     Route::get('/emailchange/{token}',"EmailChangeController@edit")->where('token','[A-Za-z0-9]+')->name('edit');
 });
 
-
 //AJAX
 Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::get('settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry")->middleware('auth');
 });
+
+//PROFILEPIC CHANGE
+Route::get('/profile/img','ProfileController@getProfileImage')->name('profile.profileimg')->middleware('auth');
+Route::post('/profile/imgn','ProfileController@postNewProfileImage')->name('profile.newProfileimg')->middleware('auth');
+Route::post('/profile/imgo','ProfileController@postOldProfileImage')->name('profile.oldProfileimg')->middleware('auth');
+
+//PROFILE
+Route::get('/profile/{uuid?}','ProfileController@getProfile')->name('profile.profile')->where('uuid','[A-Za-z0-9]+')->middleware('auth');

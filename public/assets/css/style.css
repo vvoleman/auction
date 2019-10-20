@@ -147,3 +147,53 @@ label.error_text{
 .form-error{
     border-radius:3px;
 }
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-top:50px;
+}
+
+.uploadbtn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.uploadbtn_wrap{
+    padding:15px;
+    background: #3bb975;
+}
+.uploadbtn_wrap .fa-upload{
+    font-size:30px;
+}
+.uploadbtn_wrap span{
+    font-size:30px;
+    margin-left:15px;
+}
+.m-top-50{
+    margin-top:50px;
+}
+img.active{
+    border:3px solid darkorange;
+}
+img.col-12{
+    padding-left:0;
+    padding-right:0;
+}
+.no-drag{
+    pointer-events: stroke;
+}

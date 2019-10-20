@@ -34,4 +34,13 @@ class User extends Authenticatable
     public function region(){
         return $this->belongsTo("\App\Region","region_id");
     }
+    public function current_picture(){
+        return $this->belongsTo("\App\Picture","picture_id");
+    }
+    public function all_pictures(){
+        return $this->hasMany("\App\Picture","creator_id");
+    }
+    public function old_profile_pictures(){
+        return $this->all_pictures()->where('id_p','!=',$this->current_picture->id_p)->where('type_id',1);
+    }
 }

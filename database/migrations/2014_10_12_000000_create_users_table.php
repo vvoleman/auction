@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger("region_id");
             $table->unsignedInteger("group_id")->nullable();
             $table->unsignedInteger("picture_id")->nullable();
+            $table->string("uuid",8)->unique();
             $table->timestamp('last_logged')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string("activation_token",16);

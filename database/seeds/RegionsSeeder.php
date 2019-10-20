@@ -15,11 +15,11 @@ class RegionsSeeder extends Seeder
         $regions = [
             [
                 "id"=>1,
-                "filename"=>"public/jsons/cz_regions.json"
+                "filename"=>"private/jsons/cz_regions.json"
             ],
             [
                 "id"=>2,
-                "filename"=>"public/jsons/sk_regions.json"
+                "filename"=>"private/jsons/sk_regions.json"
             ]
         ];
         foreach($regions as $r){

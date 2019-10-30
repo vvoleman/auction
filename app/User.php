@@ -10,9 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $fillable = ['firstname','surname', 'email', 'password','activation_token','region_id'];
+    protected $fillable = ['firstname','surname', 'email', 'password','activation_token','region_id','uuid'];
     protected $hidden = ['password', 'remember_token',];
     protected $casts = ['email_verified_at' => 'datetime',];
+    protected $dates = ['last_logged'];
     protected $primaryKey = 'id_u';
 
     public function group(){
@@ -42,5 +43,11 @@ class User extends Authenticatable
     }
     public function old_profile_pictures(){
         return $this->all_pictures()->where('id_p','!=',$this->current_picture->id_p)->where('type_id',1);
+    }
+    public function profpic_path(){
+        return ($this->current_picture != null) ? $this->current_picture->path : asset("storage/images/profile_pictures/default.jpg");
+    }
+    public function getFullnameAttribute(){
+        return $this->firstname." ".$this->surname;
     }
 }

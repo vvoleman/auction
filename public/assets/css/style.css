@@ -39,6 +39,8 @@ body{
     background: #e5e5e5;
     width: 50px;
     height: 50px;
+    background-size: cover;
+    background-position: center;
 }
 .user-nav{
     margin-left:25px;
@@ -66,6 +68,9 @@ body{
 }
 .m-top3{
     margin-top:35px;
+}
+.m-bot{
+    margin-bottom: 15px;
 }
 /* ---------------------------------------- */
 .form label{
@@ -196,4 +201,24 @@ img.col-12{
 }
 .no-drag{
     pointer-events: stroke;
+}
+.img_bubble{
+    height: auto;
+    border-radius: 100%;
+    border:1px solid #e3e3e3;
+}
+.info_box div{
+    width: 100%;
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+    flex-wrap: wrap;
+    display:flex;
+}
+.info_box img{
+    margin-right: 5px;
+}
+.flag-sm{
+    border:1px solid #ddd;
+    height: 20px;
 }

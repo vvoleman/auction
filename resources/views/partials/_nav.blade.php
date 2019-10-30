@@ -10,13 +10,13 @@
         <span>Obchod</span>
         @if(Auth::check())
         <div class="user-nav d-flex justify-content-between align-items-center">
-            <div class="picture-nav"></div>
+            <div class="picture-nav" style="background-image: url('{{Auth::user()->profpic_path()}}')"></div>
             <div class="btn-group">
                 <button type="button" class="dd-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-caret-down"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Profil</a>
+                    <a class="dropdown-item" href="{{route('profile.profile')}}">Profil</a>
                     <a class="dropdown-item" href="#">Moje nabídky</a>
                     <a class="dropdown-item" href="{{route('setting.setting')}}">Nastavení</a>
                     <div class="dropdown-divider"></div>

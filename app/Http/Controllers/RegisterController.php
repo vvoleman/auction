@@ -27,17 +27,14 @@ class RegisterController extends Controller
     	]); //validace
 
         if(!User::where('email',$data["email"])->exists()){
-            do{
-                $token = Str::random(16);
-            }while(User::where('activation_token',$token)->exists()); //vygeneruje aktivační token
             $user = new User([
-                "activation_token"=>$token,
+                "activation_token"=>$this->getRandom("activation_token",16),
+                "uuid"=>$this->getRandom("uuid",8),
                 "firstname"=>$data["firstname"],
                 "surname"=>$data["surname"],
                 "email"=>$data["email"],
                 "password"=>Hash::make($data["password"])
             ]); //vytvoří už. účet
-
             if($user->save()){
                 try{
                     Mail::to($user->email)->send(new \App\Mail\AccountCreated(route("activate.activate",["token"=>$user->activation_token])));
@@ -54,7 +51,11 @@ class RegisterController extends Controller
         }
 
         return redirect()->route('register.create')->withInput($data);
-
-
+    }
+    private function getRandom($column,$length){
+        do{
+            $token = Str::random($length);
+        }while(User::where($column,$token)->exists());
+        return $token;
     }
 }

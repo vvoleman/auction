@@ -14,11 +14,14 @@ class ProfileController extends Controller
     public function getProfile($uuid = null){
         if(empty($uuid)){
             $user = Auth::user();
+            $you = true;
         }else{
             $user = User::where('uuid',$uuid)->firstOrFail();
+            $you = false;
         }
-        return view('profile/profile_picture');
+        return view('profile/profile',["user"=>$user,"you"=>$you]);
     }
+
     public function getProfileImage(){
         return view('profile/profile_picture');
     }

@@ -1,16 +1,16 @@
 [
   {"name": "Hlavní město Praha"},
-  {"name": "Středočeský"},
-  {"name": "Jihočeský"},
-  {"name": "Plzeňský"},
-  {"name": "Karlovarský"},
-  {"name": "Ústecký"},
-  {"name": "Královéhradecký"},
-  {"name": "Liberecký"},
-  {"name": "Pardubický"},
+  {"name": "Středočeský kraj"},
+  {"name": "Jihočeský kraj"},
+  {"name": "Plzeňský kraj"},
+  {"name": "Karlovarský kraj"},
+  {"name": "Ústecký kraj"},
+  {"name": "Královéhradecký kraj"},
+  {"name": "Liberecký kraj"},
+  {"name": "Pardubický kraj"},
   {"name": "Vysočina"},
-  {"name": "Jihomoravský"},
-  {"name": "Olomoucký"},
-  {"name": "Moravskoslezský"},
-  {"name": "Zlínský"}
+  {"name": "Jihomoravský kraj"},
+  {"name": "Olomoucký kraj"},
+  {"name": "Moravskoslezský kraj"},
+  {"name": "Zlínský kraj"}
 ]

@@ -1,7 +1,10 @@
 @extends('mains/main')
 @section('title','Nastavení profilu | ')
 @section('content')
-    <div class="col-md-4 mx-auto white_box m-top3">
+    <div class="m-top3 white_box col-md-4 mx-auto">
+        <span><i class="fas fa-chevron-circle-left"></i> Na profil</span>
+    </div>
+    <div class="col-md-4 mx-auto white_box m-top">
         <h3>Nastavení</h3>
     </div>
     <div class="col-md-4 mx-auto white_box m-top">
@@ -57,19 +60,20 @@
         const settingchanges = new FormChanges({!! json_encode(["firstname"=>$firstname,"surname"=>$surname,"region_id"=>''.$region_id])!!});
         const emailchanges = new FormChanges({!! json_encode(["email"=>$email]) !!});
 
-        $("#settingform :input").on('keyup',checkEqual).on('change',function(){
-            const obj = {
-                firstname:$("input[name=firstname]").val(),
-                surname:$("input[name=surname]").val(),
-                region_id:$("select[name=region_id]").val()
-            };
-            $("#settingbtn").attr('disabled',!settingchanges.somethingNew(obj));
-        });
+        $("#settingform :input").on('keyup',checkEqual).on('change',checkEqual);
 
         $("#emailform :input").on('keyup',function() {
             const obj = {email:$("input[name=email]").val()};
             $("#emailbtn").attr('disabled',!emailchanges.somethingNew(obj));
         });
 
+        function checkEqual(){
+            const obj = {
+                firstname:$("input[name=firstname]").val(),
+                surname:$("input[name=surname]").val(),
+                region_id:$("select[name=region_id]").val()
+            };
+            $("#settingbtn").attr('disabled',!settingchanges.somethingNew(obj));
+        }
     </script>
 @stop

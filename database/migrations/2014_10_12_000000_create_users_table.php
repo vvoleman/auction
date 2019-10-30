@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->string('password');
-            $table->unsignedInteger("region_id");
+            $table->unsignedInteger("region_id")->nullable();
             $table->unsignedInteger("group_id")->nullable();
             $table->unsignedInteger("picture_id")->nullable();
             $table->string("uuid",8)->unique();

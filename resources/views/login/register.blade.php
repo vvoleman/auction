@@ -20,6 +20,28 @@
                     <input type="email" class="form-control" name="email" value="{{old('email')}}">
                 </div>
                 <div class="form-group">
+                    <label>Stát</label>
+                    <select class="form-control" id="countryselect">
+                        @foreach($countries as $c)
+                            <option value="{{$c->short}}">{{$c->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Kraj</label>
+                    <select class="form-control" id="regionselect" name="region_id">
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>PSČ</label>
+                    <input type="number" name="zipcode" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Ulice + č.p</label>
+                    <input type="text" name="address" class="form-control">
+                </div>
+                <div class="form-group">
                     <label>Heslo</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
@@ -38,6 +60,10 @@
 @stop
 @section("scripts")
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="{{URL::asset('/assets/js/custom/settings/regionsLoader.js')}}"></script>
+    <script>
+        new RegionsLoader();
+    </script>
     <script type="text/javascript">
         //firstname <2;32>
         //surname <2;64>
@@ -64,6 +90,14 @@
                     required:true,
                     email:true
                 },
+                zipcode:{
+                    required:true,
+                    minlength:5,
+                    maxlength:5
+                },
+                address:{
+                    required:true
+                },
                 password2:{
                     equalTo:"#password"
                 },
@@ -81,6 +115,14 @@
                     required:"Prosím, zadejete své příjmení",
                     minlength:"Prosím, zadejte příjmení o délce alespoň 2 znaky",
                     maxlength:"Prosím, zadejte příjmení kratší 64 znaků"
+                },
+                zipcode:{
+                    required:"Prosím, zadejte své PSČ",
+                    minlength:"Délka PSČ je 5 čísel",
+                    maxlength:"Délka PSČ je 5 čísel"
+                },
+                address:{
+                    required:"Prosím, zadejte svou ulici a č.p"
                 },
                 email:{
                     required:"Prosím, zadejte emailovou adresu",

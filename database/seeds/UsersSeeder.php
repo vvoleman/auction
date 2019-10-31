@@ -21,6 +21,8 @@ class UsersSeeder extends Seeder
             "group_id"=>1,
             "uuid"=>Str::random(8),
             "region_id"=>6,
+            "zipcode"=>"40003",
+            "address"=>"Idk street 23",
             "activation_token"=>Str::random(16),
             "email_verified_at"=>Carbon::now()
         ]);

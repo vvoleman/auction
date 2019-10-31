@@ -14,7 +14,7 @@
                 <div class="info_box d-flex justify-content-center col-12 flex-wrap">
                     <div><img src="{{$user->country->img}}" class="flag-sm">{{$user->region->name}}</div>
                     @if($user->last_logged)
-                    <div>Naposledy přihlášen: <span class="d-block bold" title="{{$user->last_logged->format('d. m. Y H:i')}}">{{$user->last_logged->diffForHumans()}}</span></div>
+                    <div class="d-block">Naposledy přihlášen:<span class="d-block" title="{{$user->last_logged->format('d. m. Y H:i')}}">{{$user->last_logged->diffForHumans()}}</span></div>
                     @endif
                 </div>
             </div>

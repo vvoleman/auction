@@ -51,7 +51,7 @@ Route::name('emailchange.')->middleware('auth')->group(function(){
 
 //AJAX
 Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
-    Route::get('settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry")->middleware('auth');
+    Route::get('settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry");
 });
 
 //PROFILEPIC CHANGE

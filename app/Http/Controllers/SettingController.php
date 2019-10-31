@@ -25,7 +25,9 @@ class SettingController extends Controller
             "country_id"=>$user->country->id_c,
             "region_id"=>$user->region_id,
             "regions"=>new Collection($regions),
-            "countries"=>Country::all()
+            "countries"=>Country::all(),
+            "zipcode"=>$user->zipcode,
+            "address"=>$user->address
         ];
         //dd(json_encode($data["regions"],JSON_UNESCAPED_UNICODE));
 //        /dd($data["countries"]);

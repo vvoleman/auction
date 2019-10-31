@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $fillable = ['firstname','surname', 'email', 'password','activation_token','region_id','uuid'];
+    protected $fillable = ['firstname','surname', 'email', 'password','activation_token','region_id','uuid','zipcode','address'];
     protected $hidden = ['password', 'remember_token',];
     protected $casts = ['email_verified_at' => 'datetime',];
     protected $dates = ['last_logged'];

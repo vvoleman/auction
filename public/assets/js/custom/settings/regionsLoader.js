@@ -5,13 +5,31 @@ class RegionsLoader {
     select;
     selected;
 
-    constructor(regions,selected){
-        this.selected = selected;
-        regions = JSON.parse(regions);
-        this.regions[regions.short] = regions.regions;
+    constructor(regions=null,selected=null){
         this.select = $(`#${this.id_c}`);
-        this.appendRegions(regions.regions);
+        if(regions != null && selected != null){
+            this.selected = selected;
+            regions = JSON.parse(regions);
+            this.regions[regions.short] = regions.regions;
+
+            this.appendRegions(regions.regions);
+        }else{
+            this.firstLoad();
+        }
         this.setListeners();
+
+    }
+    firstLoad(){
+        const short = $("#"+this.id_c).val();
+        let ajax = this.query(short);
+        ajax.done((data)=>{
+            this.regions[short] = data;
+            this.appendRegions(data);
+        });
+        ajax.fail((err)=>{
+           console.log(err);
+        });
+
     }
     setListeners(){
         this.select.on("change",()=>{
@@ -22,7 +40,7 @@ class RegionsLoader {
             let short = this.select.val();
             let regions = [];
             if(this.regions[short] == null){
-                let ajax = $.get("/ajax/settings/getRegionsByCountry",{id:short});
+                let ajax = this.query(short);
                 ajax.done((data)=>{
                     this.regions[short] = data;
                     this.appendRegions(data);
@@ -49,5 +67,8 @@ class RegionsLoader {
     setDisabled(boo){
         this.select.attr('disabled',boo);
         $("#"+this.id_r).attr('disabled',boo);
+    }
+    query(short){
+        return $.get("/ajax/settings/getRegionsByCountry",{id:short});
     }
 }

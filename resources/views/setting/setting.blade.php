@@ -3,9 +3,9 @@
 @section('content')
     <a href="{{route('profile.profile')}}" class="no-a">
         <div class="m-top3 white_box col-md-4 mx-auto">
-            
+
                 <span><i class="fas fa-chevron-circle-left"></i> Na profil</span>
-            
+
         </div>
     </a>
     <div class="col-md-4 mx-auto white_box m-top">
@@ -50,6 +50,14 @@
 
                     </select>
                 </div>
+                <div class="form-group">
+                    <h5>PSČ</h5>
+                    <input type="number" name="zipcode" value="{{$zipcode}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <h5>Ulice + č.p</h5>
+                    <input type="text" name="address" value="{{$address}}" class="form-control">
+                </div>
                 <input type="submit" class="btn btn-block btn-blue" disabled id="settingbtn" value="Změnit">
             </div>
         </form>
@@ -61,7 +69,7 @@
     <script src="{{URL::asset('/assets/js/custom/settings/isItSame.js')}}"></script>
     <script>
         new RegionsLoader('{!! $regions->toJSON() !!}',{{$region_id}});
-        const settingchanges = new FormChanges({!! json_encode(["firstname"=>$firstname,"surname"=>$surname,"region_id"=>''.$region_id])!!});
+        const settingchanges = new FormChanges({!! json_encode(["firstname"=>$firstname,"surname"=>$surname,"region_id"=>''.$region_id,"zipcode"=>$zipcode,"address"=>$address])!!});
         const emailchanges = new FormChanges({!! json_encode(["email"=>$email]) !!});
 
         $("#settingform :input").on('keyup',checkEqual).on('change',checkEqual);
@@ -75,7 +83,9 @@
             const obj = {
                 firstname:$("input[name=firstname]").val(),
                 surname:$("input[name=surname]").val(),
-                region_id:$("select[name=region_id]").val()
+                region_id:$("select[name=region_id]").val(),
+                zipcode:$("input[name=zipcode]").val(),
+                address:$("input[name=address]").val(),
             };
             $("#settingbtn").attr('disabled',!settingchanges.somethingNew(obj));
         }

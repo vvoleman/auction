@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Notifications\AccountCreated;
 use App\User;
+use App\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,8 @@ use Illuminate\Support\Str;
 class RegisterController extends Controller
 {
     public function getRegister(){
-        return view('login/register');
+
+        return view('login/register',["countries"=>Country::all()]);
     }
     public function postRegister(Request $request){
 
@@ -23,7 +25,10 @@ class RegisterController extends Controller
     		"surname"=>"required|min:2|max:64",
     		"email"=>"required|email",
     		"password"=>"required|min:8|max:64",
-            "password2"=>"same:password"
+            "password2"=>"same:password",
+            "region_id"=>"integer|exists:regions,id_r",
+            "zipcode"=>"required|postal_code:CZ,SK",
+            "address"=>"required"
     	]); //validace
 
         if(!User::where('email',$data["email"])->exists()){
@@ -33,7 +38,10 @@ class RegisterController extends Controller
                 "firstname"=>$data["firstname"],
                 "surname"=>$data["surname"],
                 "email"=>$data["email"],
-                "password"=>Hash::make($data["password"])
+                "password"=>Hash::make($data["password"]),
+                "zipcode"=>intval($data["zipcode"]),
+                "region_id"=>$data["region_id"],
+                "address"=>$data["address"]
             ]); //vytvoří už. účet
             if($user->save()){
                 try{

@@ -42,7 +42,7 @@ class User extends Authenticatable
         return $this->hasMany("\App\Picture","creator_id");
     }
     public function old_profile_pictures(){
-        return $this->all_pictures()->where('id_p','!=',$this->current_picture->id_p)->where('type_id',1);
+        return $this->all_pictures()->where('id_p','!=',($this->current_picture) ? $this->current_picture->id_p : null)->where('type_id',1);
     }
     public function profpic_path(){
         return ($this->current_picture != null) ? $this->current_picture->path : asset("storage/images/profile_pictures/default.jpg");

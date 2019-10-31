@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string("uuid",8)->unique();
             $table->timestamp('last_logged')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string("activation_token",16);
+            $table->string("activation_token",16)->unique();
             $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();

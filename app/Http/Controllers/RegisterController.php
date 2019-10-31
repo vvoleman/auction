@@ -50,7 +50,7 @@ class RegisterController extends Controller
             $request->session()->flash('danger', 'Email již existuje!');
         }
 
-        return redirect()->route('register.create')->withInput($data);
+        return redirect()->route('register.register')->withInput($data);
     }
     private function getRandom($column,$length){
         do{

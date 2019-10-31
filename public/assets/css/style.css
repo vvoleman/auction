@@ -214,6 +214,7 @@ img.col-12{
     text-align: center;
     flex-wrap: wrap;
     display:flex;
+    margin-top:10px;
 }
 .info_box img{
     margin-right: 5px;
@@ -221,4 +222,11 @@ img.col-12{
 .flag-sm{
     border:1px solid #ddd;
     height: 20px;
+}
+.no-a{
+    color:inherit;
+}
+.no-a:hover{
+    text-decoration: none;
+    color:inherit;
 }

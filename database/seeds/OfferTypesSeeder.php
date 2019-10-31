@@ -12,10 +12,10 @@ class OfferTypesSeeder extends Seeder
     public function run()
     {
         DB::table("offer_types")->insert([
-            "name"=>"auction"
+            "name"=>"Aukce"
         ]);
         DB::table("offer_types")->insert([
-            "name"=>"sale"
+            "name"=>"Prodej"
         ]);
     }
 }

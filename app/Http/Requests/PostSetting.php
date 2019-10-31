@@ -26,7 +26,9 @@ class PostSetting extends FormRequest
         return [
             "firstname"=>"required|min:2|max:32",
             "surname"=>"required|min:2|max:64",
-            "region_id"=>"required|exists:regions,id_r"
+            "region_id"=>"required|exists:regions,id_r",
+            "zipcode"=>"required|integer|digits:5|postal_code:CZ,SK",
+            "address"=>"required"
         ];
     }
 
@@ -39,7 +41,11 @@ class PostSetting extends FormRequest
             "surname.min"=>"Minimální délka příjmení jsou 2 znaky",
             "surname.max"=>"Maximální délka příjmení je 64 znaků",
             "region_id.required"=>"Chybějící údaj (kraj)",
-            "region_id.exists"=>"Neplatný údaj (kraj)"
+            "region_id.exists"=>"Neplatný údaj (kraj)",
+            "zipcode.required"=>"PSČ musí být vyplněno",
+            "zipcode.integer"=>"PSČ musí být číslo",
+            "zipcode.digits"=>"PSČ musí být 5 čísel dlouhé",
+            "zipcode.postal_code"=>"PSČ musí být z některé z podporovaných zemí",
         ];
     }
 }

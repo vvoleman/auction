@@ -17,6 +17,7 @@ class CreateOffersTable extends Migration
             $table->increments('id_o');
             $table->string("name",64);
             $table->unsignedInteger("type_id");
+            $table->unsignedInteger("currency_id");
             $table->decimal("price",8,2);
             $table->timestamp("end_date");
             $table->text("description");
@@ -26,6 +27,7 @@ class CreateOffersTable extends Migration
 
             $table->foreign("type_id")->references("id_ot")->on("offer_types");
             $table->foreign("owner_id")->references("id_u")->on("users");
+            $table->foreign("currency_id")->references("id_c")->on("currencies");
         });
     }
 

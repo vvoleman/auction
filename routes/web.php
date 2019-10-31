@@ -61,3 +61,9 @@ Route::post('/profile/imgo','ProfileController@postOldProfileImage')->name('prof
 
 //PROFILE
 Route::get('/profile/{uuid?}','ProfileController@getProfile')->name('profile.profile')->where('uuid','[A-Za-z0-9]+')->middleware('auth');
+
+//OFFERS
+Route::name('offer.')->group(function (){
+    Route::get("/offer/new","OfferController@getNewOffer")->name("new");
+    Route::post("/offer/new","OfferController@postNewOffer")->name("postNew");
+});

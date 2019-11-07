@@ -33,6 +33,27 @@
                 <label>Název</label>
                 <input type="text" class="form-control">
             </div>
+            <div class="form-group">
+                <label>Tagy</label>
+                <input type="text" id="new_tag" class="form-control">
+                <div class="tags" id="tag_container">
+                    
+                </div>
+            </div>
         </div>
     </div>
+@stop
+@section('scripts')
+    <script src="{{URL::asset("assets/js/custom/new_offer/tags.js")}}"></script>
+    <script type="text/javascript">
+        tags = new Tags();
+        $("#new_tag").on('keypress',function(e) {
+            if(e.which == 13) {
+                temp = $("#new_tag").val();
+                if(temp.length > 2){
+                    tags.addTag(temp);
+                }
+            }
+        });
+    </script>
 @stop

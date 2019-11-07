@@ -23,17 +23,12 @@ class LoginController extends Controller
     		"password"=>"required",
             "remember"=>"nullable"
     	]);
-    	//setting remember and deleting remember if exists
-        $remember = (isset($data["remember"])) ? true : false;
-        if(isset($data["remember"])) unset($data["remember"]);
+    	//setting remember
+        $remember = $request->zapamatovat == "on";
 
-        //finds user by email
         $user = User::where("email",$data["email"])->first();
-        //checks if user exists or if password is right
         if($user != null && Hash::check($data["password"],$user->password)){
-            //runs through all condition for login and returns first error
             $err = Verifier::check([IsAccountVerified::check($user)]);
-            //if there is no error, user will be logged, otherwise errMessage will be filled
             if($err["value"]){
                 Auth::login($user,$remember);
                 $user->last_logged = Carbon::now();

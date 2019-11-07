@@ -21,6 +21,6 @@ class OfferController extends Controller
         return view('offer/new_offer',$data);
     }
     public function postNewOffer(NewOffer $request){
-        dd($request);
+        dd($request->validated());
     }
 }

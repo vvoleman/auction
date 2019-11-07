@@ -226,6 +226,20 @@ img.col-12{
 .no-a{
     color:inherit;
 }
+.tags .tag{
+    padding:10px;
+    background: var(--main-blue);
+    color:white;
+    margin:5px;
+    user-select: none;
+    cursor: pointer;
+}
+.tags{
+    display:flex;
+    flex-wrap: wrap;
+    overflow: auto;
+
+}
 .no-a:hover{
     text-decoration: none;
     color:inherit;

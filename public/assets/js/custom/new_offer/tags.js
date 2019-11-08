@@ -15,6 +15,7 @@ class Tags{
 		$("#"+this.container).append(el);
 	}
 	refresh(){
+		$("#_tags").val(JSON.stringify(this.tags));
 		$("#"+this.container).html("");
 		for (var i = 0; i < this.tags.length; i++) {
 			this.addElement(this.tags[i],i);

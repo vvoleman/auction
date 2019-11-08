@@ -25,10 +25,12 @@ class NewOffer extends FormRequest
     {
         return [
             "name"=>"required|min:4|max:64",
-            "type"=>"exists:offer_types,id_ot",
+            "type"=>"required|exists:offer_types,id_ot",
             "price"=>"required|numeric|min:0.01",
             "description"=>"required",
-            "end_date"=>"required|date"
+            "end_date"=>"required|date",
+            "currency"=>"required|exists:currencies,id_c",
+            "_tags"=>"nullable|json"
         ];
     }
 }

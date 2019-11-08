@@ -47,13 +47,13 @@
                 </div>
                 <div class="form-group">
                     <label>Tagy</label>
-                    <input type="text" id="new_tag" class="form-control">
+                    <input autocomplete="off" type="text" id="new_tag" class="form-control">
                     <div class="tags" id="tag_container">
                     </div>
                 </div>
 
             </div>
-            <input type="hidden" name="_tags">
+            <input type="hidden" name="_tags" id="_tags">
             <input type="submit" class="btn btn-blue btn-block">
         </div>
     </form>

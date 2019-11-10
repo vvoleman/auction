@@ -29,4 +29,9 @@ class Tags{
 			this.refresh();
 		});
 	}
+    check(str){
+	    const regexp = XRegExp("^\\pL+$");
+	    console.log(regexp.test(str));
+	    return regexp.test(str);
+    }
 }

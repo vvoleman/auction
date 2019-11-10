@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Offer extends Model
 {
     protected $primaryKey = "id_o";
-    protected $fillable = ["name","price","description","end_date","owner_id","type_id"];
-    protected $dates = ["end_date"];
+    protected $fillable = ["uuid","name","price","description","end_date","owner_id","type_id","currency_id"];
     public $timestamps = false;
 
     public function type(){

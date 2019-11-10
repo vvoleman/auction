@@ -22,7 +22,8 @@ class CreateOffersTable extends Migration
             $table->timestamp("end_date");
             $table->text("description");
             $table->unsignedInteger("owner_id");
-            $table->string("delete_reason",32);
+            $table->string("delete_reason",32)->nullable();
+            $table->string("uuid",16);
             $table->timestamps();
 
             $table->foreign("type_id")->references("id_ot")->on("offer_types");

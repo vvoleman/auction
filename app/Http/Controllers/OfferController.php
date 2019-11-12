@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Currency;
+use App\DeliveryType;
 use App\Offer;
 use App\Custom\Translator;
 use App\Http\Requests\NewOffer;
@@ -16,21 +17,28 @@ use Illuminate\Support\Str;
 class OfferController extends Controller
 {
     public function getNewOffer(){
+        $d = DeliveryType::all();
+        $payments = $this->format_deliveries($d);
         $data = [
             "types"=>OfferType::all(),
             "curr"=>[
                 "all"=>Currency::all(),
                 "selected"=>Auth::user()->country->currency
-            ]
+            ],
+            "deliveries"=>$d,
+            "payments"=>$payments
         ];
         return view('offer/new_offer',$data);
     }
     public function getOffer($id){
 
     }
-    public function postNewOffer(NewOffer $request,$id){
+    public function postNewOffer(NewOffer $request){
         $data = $request->validated();
         $ids = $this->tags_to_array($data["_tags"]);
+        if(!$this->correct_payment($data["delivery"],$data["payment"])){
+            return back()->with("danger","Neplatné údaje!")->withInput($data);
+        }
         $uuid = $this->generateUuid();
         $offer = new Offer([
             "name"=>$data["name"],
@@ -40,7 +48,9 @@ class OfferController extends Controller
             "end_date"=>$data["end_date"],
             "uuid"=>$uuid,
             "currency_id"=>$data["currency"],
-            "owner_id"=>Auth::user()->id_u
+            "owner_id"=>Auth::user()->id_u,
+            "delivery_type_id"=>$data["delivery"],
+            "payment_type_id"=>$data["payment"]
         ]);
         if($offer->save()){
             $offer->tags()->attach($ids);
@@ -71,11 +81,11 @@ class OfferController extends Controller
             ]);
             $offer->tags()->sync($ids);
 
-            return 
+            return redirect()->route('offers.offer',["id"=>$id])->with("success","Nabídka byla úspěšně upravena!");
         }catch(\Exception $e){
-            return redirect()->route('offers.edit',["id"=>$id])->with("danger"=>"Nebylo možné upravit nabídku!");
+            return redirect()->route('offers.edit',["id"=>$id])->with("danger","Nebylo možné upravit nabídku!");
         }
-        
+
 
     }
 
@@ -109,5 +119,32 @@ class OfferController extends Controller
             abort(404);
         }
         return $offer;
+    }
+    private function format_deliveries($del){
+        $final = [];
+        foreach($del as $d){
+            $temp = [
+                "id"=>$d->id_dt,
+                "name"=>$d->label,
+                "payments"=>collect($d->all_available_payments())->map(function ($x){
+                    return [
+                        "id"=>$x->id_pt,
+                        "name"=>$x->label
+                    ];
+                })
+            ];
+            $final[] = $temp;
+        }
+        return collect($final);
+    }
+    private function correct_payment($delivery,$payment){
+        $dt = DeliveryType::find($delivery)->all_available_payments();
+        foreach($dt as $d){
+            if($d->id_pt == $payment){
+                return true;
+            }
+        }
+        return false;
+
     }
 }

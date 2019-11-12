@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Offer extends Model
 {
     protected $primaryKey = "id_o";
-    protected $fillable = ["uuid","name","price","description","end_date","owner_id","type_id","currency_id"];
-    public $timestamps = false;
+    protected $guarded = [];
 
     public function type(){
         return $this->belongsTo("App\OfferType","type_id");
@@ -21,5 +20,11 @@ class Offer extends Model
     }
     public function tags(){
     	return $this->belongsToMany("\App\Tag","off_tag","offer_id","tag_id");
+    }
+    public function delivery_type(){
+        return $this->belongsTo("\App\DeliveryType","delivery_type_id");
+    }
+    public function payment_type(){
+        return $this->belongsTo("\App\PaymentType","payment_type_id");
     }
 }

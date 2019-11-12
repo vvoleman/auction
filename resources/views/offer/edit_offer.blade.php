@@ -37,6 +37,18 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label>Doprava</label>
+                    <select id="delivery" class="form-control" disabled>
+                        <option>{{$offer->delivery_type->label}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Typ platby</label>
+                    <select id="payments" class="form-control" disabled>
+                        <option>{{$offer->payment_type->label}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Cena</label>
                     <input type="number" class="form-control" disabled value="{{$offer->price}}">
                 </div>

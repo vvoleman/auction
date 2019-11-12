@@ -33,6 +33,16 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
+                    <label>Doprava</label>
+                    <select id="delivery" class="form-control" name="delivery">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Typ platby</label>
+                    <select id="payments" class="form-control" name="payment">
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Měna</label>
                     <select class="form-control" name="currency">
                         @foreach($curr["all"] as $c)
@@ -64,6 +74,7 @@
 @section('scripts')
     <script src="{{URL::asset("assets/js/xregexp.min.js")}}"></script>
     <script src="{{URL::asset("assets/js/custom/new_offer/tags.js")}}"></script>
+    <script src="{{URL::asset("assets/js/custom/new_offer/deliveries.js")}}"></script>
     <script type="text/javascript">
         tags = new Tags();
         $("#new_tag").on('keypress', function (e) {
@@ -80,6 +91,11 @@
                     $("#tags_msg").fadeIn();
                 }
             }
+        });
+
+        var deliveries = new Deliveries('{!! $payments->toJson(JSON_UNESCAPED_UNICODE) !!}');
+        $("#delivery").on('change',(e)=>{
+            deliveries.changeTo($(e.target).val());
         });
     </script>
 @stop

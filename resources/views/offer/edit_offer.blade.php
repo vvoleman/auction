@@ -1,7 +1,7 @@
 @extends('mains/main')
 @section('title','Nová nabídka | ')
 @section('content')
-    <form method="post" action="{{route('offers.postNew')}}">
+    <form method="post" action="{{route('offers.postEdit',["id"=>$offer->uuid])}}">
         @csrf
         <div class="col-md-8 mx-auto white_box m-top3 d-flex justify-content-between align-items-start flex-wrap">
             @include('partials._formmsgs')

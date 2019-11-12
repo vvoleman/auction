@@ -6,6 +6,7 @@ use App\Currency;
 use App\Offer;
 use App\Custom\Translator;
 use App\Http\Requests\NewOffer;
+use App\Http\Requests\EditOffer;
 use App\OfferType;
 use App\Tag;
 use Illuminate\Support\Facades\Auth;
@@ -24,23 +25,12 @@ class OfferController extends Controller
         ];
         return view('offer/new_offer',$data);
     }
-    public function postNewOffer(NewOffer $request){
+    public function getOffer($id){
+
+    }
+    public function postNewOffer(NewOffer $request,$id){
         $data = $request->validated();
-        $tags = json_decode($data["_tags"]);
-        $ids = [];
-        foreach($tags as $t){
-            if(true /*preg_match("/pL/",$t)*/){
-                if(Tag::where('name',$t)->exists()){
-                    $ids[] = Tag::where('name',$t)->first()->id_t;
-                }else{
-                    $tag = new Tag([
-                        "name"=>$t
-                    ]);
-                    $tag->save();
-                    $ids[] = $tag->id_t;
-                }
-            }
-        }
+        $ids = $this->tags_to_array($data["_tags"]);
         $uuid = $this->generateUuid();
         $offer = new Offer([
             "name"=>$data["name"],
@@ -61,10 +51,7 @@ class OfferController extends Controller
         }
     }
     public function getEditOffer($id){
-        $offer = Offer::where('uuid',$id)->first();
-        if($offer == null){
-            abort(404);
-        }
+        $offer = $this->offer_exists($id);
 
         $tags = $offer->tags->map(function($x){
            return $x->name;
@@ -72,11 +59,55 @@ class OfferController extends Controller
 
         return view("offer/edit_offer",["offer"=>$offer,"tags"=>$tags]);
     }
+    public function postEditOffer(EditOffer $request,$id){
+        $data = $request->validated();
+        $offer = $this->offer_exists($id);
+        $ids = $this->tags_to_array($data["_tags"]);
+
+        try{
+            $offer->update([
+                "name"=>$data["name"],
+                "description"=>$data["description"],
+            ]);
+            $offer->tags()->sync($ids);
+
+            return 
+        }catch(\Exception $e){
+            return redirect()->route('offers.edit',["id"=>$id])->with("danger"=>"Nebylo možné upravit nabídku!");
+        }
+        
+
+    }
 
     private function generateUuid(){
         do{
             $str = Str::random(16);
         }while(Offer::where('uuid',$str)->exists());
         return $str;
+    }
+    private function tags_to_array($str){
+        $tags = json_decode($str);
+        $ids = [];
+        foreach($tags as $t){
+            if(true /*preg_match("/pL/",$t)*/){
+                if(Tag::where('name',$t)->exists()){
+                    $ids[] = Tag::where('name',$t)->first()->id_t;
+                }else{
+                    $tag = new Tag([
+                        "name"=>$t
+                    ]);
+                    $tag->save();
+                    $ids[] = $tag->id_t;
+                }
+            }
+        }
+        return $ids;
+    }
+    private function offer_exists($id){
+        $offer = Offer::where('uuid',$id)->first();
+        if($offer == null){
+            abort(404);
+        }
+        return $offer;
     }
 }

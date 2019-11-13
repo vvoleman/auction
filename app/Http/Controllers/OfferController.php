@@ -10,6 +10,7 @@ use App\Http\Requests\NewOffer;
 use App\Http\Requests\EditOffer;
 use App\OfferType;
 use App\Tag;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -31,7 +32,12 @@ class OfferController extends Controller
         return view('offer/new_offer',$data);
     }
     public function getOffer($id){
+        $offer = $this->offer_exists($id);
 
+        if($offer->type->name == "Prodej"){
+            $timestamp = Carbon::parse($offer->end_date);
+            return view("offer/offer_sale",["offer"=>$offer,"timestamp"=>$timestamp]);
+        }
     }
     public function postNewOffer(NewOffer $request){
         $data = $request->validated();

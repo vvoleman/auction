@@ -244,3 +244,36 @@ img.col-12{
     text-decoration: none;
     color:inherit;
 }
+.offer_info{
+    display: block;
+}
+.offer_head{
+    font-size:20px;
+}
+.review_box{
+    background: #ede1c6;
+}
+.m-15{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.offer-item-info{
+    text-align: center;
+    padding:20px;
+    background: #f1f1f1;
+}
+.delivery .fas{
+    color:#ed263f;
+}
+.money .fas{
+    color:#bf9700;
+}
+.time .fas{
+    color: #293598;
+}
+.payment .far{
+    color:#4b8b50
+}
+.test{
+    flex: 1;
+}

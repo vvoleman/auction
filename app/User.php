@@ -50,4 +50,7 @@ class User extends Authenticatable
     public function getFullnameAttribute(){
         return $this->firstname." ".$this->surname;
     }
+    public function offers(){
+        return $this->hasMany("\App\Offer","owner_id");
+    }
 }

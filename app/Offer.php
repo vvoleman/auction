@@ -12,6 +12,9 @@ class Offer extends Model
     public function type(){
         return $this->belongsTo("App\OfferType","type_id");
     }
+    public function owner(){
+        return $this->belongsTo("\App\User","owner_id");
+    }
     public function currency(){
     	return $this->belongsTo("\App\Currency","currency_id");
     }

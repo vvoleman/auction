@@ -9,6 +9,7 @@ class Timer{
     start(){
         this.interval = setInterval(()=>{
             let timeleft = this._timeLeft(new Date().getTime());
+            console.log(timeleft);
             if(timeleft == null){
                 this.__timerEnded();
                 return;
@@ -33,6 +34,7 @@ class Timer{
 
     }
     __timerEnded(){
+        console.log("Ukončuji");
         clearInterval(this.interval);
 
     }

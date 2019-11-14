@@ -15,9 +15,27 @@
                     </div>
                 </div>
                 <div class="col-12 white_box m-top test">
-                    <h5 class="text-center">Recenze (o autorovi)</h5>
+                    <h5 class="text-center">Základní informace</h5>
                     <hr>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="col-12 d-flex flex-wrap mx-auto">
+                        <div class="col-md-6 offer-item-info delivery">
+                            <i class="fas fa-truck" title="Doprava"></i>
+                            <span>{{$offer->delivery_type->label}}</span>
+                        </div>
+                        <div class="col-md-6 offer-item-info payment">
+                            <i class="far fa-money-bill-alt" title="Platba"></i>
+                            <span>{{$offer->payment_type->label}}</span>
+                        </div>
+                        <div class="col-md-6 offer-item-info money">
+                            <i class="fas fa-coins" title="Cena"></i>
+                            <span>{{$offer->price}}{{$offer->currency->short}}</span>
+                        </div>
+                        <div class="col-md-6 offer-item-info time">
+                            <i class="fas fa-clock" title="Otevřeno do"></i>
+                            <span><span id="timeleft"></span></span>
+                        </div>
+                    </div>
+                    <!--<div class="d-flex justify-content-between align-items-center">
                         <i class="fas fa-angle-left"></i>
                         <div class="col-md-10 review_box d-flex flex-wrap justify-content-end">
                             <p class="w-100">
@@ -26,7 +44,7 @@
                             <span>- <a href="#">Uživatel</a></span>
                         </div>
                         <i class="fas fa-angle-right"></i>
-                    </div>
+                    </div>!-->
                 </div>
             </div>
             <div class="col-md-8">
@@ -61,31 +79,20 @@
                             <span class="sr-only">Další</span>
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
         <div class="row box m-top">
             <div class="white_box w-100 m-15">
                 <h4 style="margin-left:5px;">Informace</h4>
-                <div class="col-md-6 d-flex flex-wrap mx-auto">
-                    <div class="col-md-6 offer-item-info delivery">
-                        <i class="fas fa-truck" title="Doprava"></i>
-                        <span>{{$offer->delivery_type->label}}</span>
-                    </div>
-                    <div class="col-md-6 offer-item-info payment">
-                        <i class="far fa-money-bill-alt" title="Platba"></i>
-                        <span>{{$offer->payment_type->label}}</span>
-                    </div>
-                    <div class="col-md-6 offer-item-info money">
-                        <i class="fas fa-coins" title="Cena"></i>
-                        <span>{{$offer->price}}{{$offer->currency->short}}</span>
-                    </div>
-                    <div class="col-md-6 offer-item-info time">
-                        <i class="fas fa-clock" title="Otevřeno do"></i>
-                        <span><span id="timeleft"></span></span>
+                <div>
+                    <div class="tags">
+                        @foreach($offer->tags as $t)
+                        <div class="tag">{{$t->name}}</div>
+                        @endforeach
                     </div>
                 </div>
+                <p>{{$offer->description}}</p>
             </div>
         </div>
     </div>
@@ -94,7 +101,7 @@
     <script src="{{URL::asset("/assets/js/custom/offer/Timer.js")}}"></script>
     <script>
         @if(\Carbon\Carbon::now()->diffInHours($timestamp,false) <= 48)
-        var timer = new Timer(100000,"timeleft");
+        var timer = new Timer({{$timestamp->timestamp*1000}},"timeleft");
         timer.start()
         @endif
     </script>

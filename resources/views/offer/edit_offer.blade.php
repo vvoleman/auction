@@ -1,5 +1,5 @@
 @extends('mains/main')
-@section('title','Nová nabídka | ')
+@section('title','Úprava nabídky | ')
 @section('content')
     <form method="post" action="{{route('offers.postEdit',["id"=>$offer->uuid])}}">
         @csrf
@@ -22,11 +22,15 @@
                 </div>
                 <div class="form-group">
                     <label>Otevřeno do</label>
-                    <input type="datetime-local" class="form-control" value="{{\Carbon\Carbon::parse($offer->end_date)->format("Y-m-dTH:i:s")}}" @if($offer->type->name == "Prodej") name="end_date" @else disabled @endif>
+                    <input type="datetime-local" disabled class="form-control"
+                           value="{{$offer->end_date->toDateTimeLocalString()}}">
                 </div>
                 <div class="form-group">
                     <label>Popisek</label>
-                    <textarea class="form-control" name="description">{{$offer->description}}</textarea>
+                    <div class="loader"></div>
+                    <div class="description" style="display:none;">
+                        <textarea class="form-control" name="description">{{$offer->description}}</textarea>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -69,8 +73,10 @@
     </form>
 @stop
 @section('scripts')
-    <script src="{{URL::asset("assets/js/xregexp.min.js")}}"></script>
-    <script src="{{URL::asset("assets/js/custom/new_offer/tags.js")}}"></script>
+    <script src="{{asset("assets/js/xregexp.min.js")}}"></script>
+    <script src="{{asset("assets/js/custom/new_offer/tags.js")}}"></script>
+    <script src="{{asset('node_modules/tinymce/tinymce.js') }}"></script>
+    <script src="{{asset("assets/js/custom/new_offer/editor.js")}}"></script>
     <script type="text/javascript">
         var tags = new Tags();
         tags.tags = JSON.parse('{!! $tags->toJson(JSON_UNESCAPED_UNICODE) !!}');
@@ -79,13 +85,13 @@
             if (e.which == 13) {
                 e.preventDefault();
                 temp = $("#new_tag").val();
-                if(tags.check(temp)){
+                if (tags.check(temp)) {
                     $("#tags_msg").hide();
                     if (temp.length > 2) {
                         tags.addTag(temp);
                         $("#new_tag").val("");
                     }
-                }else{
+                } else {
                     $("#tags_msg").fadeIn();
                 }
             }

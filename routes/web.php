@@ -69,4 +69,8 @@ Route::name('offers.')->group(function (){
     Route::get("/offers/{id}/edit","OfferController@getEditOffer")->name("edit")->where("id","[A-Za-z0-9]+");
     Route::post("/offers/{id}/edit","OfferController@postEditOffer")->name("postEdit")->where("id","[A-Za-z0-9]+");
     Route::get("/offers/{id}","OfferController@getOffer")->name("offer")->where("id","[A-Za-z0-9]+");
+    Route::post("/offers/{id}/renew","OfferController@postRenew")->name("postRenew")->where("id","[A-Za-z0-9]+");
 });
+
+//SEARCH
+

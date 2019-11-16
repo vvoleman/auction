@@ -21,7 +21,7 @@ class CreateOffersTable extends Migration
             $table->unsignedInteger("payment_type_id");
             $table->unsignedInteger("delivery_type_id");
             $table->decimal("price",8,2);
-            $table->timestamp("end_date");
+            $table->dateTime("end_date");
             $table->text("description");
             $table->unsignedInteger("owner_id");
             $table->string("delete_reason",32)->nullable();

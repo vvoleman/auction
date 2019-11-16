@@ -46,6 +46,7 @@
                         <i class="fas fa-angle-right"></i>
                     </div>!-->
                 </div>
+                <button class="btn btn-block btn-blue m-top" style="padding:30px;">Projevit zájem</button>
             </div>
             <div class="col-md-8">
                 <div class="col-12 white_box m-top d-flex justify-content-between align-items-center">
@@ -92,7 +93,7 @@
                         @endforeach
                     </div>
                 </div>
-                <p>{{$offer->description}}</p>
+                <p>{!! $offer->desc !!}</p>
             </div>
         </div>
     </div>

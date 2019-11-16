@@ -2,12 +2,14 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
     protected $primaryKey = "id_o";
     protected $guarded = [];
+    protected $dates = ["end_date"];
 
     public function type(){
         return $this->belongsTo("App\OfferType","type_id");
@@ -29,5 +31,11 @@ class Offer extends Model
     }
     public function payment_type(){
         return $this->belongsTo("\App\PaymentType","payment_type_id");
+    }
+    public function is_time_active(){
+        return Carbon::parse($this->end_date)->isFuture();
+    }
+    public function getDescAttribute(){
+        return clean($this->description);
     }
 }

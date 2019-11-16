@@ -42,6 +42,7 @@ class OfferController extends Controller
     public function postNewOffer(NewOffer $request){
         $data = $request->validated();
         $ids = $this->tags_to_array($data["_tags"]);
+        $data["end_date"] = Carbon::parse($data["end_date"]);
         if(!$this->correct_payment($data["delivery"],$data["payment"])){
             return back()->with("danger","Neplatné údaje!")->withInput($data);
         }
@@ -61,13 +62,17 @@ class OfferController extends Controller
         if($offer->save()){
             $offer->tags()->attach($ids);
 
-            dd("Přidáno!");
+            return redirect()->route('offers.offer',["id"=>$uuid])->with("Nabídka úspěšně přidána!");
         }else{
-            dd("Nepřidáno!");
+            return back()->with("Nebylo možné přidat nabídku")->withInput($data);
         }
     }
     public function getEditOffer($id){
         $offer = $this->offer_exists($id);
+
+        if(!$offer->is_time_active()){
+            return view("offer/renew_offer",["offer"=>$offer]);
+        }
 
         $tags = $offer->tags->map(function($x){
            return $x->name;
@@ -81,11 +86,11 @@ class OfferController extends Controller
         $ids = $this->tags_to_array($data["_tags"]);
 
         try{
-            $offer->update([
-                "name"=>$data["name"],
-                "description"=>$data["description"],
-            ]);
+            $offer->name = $data["name"];
+            $offer->description = $data["description"];
+            $offer->save();
             $offer->tags()->sync($ids);
+            dd($offer);
 
             return redirect()->route('offers.offer',["id"=>$id])->with("success","Nabídka byla úspěšně upravena!");
         }catch(\Exception $e){
@@ -93,6 +98,17 @@ class OfferController extends Controller
         }
 
 
+    }
+    public function postRenew($id){
+        $offer = $this->offer_exists($id);
+        if($offer->is_time_active()){
+            return back()->with("danger","Tato nabídka je již aktivní!");
+        }
+        $offer->end_date = Carbon::now()->addDays(30);
+        if($offer->save()){
+            return redirect()->route("offers.edit",["id"=>$id])->with("success","Nabídka byla úspěšně prodloužená!");
+        }
+        return back()->with("danger","Nebylo možné obnovit nabídku!");
     }
 
     private function generateUuid(){
@@ -103,6 +119,7 @@ class OfferController extends Controller
     }
     private function tags_to_array($str){
         $tags = json_decode($str);
+        if(empty($tags)) $tags = [];
         $ids = [];
         foreach($tags as $t){
             if(true /*preg_match("/pL/",$t)*/){

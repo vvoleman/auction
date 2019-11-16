@@ -28,7 +28,10 @@
                 </div>
                 <div class="form-group">
                     <label>Popisek</label>
-                    <textarea class="form-control" name="description"></textarea>
+                    <div class="loader"></div>
+                    <div class="description" style="display:none;">
+                        <textarea class="form-control" name="description"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -75,6 +78,8 @@
     <script src="{{URL::asset("assets/js/xregexp.min.js")}}"></script>
     <script src="{{URL::asset("assets/js/custom/new_offer/tags.js")}}"></script>
     <script src="{{URL::asset("assets/js/custom/new_offer/deliveries.js")}}"></script>
+    <script src="{{asset('node_modules/tinymce/tinymce.js') }}"></script>
+    <script src="{{asset("assets/js/custom/new_offer/editor.js")}}"></script>
     <script type="text/javascript">
         tags = new Tags();
         $("#new_tag").on('keypress', function (e) {

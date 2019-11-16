@@ -32,8 +32,6 @@ class OfferController extends Controller
         return view('offer/new_offer',$data);
     }
     public function getOffer($id){
-        $authors = ["J.K Rowling"]
-
         $offer = $this->offer_exists($id);
 
         if($offer->type->name == "Prodej"){

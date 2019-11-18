@@ -73,4 +73,4 @@ Route::name('offers.')->group(function (){
 });
 
 //SEARCH
-
+Route::get("/search","SearchController@getSearch")->name("search.search");

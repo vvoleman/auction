@@ -51,7 +51,9 @@ Route::name('emailchange.')->middleware('auth')->group(function(){
 
 //AJAX
 Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
-    Route::get('settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry");
+    Route::get('/settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry");
+    Route::get('/search/getBootInfo','SearchController@ajaxGetBoot')->name('searchBootInfo')->middleware('auth');
+    Route::get('/search/getOffers','SearchController@ajaxGetOffers')->name('searchOffers')->middleware('auth');
 });
 
 //PROFILEPIC CHANGE

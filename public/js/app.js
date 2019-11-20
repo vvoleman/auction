@@ -1838,11 +1838,91 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sub_FilterBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sub/FilterBox */ "./resources/js/components/sub/FilterBox.vue");
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "search-page",
+  components: {
+    filterbox: _sub_FilterBox__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    url: {
+      required: true
+    },
+    boot: {
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      page: 0,
+      controls: {
+        price: [],
+        types: [],
+        currencies: [],
+        countries: [],
+        regions: {},
+        selected_type: null,
+        selected_currency: null,
+        selected_country: null,
+        selected_region: null,
+        urls: {}
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.urls = JSON.parse(this.url);
+    var temp = JSON.parse(this.boot);
+    this.controls.price = [parseFloat(temp.min), parseFloat(temp.max)];
+    this.controls.types = temp.types;
+    this.controls.currencies = temp.currencies;
+    this.controls.countries = temp.countries;
+    this.controls.regions = temp.regions;
+  },
+  methods: {
+    _runBoot: function _runBoot() {
+      $.get(this.urls.boot, function (response) {
+        console.log(response);
+      });
+    },
+    filterChanged: function filterChanged(data) {
+      data.query = "";
+      data.order_by = "name"; //name,reviews,expiration,price
+
+      data.dir = 1;
+      data.page = this.page;
+      axios.get(this.urls.offers, {
+        params: data
+      }).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (response) {
+        console.log("Nastala chyba!");
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sub/FilterBox.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/sub/FilterBox.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -1881,52 +1961,76 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "search-page",
+  name: "FilterBox",
+  props: {
+    boot: {
+      required: true
+    }
+  },
   data: function data() {
     return {
-      controls: {
-        price: [0, 5000],
-        types: [{
-          id: 1,
-          name: "Aukce"
-        }, {
-          id: 2,
-          name: "Prodej"
-        }],
-        currencies: [{
-          id: 1,
-          name: "CZK"
-        }, {
-          id: 2,
-          name: "EUR"
-        }],
-        countries: [{
-          id: 1,
-          name: "Česká republika"
-        }, {
-          id: 2,
-          name: "Slovenská republika"
-        }],
-        regions: {
-          "null": [{
-            id: null,
-            name: "---"
-          }],
-          1: [{
-            id: 1,
-            name: "Praha"
-          }],
-          2: [{
-            id: 1,
-            name: "Bratislava"
-          }]
-        },
-        selected_type: null,
-        selected_currency: 1,
-        selected_country: null,
-        selected_region: null
-      }
+      dirty: false,
+      price: [],
+      types: [],
+      currencies: [],
+      countries: [],
+      regions: {},
+      selected_type: null,
+      selected_currency: null,
+      selected_country: null,
+      selected_region: null
     };
+  },
+  mounted: function mounted() {
+    this._setBoot();
+  },
+  methods: {
+    _setBoot: function _setBoot() {
+      var temp = JSON.parse(this.boot);
+      this.price = [parseFloat(temp.min), parseFloat(temp.max)];
+      this.types = temp.types;
+      this.currencies = temp.currencies;
+      this.countries = temp.countries;
+      this.regions = temp.regions;
+    },
+    emitData: function emitData() {
+      this.$emit("changed", {
+        price: this.searchForNull(this.price),
+        type: this.searchForNull(this.selected_type),
+        currency: this.searchForNull(this.selected_currency),
+        country: this.searchForNull(this.selected_country),
+        region: this.searchForNull(this.selected_region)
+      });
+      this.dirty = false;
+    },
+    searchForNull: function searchForNull(str) {
+      return str == "null" ? null : str;
+    }
+  },
+  watch: {
+    country: function country() {
+      this.selected_region = null;
+    },
+    selected_type: function selected_type() {
+      this.emitData();
+    },
+    selected_currency: function selected_currency() {
+      this.emitData();
+    },
+    selected_country: function selected_country() {
+      this.emitData();
+    },
+    selected_region: function selected_region() {
+      this.emitData();
+    }
+  },
+  computed: {
+    isPriceSame: function isPriceSame() {
+      return this.price.length == 1;
+    },
+    country: function country() {
+      return this.selected_country;
+    }
   }
 });
 
@@ -20218,226 +20322,254 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-8 mx-auto m-top3" }, [
-    _c("div", { staticClass: "white_box" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "search", placeholder: "Vyhledej..." }
-      }),
+    _vm.controls.types.length != 0
+      ? _c(
+          "div",
+          { staticClass: "white_box" },
+          [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "search", placeholder: "Vyhledej..." }
+            }),
+            _vm._v(" "),
+            _c("filterbox", {
+              staticClass: "subbox col-md-11 m-top mx-auto",
+              attrs: { boot: _vm.boot },
+              on: { changed: _vm.filterChanged }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "fas fa-chevron-down w-100 text-center m-top",
+              staticStyle: { "margin-bottom": "0px" }
+            })
+          ],
+          1
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sub/FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/sub/FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "d-flex flex-wrap" }, [
+    _c(
+      "div",
+      { staticClass: "col-md-4" },
+      [
+        _c("label", [_vm._v("Cena")]),
+        _vm._v(" "),
+        _c("slider", {
+          staticClass: "form-control",
+          attrs: {
+            min: _vm.isPriceSame ? null : _vm.price[0],
+            max: _vm.isPriceSame ? null : _vm.price[1],
+            tooltip: "focus"
+          },
+          model: {
+            value: _vm.price,
+            callback: function($$v) {
+              _vm.price = $$v
+            },
+            expression: "price"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-4 form-group" }, [
+      _c("label", [_vm._v("Typ nabídky")]),
       _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "subbox col-md-11 mx-auto m-top3 d-flex flex-wrap" },
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selected_type,
+              expression: "selected_type"
+            }
+          ],
+          staticClass: "form-control",
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selected_type = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
         [
-          _c(
-            "div",
-            { staticClass: "col-md-4" },
-            [
-              _c("label", [_vm._v("Cena")]),
-              _vm._v(" "),
-              _c("slider", {
-                staticClass: "form-control",
-                attrs: { max: 5000, tooltip: "focus" },
-                model: {
-                  value: _vm.controls.price,
-                  callback: function($$v) {
-                    _vm.$set(_vm.controls, "price", $$v)
-                  },
-                  expression: "controls.price"
-                }
-              })
-            ],
-            1
-          ),
+          _c("option", { attrs: { value: "null" } }, [_vm._v("---")]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-4 form-group" }, [
-            _c("label", [_vm._v("Typ nabídky")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.controls.selected_type,
-                    expression: "controls.selected_type"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.controls,
-                      "selected_type",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { value: "null" } }, [_vm._v("---")]),
-                _vm._v(" "),
-                _vm._l(_vm.controls.types, function(o, i) {
-                  return _c("option", { key: i, domProps: { value: o.id } }, [
-                    _vm._v(_vm._s(o.name))
-                  ])
-                })
-              ],
-              2
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4 form-group" }, [
-            _c("label", [_vm._v("Měna")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.controls.selected_currency,
-                    expression: "controls.selected_currency"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.controls,
-                      "selected_currency",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.controls.currencies, function(o, i) {
-                return _c("option", { key: i, domProps: { value: o.id } }, [
-                  _vm._v(_vm._s(o.name))
-                ])
-              }),
-              0
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4 form-group" }, [
-            _c("label", [_vm._v("Země")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.controls.selected_country,
-                    expression: "controls.selected_country"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.controls,
-                      "selected_country",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { value: "null" } }, [_vm._v("---")]),
-                _vm._v(" "),
-                _vm._l(_vm.controls.countries, function(o, i) {
-                  return _c("option", { key: i, domProps: { value: o.id } }, [
-                    _vm._v(_vm._s(o.name))
-                  ])
-                })
-              ],
-              2
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4 form-group" }, [
-            _c("label", [_vm._v("Kraj")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.controls.selected_region,
-                    expression: "controls.selected_region"
-                  }
-                ],
-                staticClass: "form-control",
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.controls,
-                      "selected_region",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { value: "null" } }, [_vm._v("---")]),
-                _vm._v(" "),
-                _vm._l(
-                  _vm.controls.regions[_vm.controls.selected_country],
-                  function(o, i) {
-                    return _c("option", { key: i, domProps: { value: o.id } }, [
-                      _vm._v(_vm._s(o.name))
-                    ])
-                  }
-                )
-              ],
-              2
-            )
-          ])
-        ]
-      ),
+          _vm._l(_vm.types, function(o, i) {
+            return _c("option", { key: i, domProps: { value: o.id } }, [
+              _vm._v(_vm._s(o.name))
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-4 form-group" }, [
+      _c("label", [_vm._v("Měna")]),
       _vm._v(" "),
-      _c("i", {
-        staticClass: "fas fa-chevron-down w-100 text-center m-top",
-        staticStyle: { "margin-bottom": "0px" }
-      })
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selected_currency,
+              expression: "selected_currency"
+            }
+          ],
+          staticClass: "form-control",
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selected_currency = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { value: "null" } }, [_vm._v("---")]),
+          _vm._v(" "),
+          _vm._l(_vm.currencies, function(o, i) {
+            return _c("option", { key: i, domProps: { value: o.id } }, [
+              _vm._v(_vm._s(o.name))
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-4 form-group" }, [
+      _c("label", [_vm._v("Země")]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selected_country,
+              expression: "selected_country"
+            }
+          ],
+          staticClass: "form-control",
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selected_country = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { value: "null" } }, [_vm._v("---")]),
+          _vm._v(" "),
+          _vm._l(_vm.countries, function(o, i) {
+            return _c("option", { key: i, domProps: { value: o.id } }, [
+              _vm._v(_vm._s(o.name))
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-4 form-group" }, [
+      _c("label", [_vm._v("Kraj")]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selected_region,
+              expression: "selected_region"
+            }
+          ],
+          staticClass: "form-control",
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selected_region = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { value: "null" } }, [_vm._v("---")]),
+          _vm._v(" "),
+          _vm._l(_vm.regions[_vm.selected_country], function(o, i) {
+            return _c("option", { key: i, domProps: { value: o.id } }, [
+              _vm._v(_vm._s(o.name))
+            ])
+          })
+        ],
+        2
+      )
     ])
   ])
 }
@@ -32779,6 +32911,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_search_page_vue_vue_type_template_id_fb387ece_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_search_page_vue_vue_type_template_id_fb387ece_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/sub/FilterBox.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/sub/FilterBox.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FilterBox_vue_vue_type_template_id_41d6f3c9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true& */ "./resources/js/components/sub/FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true&");
+/* harmony import */ var _FilterBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FilterBox.vue?vue&type=script&lang=js& */ "./resources/js/components/sub/FilterBox.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FilterBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FilterBox_vue_vue_type_template_id_41d6f3c9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FilterBox_vue_vue_type_template_id_41d6f3c9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "41d6f3c9",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/sub/FilterBox.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/sub/FilterBox.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/sub/FilterBox.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./FilterBox.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sub/FilterBox.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/sub/FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/sub/FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterBox_vue_vue_type_template_id_41d6f3c9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/sub/FilterBox.vue?vue&type=template&id=41d6f3c9&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterBox_vue_vue_type_template_id_41d6f3c9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FilterBox_vue_vue_type_template_id_41d6f3c9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

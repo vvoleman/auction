@@ -23,6 +23,9 @@ class Offer extends Model
     public function isActive(){
     	return !$this->end_date->isPast();
     }
+    public function pictures(){
+        return $this->belongsToMany("\App\Picture","off_pic","offer_id","picture_id")->withPivot("deleted_at");
+    }
     public function tags(){
     	return $this->belongsToMany("\App\Tag","off_tag","offer_id","tag_id");
     }

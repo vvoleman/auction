@@ -53,4 +53,7 @@ class User extends Authenticatable
     public function offers(){
         return $this->hasMany("\App\Offer","owner_id");
     }
+    public function review_score(){
+        return 5;
+    }
 }

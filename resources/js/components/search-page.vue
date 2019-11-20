@@ -1,80 +1,73 @@
 <template>
     <div class="col-md-8 mx-auto m-top3">
-        <div class="white_box">
+        <div v-if="controls.types.length != 0" class="white_box">
             <input type="search" class="form-control" placeholder="Vyhledej...">
-            <div class="subbox col-md-11 mx-auto m-top3 d-flex flex-wrap">
-                <div class="col-md-4">
-                    <label>Cena</label>
-                    <slider :max="5000" v-model="controls.price" class="form-control" :tooltip="'focus'"></slider>
-                </div>
-                <div class="col-md-4 form-group">
-                    <label>Typ nabídky</label>
-                    <select class="form-control" v-model="controls.selected_type">
-                        <option value="null">---</option>
-                        <option v-for="(o,i) in controls.types" :value="o.id" :key="i">{{o.name}}</option>
-                    </select>
-                </div>
-                <div class="col-md-4 form-group">
-                    <label>Měna</label>
-                    <select class="form-control" v-model="controls.selected_currency">
-                        <option v-for="(o,i) in controls.currencies" :value="o.id" :key="i">{{o.name}}</option>
-                    </select>
-                </div>
-                <div class="col-md-4 form-group">
-                    <label>Země</label>
-                    <select class="form-control" v-model="controls.selected_country">
-                        <option value="null">---</option>
-                        <option v-for="(o,i) in controls.countries" :value="o.id" :key="i">{{o.name}}</option>
-                    </select>
-                </div>
-                <div class="col-md-4 form-group">
-                    <label>Kraj</label>
-                    <select class="form-control" v-model="controls.selected_region">
-                        <option value="null">---</option>
-                        <option v-for="(o,i) in controls.regions[controls.selected_country]" :value="o.id" :key="i">{{o.name}}</option>
-                    </select>
-                </div>
-            </div>
+            <filterbox @changed="filterChanged" :boot="boot" class="subbox col-md-11 m-top mx-auto"></filterbox>
             <i class="fas fa-chevron-down w-100 text-center m-top" style="margin-bottom: 0px"></i>
         </div>
     </div>
 </template>
 
 <script>
+    import filterbox from "./sub/FilterBox";
     export default {
         name: "search-page",
+        components: {filterbox},
+        props:{
+            url:{
+                required:true
+            },
+            boot:{
+                required:true
+            }
+        },
         data(){
             return {
+                page:0,
                 controls:{
-                    price:[0,5000],
-                    types:[
-                        {
-                            id:1,
-                            name:"Aukce"
-                        },
-                        {
-                            id:2,
-                            name:"Prodej"
-                        }
-                    ],
-                    currencies:[
-                        {id:1,name:"CZK"},{id:2,name:"EUR"}
-                    ],
-                    countries:[
-                        {id:1,name:"Česká republika"},{id:2,name:"Slovenská republika"}
-                    ],
-                    regions:{
-                        null:[{id:null,name:"---"}],
-                        1:[{id:1,name:"Praha"}],
-                        2:[{id:1,name:"Bratislava"}]
-                    },
+                    price:[],
+                    types:[],
+                    currencies:[],
+                    countries:[],
+                    regions:{},
                     selected_type:null,
-                    selected_currency:1,
+                    selected_currency:null,
                     selected_country:null,
                     selected_region:null,
+                    urls:{}
                 }
             }
-        }
+        },
+        mounted(){
+            this.urls = JSON.parse(this.url);
+            var temp = JSON.parse(this.boot);
+            this.controls.price = [parseFloat(temp.min),parseFloat(temp.max)];
+            this.controls.types = temp.types;
+            this.controls.currencies = temp.currencies;
+            this.controls.countries = temp.countries;
+            this.controls.regions = temp.regions;
+        },
+        methods:{
+            _runBoot(){
+                $.get(this.urls.boot,(response)=>{
+                    console.log(response);
+                });
+            },
+            filterChanged(data){
+                data.query = "";
+                data.order_by = "name" //name,reviews,expiration,price
+                data.dir = 1;
+                data.page = this.page;
+                axios.get(this.urls.offers,{
+                    params:data
+                }).then((response)=>{
+                    console.log(response.data)
+                }).catch((response)=>{
+                    console.log("Nastala chyba!");
+                });
+            }
+        },
+
     }
 </script>
 

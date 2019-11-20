@@ -14,13 +14,3 @@
            </div>
     </div>
 @stop
-@section('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <script>
-        $("form");
-        $.get("http://api.lolesports.com/api/v1/scheduleItems?leagueId=9",(data)=>{
-            console.log(data);
-        })
-    </script>
-@stop

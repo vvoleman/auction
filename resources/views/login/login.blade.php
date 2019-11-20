@@ -48,7 +48,7 @@
             },
             errorPlacement: function(error, element) {
                 var el = $(element).parent().children("input");
-                console.log(el);
+                console.log($(el)[0]);
                 $(el).addClass('input-error');
             },
             success(label,element){

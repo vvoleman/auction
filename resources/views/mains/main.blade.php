@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include("partials/_head")
     <title>@yield('title')Auctions</title>
+    @yield("styles")
 </head>
 <body>
     @include("partials/_nav")

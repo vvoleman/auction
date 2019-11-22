@@ -51,7 +51,7 @@ class SearchController extends Controller
             "dir"=>"required|boolean",
             "page"=>"required|integer",
         ]);
-        $limit = 10;
+        $limit = 5;
         $q = $this->buildQuery($data);
         $count = $q->count();
         $offers = $q->whereDate('end_date','>=',Carbon::now())->skip($data["page"]*$limit)->take($limit)->get();

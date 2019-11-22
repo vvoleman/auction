@@ -1,18 +1,23 @@
 <template>
     <div class="col-md-8 mx-auto m-top3">
-        <div v-if="controls.types.length != 0" class="white_box">
+        <div v-if="urls.length != 0" class="white_box">
             <input type="search" class="form-control" placeholder="Vyhledej...">
             <filterbox @changed="filterChanged" :boot="boot" class="subbox col-md-11 m-top mx-auto"></filterbox>
             <i class="fas fa-chevron-down w-100 text-center m-top" style="margin-bottom: 0px"></i>
+        </div>
+        <searchlist v-if="results.length != 0" :results="results"></searchlist>
+        <div class="white_box m-top text-center">
+            Žádné výsledky
         </div>
     </div>
 </template>
 
 <script>
     import filterbox from "./sub/FilterBox";
+    import searchlist from "./sub/SearchList";
     export default {
         name: "search-page",
-        components: {filterbox},
+        components: {filterbox,searchlist},
         props:{
             url:{
                 required:true
@@ -24,28 +29,14 @@
         data(){
             return {
                 page:0,
-                controls:{
-                    price:[],
-                    types:[],
-                    currencies:[],
-                    countries:[],
-                    regions:{},
-                    selected_type:null,
-                    selected_currency:null,
-                    selected_country:null,
-                    selected_region:null,
-                    urls:{}
-                }
+                urls:[],
+                results:[
+                ],
+                nextPage:false
             }
         },
         mounted(){
             this.urls = JSON.parse(this.url);
-            var temp = JSON.parse(this.boot);
-            this.controls.price = [parseFloat(temp.min),parseFloat(temp.max)];
-            this.controls.types = temp.types;
-            this.controls.currencies = temp.currencies;
-            this.controls.countries = temp.countries;
-            this.controls.regions = temp.regions;
         },
         methods:{
             _runBoot(){
@@ -61,13 +52,12 @@
                 axios.get(this.urls.offers,{
                     params:data
                 }).then((response)=>{
-                    console.log(response.data)
+                    this.results = response.data.data;
                 }).catch((response)=>{
                     console.log("Nastala chyba!");
                 });
             }
         },
-
     }
 </script>
 

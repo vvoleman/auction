@@ -59,6 +59,7 @@
         },
         mounted(){
             this._setBoot();
+            this.emitData();
         },
 
         methods:{

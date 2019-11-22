@@ -2,8 +2,10 @@
     <div class="col-md-5 justify-content-start d-flex align-items-center">
         <a href="{{route('home.home')}}"><span class="letter-logo col-1">B</span></a>
         <div class="search d-none d-md-block offset-md-5 col-md-7">
-            <input type="search" class="col-10">
-            <i class="fa fa-search"></i>
+            <form method="get" action="{{route('search.search')}}">
+                <input type="search" class="col-10" name="q">
+                <!--<i class="fa fa-search" type="button"></i>!-->
+            </form>
         </div>
     </div>
     <div class="col-md-7 d-flex justify-content-end align-items-center">

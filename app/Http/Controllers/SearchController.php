@@ -7,6 +7,7 @@ use App\Offer;
 use App\Currency;
 use App\OfferType;
 use App\Region;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -14,7 +15,7 @@ class SearchController extends Controller
     public function getSearch(){
         $data = [
             "boot"=>route('ajax.searchBootInfo'),
-            "offers"=>route('ajax.searchOffers')
+            "offers"=>route('ajax.searchOffers'),
         ];
         return view("search/search",["urls"=>collect($data),"boot"=>$this->ajaxGetBoot()]);
     }
@@ -53,30 +54,34 @@ class SearchController extends Controller
         $limit = 10;
         $q = $this->buildQuery($data);
         $count = $q->count();
-        $offers = $q->select("offers.id_o as id")->skip($data["page"]*$limit)->take($limit)->get()->map(function($x){
-            return Offer::find($x);
-        });
+        $offers = $q->whereDate('end_date','>=',Carbon::now())->skip($data["page"]*$limit)->take($limit)->get();
+        $objs = [];
+        foreach($offers as $o){
+            $objs[] = Offer::find($o->id_o);
+        }
 
         $results = [];
-        if(sizeof($offers) > 0){
-            foreach($offers[0] as $o){
+            foreach($objs as $o){
                 $results[] = [
                     "id"=>$o->id_o,
                     "name"=>$o->name,
                     "type"=>$o->type->name,
                     "picture"=>(sizeof($o->pictures) > 0) ? $o->pictures[0]->path : null,
                     "price"=>$o->price,
+                    "delivery"=>$o->delivery_type->label,
+                    "payment"=>$o->payment_type->label,
+                    "end_date"=>$o->end_date->format("d. m. Y"),
                     "currency"=>$o->currency->short,
                     "owner"=>[
                         "id"=>$o->owner->id_u,
                         "name"=>$o->owner->fullname,
                         "score"=>$o->owner->review_score(),
-                        "picture"=>$o->owner->profpic_path()
-                    ]
+                        "picture"=>$o->owner->profpic_path(),
+                        "url"=>route('profile.profile',["uuid"=>$o->owner->uuid])
+                    ],
+                    "url"=>route('offers.offer',["id"=>$o->uuid])
                 ];
             }
-        }
-
         return [
             "data"=>$results,
             "next_page"=>(($count-(1+$data["page"])*$limit) > 0) ? $data["page"]+1 : false

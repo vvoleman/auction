@@ -17,6 +17,8 @@ class CreateGroupsTable extends Migration
             $table->increments('id_g');
             $table->string("name");
             $table->unsignedInteger("created_by")->nullable();
+            $table->dateTime("deleted_at")->nullable();
+            $table->timestamps();
 
             $table->foreign("created_by")->references("id_u")->on("users");
         });

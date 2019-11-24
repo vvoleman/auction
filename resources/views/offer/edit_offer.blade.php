@@ -71,6 +71,17 @@
             <input type="submit" class="btn btn-blue btn-block">
         </div>
     </form>
+    <form id="end_form" method="post" action="{{route("offers.delete",["id"=>$offer->uuid])}}">
+        @csrf
+        <div class="white_box col-md-8 mx-auto m-top m-bot">
+            <h1 class="text-center">Smazat nabídku</h1>
+            <hr class="col-md-6 mx-auto">
+            <div class="col-md-4 mx-auto">
+                <textarea name="reason" class="form-control" placeholder="Důvod smazání (nepovinné)"></textarea>
+                <button type="button" id="end_offer" class="btn btn-danger m-top btn-block">Smazat</button>
+            </div>
+        </div>
+    </form>
 @stop
 @section('scripts')
     <script src="{{asset("assets/js/xregexp.min.js")}}"></script>
@@ -95,6 +106,13 @@
                     $("#tags_msg").fadeIn();
                 }
             }
+        });
+    </script>
+    <script>
+        $("#end_offer").on('click',()=>{
+           if(confirm("Opravdu chcete smazat nabídku? Tento krok nelze změnit!")){
+               $("#end_form").submit();
+           }
         });
     </script>
 @stop

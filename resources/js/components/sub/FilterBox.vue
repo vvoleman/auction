@@ -1,8 +1,18 @@
 <template>
-    <div class="d-flex flex-wrap">
+    <div class="flex-wrap">
         <div class="col-md-4">
             <label>Cena</label>
-            <slider :min="(isPriceSame) ? null : price[0]" :max="(isPriceSame) ? null : price[1]" v-model="price" class="form-control" :tooltip="'focus'"></slider>
+            <div class="d-flex">
+                <input placeholder="Od" class="form-control" v-model="min" type="number">
+                <input placeholder="Do" class="form-control" v-model="max" type="number">
+            </div>
+        </div>
+        <div class="col-md-4 form-group">
+            <label>Kategorie</label>
+            <select class="form-control" v-model="selected_category">
+                <option value="null">---</option>
+                <option v-for="(o,i) in categories" :value="o.id" :key="i">{{o.name}}</option>
+            </select>
         </div>
         <div class="col-md-4 form-group">
             <label>Typ nabídky</label>
@@ -38,68 +48,96 @@
 <script>
     export default {
         name: "FilterBox",
-        props:{
-            boot:{
-                required:true
+        props: {
+            boot: {
+                required: true
             }
         },
-        data(){
+        data() {
             return {
-                dirty:false,
-                price:[],
-                types:[],
-                currencies:[],
-                countries:[],
-                regions:{},
-                selected_type:null,
-                selected_currency:null,
-                selected_country:null,
-                selected_region:null,
+                dirty: false,
+                min: null,
+                max: null,
+                types: [],
+                currencies: [],
+                categories:[],
+                countries: [],
+                regions: {},
+                selected_type: null,
+                selected_currency: null,
+                selected_country: null,
+                selected_region: null,
+                selected_category:null,
             }
         },
-        mounted(){
+        mounted() {
             this._setBoot();
             this.emitData();
         },
 
-        methods:{
-            _setBoot(){
+        methods: {
+            _setBoot() {
                 var temp = JSON.parse(this.boot);
-                this.price = [parseFloat(temp.min),parseFloat(temp.max)];
+                this.min = parseFloat(temp.min);
+                this.max = parseFloat(temp.max);
                 this.types = temp.types;
                 this.currencies = temp.currencies;
                 this.countries = temp.countries;
                 this.regions = temp.regions;
+                this.categories = temp.categories;
             },
-            emitData(){
-                this.$emit("changed",{
-                    price:this.searchForNull(this.price),
-                    type:this.searchForNull(this.selected_type),
-                    currency:this.searchForNull(this.selected_currency),
-                    country:this.searchForNull(this.selected_country),
-                    region:this.searchForNull(this.selected_region)
+            emitData() {
+                this.$emit("changed", {
+                    price: this.searchForNull(this.price),
+                    type: this.searchForNull(this.selected_type),
+                    currency: this.searchForNull(this.selected_currency),
+                    country: this.searchForNull(this.selected_country),
+                    region: this.searchForNull(this.selected_region),
+                    category: this.searchForNull(this.selected_category),
                 });
                 this.dirty = false;
             },
-            searchForNull(str){
+            searchForNull(str) {
                 return (str == "null") ? null : str;
             }
         },
-        watch:{
-            country(){
+        watch: {
+            country() {
                 this.selected_region = null;
             },
-            selected_type(){this.emitData()},
-            selected_currency(){this.emitData()},
-            selected_country(){this.emitData()},
-            selected_region(){this.emitData()},
-        },
-        computed:{
-            isPriceSame(){
-                return this.price.length == 1;
+            selected_type() {
+                this.emitData()
             },
-            country(){
+            selected_currency() {
+                this.emitData()
+            },
+            selected_country() {
+                this.emitData()
+            },
+            selected_region() {
+                this.emitData()
+            },
+            selected_category() {
+                this.emitData()
+            },
+        },
+        computed: {
+            country() {
                 return this.selected_country;
+            },
+            price(ff) {
+                if (this.min != null && this.max != null) {
+                    if(this.min < 0){
+                        this.min = 0;
+                    }
+                    if(this.max < 0){
+                        this.max = 0;
+                    }
+                    if (this.min > this.max) {
+                        alert("Neplatný input");
+                    }
+                }
+                return [this.min, this.max];
             }
         }
 

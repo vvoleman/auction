@@ -9,7 +9,7 @@ class Picture extends Model
 {
     protected $primaryKey = "id_p";
     protected $table = "pictures";
-    protected $fillable = ["picture_path","creator_id","type_id"];
+    protected $guarded = ["id_p"];
     public $timestamps = false;
     protected $dates = ["created_at"];
 

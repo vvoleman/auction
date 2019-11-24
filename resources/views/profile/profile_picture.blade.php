@@ -1,6 +1,10 @@
 @extends('mains.main')
 @section('title',"Změna profilového obrázku | ")
 @section('content')
+    @component('partials._breadcrumbs')
+        <li><a href="{{route('profile.profile')}}">Profil</a></li>
+        <li><a class="current">Profilový obrázek</a></li>
+    @endcomponent
     <div class="col-md-8 mx-auto">
         <form enctype="multipart/form-data" method="post" action="{{route('profile.newProfileimg')}}">
             @csrf

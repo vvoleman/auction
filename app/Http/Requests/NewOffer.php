@@ -28,6 +28,7 @@ class NewOffer extends FormRequest
             "type"=>"required|exists:offer_types,id_ot",
             "price"=>"required|numeric|min:0.01",
             "description"=>"required",
+            "category"=>"required|integer|exists:categories,id_c",
             "delivery"=>"required|integer|exists:delivery_types,id_dt",
             "payment"=>"required|integer|exists:payment_types,id_pt",
             "end_date"=>"required|date",

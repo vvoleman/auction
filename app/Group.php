@@ -13,6 +13,6 @@ class Group extends Model
         return $this->hasMany("App\User","group_id");
     }
     public function permissions(){
-        return $this->belongsToMany("App\Permission","gro_per","perm_id","group_id");
+        return $this->belongsToMany("App\Permission","gro_per","group_id","perm_id");
     }
 }

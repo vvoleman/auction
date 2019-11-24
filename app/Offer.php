@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Offer extends Model
 {
     protected $primaryKey = "id_o";
-    protected $guarded = [];
+    protected $guarded = ["id_o"];
     protected $dates = ["end_date"];
 
     public function type(){
@@ -19,9 +19,6 @@ class Offer extends Model
     }
     public function currency(){
     	return $this->belongsTo("\App\Currency","currency_id");
-    }
-    public function isActive(){
-    	return !$this->end_date->isPast();
     }
     public function pictures(){
         return $this->belongsToMany("\App\Picture","off_pic","offer_id","picture_id")->withPivot("deleted_at");
@@ -34,6 +31,13 @@ class Offer extends Model
     }
     public function payment_type(){
         return $this->belongsTo("\App\PaymentType","payment_type_id");
+    }
+    public function category(){
+        return $this->belongsTo("\App\Category","category_id");
+    }
+
+    public function isActive(){
+        return !$this->end_date->isPast();
     }
     public function is_time_active(){
         return Carbon::parse($this->end_date)->isFuture();

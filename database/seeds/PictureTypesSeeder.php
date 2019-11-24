@@ -11,9 +11,18 @@ class PictureTypesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('picture_types')->insert([
+        DB::table('picture_types')->insert([ //1
             'name' => "profile_picture",
             'label'=> "Profilový obrázek"
         ]);
+        DB::table('picture_types')->insert([ //2
+            'name' => "offer_picture",
+            'label'=> "Obrázek k nabídce"
+        ]);
+        DB::table('picture_types')->insert([ //3
+            'name' => "category_picture",
+            'label'=> "Obrázek kategorie"
+        ]);
     }
+
 }

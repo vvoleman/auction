@@ -1,15 +1,18 @@
 <template>
-    <div class="col-md-8 mx-auto m-top3">
+    <div class="col-md-10 col-rl-8 mx-auto m-top3">
         <div v-if="urls.length != 0" class="white_box" id="content">
             <input type="search" class="form-control" placeholder="Vyhledej..." v-model="query">
-            <filterbox @changed="filterChanged" :boot="boot" class="subbox col-md-11 m-top mx-auto"></filterbox>
-            <i class="fas fa-chevron-down w-100 text-center m-top" style="margin-bottom: 0px"></i>
+            <filterbox v-show="show_control" :class="{'d-flex':show_control}" @changed="filterChanged" :boot="boot"
+                       class="subbox col-md-11 m-top mx-auto"></filterbox>
+            <i @click="show_control = !show_control"
+               :class="{'fa-chevron-down':show_control,'fa-chevron-up':!show_control}"
+               class="fas w-100 text-center m-top" style="margin-bottom: 0px;cursor:pointer"></i>
         </div>
         <transition name="fade" mode="out-in">
             <div key="results" v-if="loading == false && error == false && results != null">
                 <div v-if="results.length != 0">
-                    <searchlist  :results="results"></searchlist>
-                    <button @click="loadNextPage" v-if="nextPage" class="btn col-12 btn-blue m-top"
+                    <searchlist :results="results"></searchlist>
+                    <button @click="loadNextPage" v-if="nextPage" class="shadow btn col-12 btn-blue m-top"
                             style="padding:10px;">Načíst další
                     </button>
                 </div>
@@ -24,7 +27,7 @@
                     <div></div>
                 </div>
             </div>
-            <div key="error" v-if="error == true" class="error m-top">
+            <div key="error" v-if="error == true" class="searcherror m-top">
                 <h4>Nebylo možné načíst data!</h4>
             </div>
         </transition>
@@ -46,7 +49,8 @@
             },
             boot: {
                 required: true
-            }
+            },
+            q:{}
         },
         data() {
             return {
@@ -57,8 +61,9 @@
                 results: null,
                 nextPage: false,
                 settings: null,
-                first:true,
-                query:""
+                first: true,
+                query: this.q,
+                show_control: false
             }
         },
         mounted() {
@@ -72,7 +77,7 @@
                 });
             },
             filterChanged(data, load = true) {
-                if(load) this.page = 0;
+                if (load) this.page = 0;
                 data.query = this.query;
                 data.order_by = "name" //name,reviews,expiration,price
                 data.dir = 1;
@@ -82,9 +87,9 @@
                 axios.get(this.urls.offers, {
                     params: data
                 }).then((response) => {
-                    if(!load){
+                    if (!load) {
                         this.results = this.results.concat(response.data.data);
-                    }else{
+                    } else {
                         this.results = response.data.data;
                     }
                     this.nextPage = response.data.next_page != false;
@@ -93,17 +98,16 @@
                 }).catch((response) => {
                     this.loading = false;
                     this.error = "Nastala chyba!";
-                    console.log("Nastala chyba!");
                 });
             },
             loadNextPage() {
                 this.filterChanged(this.settings, false);
             }
         },
-        watch:{
-            query:_.debounce(function () {
+        watch: {
+            query: _.debounce(function () {
                 this.filterChanged(this.settings);
-            },300)
+            }, 300)
         }
     }
 </script>

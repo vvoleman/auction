@@ -36,6 +36,14 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
+                    <label>Kategorie</label>
+                    <select class="form-control" name="category">
+                        @foreach($categories as $c)
+                            <option value="{{$c->id_c}}">{{$c->label}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Doprava</label>
                     <select id="delivery" class="form-control" name="delivery">
                     </select>

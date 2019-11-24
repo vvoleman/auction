@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Currency;
 use App\DeliveryType;
 use App\Offer;
@@ -20,6 +21,7 @@ class OfferController extends Controller
     public function getNewOffer(){
         $d = DeliveryType::all();
         $payments = $this->format_deliveries($d);
+        $c = Category::where("disabled",false)->get();
         $data = [
             "types"=>OfferType::all(),
             "curr"=>[
@@ -27,7 +29,8 @@ class OfferController extends Controller
                 "selected"=>Auth::user()->country->currency
             ],
             "deliveries"=>$d,
-            "payments"=>$payments
+            "payments"=>$payments,
+            "categories"=>$c
         ];
         return view('offer/new_offer',$data);
     }
@@ -54,6 +57,7 @@ class OfferController extends Controller
             "description"=>$data["description"],
             "end_date"=>$data["end_date"],
             "uuid"=>$uuid,
+            "category_id"=>$data["category"],
             "currency_id"=>$data["currency"],
             "owner_id"=>Auth::user()->id_u,
             "delivery_type_id"=>$data["delivery"],
@@ -109,6 +113,17 @@ class OfferController extends Controller
             return redirect()->route("offers.edit",["id"=>$id])->with("success","Nabídka byla úspěšně prodloužená!");
         }
         return back()->with("danger","Nebylo možné obnovit nabídku!");
+    }
+    public function deleteOffer(Request $request,$id){
+        $offer = Offer::where('uuid',$id)->first();
+        if(empty($offer)) return back()->with("danger","Neplatná nabídka!");
+
+        $reason = (empty($request->reason)) ? "-" : $request->reason;
+
+        $offer->delete_reason = $reason;
+        $offer->save();
+        return redirect()->route("home.home")->with("success","Nabídka byla smazána!");
+
     }
 
     private function generateUuid(){

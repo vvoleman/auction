@@ -1,13 +1,10 @@
 @extends('mains/main')
 @section('title','Nastavení profilu | ')
 @section('content')
-    <a href="{{route('profile.profile')}}" class="no-a">
-        <div class="m-top3 white_box col-md-4 mx-auto">
-
-                <span><i class="fas fa-chevron-circle-left"></i> Na profil</span>
-
-        </div>
-    </a>
+    @component('partials._breadcrumbs')
+        <li><a href="{{route('profile.profile')}}">Profil</a></li>
+        <li><a class="current">Nastavení</a></li>
+    @endcomponent
     <div class="col-md-4 mx-auto white_box m-top">
         <h3>Nastavení</h3>
     </div>

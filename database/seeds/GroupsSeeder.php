@@ -12,6 +12,9 @@ class GroupsSeeder extends Seeder
     public function run()
     {
         DB::table("groups")->insert([
+            "name"=>"Uživatel"
+        ]);
+        DB::table("groups")->insert([
             "name"=>"Administrátor"
         ]);
     }

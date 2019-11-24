@@ -54,6 +54,12 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::get('/settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry");
     Route::get('/search/getBootInfo','SearchController@ajaxGetBoot')->name('searchBootInfo')->middleware('auth');
     Route::get('/search/getOffers','SearchController@ajaxGetOffers')->name('searchOffers')->middleware('auth');
+
+    Route::get('/admin/getCategories','CategoryController@ajaxAdminGetCategories')->middleware('auth'); //TODO: admin práva
+    Route::post('/admin/newCategory','CategoryController@ajaxAdminCreate')->middleware('auth');
+    Route::post('/admin/editCategory','CategoryController@ajaxAdminEdit')->middleware('auth'); //TODO: admin práva
+    Route::post("/imageUpload","ImageUploaderController")->name("imageUpload")->middleware('auth');
+    Route::post('/admin/category/uploadFile',"CategoryController@ajaxAdminUploadImage")->middleware('auth');
 });
 
 //PROFILEPIC CHANGE
@@ -72,7 +78,13 @@ Route::name('offers.')->group(function (){
     Route::post("/offers/{id}/edit","OfferController@postEditOffer")->name("postEdit")->where("id","[A-Za-z0-9]+");
     Route::get("/offers/{id}","OfferController@getOffer")->name("offer")->where("id","[A-Za-z0-9]+");
     Route::post("/offers/{id}/renew","OfferController@postRenew")->name("postRenew")->where("id","[A-Za-z0-9]+");
+    Route::post("offers/{id}/delete","OfferController@deleteOffer")->name("delete")->where("id","[A-Za-z0-9]+");
 });
 
 //SEARCH
 Route::get("/search","SearchController@getSearch")->name("search.search")->middleware("auth");
+
+//ADMIN
+Route::name("admin.")->prefix("admin")->group(function (){
+   Route::get("/categories","CategoryController@getAdminCategories")->name("adminCategories");
+});

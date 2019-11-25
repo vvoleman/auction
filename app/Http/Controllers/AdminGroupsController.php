@@ -13,7 +13,7 @@ class AdminGroupsController extends Controller
 {
     private $default_group = 1; //uživatel
     public function getGroups(){
-        return view("admin/config");
+        return view("admin/configure/groups");
     }
 
     public function ajaxGetGroups(){
@@ -118,6 +118,10 @@ class AdminGroupsController extends Controller
             ];
         }
     }
+    public function ajaxGetPermissions(){
+        return Permission::all();
+    }
+
     private function checkPermIds($arr){
         $permise = [];
         if(!empty($data["permissions"])){

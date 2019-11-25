@@ -16,10 +16,12 @@ const options = {
 
 Vue.use(Snotify,options);
 
-Vue.component('search-page', require('./components/search-page.vue').default);
+Vue.component('search-page', require('./components/pages/search/search-page.vue').default);
+Vue.component('config-categories',require('./components/pages/categories/config-categories').default);
+Vue.component('config-groups',require('./components/pages/groups/config-groups.vue').default);
+
+Vue.component('modal', require("./components/sub/modal.vue").default);
 Vue.component('slider', VueSlider);
-Vue.component('modal', require("./components/modal.vue").default);
-Vue.component('config-categories',require('./components/config-categories').default);
 const app = new Vue({
     el: '#app'
 });

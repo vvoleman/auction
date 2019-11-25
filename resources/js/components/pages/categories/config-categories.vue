@@ -1,16 +1,18 @@
 <template>
     <div class="m-top3">
-        <transition>
-            <categories-shower v-show="is_ready" :c="categories"></categories-shower>
+        <transition name="fade" mode="out-in">
+            <loader v-if="!is_ready" key="load"></loader>
+            <categories-shower key="c" v-if="is_ready" :c="categories"></categories-shower>
         </transition>
     </div>
 </template>
 
 <script>
-    import CategoriesShower from "./sub/CategoriesShower";
+    import CategoriesShower from "./CategoriesShower";
+    import Loader from "../../sub/Loader";
     export default {
         name: "config-categories",
-        components: {CategoriesShower},
+        components: {Loader, CategoriesShower},
         data(){
             return {
                 categories:[],

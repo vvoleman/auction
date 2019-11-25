@@ -1,7 +1,7 @@
 <template>
     <div class="col-md-8 mx-auto">
         <div>
-            <button class="btn btn-success" @click="create_modal = true">Nová kategorie</button>
+            <button style="border-radius:5px 5px 0 0" class="btn btn-success" @click="create_modal = true">Nová kategorie</button>
         </div>
         <div class="d-md-flex flex-wrap">
             <div title="Upravit" @click="setEdited(i)" v-for="(o,i) in categories" class="col-md-6 cat_item"

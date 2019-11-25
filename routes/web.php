@@ -55,11 +55,13 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::get('/search/getBootInfo','SearchController@ajaxGetBoot')->name('searchBootInfo')->middleware('auth');
     Route::get('/search/getOffers','SearchController@ajaxGetOffers')->name('searchOffers')->middleware('auth');
 
+    Route::post("/imageUpload","ImageUploaderController")->name("imageUpload")->middleware('auth');
+
     Route::get('/admin/getCategories','CategoryController@ajaxAdminGetCategories')->middleware('auth'); //TODO: admin práva
     Route::post('/admin/newCategory','CategoryController@ajaxAdminCreate')->middleware('auth');
     Route::post('/admin/editCategory','CategoryController@ajaxAdminEdit')->middleware('auth'); //TODO: admin práva
-    Route::post("/imageUpload","ImageUploaderController")->name("imageUpload")->middleware('auth');
     Route::post('/admin/category/uploadFile',"CategoryController@ajaxAdminUploadImage")->middleware('auth');
+    Route::get('/admin/getPermissions','AdminGroupsController@ajaxGetPermissions')->middleware('auth');
 });
 
 //PROFILEPIC CHANGE
@@ -86,5 +88,6 @@ Route::get("/search","SearchController@getSearch")->name("search.search")->middl
 
 //ADMIN
 Route::name("admin.")->prefix("admin")->group(function (){
-   Route::get("/categories","CategoryController@getAdminCategories")->name("adminCategories");
+    Route::get("/categories","CategoryController@getAdminCategories")->name("adminCategories");
+    Route::get("/groups","AdminGroupsController@getGroups")->name("groups");
 });

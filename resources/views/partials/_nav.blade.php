@@ -1,6 +1,6 @@
 <div class="navi col-12 d-flex">
     <div class="col-md-5 justify-content-start d-flex align-items-center">
-        <a href="{{route('home.home')}}"><span class="letter-logo col-1">B</span></a>
+        <a href="{{route('home.home')}}" class="letter-logo"><span class="letter-logo col-1">B</span></a>
         <div class="search d-none d-md-block offset-md-5 col-md-7">
             <form method="get" action="{{route('search.search')}}">
                 <input type="search" class="col-10" name="q">

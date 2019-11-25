@@ -4,15 +4,44 @@
     --main-font:"Century Gothic";
 }
 
+.get_blue{
+    background: var(--main-blue);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.box ::-webkit-scrollbar-track{
+    background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 body{
     background:#f0f0f0;
     font-family: var(--main-font);
 }
 
 .letter-logo{
-    font-family:Algerian;
+    font-family:Calibri;
     color:var(--main-blue);
     font-size:65px;
+}
+.letter-logo:hover{
+    text-decoration: none !important;
 }
 .topbar{
     background: var(--main-blue);
@@ -500,7 +529,7 @@ ul.breadcrumbs{
 
 .breadcrumbs a{
     background: #ddd;
-    padding: .7em 1em;
+    padding: .5em 1em;
     float: left;
     text-decoration: none;
     color: #444;
@@ -555,4 +584,11 @@ ul.breadcrumbs{
 
 .topbar a{
     color:inherit;
+}
+.cat_item{
+    transition: 0.3s;
+}
+.no-padding{
+    padding-left:0 !important;
+    padding-right:0 !important;
 }

@@ -11,5 +11,13 @@ class PicturesSeeder extends Seeder
      */
     public function run()
     {
+        $imgs = ["electronics.png","collections.png","cars.png","house.png"];
+        foreach($imgs as $i){
+            DB::table('pictures')->insert([
+                "picture_path"=>"/category_pictures/".$i,
+                "type_id"=>3,
+                "creator_id"=>1
+            ]);
+        }
     }
 }

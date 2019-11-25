@@ -6,7 +6,7 @@
                 <button v-if="img != image" @click="image = img">Zrušit</button>
             </div>
             <input type="file" @change="onFileChange" class="form-control">
-            <img :src="image" class="col-md-4 mx-auto">
+            <img :src="image" class="col-md-4 mx-auto" @error="test">
         </div>
     </div>
 </template>
@@ -25,6 +25,9 @@
                 const file = e.target.files[0];
                 this.image = URL.createObjectURL(file);
                 this.$emit("changed", (this.image != this.img) ? file : false);
+            },
+            test(e){
+                console.log(e);
             }
         },
         watch: {

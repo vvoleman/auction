@@ -36,9 +36,9 @@
 </template>
 
 <script>
-    import filterbox from "./sub/FilterBox";
-    import searchlist from "./sub/SearchList";
-    import GoUp from "./sub/GoUp";
+    import filterbox from "./FilterBox";
+    import searchlist from "./SearchList";
+    import GoUp from "../../sub/GoUp";
 
     export default {
         name: "search-page",

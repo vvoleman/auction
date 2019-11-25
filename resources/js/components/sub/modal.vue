@@ -94,6 +94,7 @@
 
     .modal-body {
         position: relative;
+        overflow: auto;
         padding: 20px 10px;
     }
 

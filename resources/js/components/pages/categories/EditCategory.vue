@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import ImagePreview from "./ImagePreview";
+    import ImagePreview from "../../sub/ImagePreview";
     export default {
         name: "EditCategory",
         components: {ImagePreview},

@@ -1,10 +1,10 @@
 <template>
-    <div class="col-md-8 mx-auto m-top3 d-md-flex no-padding align-content-stretch box">
+    <div class="col-md-11 m-top mx-auto d-md-flex no-padding align-content-stretch box">
         <div class="col-md-4 d-flex no-padding">
             <div class="col-12 left-bar no-padding">
                 <button class="btn btn-block btn-success bp">Nová skupina</button>
                 <div>
-                    <groups-list></groups-list>
+                    <groups-list v-if="false"></groups-list>
                 </div>
             </div>
         </div>

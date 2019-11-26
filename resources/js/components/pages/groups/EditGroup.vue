@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 main">
+    <div class="main">
         <div class="col-md-8 mx-auto m-top2">
             <div class="form-group row align-items-center">
                 <label for="staticEmail" class="col-form-label bigger">Název</label>
@@ -7,7 +7,7 @@
                     <input type="text" class="form-control" id="staticEmail">
                 </div>
             </div>
-            <div class="row col-12 m-top3 justify-content-center">
+            <div class="row w-100 mx-auto m-top3 justify-content-center">
                 <span class="bigger d-block">Oprávnění</span>
                 <manage-perms></manage-perms>
             </div>

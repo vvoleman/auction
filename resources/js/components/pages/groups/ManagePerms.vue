@@ -1,11 +1,17 @@
 <template>
-    <div class="col-12 d-flex main" style="overflow:auto">
-        <div class="col-md-6">
-            <div class="head">Oprávnění</div>
-
-        </div>
-        <div class="col-md-6">
-            <div class="head">Vybrané</div>
+    <div class="col-12 d-flex main no-padding">
+        <div class="mx-auto">
+            <div class="col-12 no-padding">
+                <div class="head">Oprávnění</div>
+            </div>
+            <div class="row">
+                <div class="col-10 mx-auto d-flex justify-content-between item" v-for="(o,i) in available" @click="isSelected(i)">
+                    <span class="sm">{{o.permission}}</span>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-info"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -25,6 +31,9 @@
             this.getPerms();
         },
         methods:{
+            toggleSelected(i){
+                
+            },
             getPerms(){
                 axios.get("/ajax/admin/getPermissions")
                     .then((response)=>{
@@ -45,6 +54,13 @@
                     return;
                 }
                 this.selected.splice(sel,1);
+            },
+            isSelected(i){
+                console.log("tady");
+                return this.selected.filter((x,i) => {
+                    console.log("f");
+                    return x.id_p == this.all_perms[i].id_p;
+                }).length > 0;
             }
         },
         computed:{
@@ -64,6 +80,18 @@
 <style scoped>
     .main{
         text-align: center;
-        border:1px solid black;
+    }
+    .head{
+        background:#242424;
+        color:white;
+        padding:10px;
+    }
+    .item{
+        text-align: left;
+        padding:5px;
+        background-color: #d0d0d0;
+    }
+    .selected{
+        border:2px solid orange;
     }
 </style>

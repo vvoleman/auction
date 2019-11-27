@@ -2376,6 +2376,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ManagePerms",
   props: ["existing"],
@@ -2407,6 +2422,8 @@ __webpack_require__.r(__webpack_exports__);
       this.selected.push(this.available[all]);
     },
     swapTo: function swapTo(sel) {
+      console.log("ff");
+
       if (this.selected[sel] == null) {
         return;
       }
@@ -2421,6 +2438,9 @@ __webpack_require__.r(__webpack_exports__);
         console.log("f");
         return x.id_p == _this2.all_perms[i].id_p;
       }).length > 0;
+    },
+    openInfo: function openInfo() {
+      console.log("test");
     }
   },
   computed: {
@@ -3218,7 +3238,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main[data-v-80f7e48e]{\n    text-align: center;\n}\n.head[data-v-80f7e48e]{\n    background:#242424;\n    color:white;\n    padding:10px;\n}\n.item[data-v-80f7e48e]{\n    text-align: left;\n    padding:5px;\n    background-color: #d0d0d0;\n}\n.selected[data-v-80f7e48e]{\n    border:2px solid orange;\n}\n", ""]);
+exports.push([module.i, "\n.main[data-v-80f7e48e]{\n    text-align: center;\n}\n.head[data-v-80f7e48e]{\n    background:#242424;\n    color:white;\n    padding:10px;\n}\n.item[data-v-80f7e48e]{\n    text-align: left;\n    padding:5px;\n    background-color: #d0d0d0;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n.selected[data-v-80f7e48e]{\n    border:2px solid orange;\n}\n.fas[data-v-80f7e48e]{\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -22302,7 +22322,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main" }, [
-    _c("div", { staticClass: "col-md-8 mx-auto m-top2" }, [
+    _c("div", { staticClass: "col-md-10 mx-auto m-top2" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
@@ -22393,7 +22413,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-12 d-flex main no-padding" }, [
-    _c("div", { staticClass: "mx-auto" }, [
+    _c("div", { staticClass: "mx-auto col-md-6" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
@@ -22403,17 +22423,67 @@ var render = function() {
           return _c(
             "div",
             {
-              staticClass: "col-10 mx-auto d-flex justify-content-between item",
-              on: {
-                click: function($event) {
-                  return _vm.isSelected(i)
-                }
-              }
+              staticClass: "col-10 mx-auto d-flex justify-content-between item"
             },
             [
               _c("span", { staticClass: "sm" }, [_vm._v(_vm._s(o.permission))]),
               _vm._v(" "),
-              _vm._m(1, true)
+              _c("div", { staticClass: "d-flex align-items-center" }, [
+                _c("i", {
+                  staticClass: "fas fa-plus-circle",
+                  on: {
+                    click: function($event) {
+                      return _vm.swapFrom(i)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-info m-left",
+                  on: { click: _vm.openInfo }
+                })
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mx-auto col-md-6" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.selected, function(o, i) {
+          return _c(
+            "div",
+            {
+              staticClass: "col-10 mx-auto d-flex justify-content-between item"
+            },
+            [
+              _c("span", { staticClass: "sm" }, [_vm._v(_vm._s(o.permission))]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex align-items-center" }, [
+                _c(
+                  "i",
+                  {
+                    staticClass: "fas fa-minus-circle",
+                    on: {
+                      click: function($event) {
+                        return _vm.swapTo(i)
+                      }
+                    }
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-info",
+                  on: { click: _vm.openInfo }
+                })
+              ])
             ]
           )
         }),
@@ -22435,8 +22505,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex align-items-center" }, [
-      _c("i", { staticClass: "fas fa-info" })
+    return _c("div", { staticClass: "col-12 no-padding" }, [
+      _c("div", { staticClass: "head" }, [_vm._v("Vybráno")])
     ])
   }
 ]

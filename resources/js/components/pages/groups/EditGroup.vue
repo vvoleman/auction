@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <div class="col-md-8 mx-auto m-top2">
+        <div class="col-md-10 mx-auto m-top2">
             <div class="form-group row align-items-center">
                 <label for="staticEmail" class="col-form-label bigger">Název</label>
                 <div class="col-sm-8">

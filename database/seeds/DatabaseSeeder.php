@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OfferTypesSeeder::class);
         $this->call(CategoriesSeeder::class);
         $this->call(OfferSeeder::class);
+        $this->call(GroPerSeeder::class);
     }
 }

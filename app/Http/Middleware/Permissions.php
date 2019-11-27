@@ -19,6 +19,12 @@ class Permissions
             $user = $request->user();
             foreach($perms as $p){
                 if(!$user->hasPermission($p)){
+                    if($request->ajax()){
+                        return response()->json([
+                            "response"=>403,
+                            "message"=>"Not Authorized!"
+                        ],403);
+                    }
                     $request->session()->flash("danger","Přístup zamítnut! K této činnosti nemáte oprávnění!");
                     return redirect()->back();
                 }

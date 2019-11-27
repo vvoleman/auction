@@ -10,21 +10,12 @@ class PermissionsSeeder extends Seeder
      * @return void
      */
     public function run()
-    {	
+    {
     	$perms = [
-    		"admin.admin", //can see admin panel
-    		"admin.stats",
-    		"admin.report.see",
-    		"admin.report.decide",
-    		"admin.helpdesk.reply",
-    		"admin.helpdesk.setstatus",
-    		"admin.category.add",
-    		"admin.category.modify",
-    		"admin.category.delete",
-    		"admin.active",
-    		"admin.reviews",
-    		"admin.permissions.add",
-    		"admin.permissions.delete"
+    		"settings.setting","settings.email",
+            "profile.profile","profile.pic_change",
+            "offers.new","offers.edit","offers.offer","offers.renew","offers.delete","offers.search",
+            "admin.categories","admin.groups","admin.users"
     	];
     	foreach($perms as $p){
     		DB::table('permissions')->insert(["permission"=>$p]);

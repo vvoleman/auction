@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteGroup extends FormRequest
+class AdminGetUsers extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class DeleteGroup extends FormRequest
     public function rules()
     {
         return [
-            "delete_group"=>"required|exists:groups,id_g"
+            //"name"=>"nullable|string",
+            "group_id"=>"nullable|sometimes|exists:groups,id_g",
+            "page"=>"required|integer"
         ];
     }
 }

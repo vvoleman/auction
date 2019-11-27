@@ -4,7 +4,12 @@
     <div class="col-md-8 mx-auto">
         <div class="row align-items-start">
             <div class="col-md-4 d-flex flex-wrap flex-column justify-content-between">
-                <div class="col-12 white_box m-top test">
+                <div class="col-12 white_box m-top test_offer">
+                    @if($offer->owner_id == Auth::id())
+                        <div class="row justify-content-end" style="margin-right:5px">
+                            <a href="{{route('offers.edit',["id"=>$offer->uuid])}}" class="fas fa-cog text-muted"></a>
+                        </div>
+                    @endif
                     <img src="{{$offer->owner->profpic_path()}}" class="img_bubble mx-auto d-block" width="100px">
                     <h5 class="m-top text-center">{{$offer->owner->fullname}}</h5>
                     <div class="d-flex justify-content-center align-items-center"><img src="{{$offer->owner->country->img}}" class="flag-sm" style="margin-right: 5px;">{{$offer->owner->region->name}}</div>
@@ -14,7 +19,7 @@
                         <span><b>4,7</b> <i class="fas fa-star text-danger"></i></span>
                     </div>
                 </div>
-                <div class="col-12 white_box m-top test">
+                <div class="col-12 white_box m-top test_offer">
                     <h5 class="text-center">Základní informace</h5>
                     <hr>
                     <div class="col-12 d-flex flex-wrap mx-auto">

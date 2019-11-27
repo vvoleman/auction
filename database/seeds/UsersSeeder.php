@@ -18,7 +18,7 @@ class UsersSeeder extends Seeder
             "surname"=>"Voleman",
             "email"=>"vojtavol@email.cz",
             "password"=>Hash::make("heslo123"),
-            "group_id"=>1,
+            "group_id"=>2,
             "uuid"=>Str::random(8),
             "region_id"=>6,
             "zipcode"=>"40003",

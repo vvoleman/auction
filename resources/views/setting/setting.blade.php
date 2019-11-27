@@ -8,6 +8,7 @@
     <div class="col-md-4 mx-auto white_box m-top">
         <h3>Nastavení</h3>
     </div>
+    @if(Auth::user()->hasPermission("settings.email"))
     <div class="col-md-4 mx-auto white_box m-top">
         <h5>E-mail</h5>
         <form method="post" action="{{route('emailchange.store')}}" id="emailform">
@@ -20,6 +21,7 @@
             </div>
         </form>
     </div>
+    @endif
     <div class="col-md-4 mx-auto white_box m-top">
         <form method="post" action="{{route('setting.postSetting')}}" id="settingform">
             @csrf

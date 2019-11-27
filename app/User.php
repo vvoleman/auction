@@ -20,7 +20,10 @@ class User extends Authenticatable
         return $this->belongsTo("App\Group","group_id");
     }
     public function hasPermission($permission){
-        dd($permission);
+        $data = $this->group->all_perms()->filter(function ($x) use($permission){
+            return $x->permission == $permission;
+        });
+        return $data->count() > 0;
     } //nutno dodělat
     public function country(){
         return $this->hasOneThrough(

@@ -71,6 +71,7 @@
             <input type="submit" class="btn btn-blue btn-block">
         </div>
     </form>
+    @if(Auth::user()->hasPermission("offers.delete"))
     <form id="end_form" method="post" action="{{route("offers.delete",["id"=>$offer->uuid])}}">
         @csrf
         <div class="white_box col-md-8 mx-auto m-top m-bot">
@@ -82,6 +83,7 @@
             </div>
         </div>
     </form>
+    @endif
 @stop
 @section('scripts')
     <script src="{{asset("assets/js/xregexp.min.js")}}"></script>

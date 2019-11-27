@@ -592,3 +592,27 @@ ul.breadcrumbs{
     padding-left:0 !important;
     padding-right:0 !important;
 }
+
+/*----------------------*/
+
+.head{
+    background:#d9d9d9;
+    padding:10px;
+}
+.stars{
+    font-size:25px;
+}
+.subnav a{
+    padding:10px;
+    background: #c9c9c9;
+    cursor:pointer;
+    color:black;
+    transition: 0.05s;
+    user-select: none;
+}
+.subnav a.selected{
+    background: #ababab;
+}
+.border{
+
+}

@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/test','HomeController@getTest');
+
 Route::get('/',"HomeController@getHome")->name('home.home');
 
 //LOGIN

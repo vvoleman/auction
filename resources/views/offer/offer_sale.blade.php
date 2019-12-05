@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-md-6 offer-item-info time">
                             <i class="fas fa-clock" title="Otevřeno do"></i>
-                            <span><span id="timeleft"></span></span>
+                            <span title="{{$offer->end_date->format("d. m. Y H:i")}}"><span id="timeleft">{{$offer->end_date->format("d. m. Y H:i")}}</span></span>
                         </div>
                     </div>
                     <!--<div class="d-flex justify-content-between align-items-center">

@@ -60,4 +60,44 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.profile')->with('success','Profilový obrázek byl úspěšně změněn!');
     }
+    public function getMyOffers(){
+        return view('profile.my_offers');
+    }
+    public function ajaxGetMyOffers(Request $request){
+        $data = $request->validate([
+            "page"=>"required|integer",
+            "order_by"=>"required|string",
+            "dir" => "required|boolean"
+        ]);
+        $limit = 10;
+        $user = Auth::user();
+        //orderby - název, date,
+        //filter - smazané, prodané, běžící, expirované
+        $dir = ($data["dir"] == "0") ? "asc" : "desc";
+        $q = $user->offers();
+        switch ($data["order_by"]) {
+            case 'name':
+                $q->orderBy("name",$dir);
+                break;
+            case 'date':
+                $q->orderBy("created_at",$dir);
+                break;
+        }
+        $results = $q->skip($data["page"]*$limit)->take($limit);
+        return $this->formatOffers($results);
+    }
+    private function formatOffers($data){
+        return $data->get()->map(function($x){
+            return [
+                "name"=>$x->name,
+                "img"=>($x->pictures()->count() > 0) ? $x->pictures[0]->path : null,
+                "type"=>[
+                    "id"=> $x->type->id_ot,
+                    "name"=>$x->type->name
+                ],
+                "created_at"=>strtotime($x->created_at),
+                "ended_at"=>strtotime($x->ended_at)
+            ];
+        });
+    }
 }

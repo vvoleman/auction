@@ -37,10 +37,19 @@ class OfferController extends Controller
     public function getOffer($id){
         $offer = $this->offer_exists($id);
 
-        if($offer->type->name == "Prodej"){
+        if($offer->is_time_active()){
+            if($offer->type->name == "Prodej"){
             $timestamp = Carbon::parse($offer->end_date);
             return view("offer/offer_sale",["offer"=>$offer,"timestamp"=>$timestamp]);
+            }
+        }else{
+            if(Auth::user()->id_u = $offer->owner_id){
+                return view("offer/renew_offer",["offer"=>$offer]);
+            }else{
+                return view("offer/expired");
+            }
         }
+        
     }
     public function postNewOffer(NewOffer $request){
         $data = $request->validated();
@@ -94,7 +103,7 @@ class OfferController extends Controller
             $offer->description = $data["description"];
             $offer->save();
             $offer->tags()->sync($ids);
-            dd($offer);
+            $offer->save();
 
             return redirect()->route('offers.offer',["id"=>$id])->with("success","Nabídka byla úspěšně upravena!");
         }catch(\Exception $e){
@@ -110,7 +119,7 @@ class OfferController extends Controller
         }
         $offer->end_date = Carbon::now()->addDays(30);
         if($offer->save()){
-            return redirect()->route("offers.edit",["id"=>$id])->with("success","Nabídka byla úspěšně prodloužená!");
+            return back()->with("success","Nabídka byla úspěšně prodloužená!");
         }
         return back()->with("danger","Nebylo možné obnovit nabídku!");
     }

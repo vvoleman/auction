@@ -53,7 +53,7 @@ Route::name('emailchange.')->middleware(['auth','hasPerm:settings.email'])->grou
 
 //AJAX
 Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
-    Route::get('/settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry")->middleware(['auth','hasPerm:offers.search']);
+    Route::get('/settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry");
     Route::get('/search/getBootInfo','SearchController@ajaxGetBoot')->name('searchBootInfo')->middleware('auth')->middleware(['auth','hasPerm:offers.search']);
     Route::get('/search/getOffers','SearchController@ajaxGetOffers')->name('searchOffers')->middleware('auth')->middleware(['auth','hasPerm:offers.search']);
 
@@ -99,7 +99,11 @@ Route::get("/search","SearchController@getSearch")->name("search.search")->middl
 
 //ADMIN
 Route::name("admin.")->prefix("admin")->group(function (){
-    Route::get("/categories","CategoryController@getAdminCategories")->name("adminCategories");
-    Route::get("/groups","AdminGroupsController@getGroups")->name("groups");
-    Route::get("/users","AdminUsersController@getUsers")->name("users");
-});
+    Route::get("/categories","CategoryController@getAdminCategories")->middleware(['auth','hasPerm:admin.categories'])->name("adminCategories");
+    Route::get("/groups","AdminGroupsController@getGroups")->middleware(['auth','hasPerm:admin.groups'])->name("groups");
+    Route::get("/users","AdminUsersController@getUsers")->middleware(['auth','hasPerm:admin.users'])->name("users");
+}); 
+
+
+Route::get('/ajax/myoffers','ProfileController@ajaxGetMyOffers');
+Route::get('/myoffers','ProfileController@getMyOffers')->name('profile.myOffers')->middleware('auth');

@@ -18,23 +18,26 @@ class Timer{
         },300);
     }
     _timeLeft(time){
-        console.log(time,this.final_time);
+        console.log(this.final_time,time);
         return (time > this.final_time) ? null : this.final_time-time;
     }
     _toString(time){
-        const arr = [
-            3600000,60000,1000
-        ];
-        let res = [];
-        for(var i=0;i<arr.length;i++){
-            res[0] = Math.floor(time/arr[i]);
-            time %= arr[i];
-        }
-        return res[0]+":"+res[1]+":"+res[2];
+            var timeLeft = time/1000;
+
+            var hours = Math.floor((timeLeft / 3600));
+            var minutes = Math.floor((timeLeft - (hours * 3600 )) / 60);
+            var seconds = Math.floor((timeLeft - (hours * 3600) - (minutes * 60)));
+  
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+
+        return hours+":"+minutes+":"+seconds;
 
     }
     __timerEnded(){
         console.log("Ukončuji");
+        window.location.reload();
         clearInterval(this.interval);
 
     }

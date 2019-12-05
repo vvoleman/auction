@@ -41,7 +41,8 @@ class RegisterController extends Controller
                 "password"=>Hash::make($data["password"]),
                 "zipcode"=>intval($data["zipcode"]),
                 "region_id"=>$data["region_id"],
-                "address"=>$data["address"]
+                "address"=>$data["address"],
+                "group_id"=>1
             ]); //vytvoří už. účet
             if($user->save()){
                 try{

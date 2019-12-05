@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\User;
 use App\Picture;
@@ -67,7 +68,8 @@ class ProfileController extends Controller
         $data = $request->validate([
             "page"=>"required|integer",
             "order_by"=>"required|string",
-            "dir" => "required|boolean"
+            "dir" => "required|boolean",
+            "filter"=>"required|string"
         ]);
         $limit = 10;
         $user = Auth::user();
@@ -82,9 +84,30 @@ class ProfileController extends Controller
             case 'date':
                 $q->orderBy("created_at",$dir);
                 break;
+            default:
+                return response('Invalid argument',422);
         }
+        switch ($data["filter"]){
+            case "deleted":
+                $q->where('delete_reason','!=',null);
+                break;
+            case "active":
+                $q->where('delete_reason',null)->where('end_date','>',Carbon::now());
+                break;
+            case "expired":
+                $q->where('end_date','<',Carbon::now());
+                break;
+            default:
+                break;
+        }
+        $count = $q->count();
         $results = $q->skip($data["page"]*$limit)->take($limit);
-        return $this->formatOffers($results);
+        $results = $this->formatOffers($results);
+        return [
+            "count"=>$count,
+            "data"=>$results,
+            "next_page"=>($count > ($data["page"]*$limit+$limit)) ? intval($data["page"])+1 : false
+        ];
     }
     private function formatOffers($data){
         return $data->get()->map(function($x){

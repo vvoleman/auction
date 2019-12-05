@@ -2,35 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="224deccc-da56-4a3c-9699-6dc6eece53b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/groups/ShowHistory.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/users/EditUser.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/users/config-users.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/configure/users.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminGroupsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminGroupsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Permissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Permissions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/DeleteGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/DeleteGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/groups/EditGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/groups/EditGroup.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/groups/GroupsList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/groups/GroupsList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/groups/ManagePerms.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/groups/ManagePerms.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/groups/NewGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/groups/NewGroup.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/groups/config-groups.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/groups/config-groups.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/configure/groups.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/configure/groups.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/offer/edit_offer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/offer/edit_offer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/offer/offer_sale.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/offer/offer_sale.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/offer/renew_offer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/offer/renew_offer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setting/setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setting/setting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/my_offers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/my_offers.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,245 +92,109 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.12839673">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/config-groups.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/ManagePerms.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-                  <folding>
-                    <element signature="e#40#76#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/users/config-users.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-                  <folding>
-                    <element signature="e#1273#1307#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/ShowHistory.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/GroupsList.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminGroupsController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#289#375#0#PHP" />
-                    <element signature="e#890#1045#0#PHP" />
-                    <element signature="e#1002#1045#0#PHP" />
-                    <element signature="e#1055#1084#0#PHP" />
-                    <element signature="e#1299#1780#0#PHP" />
-                    <element signature="e#1338#1501#0#PHP" />
-                    <element signature="e#1523#1626#0#PHP" />
-                    <element signature="e#1548#1625#2#PHP" />
-                    <element signature="e#1640#1769#0#PHP" />
-                    <element signature="e#1665#1768#1#PHP" />
-                    <element signature="e#1690#1767#2#PHP" />
-                    <element signature="e#1789#2113#0#PHP" />
-                    <element signature="e#1959#2102#0#PHP" />
-                    <element signature="e#2040#2101#0#PHP" />
-                    <element signature="e#2308#2409#0#PHP" />
-                    <element signature="e#2351#2398#0#PHP" />
-                    <element signature="e#2422#2730#0#PHP" />
-                    <element signature="e#2495#2699#0#PHP" />
-                    <element signature="e#2527#2689#0#PHP" />
-                    <element signature="e#2566#2675#0#PHP" />
-                    <element signature="e#2736#3283#0#PHP" />
-                    <element signature="e#2934#3046#0#PHP" />
-                    <element signature="e#3097#3277#0#PHP" />
-                    <element signature="e#3148#3194#0#PHP" />
-                    <element signature="e#3206#3277#0#PHP" />
-                    <element signature="e#3288#4131#0#PHP" />
-                    <element signature="e#3357#3475#0#PHP" />
-                    <element signature="e#3376#3474#1#PHP" />
-                    <element signature="e#3486#3641#0#PHP" />
-                    <element signature="e#3598#3641#0#PHP" />
-                    <element signature="e#3660#3722#0#PHP" />
-                    <element signature="e#3674#3721#1#PHP" />
-                    <element signature="e#3782#4125#0#PHP" />
-                    <element signature="e#3931#4012#0#PHP" />
-                    <element signature="e#4024#4125#0#PHP" />
-                    <element signature="e#4067#4114#0#PHP" />
-                    <element signature="e#4136#4218#0#PHP" />
-                    <element signature="e#4258#5234#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_31_181006_create_offers_table.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Offer.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/sub/modal.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1632">
-                  <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/web.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="188">
-                  <caret line="57" column="157" selection-start-line="57" selection-start-column="157" selection-end-line="57" selection-end-column="157" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Permissions.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
-                  <caret line="318" column="11" selection-start-line="318" selection-start-column="11" selection-end-line="318" selection-end-column="11" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/setting/setting.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
-                  <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewOffer.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/offer/offer_sale.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="78" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/offer/renew_offer.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="60" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/offer/edit_offer.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/profile/profile.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="12" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-319">
+              <caret line="57" column="157" selection-start-line="57" selection-start-column="157" selection-end-line="57" selection-end-column="157" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="511">
+              <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+              <folding>
+                <element signature="e#40#58#0#PHP" expanded="true" />
+                <element signature="e#2612#2906#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+              <folding>
+                <element signature="e#361#391#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#100#144#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/profile/my_offers.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Permissions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/offer/edit_offer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1445">
+              <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/profile/profile.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -393,11 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_09_30_151630_create_gro_per_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_09_30_144928_create_groups_table.php" />
-        <option value="$PROJECT_DIR$/database/seeds/PicturesSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/CategoriesSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/sub/Loader.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/config-categories.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/sub/ImagePreview.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/sub/CategoriesShower.vue" />
@@ -421,7 +258,6 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/AdminGetUsers.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/EditUserGroup.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/users/users-config.vue" />
-        <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/configure/users.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/users/EditUser.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" />
@@ -444,6 +280,12 @@
         <option value="$PROJECT_DIR$/resources/js/components/pages/users/config-users.vue" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/Permissions.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/views/profile/my_offers.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" />
       </list>
     </option>
   </component>
@@ -566,73 +408,6 @@
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
               <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -663,52 +438,13 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="groups" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="sub" type="462c0819:PsiDirectoryNode" />
+              <item name="myoffers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
               <item name="4projekt" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="configure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="offer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
@@ -716,13 +452,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="setting" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -744,15 +473,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\4projekt\storage\app\public\images\category_images" />
-      <recent name="C:\xampp\htdocs\4projekt\storage\app\public\images\profile_pictures" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\4projekt\resources\js\components\sub" />
       <recent name="C:\xampp\htdocs\4projekt\resources\js\components\pages\search" />
       <recent name="C:\xampp\htdocs\4projekt\resources\js\components\pages\categories" />
       <recent name="C:\xampp\htdocs\4projekt\resources\js\components\pages" />
+      <recent name="C:\xampp\htdocs\4projekt\storage\app\public\images\profile_pictures" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\4projekt\storage\app\public\images\category_images" />
       <recent name="C:\xampp\htdocs\4projekt\storage\app\public\images\profile_pictures" />
     </key>
   </component>
@@ -852,12 +581,15 @@
       <workItem from="1574704552023" duration="7002000" />
       <workItem from="1574786113220" duration="7905000" />
       <workItem from="1574797323000" duration="3049000" />
-      <workItem from="1574867117711" duration="28593000" />
+      <workItem from="1574867117711" duration="29292000" />
+      <workItem from="1574972506361" duration="629000" />
+      <workItem from="1575127175526" duration="598000" />
+      <workItem from="1575560757003" duration="6357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="428361000" />
+    <option name="totallyTimeSpent" value="436644000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -870,9 +602,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2217484" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -964,28 +695,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/categories/CategoriesShower.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#edit-category#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages.vue" />
-    <entry file="file://$PROJECT_DIR$/database/seeds/PermissionTypesSeeder.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_25_155531_create_permission_types_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_30_145011_create_permissions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/_nav.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1076,17 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="75" selection-start-line="21" selection-start-column="75" selection-end-line="21" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#100#144#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/AdminGetUsers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1115,33 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding>
-            <element signature="e#40#76#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/config-groups.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/sub/modal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/_formmsgs.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1149,34 +820,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/GroupsList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/ShowHistory.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/ManagePerms.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_11_27_233153_create_gro_per_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_11_27_233153_create_gro_per_table.php" />
     <entry file="file://$PROJECT_DIR$/database/seeds/GroupsSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1205,67 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminGroupsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
-          <folding>
-            <element signature="e#289#375#0#PHP" />
-            <element signature="e#890#1045#0#PHP" />
-            <element signature="e#1002#1045#0#PHP" />
-            <element signature="e#1055#1084#0#PHP" />
-            <element signature="e#1299#1780#0#PHP" />
-            <element signature="e#1338#1501#0#PHP" />
-            <element signature="e#1523#1626#0#PHP" />
-            <element signature="e#1548#1625#2#PHP" />
-            <element signature="e#1640#1769#0#PHP" />
-            <element signature="e#1665#1768#1#PHP" />
-            <element signature="e#1690#1767#2#PHP" />
-            <element signature="e#1789#2113#0#PHP" />
-            <element signature="e#1959#2102#0#PHP" />
-            <element signature="e#2040#2101#0#PHP" />
-            <element signature="e#2308#2409#0#PHP" />
-            <element signature="e#2351#2398#0#PHP" />
-            <element signature="e#2422#2730#0#PHP" />
-            <element signature="e#2495#2699#0#PHP" />
-            <element signature="e#2527#2689#0#PHP" />
-            <element signature="e#2566#2675#0#PHP" />
-            <element signature="e#2736#3283#0#PHP" />
-            <element signature="e#2934#3046#0#PHP" />
-            <element signature="e#3097#3277#0#PHP" />
-            <element signature="e#3148#3194#0#PHP" />
-            <element signature="e#3206#3277#0#PHP" />
-            <element signature="e#3288#4131#0#PHP" />
-            <element signature="e#3357#3475#0#PHP" />
-            <element signature="e#3376#3474#1#PHP" />
-            <element signature="e#3486#3641#0#PHP" />
-            <element signature="e#3598#3641#0#PHP" />
-            <element signature="e#3660#3722#0#PHP" />
-            <element signature="e#3674#3721#1#PHP" />
-            <element signature="e#3782#4125#0#PHP" />
-            <element signature="e#3931#4012#0#PHP" />
-            <element signature="e#4024#4125#0#PHP" />
-            <element signature="e#4067#4114#0#PHP" />
-            <element signature="e#4136#4218#0#PHP" />
-            <element signature="e#4258#5234#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_31_181006_create_offers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Offer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1287,31 +870,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/config-groups.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+        <state relative-caret-position="1105">
+          <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewOffer.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/ManagePerms.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        <state relative-caret-position="1564">
+          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <element signature="e#40#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/ShowHistory.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/GroupsList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminGroupsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_31_181006_create_offers_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Offer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/sub/modal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/users/config-users.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
+        <state relative-caret-position="5406">
           <caret line="318" column="11" selection-start-line="318" selection-start-column="11" selection-end-line="318" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1319,6 +957,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewOffer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1338,32 +990,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/offer/edit_offer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
+        <state relative-caret-position="1445">
           <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/users/config-users.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-          <folding>
-            <element signature="e#1273#1307#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="57" column="157" selection-start-line="57" selection-start-column="157" selection-end-line="57" selection-end-column="157" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Permissions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        <state relative-caret-position="425">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-319">
+          <caret line="57" column="157" selection-start-line="57" selection-start-column="157" selection-end-line="57" selection-end-column="157" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#100#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/my_offers.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="107" column="29" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+          <folding>
+            <element signature="e#40#58#0#PHP" expanded="true" />
+            <element signature="e#2612#2906#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="45" column="47" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding>
+            <element signature="e#361#391#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

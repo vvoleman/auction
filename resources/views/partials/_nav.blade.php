@@ -19,7 +19,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{{route('profile.profile')}}">Profil</a>
-                    <a class="dropdown-item" href="#">Moje nabídky</a>
+                    <a class="dropdown-item" href="{{route('profile.myOffers')}}">Moje nabídky</a>
                     <a class="dropdown-item" href="{{route('setting.setting')}}">Nastavení</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{route('login.logout')}}">Odhlásit se</a>

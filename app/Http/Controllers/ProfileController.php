@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\User;
 use App\Picture;
+use App\Offer;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -113,14 +114,31 @@ class ProfileController extends Controller
         return $data->get()->map(function($x){
             return [
                 "name"=>$x->name,
-                "img"=>($x->pictures()->count() > 0) ? $x->pictures[0]->path : null,
+                "picture"=>($x->pictures()->count() > 0) ? $x->pictures[0]->path : null,
+                "url"=>route('offers.offer',["id"=>$x->uuid]),
+                "status"=>$this->getStatus($x),
                 "type"=>[
                     "id"=> $x->type->id_ot,
                     "name"=>$x->type->name
                 ],
+                "price"=>$x->price,
+                "category"=>$x->category->name,
+                "id"=>$x->id_o,
+
                 "created_at"=>strtotime($x->created_at),
-                "ended_at"=>strtotime($x->ended_at)
+                "end_date"=>strtotime($x->end_date)
             ];
         });
+    }
+    private function getStatus(Offer $o){
+        if($o->delete_reason == null){
+            if($o->end_date >= Carbon::now()){
+                return "expired";
+            }else{
+                return "active";
+            }
+        }else{
+            return "deleted";
+        }
     }
 }

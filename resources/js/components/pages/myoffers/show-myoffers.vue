@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-8 mx-auto">
         <navbar class="" @change="filtersChanged"></navbar>
         <div class="m-top">
         <transition name="fade" mode="out-in">

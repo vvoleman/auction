@@ -51,6 +51,9 @@
             },
             sel_filter(){
                 this.$emit("change",this.selected);
+            },
+            dir(){
+                this.$emit("change",this.selected);
             }
         },
         computed:{

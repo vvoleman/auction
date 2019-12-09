@@ -35,6 +35,15 @@ class Offer extends Model
     public function category(){
         return $this->belongsTo("\App\Category","category_id");
     }
+    public function sells(){
+        return $this->hasMany("\App\OfferSell","offer_id");
+    }
+    public function availableSell(){
+        if($this->sold_to != null){
+            return false;
+        }
+        return $this->sells()->whereNull('deleted_at')->first();
+    }
 
     public function isActive(){
         return !$this->end_date->isPast();

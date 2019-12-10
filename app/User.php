@@ -59,5 +59,4 @@ class User extends Authenticatable
     public function review_score(){
         return 5;
     }
-    public function all_
 }

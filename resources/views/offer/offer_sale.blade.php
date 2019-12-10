@@ -1,6 +1,26 @@
 @extends('mains.main')
 @section('title',$offer->name." | ")
 @section('content')
+    <show-selloffer o_data=""></show-selloffer>
+    //is_owner
+        //route to edit
+    //owner
+        //profpic_path
+        //fullname
+    //countryimg
+    //regionname
+    //deliverylabel
+    //paymentlabel
+    //price
+    //currencyshort
+    //end_datetimestamp
+    //end_dateformat
+    //name
+    //imgs?
+    //tagsname
+    //desc
+
+
     <div class="col-md-8 mx-auto">
         <div class="row align-items-start">
             <div class="col-md-4 d-flex flex-wrap flex-column justify-content-between">

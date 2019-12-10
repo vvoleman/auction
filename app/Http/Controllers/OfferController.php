@@ -39,8 +39,9 @@ class OfferController extends Controller
 
         if($offer->is_time_active()){
             if($offer->type->name == "Prodej"){
-            $timestamp = Carbon::parse($offer->end_date);
-            return view("offer/offer_sale",["offer"=>$offer,"timestamp"=>$timestamp]);
+                $timestamp = Carbon::parse($offer->end_date);
+                $temp = $this->prepareSellData($offer);
+                return view("offer/offer_sale",["offer"=>$offer,"timestamp"=>$timestamp]);
             }
         }else{
             if(Auth::user()->id_u = $offer->owner_id){
@@ -184,14 +185,29 @@ class OfferController extends Controller
         }
         return collect($final);
     }
-    private function correct_payment($delivery,$payment){
-        $dt = DeliveryType::find($delivery)->all_available_payments();
-        foreach($dt as $d){
-            if($d->id_pt == $payment){
-                return true;
-            }
-        }
-        return false;
-
+    private function prepareSellData($offer){
+        //countryimg
+        //regionname
+        //deliverylabel
+        //paymentlabel
+        //price
+        //currencyshort
+        //end_datetimestamp
+        //end_dateformat
+        //imgs?
+        //tagsname
+        //desc
+        return [
+            "name"=>$offer->name,
+            "owner"=>[
+                "fullname"=>$offer->owner->fullname,
+                "profpic_path"=>$offer->owner->profpic_path(),
+                "url"=>route('profile.profile',["uuid"=>$offer->owner->uuid])
+            ],
+            "is_owner"=>$offer->owner->id_u == Auth::id(),
+            "edit_url"=>($offer->owner->id_u == Auth::id()) ? $route('offers.edit',["id"=>$offer->uuid]) : null,
+            "price"=>$offer->price,
+            
+        ];
     }
 }

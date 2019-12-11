@@ -41,7 +41,7 @@ class OfferController extends Controller
             if($offer->type->name == "Prodej"){
                 $timestamp = Carbon::parse($offer->end_date);
                 $temp = $this->prepareSellData($offer);
-                return view("offer/offer_sale",["offer"=>$offer,"timestamp"=>$timestamp]);
+                return view("offer/offer_sale",["data"=>collect($temp)->toJson(JSON_UNESCAPED_UNICODE)]);
             }
         }else{
             if(Auth::user()->id_u = $offer->owner_id){
@@ -186,17 +186,8 @@ class OfferController extends Controller
         return collect($final);
     }
     private function prepareSellData($offer){
-        //countryimg
-        //regionname
-        //deliverylabel
-        //paymentlabel
-        //price
-        //currencyshort
-        //end_datetimestamp
-        //end_dateformat
-        //imgs?
-        //tagsname
-        //desc
+        $timestamp = strtotime($offer->end_date);
+
         return [
             "name"=>$offer->name,
             "owner"=>[
@@ -205,9 +196,20 @@ class OfferController extends Controller
                 "url"=>route('profile.profile',["uuid"=>$offer->owner->uuid])
             ],
             "is_owner"=>$offer->owner->id_u == Auth::id(),
-            "edit_url"=>($offer->owner->id_u == Auth::id()) ? $route('offers.edit',["id"=>$offer->uuid]) : null,
+            "edit_url"=>($offer->owner->id_u == Auth::id()) ? route('offers.edit',["id"=>$offer->uuid]) : null,
             "price"=>$offer->price,
-            
+            "tags"=>$offer->tags->map(function($x){return $x->name;}),
+            "country_img"=>$offer->owner->region->country->img,
+            "region"=>$offer->owner->region->name,
+            "delivery"=>$offer->delivery_type->label,
+            "delivery"=>$offer->payment_type->label,
+            "currency"=>$offer->currency->short,
+            "end_date"=>[
+                "timestamp"=>$timestamp,
+                "format"=>date("d. m. Y H:i",$timestamp)
+            ],
+            "description"=>$offer->desc,
+            "imgs"=>[] //TODO
         ];
     }
 }

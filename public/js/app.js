@@ -3126,8 +3126,127 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "show-selloffer"
+  name: "show-selloffer",
+  props: ["o_data"],
+  data: function data() {
+    return {
+      data: null,
+      buy_modal: false
+    };
+  },
+  mounted: function mounted() {
+    this.data = JSON.parse(this.o_data);
+  },
+  methods: {
+    openBuyModal: function openBuyModal() {
+      this.buy_modal = true;
+    },
+    closeBuyModal: function closeBuyModal() {
+      this.buy_modal = false;
+    }
+  }
 });
 
 /***/ }),
@@ -24154,9 +24273,345 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm.data != null
+    ? _c("div", { staticClass: "col-md-8 mx-auto" }, [
+        _c("div", { staticClass: "row align-items-start" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-md-4 d-flex flex-wrap flex-column justify-content-between"
+            },
+            [
+              _c("div", { staticClass: "col-12 white_box m-top test_offer" }, [
+                _vm.data.is_owner
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "row justify-content-end",
+                        staticStyle: { "margin-right": "5px" }
+                      },
+                      [
+                        _c("a", {
+                          staticClass: "fas fa-cog text-muted",
+                          attrs: { href: _vm.data.edit_url }
+                        })
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "img_bubble mx-auto d-block",
+                  attrs: { src: _vm.data.owner.profpic_path, width: "100px" }
+                }),
+                _vm._v(" "),
+                _c("h5", { staticClass: "m-top text-center" }, [
+                  _vm._v(_vm._s(_vm.data.owner.fullname))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex justify-content-center align-items-center"
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "flag-sm",
+                      staticStyle: { "margin-right": "5px" },
+                      attrs: { src: _vm.data.country_img }
+                    }),
+                    _vm._v(_vm._s(_vm.data.region) + "\n                ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _vm._m(0)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 white_box m-top test_offer" }, [
+                _c("h5", { staticClass: "text-center" }, [
+                  _vm._v("Základní informace")
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 d-flex flex-wrap mx-auto" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-6 offer-item-info delivery" },
+                    [
+                      _c("i", {
+                        staticClass: "fas fa-truck",
+                        attrs: { title: "Doprava" }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(_vm.data.delivery))])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-md-6 offer-item-info payment" },
+                    [
+                      _c("i", {
+                        staticClass: "far fa-money-bill-alt",
+                        attrs: { title: "Platba" }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(_vm.data.payment))])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 offer-item-info money" }, [
+                    _c("i", {
+                      staticClass: "fas fa-coins",
+                      attrs: { title: "Cena" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(_vm._s(_vm.data.price) + _vm._s(_vm.data.currency))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6 offer-item-info time" }, [
+                    _c("i", {
+                      staticClass: "fas fa-clock",
+                      attrs: { title: "Otevřeno do" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { attrs: { title: _vm.data.end_date.format } }, [
+                      _c("span", { attrs: { id: "timeleft" } }, [
+                        _vm._v(_vm._s(_vm.data.end_date.format))
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-block btn-blue m-top",
+                  staticStyle: { padding: "30px" },
+                  on: { click: _vm.openBuyModal }
+                },
+                [_vm._v("Zakoupit")]
+              ),
+              _vm._v(" "),
+              _vm.buy_modal
+                ? _c("modal", [
+                    _c("div", { attrs: { slot: "header" }, slot: "header" }, [
+                      _vm._v("Zakoupit předmět")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { attrs: { slot: "body" }, slot: "body" }, [
+                      _c("p", [_c("b", [_vm._v("Jak to funguje?")])]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Nejdříve zašleme Vaší žádost k potvrzení autorovi nabídky."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { attrs: { slot: "footer" }, slot: "footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          on: { click: _vm.closeBuyModal }
+                        },
+                        [_vm._v("Zavřít")]
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-8" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-12 white_box m-top d-flex justify-content-between align-items-center"
+              },
+              [
+                _c("span", { staticClass: "offer_head" }, [
+                  _vm._v(_vm._s(_vm.data.name))
+                ]),
+                _vm._v(" "),
+                _c("span", [
+                  _c("b", [
+                    _vm._v(_vm._s(_vm.data.price) + _vm._s(_vm.data.currency))
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row box m-top" }, [
+          _c("div", { staticClass: "white_box w-100 m-15" }, [
+            _c("h4", { staticStyle: { "margin-left": "5px" } }, [
+              _vm._v("Informace")
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "div",
+                { staticClass: "tags" },
+                _vm._l(_vm.data.tags, function(o) {
+                  return _c("div", { staticClass: "tag" }, [_vm._v(_vm._s(o))])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { domProps: { innerHTML: _vm._s(_vm.data.description) } })
+          ])
+        ])
+      ])
+    : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("span", { staticClass: "offer_info" }, [
+        _c("b", [_vm._v("15")]),
+        _vm._v(" nabídek")
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _c("b", [_vm._v("4,7")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-star text-danger" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 white_box m-top" }, [
+      _c(
+        "div",
+        {
+          staticClass: "carousel slide",
+          attrs: { id: "carouselExampleIndicators", "data-ride": "carousel" }
+        },
+        [
+          _c("ol", { staticClass: "carousel-indicators" }, [
+            _c("li", {
+              staticClass: "active",
+              attrs: {
+                "data-target": "#carouselExampleIndicators",
+                "data-slide-to": "0"
+              }
+            }),
+            _vm._v(" "),
+            _c("li", {
+              attrs: {
+                "data-target": "#carouselExampleIndicators",
+                "data-slide-to": "1"
+              }
+            }),
+            _vm._v(" "),
+            _c("li", {
+              attrs: {
+                "data-target": "#carouselExampleIndicators",
+                "data-slide-to": "2"
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "carousel-inner" }, [
+            _c("div", { staticClass: "carousel-item active" }, [
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: {
+                  src:
+                    "https://www.stoplusjednicka.cz/sites/default/files/styles/full/public/obrazky/2019/03/22_01_panda.jpg?itok=zLpPRNsW",
+                  alt: "..."
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "carousel-item" }, [
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: {
+                  src:
+                    "https://www.stoplusjednicka.cz/sites/default/files/styles/full/public/obrazky/2019/03/22_01_panda.jpg?itok=zLpPRNsW",
+                  alt: "..."
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "carousel-item" }, [
+              _c("img", {
+                staticClass: "d-block w-100",
+                attrs: {
+                  src:
+                    "https://www.stoplusjednicka.cz/sites/default/files/styles/full/public/obrazky/2019/03/22_01_panda.jpg?itok=zLpPRNsW",
+                  alt: "..."
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "carousel-control-prev",
+              attrs: {
+                href: "#carouselExampleIndicators",
+                role: "button",
+                "data-slide": "prev"
+              }
+            },
+            [
+              _c("span", {
+                staticClass: "carousel-control-prev-icon",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "sr-only" }, [_vm._v("Předchozí")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "carousel-control-next",
+              attrs: {
+                href: "#carouselExampleIndicators",
+                role: "button",
+                "data-slide": "next"
+              }
+            },
+            [
+              _c("span", {
+                staticClass: "carousel-control-next-icon",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "sr-only" }, [_vm._v("Další")])
+            ]
+          )
+        ]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -40714,8 +41169,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\auction\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\auction\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

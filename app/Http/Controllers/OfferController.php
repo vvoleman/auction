@@ -50,7 +50,7 @@ class OfferController extends Controller
                 return view("offer/expired");
             }
         }
-        
+
     }
     public function postNewOffer(NewOffer $request){
         $data = $request->validated();
@@ -185,6 +185,16 @@ class OfferController extends Controller
         }
         return collect($final);
     }
+    private function correct_payment($delivery,$payment){
+        $dt = DeliveryType::find($delivery)->all_available_payments();
+        foreach($dt as $d){
+            if($d->id_pt == $payment){
+                return true;
+            }
+        }
+        return false;
+
+    }
     private function prepareSellData($offer){
         $timestamp = strtotime($offer->end_date);
 
@@ -202,7 +212,7 @@ class OfferController extends Controller
             "country_img"=>$offer->owner->region->country->img,
             "region"=>$offer->owner->region->name,
             "delivery"=>$offer->delivery_type->label,
-            "delivery"=>$offer->payment_type->label,
+            "payment"=>$offer->payment_type->label,
             "currency"=>$offer->currency->short,
             "end_date"=>[
                 "timestamp"=>$timestamp,

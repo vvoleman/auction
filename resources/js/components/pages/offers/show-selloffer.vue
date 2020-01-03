@@ -39,15 +39,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-block btn-blue m-top" style="padding:30px;" @click="openBuyModal">Zakoupit</button>
-                <modal v-if="buy_modal">
-                    <div slot="header">Zakoupit předmět</div>
-                    <div slot="body">
-                        <p><b>Jak to funguje?</b></p>
-                        <p>Nejdříve zašleme Vaší žádost k potvrzení autorovi nabídky.</p>
+                <button v-if="data.customer.can_buy" class="btn btn-block btn-blue m-top" style="padding:30px;" @click="openBuyModal">Zakoupit</button>
+                <div v-else class="btn-block cant-buy m-top text-center">
+                    Již jste odeslal žádost o koupi
+                    <div class="d-flex justify-content-center col-12">
+                        <button class="btn btn-sm btn-danger m-top " :disabled="remove_modal" @click="remove_modal = true">Smazat</button>
                     </div>
-                    <div slot="footer"><button class="btn btn-danger" @click="closeBuyModal">Zavřít</button></div>
-                </modal>
+                </div>
+                <remove-sell :offer_id="data.uuid" v-if="remove_modal" @close="remove_modal = false" @save="sellRemoved"></remove-sell>
+                <buy-offer @save="reloadPage" style="border:1px solid black" @close="closeBuyModal" v-if="buy_modal" :addresses="[]" :info="{offer_id:data.uuid,name:data.name,price:data.price,delivery:data.delivery,payment:data.payment,currency:data.currency,address:data.customer.address,fullname:data.customer.fullname}"></buy-offer>
             </div>
             <div class="col-md-8">
                 <div class="col-12 white_box m-top d-flex justify-content-between align-items-center">
@@ -104,13 +104,17 @@
 </template>
 
 <script>
+    import BuyOffer from "./buy-offer";
+    import RemoveSell from "./remove-sell";
     export default {
         name: "show-selloffer",
+        components: {RemoveSell, BuyOffer},
         props: ["o_data"],
         data() {
             return {
                 data: null,
-                buy_modal:false
+                buy_modal:false,
+                remove_modal:false
             };
         },
         mounted() {
@@ -122,11 +126,20 @@
             },
             closeBuyModal(){
                 this.buy_modal = false;
+            },
+            sellRemoved(){
+                this.data.customer.can_buy = true;
+            },
+            reloadPage(){
+                location.reload();
             }
         }
     }
 </script>
 
 <style scoped>
-
+    .cant-buy{
+        background:#d0d0d0;
+        padding:20px;
+    }
 </style>

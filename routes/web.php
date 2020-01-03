@@ -73,6 +73,9 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
 
     Route::get('/admin/getUsers','AdminUsersController@ajaxGetUsers')->middleware(['auth','hasPerm:admin.users']);
     Route::post('/admin/editUser','AdminUsersController@ajaxEditUser')->middleware(['auth','hasPerm:admin.users']);
+
+    Route::post('/offers/newBuy','OfferController@ajaxBuyOffer')->middleware(['auth']);
+    Route::post('/offers/removeOfferSell','OfferController@ajaxRemoveOfferSell')->middleware(['auth']);
 });
 
 //PROFILEPIC CHANGE
@@ -102,7 +105,7 @@ Route::name("admin.")->prefix("admin")->group(function (){
     Route::get("/categories","CategoryController@getAdminCategories")->middleware(['auth','hasPerm:admin.categories'])->name("adminCategories");
     Route::get("/groups","AdminGroupsController@getGroups")->middleware(['auth','hasPerm:admin.groups'])->name("groups");
     Route::get("/users","AdminUsersController@getUsers")->middleware(['auth','hasPerm:admin.users'])->name("users");
-}); 
+});
 
 
 Route::get('/ajax/myoffers','ProfileController@ajaxGetMyOffers');

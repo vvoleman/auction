@@ -26,6 +26,7 @@ class SettingController extends Controller
             "region_id"=>$user->region_id,
             "regions"=>new Collection($regions),
             "countries"=>Country::all(),
+            "city"=>$user->city,
             "zipcode"=>$user->zipcode,
             "address"=>$user->address
         ];

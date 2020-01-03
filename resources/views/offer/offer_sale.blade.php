@@ -1,58 +1,51 @@
 @extends('mains.main')
 @section('content')
     <show-selloffer o_data="{{$data}}"></show-selloffer>
-    <div id="m" style="height:360px"></div>
+    <!--<div id="m" style="height:600px"></div>!-->
 @stop
 @section('scripts')
+    <!--
     <script src="https://api.mapy.cz/loader.js"></script>
     <script>Loader.load()</script>
     <script type="text/javascript">
         var obrazek = "https://api.mapy.cz/img/api/marker/drop-red.png";
-
         var m = new SMap(JAK.gel("m"));
-        m.addControl(new SMap.Control.Sync()); /* Aby mapa reagovala na změnu velikosti průhledu */
+        m.addControl(new SMap.Control.Sync());
         m.addDefaultLayer(SMap.DEF_BASE).enable(); /* Turistický podklad */
         var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM); /* Ovládání myší */
         m.addControl(mouse);
 
-        var data = {
-            "Karlštejn": "49°56'21.57\"N,14°11'17.96\"E",
-            "Křivoklát": "50°2'16.36\"N,13°52'18.59\"E",
-            "Kost": "50°29'24.83\"N,15°8'6.38\"E"
-        };
-        var znacky = [];
-        var souradnice = [];
+        var adr1 = "Kollárova 226/2, 400 03, Česká republika";
+        var adr2 = "Praha";
 
-        for (var name in data) { /* Vyrobit značky */
-            var c = SMap.Coords.fromWGS84(data[name]); /* Souřadnice značky, z textového formátu souřadnic */
-
-            var options = {
-                url:obrazek,
-                title:name,
-                anchor: {left:10, bottom: 1}  /* Ukotvení značky za bod uprostřed dole */
+        new SMap.Geocoder([adr1,adr2],(data)=>{
+            var body = [];
+            var results = data.getResults();
+            for(var i=0;i<results.length;i++){
+                if(results[i].results.length == 0){
+                    console.log("Neplatná adresa!");
+                }else{
+                    body.push(results[i].results[0].coords);
+                }
             }
+            vykresliBody(body);
+        });
+        function vykresliBody(body) {
+            var znacky = [];
+            console.log(body);
+            znacky.push(new SMap.Marker(body[0],null,{title:"Prodejce"}));
+            znacky.push(new SMap.Marker(body[1],null,{title:"Vy"}));
+            //console.log(znacky);
 
-            var znacka = new SMap.Marker(c, null, options);
-            souradnice.push(c);
-            znacky.push(znacka);
+            var layer = new SMap.Layer.Marker();     /* Vrstva se značkami */
+            console.log(m);
+            m.addLayer(layer);
+            layer.enable();
+            for(var i=0;i<znacky.length;i++){
+                layer.addMarker(znacky[i]);
+            }
+            var cz = m.computeCenterZoom(body)
+            m.setCenterZoom(cz[0], cz[1]);
         }
-
-
-        /* Křivoklát ukotvíme za střed značky, přestože neznáme její velikost */
-        var options = {
-            anchor: {left:0.5, top:0.5}
-        }
-        znacky[1].decorate(SMap.Marker.Feature.RelativeAnchor, options);
-
-        var vrstva = new SMap.Layer.Marker();     /* Vrstva se značkami */
-        m.addLayer(vrstva);                          /* Přidat ji do mapy */
-        vrstva.enable();                         /* A povolit */
-        for (var i=0;i<znacky.length;i++) {
-            vrstva.addMarker(znacky[i]);
-        }
-
-        var cz = m.computeCenterZoom(souradnice); /* Spočítat pozici mapy tak, aby značky byly vidět */
-        m.setCenterZoom(cz[0], cz[1]);
-
-    </script>
+    </script>!-->
 @stop

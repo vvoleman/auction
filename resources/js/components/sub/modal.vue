@@ -1,36 +1,23 @@
 <template>
     <transition name="fade">
-        <div @keydown.esc="close" class="modal-backdrop">
-            <div class="modal">
-                <header class="modal-header">
-                    <slot name="header">
-                        This is the default tile!
+        <div @keydown.esc="close" class="modal-mask" v-show="true" transition="modal">
+            <div class="modal-wrapper">
+                <div class="modal-container col-md-8 col-xl-6 col-10">
+                    <div class="modal-header">
+                        <slot name="header">default header</slot>
+                    </div>
 
-                        <button
-                                type="button"
-                                class="btn-close"
-                                @click="close"
-                        >
-                            x
-                        </button>
-                    </slot>
-                </header>
-                <section class="modal-body">
-                    <slot name="body">
-                        I'm the default body!
-                    </slot>
-                </section>
-                <footer class="modal-footer">
-                    <slot name="footer">
-                        <button type="button" class="btn-danger btn" @click="close">
-                            Zavřít
-                        </button>
+                    <div class="modal-body">
+                        <slot name="body">default body</slot>
+                    </div>
 
-                        <button type="button" class="btn btn-green" @click="save">
-                            Uložit
-                        </button>
-                    </slot>
-                </footer>
+                    <div class="modal-footer">
+                        <slot name="footer">
+                            <button class="btn btn-danger" @click="close">Zavřít</button>
+                            <button class="btn btn-success" @click="save">Uložit</button>
+                        </slot>
+                    </div>
+                </div>
             </div>
         </div>
     </transition>
@@ -43,11 +30,11 @@
             close() {
                 this.$emit('close');
             },
-            save(){
+            save() {
                 this.$emit('save');
             }
         },
-        mounted(){
+        mounted() {
             document.addEventListener('keyup', (evt) => {
                 if (evt.keyCode === 27) {
                     this.close();
@@ -58,6 +45,65 @@
 </script>
 
 <style scoped>
+    body {
+        padding: 4rem;
+    }
+
+    [v-cloak] {
+        display: none;
+    }
+
+    .modal-mask {
+        position: fixed;
+        z-index: 9998;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: table;
+        transition: opacity 0.3s ease;
+    }
+
+    .modal-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .modal-container {
+        margin: 0px auto;
+        padding: 20px 20px 30px;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+        transition: all 0.3s ease;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .modal-header h3 {
+        margin-top: 0;
+        color: #42b983;
+    }
+
+    .modal-body {
+        margin: 20px 0;
+    }
+
+    .modal-button {
+        float: right;
+    }
+
+    .modal-enter,
+    .modal-leave {
+        opacity: 0;
+    }
+
+    .modal-enter .modal-container,
+    .modal-leave .modal-container {
+        transform: scale(1.1);
+    }
+
+    /*
     .modal-backdrop {
         position: fixed;
         margin:auto;
@@ -113,5 +159,5 @@
         background: #4AAE9B;
         border: 1px solid #4AAE9B;
         border-radius: 2px;
-    }
+    }*/
 </style>

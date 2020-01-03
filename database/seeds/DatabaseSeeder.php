@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesSeeder::class);
         $this->call(OfferSeeder::class);
         $this->call(GroPerSeeder::class);
+        $this->call(PrioritiesSeeder::class);
+        $this->call(NotificationTypesSeeder::class);
     }
 }

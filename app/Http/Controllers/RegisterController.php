@@ -28,6 +28,7 @@ class RegisterController extends Controller
             "password2"=>"same:password",
             "region_id"=>"integer|exists:regions,id_r",
             "zipcode"=>"required|postal_code:CZ,SK",
+            "city"=>"required",
             "address"=>"required"
     	]); //validace
 
@@ -40,6 +41,7 @@ class RegisterController extends Controller
                 "email"=>$data["email"],
                 "password"=>Hash::make($data["password"]),
                 "zipcode"=>intval($data["zipcode"]),
+                "city"=>$data["city"],
                 "region_id"=>$data["region_id"],
                 "address"=>$data["address"],
                 "group_id"=>1

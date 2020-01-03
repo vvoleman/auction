@@ -21,8 +21,9 @@ class UsersSeeder extends Seeder
             "group_id"=>2,
             "uuid"=>Str::random(8),
             "region_id"=>6,
+            "city"=>"Ústí nad Labem",
             "zipcode"=>"40003",
-            "address"=>"Idk street 23",
+            "address"=>"Kollárova 226/2",
             "activation_token"=>Str::random(16),
             "email_verified_at"=>Carbon::now()
         ]);

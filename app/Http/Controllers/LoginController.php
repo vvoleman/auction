@@ -41,8 +41,7 @@ class LoginController extends Controller
         }else{
             $errMessage = "Neplatné přihlašovací údaje!";
         }
-        $request->session()->flash("danger",$errMessage);
-        return redirect()->route('login.login')->withInput($data);
+        return redirect()->route('login.login')->with("danger",$errMessage)->withInput($data);
 
     }
     public function getLogout(){

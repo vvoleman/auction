@@ -50,6 +50,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <h5>Město</h5>
+                    <input type="text" name="city" value="{{$city}}" class="form-control">
+                </div>
+                <div class="form-group">
                     <h5>PSČ</h5>
                     <input type="number" name="zipcode" value="{{$zipcode}}" class="form-control">
                 </div>

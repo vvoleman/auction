@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger("group_id")->nullable();
             $table->unsignedInteger("picture_id")->nullable();
             $table->integer("zipcode");
+            $table->string("city");
             $table->string("address");
             $table->string("uuid",8)->unique();
             $table->timestamp('last_logged')->nullable();

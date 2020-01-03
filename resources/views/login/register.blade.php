@@ -34,12 +34,16 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label>Ulice + č.p</label>
+                    <input type="text" name="address" class="form-control">
+                </div>
+                <div class="form-group">
                     <label>PSČ</label>
                     <input type="number" name="zipcode" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Ulice + č.p</label>
-                    <input type="text" name="address" class="form-control">
+                    <label>Město</label>
+                    <input type="text" name="city" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Heslo</label>

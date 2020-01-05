@@ -2434,8 +2434,8 @@
 .zoom-leave-active,
 .zoomIn,
 .zoomOut {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both
 }
@@ -2456,8 +2456,8 @@
 .zoomDown-leave-active,
 .zoomInDown,
 .zoomOutDown {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both
 }
@@ -2478,8 +2478,8 @@
 .zoomLeft-enter-active,
 .zoomLeft-leave-active,
 .zoomOutLeft {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both
 }
@@ -2500,8 +2500,8 @@
 .zoomOutRight,
 .zoomRight-enter-active,
 .zoomRight-leave-active {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both
 }
@@ -2522,8 +2522,8 @@
 .zoomOutUp,
 .zoomUp-enter-active,
 .zoomUp-leave-active {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both
 }

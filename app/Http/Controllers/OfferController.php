@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Currency;
 use App\DeliveryType;
+use App\Events\OfferSellCreated;
+use App\Listeners\SendOfferSellNotification;
 use App\Offer;
 use App\Custom\Translator;
 use App\Http\Requests\NewOffer;
@@ -91,6 +93,36 @@ class OfferController extends Controller
         return view("offer/edit_offer", ["offer" => $offer, "tags" => $tags]);
     }
 
+    public function postNewOffer(NewOffer $request)
+    {
+        $data = $request->validated();
+        $ids = $this->tags_to_array($data["_tags"]);
+        if (!$this->correct_payment($data["delivery"], $data["payment"])) {
+            return back()->with("danger", "Neplatné údaje!")->withInput($data);
+        }
+        $uuid = $this->generateUuid();
+        $offer = new Offer([
+            "name" => $data["name"],
+            "type_id" => $data["type"],
+            "price" => $data["price"],
+            "description" => $data["description"],
+            "end_date" => Carbon::now(),
+            "uuid" => $uuid,
+            "category_id" => $data["category"],
+            "currency_id" => $data["currency"],
+            "owner_id" => Auth::user()->id_u,
+            "delivery_type_id" => $data["delivery"],
+            "payment_type_id" => $data["payment"]
+        ]);
+        if ($offer->save()) {
+            $offer->tags()->attach($ids);
+
+            return redirect()->route('offers.offer', ["id" => $uuid])->with("Nabídka úspěšně přidána!");
+        } else {
+            return back()->with("Nebylo možné přidat nabídku")->withInput($data);
+        }
+    }
+
     public function postEditOffer(EditOffer $request, $id)
     {
         $data = $request->validated();
@@ -161,6 +193,7 @@ class OfferController extends Controller
                 ]);
                 if ($os->save()) {
                     $response = [200, "Žádost o koupi byla odeslána!"];
+                    event(new OfferSellCreated($os));
                 } else {
                     $response = [500, "Nelze vytvořit žádost o koupi!"];
                 }
@@ -245,36 +278,6 @@ class OfferController extends Controller
         ];
     }
 
-    public function postNewOffer(NewOffer $request)
-    {
-        $data = $request->validated();
-        $ids = $this->tags_to_array($data["_tags"]);
-        $data["end_date"] = Carbon::parse($data["end_date"]);
-        if (!$this->correct_payment($data["delivery"], $data["payment"])) {
-            return back()->with("danger", "Neplatné údaje!")->withInput($data);
-        }
-        $uuid = $this->generateUuid();
-        $offer = new Offer([
-            "name" => $data["name"],
-            "type_id" => $data["type"],
-            "price" => $data["price"],
-            "description" => $data["description"],
-            "end_date" => $data["end_date"],
-            "uuid" => $uuid,
-            "category_id" => $data["category"],
-            "currency_id" => $data["currency"],
-            "owner_id" => Auth::user()->id_u,
-            "delivery_type_id" => $data["delivery"],
-            "payment_type_id" => $data["payment"]
-        ]);
-        if ($offer->save()) {
-            $offer->tags()->attach($ids);
-
-            return redirect()->route('offers.offer', ["id" => $uuid])->with("Nabídka úspěšně přidána!");
-        } else {
-            return back()->with("Nebylo možné přidat nabídku")->withInput($data);
-        }
-    }
 
     private function tags_to_array($str)
     {

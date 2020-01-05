@@ -19,7 +19,7 @@ class OfferSell extends Model
         return $this->belongsTo("\App\User","buyer_id");
     }
     public function offer(){
-        return $this->belongsTo("\App\User","offer_id");
+        return $this->belongsTo("\App\Offer","offer_id");
     }
 
 }

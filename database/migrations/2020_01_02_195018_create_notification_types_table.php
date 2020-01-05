@@ -17,6 +17,7 @@ class CreateNotificationTypesTable extends Migration
             $table->increments('id_nt');
             $table->string("name");
             $table->unsignedInteger("priority_id");
+            $table->string("icon");
 
             $table->foreign("priority_id")->references("id_p")->on("priorities");
         });

@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "tinymce": "^5.1.1",
+        "vue-on-click-outside": "^1.0.3",
         "vue-slider-component": "^3.0.43",
         "vue-snotify": "^3.2.1"
     }

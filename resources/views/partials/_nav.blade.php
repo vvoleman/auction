@@ -12,7 +12,7 @@
         <span>Obchod</span>
         @if(Auth::check())
         <div class="user-nav d-flex justify-content-between align-items-center">
-            <div class="picture-nav" style="background-image: url('{{Auth::user()->profpic_path()}}')"></div>
+            <notifications url="{{Auth::user()->profpic_path()}}"></notifications>
             <div class="btn-group">
                 <button type="button" class="dd-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-caret-down"></i>

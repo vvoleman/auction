@@ -15,10 +15,15 @@ class NotificationTypesSeeder extends Seeder
          * Offersell_created [for owner]
          * Offersell_confirmed [for buyer]
          */
+        $icons = [
+            "offer"=>"fas fa-store-alt",
+        ];
 
         $types = [
-            ["name"=>"offersell_created",2],
-            ["name"=>"offersell_confirmed",2]
+            ["name"=>"offersell_created","priority_id"=>2,"icon"=>$icons["offer"]],
+            ["name"=>"offersell_confirmed","priority_id"=>2,"icon"=>$icons["offer"]]
         ];
+
+        DB::table('notification_types')->insert($types);
     }
 }

@@ -39,7 +39,13 @@
                         </div>
                     </div>
                 </div>
-                <button v-if="data.customer.can_buy" class="btn btn-block btn-blue m-top" style="padding:30px;" @click="openBuyModal">Zakoupit</button>
+                <div v-if="data.customer.can_buy">
+                    <button v-if="data.is_owner" class="btn btn-block btn-blue m-top" style="padding:30px;" @click="openBuyModal">Zakoupit</button>
+                    <div v-else class="btn-block cant-buy m-top text-center">
+                        Nemůžete zakoupit vlastní nabídku
+                    </div>
+                </div>
+
                 <div v-else class="btn-block cant-buy m-top text-center">
                     Již jste odeslal žádost o koupi
                     <div class="d-flex justify-content-center col-12">

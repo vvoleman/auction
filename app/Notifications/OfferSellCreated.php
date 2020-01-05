@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Channels\InnerChannel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -29,7 +30,7 @@ class OfferSellCreated extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return [InnerChannel::class];
     }
 
     /**
@@ -44,6 +45,10 @@ class OfferSellCreated extends Notification
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
+    }
+
+    public function toDatabase($notifiable){
+        dd($notifiable);
     }
 
     /**

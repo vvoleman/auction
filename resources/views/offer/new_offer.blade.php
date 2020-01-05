@@ -23,10 +23,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Otevřeno do</label>
-                    <input type="datetime-local" name="end_date" class="form-control">
-                </div>
-                <div class="form-group">
                     <label>Popisek</label>
                     <div class="loader"></div>
                     <div class="description" style="display:none;">

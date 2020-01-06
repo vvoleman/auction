@@ -106,7 +106,7 @@ class OfferController extends Controller
             "type_id" => $data["type"],
             "price" => $data["price"],
             "description" => $data["description"],
-            "end_date" => Carbon::now(),
+            "end_date" => Carbon::now()->addDays(30),
             "uuid" => $uuid,
             "category_id" => $data["category"],
             "currency_id" => $data["currency"],
@@ -179,6 +179,7 @@ class OfferController extends Controller
         ]);
         //byla by fajn validace adres, ale víme jak to je :--)
         //nechtěl jsem to už koupit?
+        dd("tady");
         $offer_id = Offer::select("id_o")->where('uuid',$data["offer_id"])->first()->id_o;
         if (OfferSell::where('offer_id',$offer_id)->where('buyer_id', Auth::id())->whereNull('deleted_at')->exists()) {
             $response = [400,"Žádost o koupi již existuje!"];
@@ -201,6 +202,7 @@ class OfferController extends Controller
                 $response = [400, "Nabídka není aktuální!"];
             }
         }
+        dd("tady");
         return response()->json(["message" => $response[1]],$response[0]);
         //je offer aktivní?
         //není prodaná?

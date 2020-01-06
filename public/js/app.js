@@ -4622,7 +4622,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nbody[data-v-01850963] {\n    padding: 4rem;\n}\n[v-cloak][data-v-01850963] {\n    display: none;\n}\n.modal-mask[data-v-01850963] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: table;\n    -webkit-transition: opacity 0.3s ease;\n    transition: opacity 0.3s ease;\n}\n.modal-wrapper[data-v-01850963] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-01850963] {\n    margin: 0px auto;\n    padding: 20px 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-01850963] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-01850963] {\n    margin: 20px 0;\n}\n.modal-button[data-v-01850963] {\n    float: right;\n}\n.modal-enter[data-v-01850963],\n.modal-leave[data-v-01850963] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-01850963],\n.modal-leave .modal-container[data-v-01850963] {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\n\n/*\n.modal-backdrop {\n    position: fixed;\n    margin:auto;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.modal {\n    background: #FFFFFF;\n    box-shadow: 2px 2px 20px 1px;\n    overflow-x: auto;\n    display: flex;\n    flex-direction: column;\n}\n\n.modal-header,\n.modal-footer {\n    padding: 15px;\n    display: flex;\n}\n\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    justify-content: space-between;\n}\n\n.modal-footer {\n    border-top: 1px solid #eeeeee;\n    justify-content: flex-end;\n}\n\n.modal-body {\n    position: relative;\n    overflow: auto;\n    padding: 20px 10px;\n}\n\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}*/\n", ""]);
+exports.push([module.i, "\nbody[data-v-01850963] {\n    padding: 4rem;\n}\n[v-cloak][data-v-01850963] {\n    display: none;\n}\n.modal-mask[data-v-01850963] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: table;\n    -webkit-transition: opacity 0.3s ease;\n    transition: opacity 0.3s ease;\n}\n.modal-wrapper[data-v-01850963] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-01850963] {\n    height: 90%;\n    margin: 0px auto;\n    padding: 20px 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-01850963] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-01850963] {\n    margin: 20px 0;\n}\n.modal-button[data-v-01850963] {\n    float: right;\n}\n.modal-enter[data-v-01850963],\n.modal-leave[data-v-01850963] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-01850963],\n.modal-leave .modal-container[data-v-01850963] {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\n\n/*\n.modal-backdrop {\n    position: fixed;\n    margin:auto;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.modal {\n    background: #FFFFFF;\n    box-shadow: 2px 2px 20px 1px;\n    overflow-x: auto;\n    display: flex;\n    flex-direction: column;\n}\n\n.modal-header,\n.modal-footer {\n    padding: 15px;\n    display: flex;\n}\n\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    justify-content: space-between;\n}\n\n.modal-footer {\n    border-top: 1px solid #eeeeee;\n    justify-content: flex-end;\n}\n\n.modal-body {\n    position: relative;\n    overflow: auto;\n    padding: 20px 10px;\n}\n\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}*/\n", ""]);
 
 // exports
 
@@ -26442,7 +26442,7 @@ var render = function() {
                     expression: "close"
                   }
                 ],
-                staticClass: "not-bar col-md-3",
+                staticClass: "not-bar col-md-3 col-lg-4",
                 on: {
                   click: function($event) {
                     $event.stopPropagation()
@@ -42625,8 +42625,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\auction\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\auction\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

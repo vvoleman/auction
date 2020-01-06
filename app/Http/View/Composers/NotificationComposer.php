@@ -17,9 +17,10 @@ class NotificationComposer
         if($this->user != null){
             $data = $this->user->notifications;
         }else{
-            $data = [];
+            $data = collect();
         }
         //dd($data);
+        $view->with('notifications',$data);
 
     }
 }

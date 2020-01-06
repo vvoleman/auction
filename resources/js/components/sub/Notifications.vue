@@ -5,14 +5,15 @@
             <div v-if="badge_number!=0" class="not-circle">{{badge_number}}</div>
         </transition>
         <transition name="zoom">
-            <div class="not-bar col-md-3 col-lg-4" v-if="show" v-on-click-outside="close" @click.stop="">
+            <div class="not-bar col-rl-3 col-lg-4" v-if="show" v-on-click-outside="close" @click.stop="">
                 <div v-for="(o,i) in nots" class="">
                     <div class="item d-flex align-items-center justify-content-between">
                         <div class="d-none d-md-flex big-circle">
                             <i :class="o.icon"></i>
                         </div>
                         <div class="offset-md-3">
-                            <span class="title">{{o.title}}</span>
+
+                            <a></a><span class="title">{{o.title}}</span>
                             <div class="w-100 date d-flex justify-content-between align-items-center">
                                 <span class="d-block">{{o.time}}</span>
                                 <i class="fas" :class="{'fa-eye-slash':!o.seen,'fa-eye':o.seen}" @click.stop="toggleSeen(i)"></i>
@@ -21,7 +22,9 @@
                     </div>
                     <hr v-if="nots.length-1 > i">
                 </div>
-
+                <div v-if="nots.length == 0" class="empty">
+                    <span>Žádné notifikace</span>
+                </div>
             </div>
         </transition>
     </div>
@@ -69,12 +72,24 @@
             open() {
                 this.show = true;
                 this.nots = this.nots.map((x) => {
-                    if (!x.seen) x.seen = true;
+                    if (!x.seen){
+                        x.seen = true;
+                        this.updateSeen(x);
+                    }
                     return x;
                 });
             },
             toggleSeen(i){
                 this.nots[i].seen = !this.nots[i].seen;
+                this.updateSeen(this.nots[i])
+            },
+            updateSeen(not){
+                axios.post('/ajax/notifications/seen',{seen:not.seen,not_id:not.not_id})
+                    .then((response)=>{
+                    })
+                    .catch((error)=>{
+                       console.log(error);
+                    });
             }
         },
         computed: {
@@ -92,6 +107,12 @@
 </script>
 
 <style scoped>
+    .empty{
+        padding:10px;
+        text-align: center;
+        color:#838383;
+    }
+
     hr {
         margin: 0;
     }

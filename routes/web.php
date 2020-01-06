@@ -58,6 +58,7 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::get('/settings/getRegionsByCountry','SettingController@ajaxGetRegionsByCountry')->name("getRegionsByCountry");
     Route::get('/search/getBootInfo','SearchController@ajaxGetBoot')->name('searchBootInfo')->middleware('auth')->middleware(['auth','hasPerm:offers.search']);
     Route::get('/search/getOffers','SearchController@ajaxGetOffers')->name('searchOffers')->middleware('auth')->middleware(['auth','hasPerm:offers.search']);
+    Route::post('/notifications/seen','HomeController@ajaxSetNotificationSeen')->name('setNotificationSeen')->middleware('auth');
 
     Route::post("/imageUpload","ImageUploaderController")->name("imageUpload")->middleware('auth');
 
@@ -96,7 +97,8 @@ Route::name('offers.')->group(function (){
     Route::post("/offers/{id}/edit","OfferController@postEditOffer")->name("postEdit")->middleware(['auth','hasPerm:offers.edit'])->where("id","[A-Za-z0-9]+");
     Route::get("/offers/{id}","OfferController@getOffer")->name("offer")->middleware(['auth','hasPerm:offers.offer'])->where("id","[A-Za-z0-9]+");
     Route::post("/offers/{id}/renew","OfferController@postRenew")->name("postRenew")->middleware(['auth','hasPerm:offers.renew'])->where("id","[A-Za-z0-9]+");
-    Route::post("offers/{id}/delete","OfferController@deleteOffer")->name("delete")->middleware(['auth','hasPerm:offers.delete'])->where("id","[A-Za-z0-9]+");
+    Route::post("/offers/{id}/delete","OfferController@deleteOffer")->name("delete")->middleware(['auth','hasPerm:offers.delete'])->where("id","[A-Za-z0-9]+");
+    Route::get("/offers/{id}/sells","OfferSellController@getSells")->name('sells')->middleware(['auth'])->where("id","[A-Za-z0-9]+");
 });
 
 //SEARCH
@@ -112,6 +114,5 @@ Route::name("admin.")->prefix("admin")->group(function (){
 
 Route::get('/ajax/myoffers','ProfileController@ajaxGetMyOffers');
 Route::get('/myoffers','ProfileController@getMyOffers')->name('profile.myOffers')->middleware('auth');
-Route::get('/hello',function (){
-    event(new \App\Events\OfferSellCreated(\App\OfferSell::find(1)->first()));
-});
+
+//OFFERSELL

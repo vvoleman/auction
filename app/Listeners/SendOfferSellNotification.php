@@ -39,7 +39,8 @@ class SendOfferSellNotification
         Mail::to($event->offersell->buyer->email)->queue(new \App\Mail\OfferSellCreatedBuyer($event->offersell));
         $n = Notification::create([
             "type_id"=>1,
-            "notification"=>'Nová žádost o koupi "'.$event->offersell->offer->name.'"!'
+            "notification"=>'Nová žádost o koupi "'.$event->offersell->offer->name.'"!',
+            "url"=>"dodelej url"
         ]);
         $n->users()->attach($event->offersell->offer->owner->id_u);
         $n->save();

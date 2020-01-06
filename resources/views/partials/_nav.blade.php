@@ -29,5 +29,6 @@
         @else
         <a href="{{route('login.login')}}"><span class="m-left">Přihlášení</span></a>
         @endif
+
     </div>
 </div>

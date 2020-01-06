@@ -17,6 +17,7 @@ class CreateNotUseTable extends Migration
             $table->unsignedInteger("user_id");
             $table->unsignedInteger("notification_id");
             $table->dateTime("seen_at")->nullable();
+            $table->dateTime("deleted_at")->nullable();
 
             $table->foreign("user_id")->references("id_u")->on("users");
             $table->foreign("notification_id")->references("id_n")->on("notifications");

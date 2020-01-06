@@ -26,7 +26,7 @@ class Permissions
                         ],403);
                     }
                     $request->session()->flash("danger","Přístup zamítnut! K této činnosti nemáte oprávnění!");
-                    return redirect()->back();
+                    return redirect()->route('home.home');
                 }
             }
             return $next($request);

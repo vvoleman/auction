@@ -11,6 +11,6 @@ class OfferSeeder extends Seeder
      */
     public function run()
     {
-        //$users = factory(App\Offer::class, 100)->create();
+        $users = factory(App\Offer::class, 100)->create();
     }
 }

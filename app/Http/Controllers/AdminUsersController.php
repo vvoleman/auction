@@ -39,7 +39,7 @@ class AdminUsersController extends Controller
     public function ajaxEditUser(EditUserGroup $request){
         $data = $request->validated();
 
-        $user = User::find($data["user_id"])->first();
+        $user = User::where("id_u",$data["user_id"])->first();
         $user->group_id = $data["group_id"];
         try{
             $user->save();

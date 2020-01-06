@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Offer;
 
 class OfferSellController extends Controller
 {
+    public function getSells($id){
+        $offer = Offer::where('uuid',$id)->firstOrFail();
+
+        return view();
+    }
+
     public function ajaxCreateSell(){
         //check if there is no existing active sell for offer
 

@@ -3451,7 +3451,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4190,6 +4189,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [vue_on_click_outside__WEBPACK_IMPORTED_MODULE_0__["mixin"]],
@@ -4224,14 +4226,30 @@ __webpack_require__.r(__webpack_exports__);
       this.show = false;
     },
     open: function open() {
+      var _this = this;
+
       this.show = true;
       this.nots = this.nots.map(function (x) {
-        if (!x.seen) x.seen = true;
+        if (!x.seen) {
+          x.seen = true;
+
+          _this.updateSeen(x);
+        }
+
         return x;
       });
     },
     toggleSeen: function toggleSeen(i) {
       this.nots[i].seen = !this.nots[i].seen;
+      this.updateSeen(this.nots[i]);
+    },
+    updateSeen: function updateSeen(not) {
+      axios.post('/ajax/notifications/seen', {
+        seen: not.seen,
+        not_id: not.not_id
+      }).then(function (response) {})["catch"](function (error) {
+        console.log(error);
+      });
     }
   },
   computed: {
@@ -4603,7 +4621,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nhr[data-v-5c70cffe] {\n    margin: 0;\n}\n*[data-v-5c70cffe] {\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n.not-bar[data-v-5c70cffe] {\n    padding-left: 0;\n    padding-right: 0;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    z-index: 10;\n    margin-top: 80px;\n    top: 0;\n    position: absolute;\n    background: #fafafa;\n    border: 1px solid #dadada;\n    color: white;\n    right: 0;\n}\n.item[data-v-5c70cffe] {\n    padding: 5px 15px 5px 15px;\n}\n.item[data-v-5c70cffe]:hover {\n    background: #d1d1d1;\n}\n.item .title[data-v-5c70cffe] {\n    color: black;\n    font-weight: 23px;\n    font-weight: bold;\n}\n.item .date[data-v-5c70cffe] {\n    font-size: 16px;\n    color: #868686;\n}\n.big-circle[data-v-5c70cffe] {\n    position: absolute;\n    border-radius: 100%;\n    width: 40px;\n    height: 40px;\n    font-size: 15px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    background: #1b1e21;\n    color: white;\n}\n", ""]);
+exports.push([module.i, "\n.empty[data-v-5c70cffe]{\n    padding:10px;\n    text-align: center;\n    color:#838383;\n}\nhr[data-v-5c70cffe] {\n    margin: 0;\n}\n*[data-v-5c70cffe] {\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n.not-bar[data-v-5c70cffe] {\n    padding-left: 0;\n    padding-right: 0;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    z-index: 10;\n    margin-top: 80px;\n    top: 0;\n    position: absolute;\n    background: #fafafa;\n    border: 1px solid #dadada;\n    color: white;\n    right: 0;\n}\n.item[data-v-5c70cffe] {\n    padding: 5px 15px 5px 15px;\n}\n.item[data-v-5c70cffe]:hover {\n    background: #d1d1d1;\n}\n.item .title[data-v-5c70cffe] {\n    color: black;\n    font-weight: 23px;\n    font-weight: bold;\n}\n.item .date[data-v-5c70cffe] {\n    font-size: 16px;\n    color: #868686;\n}\n.big-circle[data-v-5c70cffe] {\n    position: absolute;\n    border-radius: 100%;\n    width: 40px;\n    height: 40px;\n    font-size: 15px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    background: #1b1e21;\n    color: white;\n}\n", ""]);
 
 // exports
 
@@ -4622,7 +4640,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nbody[data-v-01850963] {\n    padding: 4rem;\n}\n[v-cloak][data-v-01850963] {\n    display: none;\n}\n.modal-mask[data-v-01850963] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: table;\n    -webkit-transition: opacity 0.3s ease;\n    transition: opacity 0.3s ease;\n}\n.modal-wrapper[data-v-01850963] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-01850963] {\n    height: 90%;\n    margin: 0px auto;\n    padding: 20px 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-01850963] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-01850963] {\n    margin: 20px 0;\n}\n.modal-button[data-v-01850963] {\n    float: right;\n}\n.modal-enter[data-v-01850963],\n.modal-leave[data-v-01850963] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-01850963],\n.modal-leave .modal-container[data-v-01850963] {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\n\n/*\n.modal-backdrop {\n    position: fixed;\n    margin:auto;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.modal {\n    background: #FFFFFF;\n    box-shadow: 2px 2px 20px 1px;\n    overflow-x: auto;\n    display: flex;\n    flex-direction: column;\n}\n\n.modal-header,\n.modal-footer {\n    padding: 15px;\n    display: flex;\n}\n\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    justify-content: space-between;\n}\n\n.modal-footer {\n    border-top: 1px solid #eeeeee;\n    justify-content: flex-end;\n}\n\n.modal-body {\n    position: relative;\n    overflow: auto;\n    padding: 20px 10px;\n}\n\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}*/\n", ""]);
+exports.push([module.i, "\nbody[data-v-01850963] {\n    padding: 4rem;\n}\n[v-cloak][data-v-01850963] {\n    display: none;\n}\n.modal-mask[data-v-01850963] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: table;\n    -webkit-transition: opacity 0.3s ease;\n    transition: opacity 0.3s ease;\n}\n.modal-wrapper[data-v-01850963] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-01850963] {\n    margin: 0px auto;\n    padding: 20px 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-01850963] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-01850963] {\n    margin: 20px 0;\n}\n.modal-button[data-v-01850963] {\n    float: right;\n}\n.modal-enter[data-v-01850963],\n.modal-leave[data-v-01850963] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-01850963],\n.modal-leave .modal-container[data-v-01850963] {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\n\n/*\n.modal-backdrop {\n    position: fixed;\n    margin:auto;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.modal {\n    background: #FFFFFF;\n    box-shadow: 2px 2px 20px 1px;\n    overflow-x: auto;\n    display: flex;\n    flex-direction: column;\n}\n\n.modal-header,\n.modal-footer {\n    padding: 15px;\n    display: flex;\n}\n\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    justify-content: space-between;\n}\n\n.modal-footer {\n    border-top: 1px solid #eeeeee;\n    justify-content: flex-end;\n}\n\n.modal-body {\n    position: relative;\n    overflow: auto;\n    padding: 20px 10px;\n}\n\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}*/\n", ""]);
 
 // exports
 
@@ -25232,9 +25250,9 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm.data.customer.can_buy
+              !_vm.data.is_owner
                 ? _c("div", [
-                    _vm.data.is_owner
+                    _vm.data.customer.can_buy
                       ? _c(
                           "button",
                           {
@@ -25251,7 +25269,29 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                    Nemůžete zakoupit vlastní nabídku\n                "
+                              "\n                    Již jste odeslal žádost o koupi\n                    "
+                            ),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "d-flex justify-content-center col-12"
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-sm btn-danger m-top ",
+                                    attrs: { disabled: _vm.remove_modal },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.remove_modal = true
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Smazat")]
+                                )
+                              ]
                             )
                           ]
                         )
@@ -25261,26 +25301,7 @@ var render = function() {
                     { staticClass: "btn-block cant-buy m-top text-center" },
                     [
                       _vm._v(
-                        "\n                Již jste odeslal žádost o koupi\n                "
-                      ),
-                      _c(
-                        "div",
-                        { staticClass: "d-flex justify-content-center col-12" },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm btn-danger m-top ",
-                              attrs: { disabled: _vm.remove_modal },
-                              on: {
-                                click: function($event) {
-                                  _vm.remove_modal = true
-                                }
-                              }
-                            },
-                            [_vm._v("Smazat")]
-                          )
-                        ]
+                        "\n                Nemůžete zakoupit vlastní nabídku\n            "
                       )
                     ]
                   ),
@@ -26442,67 +26463,76 @@ var render = function() {
                     expression: "close"
                   }
                 ],
-                staticClass: "not-bar col-md-3 col-lg-4",
+                staticClass: "not-bar col-rl-3 col-lg-4",
                 on: {
                   click: function($event) {
                     $event.stopPropagation()
                   }
                 }
               },
-              _vm._l(_vm.nots, function(o, i) {
-                return _c("div", {}, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "item d-flex align-items-center justify-content-between"
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "d-none d-md-flex big-circle" },
-                        [_c("i", { class: o.icon })]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "offset-md-3" }, [
-                        _c("span", { staticClass: "title" }, [
-                          _vm._v(_vm._s(o.title))
-                        ]),
-                        _vm._v(" "),
+              [
+                _vm._l(_vm.nots, function(o, i) {
+                  return _c("div", {}, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "item d-flex align-items-center justify-content-between"
+                      },
+                      [
                         _c(
                           "div",
-                          {
-                            staticClass:
-                              "w-100 date d-flex justify-content-between align-items-center"
-                          },
-                          [
-                            _c("span", { staticClass: "d-block" }, [
-                              _vm._v(_vm._s(o.time))
-                            ]),
-                            _vm._v(" "),
-                            _c("i", {
-                              staticClass: "fas",
-                              class: {
-                                "fa-eye-slash": !o.seen,
-                                "fa-eye": o.seen
-                              },
-                              on: {
-                                click: function($event) {
-                                  $event.stopPropagation()
-                                  return _vm.toggleSeen(i)
+                          { staticClass: "d-none d-md-flex big-circle" },
+                          [_c("i", { class: o.icon })]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "offset-md-3" }, [
+                          _c("a"),
+                          _c("span", { staticClass: "title" }, [
+                            _vm._v(_vm._s(o.title))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "w-100 date d-flex justify-content-between align-items-center"
+                            },
+                            [
+                              _c("span", { staticClass: "d-block" }, [
+                                _vm._v(_vm._s(o.time))
+                              ]),
+                              _vm._v(" "),
+                              _c("i", {
+                                staticClass: "fas",
+                                class: {
+                                  "fa-eye-slash": !o.seen,
+                                  "fa-eye": o.seen
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.stopPropagation()
+                                    return _vm.toggleSeen(i)
+                                  }
                                 }
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm.nots.length - 1 > i ? _c("hr") : _vm._e()
-                ])
-              }),
-              0
+                              })
+                            ]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.nots.length - 1 > i ? _c("hr") : _vm._e()
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.nots.length == 0
+                  ? _c("div", { staticClass: "empty" }, [
+                      _c("span", [_vm._v("Žádné notifikace")])
+                    ])
+                  : _vm._e()
+              ],
+              2
             )
           : _vm._e()
       ])
@@ -42625,8 +42655,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\auction\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\auction\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

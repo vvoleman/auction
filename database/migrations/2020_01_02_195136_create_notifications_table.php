@@ -17,6 +17,7 @@ class CreateNotificationsTable extends Migration
             $table->increments('id_n');
             $table->unsignedInteger("type_id");
             $table->string("notification");
+            $table->string("url");
             $table->dateTime("created_at")->useCurrent();
 
             $table->foreign("type_id")->references("id_nt")->on("notification_types");

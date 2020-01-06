@@ -1,10 +1,9 @@
 @extends('mains.main')
 @section('content')
     <show-selloffer o_data="{{$data}}"></show-selloffer>
-    <!--<div id="m" style="height:600px"></div>!-->
+    <div id="m" style="height:600px"></div>
 @stop
 @section('scripts')
-    <!--
     <script src="https://api.mapy.cz/loader.js"></script>
     <script>Loader.load()</script>
     <script type="text/javascript">
@@ -16,7 +15,7 @@
         m.addControl(mouse);
 
         var adr1 = "Kollárova 226/2, 400 03, Česká republika";
-        var adr2 = "Praha";
+        var adr2 = "Plynárenská 10, 400 10, Česká republika";
 
         new SMap.Geocoder([adr1,adr2],(data)=>{
             var body = [];
@@ -47,5 +46,5 @@
             var cz = m.computeCenterZoom(body)
             m.setCenterZoom(cz[0], cz[1]);
         }
-    </script>!-->
+    </script>
 @stop

@@ -1,11 +1,12 @@
 :root{
     --second:#192f9c;
-    --main-blue:#e8513b;
+    --main-blue:#3B4263;
     --main-font:"Century Gothic";
 }
 
 .get_blue{
     background: var(--main-blue);
+    background:#00097d;
 }
 
 ::-webkit-scrollbar {

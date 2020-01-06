@@ -39,18 +39,17 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="data.customer.can_buy">
-                    <button v-if="data.is_owner" class="btn btn-block btn-blue m-top" style="padding:30px;" @click="openBuyModal">Zakoupit</button>
+                <div v-if="!data.is_owner">
+                    <button v-if="data.customer.can_buy" class="btn btn-block btn-blue m-top" style="padding:30px;" @click="openBuyModal">Zakoupit</button>
                     <div v-else class="btn-block cant-buy m-top text-center">
-                        Nemůžete zakoupit vlastní nabídku
+                        Již jste odeslal žádost o koupi
+                        <div class="d-flex justify-content-center col-12">
+                            <button class="btn btn-sm btn-danger m-top " :disabled="remove_modal" @click="remove_modal = true">Smazat</button>
+                        </div>
                     </div>
                 </div>
-
                 <div v-else class="btn-block cant-buy m-top text-center">
-                    Již jste odeslal žádost o koupi
-                    <div class="d-flex justify-content-center col-12">
-                        <button class="btn btn-sm btn-danger m-top " :disabled="remove_modal" @click="remove_modal = true">Smazat</button>
-                    </div>
+                    Nemůžete zakoupit vlastní nabídku
                 </div>
                 <remove-sell :offer_id="data.uuid" v-if="remove_modal" @close="remove_modal = false" @save="sellRemoved"></remove-sell>
                 <buy-offer @save="reloadPage" style="border:1px solid black" @close="closeBuyModal" v-if="buy_modal" :addresses="[]" :info="{offer_id:data.uuid,name:data.name,price:data.price,delivery:data.delivery,payment:data.payment,currency:data.currency,address:data.customer.address,fullname:data.customer.fullname}"></buy-offer>

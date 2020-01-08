@@ -13,9 +13,8 @@
         m.addDefaultLayer(SMap.DEF_BASE).enable(); /* Turistický podklad */
         var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM); /* Ovládání myší */
         m.addControl(mouse);
-
-        var adr1 = "Kollárova 226/2, 400 03, Česká republika";
-        var adr2 = "Plynárenská 10, 400 10, Česká republika";
+        var adr1 = "{{$offer->owner->fulladdress}}";
+        var adr2 = "{{Auth::user()->fulladdress}}";
 
         new SMap.Geocoder([adr1,adr2],(data)=>{
             var body = [];

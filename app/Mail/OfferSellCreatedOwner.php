@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -30,6 +31,7 @@ class OfferSellCreatedOwner extends Mailable
      */
     public function build()
     {
+        Log::info("tadyyy");
         return $this->subject("Nová žádost o koupi")->view('emails/offers/offersellcreated_owner',["os"=>$this->offersell]);
     }
 }

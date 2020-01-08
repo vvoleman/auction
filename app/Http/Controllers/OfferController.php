@@ -66,7 +66,7 @@ class OfferController extends Controller
             if ($offer->type->name == "Prodej") {
                 $timestamp = Carbon::parse($offer->end_date);
                 $temp = $this->prepareSellData($offer);
-                return view("offer/offer_sale", ["data" => collect($temp)->toJson(JSON_UNESCAPED_UNICODE)]);
+                return view("offer/offer_sale", ["offer"=>$offer,"data" => collect($temp)->toJson(JSON_UNESCAPED_UNICODE)]);
             }
         } else {
             if (Auth::user()->id_u = $offer->owner_id) {
@@ -75,7 +75,6 @@ class OfferController extends Controller
                 return view("offer/expired");
             }
         }
-
     }
 
     public function getEditOffer($id)
@@ -140,8 +139,6 @@ class OfferController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('offers.edit', ["id" => $id])->with("danger", "Nebylo možné upravit nabídku!");
         }
-
-
     }
 
     public function postRenew($id)
@@ -194,6 +191,7 @@ class OfferController extends Controller
                 if ($os->save()) {
                     $response = [200, "Žádost o koupi byla odeslána!"];
                     event(new OfferSellCreated($os));
+                    Log::info("venku");
                 } else {
                     $response = [500, "Nelze vytvořit žádost o koupi!"];
                 }
@@ -201,8 +199,8 @@ class OfferController extends Controller
                 $response = [400, "Nabídka není aktuální!"];
             }
         }
-
-        return response()->json(["message" => $response[1]],$response[0]);
+        $response[0] = 500;
+        return response()->json(["message" => $response[1]],500);
         //je offer aktivní?
         //není prodaná?
 
@@ -255,6 +253,7 @@ class OfferController extends Controller
             "name" => $offer->name,
             "owner" => [
                 "fullname" => $offer->owner->fullname,
+                "address"=>$offer->owner->fulladress,
                 "profpic_path" => $offer->owner->profpic_path(),
                 "url" => route('profile.profile', ["uuid" => $offer->owner->uuid])
             ],

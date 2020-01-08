@@ -37,6 +37,7 @@
                 this.sort = data.sort;
                 this.filter = data.filter;
                 this.dir = data.dir;
+                this.offers = [];
                 this.loadData()
             },
             loadData(){
@@ -48,8 +49,8 @@
                     dir:this.dir
                 }})
                     .then((response)=>{
-                        this.offers = response.data.data;
-                        this.page = response.data.next_page == null;
+                        this.offers = this.offers.concat(response.data.data);
+                        this.page = (response.data.next_page != null) ? response.data.next_page : false;
                     })
                     .catch((e)=>{
                         this.error = true;

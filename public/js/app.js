@@ -3003,6 +3003,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OffersList",
   props: ["ofs", "page"],
@@ -3017,6 +3034,10 @@ __webpack_require__.r(__webpack_exports__);
     more: function more() {
       this.block = true;
       this.$emit("more");
+    },
+    formatDate: function formatDate(timestamp) {
+      var d = new Date(timestamp * 1000);
+      return d.toLocaleDateString() + " " + d.toLocaleTimeString();
     }
   },
   watch: {
@@ -3086,6 +3107,7 @@ __webpack_require__.r(__webpack_exports__);
       this.sort = data.sort;
       this.filter = data.filter;
       this.dir = data.dir;
+      this.offers = [];
       this.loadData();
     },
     loadData: function loadData() {
@@ -3100,8 +3122,8 @@ __webpack_require__.r(__webpack_exports__);
           dir: this.dir
         }
       }).then(function (response) {
-        _this.offers = response.data.data;
-        _this.page = response.data.next_page == null;
+        _this.offers = _this.offers.concat(response.data.data);
+        _this.page = response.data.next_page != null ? response.data.next_page : false;
       })["catch"](function (e) {
         _this.error = true;
       }).then(function () {
@@ -24463,7 +24485,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "white_box d-flex align-items-center" }, [
-    _c("div", [
+    _c("div", { staticClass: "form-group" }, [
       _c("label", [_vm._v("Seřadit dle:")]),
       _vm._v(" "),
       _c(
@@ -24477,6 +24499,7 @@ var render = function() {
               expression: "sel_sort"
             }
           ],
+          staticClass: "form-control",
           on: {
             change: function($event) {
               var $$selectedVal = Array.prototype.filter
@@ -24502,82 +24525,92 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", [
-      _c("label", [_vm._v("Zobrazit:")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.sel_filter,
-              expression: "sel_filter"
+    _c(
+      "div",
+      { staticClass: "form-group", staticStyle: { "margin-left": "10px" } },
+      [
+        _c("label", [_vm._v("Zobrazit:")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.sel_filter,
+                expression: "sel_filter"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.sel_filter = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
             }
-          ],
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.sel_filter = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
-        _vm._l(_vm.filters, function(o, i) {
-          return _c("option", { domProps: { value: i } }, [
-            _vm._v(_vm._s(o.label))
-          ])
-        }),
-        0
-      )
-    ]),
+          },
+          _vm._l(_vm.filters, function(o, i) {
+            return _c("option", { domProps: { value: i } }, [
+              _vm._v(_vm._s(o.label))
+            ])
+          }),
+          0
+        )
+      ]
+    ),
     _vm._v(" "),
-    _c("div", [
-      _c("label", [_vm._v("Pořadí:")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.dir,
-              expression: "dir"
+    _c(
+      "div",
+      { staticClass: "form-group", staticStyle: { "margin-left": "10px" } },
+      [
+        _c("label", [_vm._v("Pořadí:")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.dir,
+                expression: "dir"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.dir = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
             }
-          ],
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.dir = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
-        [
-          _c("option", { attrs: { value: "1" } }, [_vm._v("Od největšího")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "0" } }, [_vm._v("Od nejmenšího")])
-        ]
-      )
-    ])
+          },
+          [
+            _c("option", { attrs: { value: "1" } }, [_vm._v("Od největšího")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "0" } }, [_vm._v("Od nejmenšího")])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -24602,90 +24635,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "d-md-flex flex-wrap" },
       _vm._l(_vm.offers, function(o, i) {
-        return _c(
-          "div",
-          { staticClass: "white_box m-top search-item", class: o.status },
-          [
-            _c("a", { staticClass: "no-a", attrs: { href: o.url } }, [
-              _c("div", { staticClass: "col-12 mx-auto d-md-flex" }, [
-                _c("div", {
-                  staticClass: "shadow item-img mx-auto",
-                  staticStyle: {
-                    "background-image":
-                      "url('https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp')"
-                  }
-                }),
+        return _c("div", { staticClass: "col-md-4 m-top search-item" }, [
+          _c("div", { staticClass: "white_box col-12", class: o.status }, [
+            _c("div", { staticClass: "d-md-flex" }, [
+              _c("img", {
+                staticClass: "col-md-5",
+                attrs: {
+                  src:
+                    "https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-7" }, [
+                _c("h3", [_vm._v(_vm._s(o.name))]),
                 _vm._v(" "),
-                _c("div", { staticClass: "right-side col-md-4" }, [
-                  _c("b", [_vm._v(_vm._s(o.name))]),
-                  _vm._v(" "),
-                  _c("div")
+                _c("div", { staticClass: "m-top2" }, [
+                  _c("b", [
+                    _vm._v("Počet nabídek: " + _vm._s(o.offersell_amount))
+                  ])
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-md-4 info-side mx-auto d-flex justify-content-end"
-                  },
-                  [
-                    _c("table", [
-                      _c("tr", [
-                        _vm._m(0, true),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", [
-                            _vm._v(_vm._s(o.currency) + " " + _vm._s(o.price))
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _vm._m(1, true),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", [_vm._v("do " + _vm._s(o.end_date))])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _vm._m(2, true),
-                        _vm._v(" "),
-                        _c("td", [_c("span", [_vm._v(_vm._s(o.delivery))])])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _vm._m(3, true),
-                        _vm._v(" "),
-                        _c("td", [_c("span", [_vm._v(_vm._s(o.payment))])])
+                _c("table", [
+                  _c("tr", [
+                    _vm._m(0, true),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("span", [
+                        _vm._v(_vm._s(o.currency) + " " + _vm._s(o.price))
                       ])
                     ])
-                  ]
-                )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("span", [
+                        _vm._v("do " + _vm._s(_vm.formatDate(o.end_date)))
+                      ])
+                    ])
+                  ])
+                ])
               ])
             ])
-          ]
-        )
+          ])
+        ])
       }),
-      _vm._v(" "),
-      _vm.page != false
-        ? _c(
-            "button",
-            {
-              staticClass: "btn btn-block btn-blue",
-              attrs: { disabled: _vm.block },
-              on: { click: _vm.more }
-            },
-            [_vm._v("Načíst další")]
-          )
-        : _vm._e()
-    ],
-    2
-  )
+      0
+    ),
+    _vm._v(" "),
+    _vm.page != false
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-block btn-blue",
+            attrs: { disabled: _vm.block },
+            on: { click: _vm.more }
+          },
+          [_vm._v("Načíst další")]
+        )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -24702,25 +24717,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("td", [
       _c("i", { staticClass: "fas fa-clock", attrs: { title: "Otevřeno do" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("i", { staticClass: "fas fa-truck", attrs: { title: "Typ dopravy" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("i", {
-        staticClass: "fas fa-credit-card",
-        attrs: { title: "Typ platby" }
-      })
     ])
   }
 ]
@@ -42655,8 +42651,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\auction\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\auction\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

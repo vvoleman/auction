@@ -1,20 +1,20 @@
 <template>
     <div class="white_box d-flex align-items-center">
-        <div>
+        <div class="form-group">
             <label>Seřadit dle:</label>
-            <select v-model="sel_sort">
+            <select v-model="sel_sort" class="form-control">
                 <option v-for="(o,i) in sorts" :value="i">{{o.label}}</option>
             </select>
         </div>
-        <div>
+        <div class="form-group" style="margin-left:10px">
             <label>Zobrazit:</label>
-            <select v-model="sel_filter">
+            <select v-model="sel_filter" class="form-control">
                 <option v-for="(o,i) in filters" :value="i">{{o.label}}</option>
             </select>
         </div>
-        <div>
+        <div class="form-group" style="margin-left:10px">
             <label>Pořadí:</label>
-            <select v-model="dir">
+            <select v-model="dir" class="form-control">
                 <option value="1">Od největšího</option>
                 <option value="0">Od nejmenšího</option>
             </select>

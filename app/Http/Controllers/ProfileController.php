@@ -112,6 +112,7 @@ class ProfileController extends Controller
     }
     private function formatOffers($data){
         return $data->get()->map(function($x){
+            $temp = $x->sells()->whereNull('deleted_at')->count();
             return [
                 "name"=>$x->name,
                 "picture"=>($x->pictures()->count() > 0) ? $x->pictures[0]->path : null,
@@ -121,7 +122,9 @@ class ProfileController extends Controller
                     "id"=> $x->type->id_ot,
                     "name"=>$x->type->name
                 ],
+                "offersell_amount"=>$temp,
                 "price"=>$x->price,
+                "currency"=>$x->currency->short,
                 "category"=>$x->category->name,
                 "id"=>$x->id_o,
 
@@ -133,9 +136,9 @@ class ProfileController extends Controller
     private function getStatus(Offer $o){
         if($o->delete_reason == null){
             if($o->end_date >= Carbon::now()){
-                return "expired";
-            }else{
                 return "active";
+            }else{
+                return "expired";
             }
         }else{
             return "deleted";

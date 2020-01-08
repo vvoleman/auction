@@ -33,9 +33,10 @@
                 ],
                 filters:[
                     {name:"all",label:"Vše"},
-                    {name:"deleted",label:"Jen smazané"},
                     {name:"active",label:"Jen aktivní"},
-                    {name:"expired",label:"Jen expirované"}
+                    {name:"sold",label:"Jen prodané"},
+                    {name:"expired",label:"Jen expirované"},
+                    {name:"deleted",label:"Jen smazané"}
                 ],
                 sel_sort:0,
                 sel_filter:0,
@@ -69,5 +70,7 @@
 </script>
 
 <style scoped>
-
+    .white_box label{
+        font-weight:bold;
+    }
 </style>

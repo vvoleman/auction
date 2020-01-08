@@ -1,15 +1,17 @@
 <template>
     <div class="col-md-8 mx-auto">
-        <navbar class="" @change="filtersChanged"></navbar>
+        <navbar class="" @change="filtersChanged" id="toolbar"></navbar>
         <div class="m-top">
         <transition name="fade" mode="out-in">
-            <loader key="load" v-if="load && !error"></loader>
+            <!--<loader key="load" v-if="load && !error"></loader>!-->
             <div key="error" class="alert alert-danger" v-if="error">
                 <b>POZOR!</b> Nelze načíst data!
             </div>
-            <offers-list key="content" class="" v-if="offers != null && !load && !error" :ofs="offers" :page="page" @more="loadData"></offers-list>
+            <offers-list key="content" class="" v-if="true" :ofs="offers" :page="page" @more="loadData"></offers-list>
+            <!-- offers != null && !load && !error !-->
         </transition>
         </div>
+        <go-up el_id="toolbar"></go-up>
     </div>
 </template>
 
@@ -17,9 +19,10 @@
     import Navbar from "./Navbar";
     import OffersList from "./OffersList";
     import Loader from "../../sub/Loader";
+    import GoUp from "../../sub/GoUp";
     export default {
         name: "show-myoffers",
-        components: {Loader, OffersList, Navbar},
+        components: {GoUp, Loader, OffersList, Navbar},
         data(){
             return {
                 sort:null,

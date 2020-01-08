@@ -22,6 +22,7 @@ Vue.component('config-groups',require('./components/pages/groups/config-groups.v
 Vue.component('config-users',require('./components/pages/users/config-users.vue').default);
 Vue.component('show-myoffers',require('./components/pages/myoffers/show-myoffers.vue').default);
 Vue.component('show-selloffer',require('./components/pages/offers/show-selloffer.vue').default);
+Vue.component('add-offer',require('./components/pages/newoffers/add-offer').default);
 
 Vue.component('notifications',require('./components/sub/Notifications').default);
 Vue.component('modal', require("./components/sub/modal.vue").default);

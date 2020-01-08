@@ -56,7 +56,7 @@
             </div>
             <div class="col-md-8">
                 <div class="col-12 white_box m-top d-flex justify-content-between align-items-center">
-                    <span class="offer_head">{{data.name}}</span>
+                    <span class="offer_head"><h4>{{data.name}}</h4></span>
                     <span><b>{{data.price}}{{data.currency}}</b> </span>
                 </div>
                 <div class="col-12 white_box m-top">

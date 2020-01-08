@@ -23,7 +23,6 @@ class ProfileController extends Controller
         }
         return view('profile/profile',["user"=>$user,"you"=>$you]);
     }
-
     public function getProfileImage(){
         return view('profile/profile_picture');
     }
@@ -72,7 +71,7 @@ class ProfileController extends Controller
             "dir" => "required|boolean",
             "filter"=>"required|string"
         ]);
-        $limit = 10;
+        $limit = 9;
         $user = Auth::user();
         //orderby - název, date,
         //filter - smazané, prodané, běžící, expirované
@@ -98,6 +97,9 @@ class ProfileController extends Controller
             case "expired":
                 $q->where('end_date','<',Carbon::now());
                 break;
+            case "sold":
+                $q->whereNotNull('sold_to');
+                break;
             default:
                 break;
         }
@@ -110,6 +112,7 @@ class ProfileController extends Controller
             "next_page"=>($count > ($data["page"]*$limit+$limit)) ? intval($data["page"])+1 : false
         ];
     }
+
     private function formatOffers($data){
         return $data->get()->map(function($x){
             $temp = $x->sells()->whereNull('deleted_at')->count();
@@ -136,6 +139,9 @@ class ProfileController extends Controller
     private function getStatus(Offer $o){
         if($o->delete_reason == null){
             if($o->end_date >= Carbon::now()){
+                if($o->sold_to != null){
+                    return "sold";
+                }
                 return "active";
             }else{
                 return "expired";

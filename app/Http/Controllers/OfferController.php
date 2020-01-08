@@ -13,10 +13,12 @@ use App\Http\Requests\NewOffer;
 use App\Http\Requests\EditOffer;
 use App\OfferSell;
 use App\OfferType;
+use App\PictureType;
 use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class OfferController extends Controller
@@ -30,13 +32,13 @@ class OfferController extends Controller
             "types" => OfferType::all(),
             "curr" => [
                 "all" => Currency::all(),
-                "selected" => Auth::user()->country->currency
+                "selected" => Auth::user()->country->currency->id_c
             ],
             "deliveries" => $d,
             "payments" => $payments,
             "categories" => $c
         ];
-        return view('offer/new_offer', $data);
+        return view('offer/new_offer', ["data"=>collect($data)]);
     }
 
     private function format_deliveries($del)
@@ -318,5 +320,17 @@ class OfferController extends Controller
             $str = Str::random(16);
         } while (Offer::where('uuid', $str)->exists());
         return $str;
+    }
+
+    private function uploadFile($data){
+        $type = PictureType::find($data["type_id"]);
+        $abs = "images/".$type->name."s";
+        $ext = $data["image"]->extension();
+        do{
+            $path = Str::random('32');
+        }while(Storage::exists($abs."/".$path.".".$ext));
+
+        $data["image"]->storeAs("public/".$abs,$path.".".$ext);
+        return "/".$type->name."s"."/".$path.".".$ext;
     }
 }

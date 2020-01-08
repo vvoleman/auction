@@ -9,8 +9,7 @@ class OfferSellController extends Controller
 {
     public function getSells($id){
         $offer = Offer::where('uuid',$id)->firstOrFail();
-
-        return view();
+        dd($offer);
     }
 
     public function ajaxCreateSell(){

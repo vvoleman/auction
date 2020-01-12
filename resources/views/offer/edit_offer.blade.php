@@ -3,6 +3,10 @@
 @section('content')
     <form method="post" action="{{route('offers.postEdit',["id"=>$offer->uuid])}}">
         @csrf
+    <edit-offer dat="{{$data->toJson(JSON_UNESCAPED_UNICODE)}}"></edit-offer>
+    </form>
+    <edit-images images="{{$images->toJson(JSON_UNESCAPED_UNICODE)}}" token="{{$offer->uuid}}" class="col-md-8 mx-auto"></edit-images>
+    <!--
         <div class="col-md-8 mx-auto white_box m-top3 d-flex justify-content-between align-items-start flex-wrap">
             @include('partials._formmsgs')
             <div class="col-12 text-center">
@@ -70,7 +74,7 @@
             <input type="hidden" name="_tags" id="_tags">
             <input type="submit" class="btn btn-blue btn-block">
         </div>
-    </form>
+        !-->
     @if(Auth::user()->hasPermission("offers.delete"))
     <form id="end_form" method="post" action="{{route("offers.delete",["id"=>$offer->uuid])}}">
         @csrf
@@ -86,30 +90,6 @@
     @endif
 @stop
 @section('scripts')
-    <script src="{{asset("assets/js/xregexp.min.js")}}"></script>
-    <script src="{{asset("assets/js/custom/new_offer/tags.js")}}"></script>
-    <script src="{{asset('node_modules/tinymce/tinymce.js') }}"></script>
-    <script src="{{asset("assets/js/custom/new_offer/editor.js")}}"></script>
-    <script type="text/javascript">
-        var tags = new Tags();
-        tags.tags = JSON.parse('{!! $tags->toJson(JSON_UNESCAPED_UNICODE) !!}');
-        tags.refresh();
-        $("#new_tag").on('keypress', function (e) {
-            if (e.which == 13) {
-                e.preventDefault();
-                temp = $("#new_tag").val();
-                if (tags.check(temp)) {
-                    $("#tags_msg").hide();
-                    if (temp.length > 2) {
-                        tags.addTag(temp);
-                        $("#new_tag").val("");
-                    }
-                } else {
-                    $("#tags_msg").fadeIn();
-                }
-            }
-        });
-    </script>
     <script>
         $("#end_offer").on('click',()=>{
            if(confirm("Opravdu chcete smazat nabídku? Tento krok nelze změnit!")){

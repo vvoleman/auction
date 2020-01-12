@@ -19,9 +19,10 @@ class ProfileController extends Controller
             $you = true;
         }else{
             $user = User::where('uuid',$uuid)->firstOrFail();
-            $you = false;
+            $you = Auth::user()->uuid == $uuid;
         }
-        return view('profile/profile',["user"=>$user,"you"=>$you]);
+        $offer = $this->formatOffers((($you) ? $user->offers() : $user->offers()->whereNull('delete_reason'))->orderBy('created_at','DESC')->take(6));
+        return view('profile/profile',["user"=>$user,"you"=>$you,"offers"=>$offer]);
     }
     public function getProfileImage(){
         return view('profile/profile_picture');
@@ -130,6 +131,8 @@ class ProfileController extends Controller
                 "currency"=>$x->currency->short,
                 "category"=>$x->category->name,
                 "id"=>$x->id_o,
+                "delivery"=>$x->delivery_type->label,
+                "payment"=>$x->payment_type->label,
 
                 "created_at"=>strtotime($x->created_at),
                 "end_date"=>strtotime($x->end_date)

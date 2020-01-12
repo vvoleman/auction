@@ -5,7 +5,7 @@
             <div v-if="badge_number!=0" class="not-circle">{{badge_number}}</div>
         </transition>
         <transition name="zoom">
-            <div class="not-bar col-rl-3 col-lg-4" v-if="show" v-on-click-outside="close" @click.stop="">
+            <div v-cloak class="not-bar col-rl-3 col-lg-4" v-if="show" v-on-click-outside="close" @click.stop="">
                 <div v-for="(o,i) in nots" class="">
                     <div class="item d-flex align-items-center justify-content-between">
                         <div class="d-none d-md-flex big-circle">
@@ -43,26 +43,7 @@
         data() {
             return {
                 show: false,
-                nots: [
-                    {
-                        icon: "fas fa-store-alt",
-                        title: "Nová žádost o koupi",
-                        time: "před 3 minutami",
-                        seen: false,
-                    },
-                    {
-                        icon: "fas fa-store-alt",
-                        title: "Nová žádost o koupi",
-                        time: "před 3 minutami",
-                        seen: true,
-                    },
-                    {
-                        icon: "fas fa-store-alt",
-                        title: "Nová žádost o koupi",
-                        time: "před 3 minutami",
-                        seen: false,
-                    },
-                ]
+                nots: []
             }
         },
         methods: {

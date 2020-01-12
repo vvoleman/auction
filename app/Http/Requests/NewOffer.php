@@ -31,8 +31,7 @@ class NewOffer extends FormRequest
             "category"=>"required|integer|exists:categories,id_c",
             "delivery"=>"required|integer|exists:delivery_types,id_dt",
             "payment"=>"required|integer|exists:payment_types,id_pt",
-            /*'images_upl' => 'required',
-            'images_upl.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',*/
+            'images_upl.*' => 'required|mimes:jpeg,png,jpg,gif,svg|max:8192',
             "currency"=>"required|exists:currencies,id_c",
             "_tags"=>"nullable|json"
         ];

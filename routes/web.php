@@ -79,6 +79,7 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
 
     Route::post('/offers/newBuy','OfferController@ajaxBuyOffer')->middleware(['auth']);
     Route::post('/offers/removeOfferSell','OfferController@ajaxRemoveOfferSell')->middleware(['auth']);
+    Route::post('/offers/updateImages','OfferController@ajaxUpdateImages')->middleware(['auth']);
 });
 
 //PROFILEPIC CHANGE
@@ -99,6 +100,9 @@ Route::name('offers.')->group(function (){
     Route::post("/offers/{id}/renew","OfferController@postRenew")->name("postRenew")->middleware(['auth','hasPerm:offers.renew'])->where("id","[A-Za-z0-9]+");
     Route::post("/offers/{id}/delete","OfferController@deleteOffer")->name("delete")->middleware(['auth','hasPerm:offers.delete'])->where("id","[A-Za-z0-9]+");
     Route::get("/offers/{id}/sells","OfferSellController@getSells")->name('sells')->middleware(['auth'])->where("id","[A-Za-z0-9]+");
+    Route::get("/offers/{id}/sells/{os_id}","OfferSellController@getConfirmOffer")->name('confirm')->middleware(['auth'])->where("id","[A-Za-z0-9]+")->where("os_id","[A-Za-z0-9]+");
+    Route::post("/offers/{id}/sells/{os_id}/confirm","OfferSellController@postConfirmOffer")->name('confirm.confirm')->middleware(['auth'])->where("id","[A-Za-z0-9]+")->where("os_id","[A-Za-z0-9]+");
+    Route::get("/offers/{id}/sells/{os_id}/deny","OfferSellController@postDenyOffer")->name('confirm.deny')->middleware(['auth'])->where("id","[A-Za-z0-9]+")->where("os_id","[A-Za-z0-9]+");
 });
 
 //SEARCH

@@ -62,7 +62,8 @@
             },
             formatDate(timestamp){
                 var d = new Date(timestamp*1000);
-                return this.fillZero(d.getDay())+"."+this.fillZero(d.getMonth())+"."+d.getFullYear()+" "+this.fillZero(d.getHours())+":"+this.fillZero(d.getMinutes())+":"+this.fillZero(d.getSeconds());
+                console.log(timestamp);
+                return this.fillZero(d.getDate())+"."+this.fillZero(d.getMonth()+1)+"."+d.getFullYear()+" "+this.fillZero(d.getHours())+":"+this.fillZero(d.getMinutes())+":"+this.fillZero(d.getSeconds());
             },
             close(){
                 this.$emit("close");

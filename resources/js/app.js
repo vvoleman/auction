@@ -13,7 +13,6 @@ const options = {
     }
 }
 
-
 Vue.use(Snotify,options);
 
 Vue.component('search-page', require('./components/pages/search/search-page.vue').default);
@@ -23,7 +22,13 @@ Vue.component('config-users',require('./components/pages/users/config-users.vue'
 Vue.component('show-myoffers',require('./components/pages/myoffers/show-myoffers.vue').default);
 Vue.component('show-selloffer',require('./components/pages/offers/show-selloffer.vue').default);
 Vue.component('add-offer',require('./components/pages/newoffers/add-offer').default);
+Vue.component('edit-offer',require('./components/pages/editoffers/editoffers').default);
+Vue.component('edit-images',require('./components/pages/editoffers/edit-images').default);
+Vue.component('confirm-offer-list',require('./components/pages/confirmoffers/confirm-offer-list').default);
 
+Vue.component('searchbar',require('./components/sub/searchbar').default);
+Vue.component('gallery',require('./components/pages/newoffers/gallery').default);
+Vue.component('offerlist',require('./components/pages/profile/offer_list').default);
 Vue.component('notifications',require('./components/sub/Notifications').default);
 Vue.component('modal', require("./components/sub/modal.vue").default);
 Vue.component('slider', VueSlider);

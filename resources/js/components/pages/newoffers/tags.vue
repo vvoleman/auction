@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input v-model="input" v-on:keydown.enter.prevent="add" autocomplete="off" type="text" id="new_tag" class="form-control">
+        <input v-model="input" v-on:keydown.enter.prevent="add" autocomplete="off" type="text" class="form-control">
         <transition name="fade">
             <div v-if="error" class="error">
                 Prosím, zadejte pouze slova a písmena!
@@ -17,9 +17,15 @@
 <script>
     export default {
         name: "tags",
+        props:{
+            t:{
+                type:Array,
+                default:()=>{return [];}
+            }
+        },
         data() {
             return {
-                tags: [],
+                tags: this.t,
                 error: false,
                 input: ""
             }

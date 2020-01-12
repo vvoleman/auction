@@ -26,16 +26,16 @@
         <form method="post" action="{{route('setting.postSetting')}}" id="settingform">
             @csrf
             @include('partials/_formmsgs')
-            <div class="form">
-                <div class="form-group">
+            <div class="form d-flex flex-wrap">
+                <div class="form-group col-md-6">
                     <h5>Jméno</h5>
                     <input type="text" name="firstname" value="{{$firstname}}" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <h5>Příjmení</h5>
                     <input type="text" name="surname" value="{{$surname}}" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <h5>Stát</h5>
                     <select class="form-control" id="countryselect">
                         @foreach($countries as $c)
@@ -43,21 +43,21 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <h5>Kraj</h5>
                     <select class="form-control" id="regionselect" name="region_id">
 
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <h5>Město</h5>
                     <input type="text" name="city" value="{{$city}}" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <h5>PSČ</h5>
                     <input type="number" name="zipcode" value="{{$zipcode}}" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <h5>Ulice + č.p</h5>
                     <input type="text" name="address" value="{{$address}}" class="form-control">
                 </div>

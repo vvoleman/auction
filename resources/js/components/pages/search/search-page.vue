@@ -3,7 +3,7 @@
         <div v-if="urls.length != 0" class="white_box" id="content">
             <input type="search" class="form-control" placeholder="Vyhledej..." v-model="query">
             <filterbox v-show="show_control" :class="{'d-flex':show_control}" @changed="filterChanged" :boot="boot"
-                       class="subbox col-md-11 m-top mx-auto"></filterbox>
+                           class="subbox col-md-11 m-top mx-auto"></filterbox>
             <i @click="show_control = !show_control"
                :class="{'fa-chevron-down':show_control,'fa-chevron-up':!show_control}"
                class="fas w-100 text-center m-top" style="margin-bottom: 0px;cursor:pointer"></i>
@@ -17,7 +17,8 @@
                     </button>
                 </div>
                 <div v-else class="white_box m-top text-center">
-                    Žádné výsledky
+                    <span v-if="query != 'smysl života'">Žádné výsledky</span>
+                    <span v-else>¯\_(ツ)_/¯ </span>
                 </div>
             </div>
             <div key="load" v-if="loading == true && error == false" class="loading white_box m-top">
@@ -50,7 +51,7 @@
             boot: {
                 required: true
             },
-            q:{}
+            q: {}
         },
         data() {
             return {

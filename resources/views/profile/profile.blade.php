@@ -5,7 +5,8 @@
         <li><a class="current">Profil</a></li>
     @endcomponent
     <div class="d-md-flex justify-content-around col-lg-10 mx-auto align-items-start">
-        <div class="col-md-3 white_box m-top3">
+        <div class="col-md-3 sticky-top">
+            <div class="white_box m-top">
             @if($you)
             <div class="row justify-content-end" style="margin-right:5px">
                 <a href="{{route('setting.setting')}}" class="fas fa-cog text-muted"></a>
@@ -24,10 +25,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-7 white_box m-top3">
-            <div class="">
-                <h4 class="text-muted">@if($you) Vaše nabídky @else Nabídky @endif</h4>
-            </div>
         </div>
+        <div class="col-md-8 m-top">
+            <div class="white_box ">
+                <h4 id="start" class="text-muted">@if($you) Vaše nabídky @else Nabídky @endif</h4>
+            </div>
+            <offerlist dat="{{$offers->toJson(JSON_UNESCAPED_UNICODE)}}"></offerlist>
+        </div>
+
     </div>
 @stop

@@ -143,7 +143,8 @@
     }
 
     .grid-select {
-        background: #eeeeee !important;
+        background: var(--main-purple) !important;
+        color:white;
     }
 
     .changeview i {

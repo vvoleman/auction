@@ -1,6 +1,12 @@
 <template>
     <div class="col-md-8 mx-auto" v-if="data != null">
-        <div class="row align-items-start">
+        <vue-easy-lightbox
+                :visible="visible"
+                :imgs="data.pictures"
+                :index="index"
+                @hide="visible = false"
+        ></vue-easy-lightbox>
+        <div class="row align-items-center">
             <div class="col-md-4 d-flex flex-wrap flex-column justify-content-between">
                 <div class="col-12 white_box m-top test_offer">
                     <div class="row justify-content-end" style="margin-right:5px" v-if="data.is_owner">
@@ -62,22 +68,11 @@
                 <div class="col-12 white_box m-top">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" :data-slide-to="i" :class="{'active':i==0}" v-for="(o,i) in data.pictures"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="https://www.stoplusjednicka.cz/sites/default/files/styles/full/public/obrazky/2019/03/22_01_panda.jpg?itok=zLpPRNsW"
-                                     class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://www.stoplusjednicka.cz/sites/default/files/styles/full/public/obrazky/2019/03/22_01_panda.jpg?itok=zLpPRNsW"
-                                     class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://www.stoplusjednicka.cz/sites/default/files/styles/full/public/obrazky/2019/03/22_01_panda.jpg?itok=zLpPRNsW"
-                                     class="d-block w-100" alt="...">
+                            <div class="carousel-item" :class="{'active':i==0}" v-for="(o,i) in data.pictures">
+                                <div class="img_bg" @click="openGallery(i)" :style="{'background-image':'url('+o+')'}"></div>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -111,15 +106,18 @@
 <script>
     import BuyOffer from "./buy-offer";
     import RemoveSell from "./remove-sell";
+    import VueEasyLightbox from 'vue-easy-lightbox'
     export default {
         name: "show-selloffer",
-        components: {RemoveSell, BuyOffer},
+        components: {RemoveSell, BuyOffer, VueEasyLightbox},
         props: ["o_data"],
         data() {
             return {
                 data: null,
                 buy_modal:false,
-                remove_modal:false
+                remove_modal:false,
+                visible:false,
+                index:0
             };
         },
         mounted() {
@@ -137,6 +135,10 @@
             },
             reloadPage(){
                 location.reload();
+            },
+            openGallery(i){
+                this.index = i;
+                this.visible = true;
             }
         }
     }
@@ -146,5 +148,12 @@
     .cant-buy{
         background:#d0d0d0;
         padding:20px;
+    }
+    .img_bg{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 500px;
     }
 </style>

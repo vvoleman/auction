@@ -13,6 +13,7 @@ use App\Http\Requests\NewOffer;
 use App\Http\Requests\EditOffer;
 use App\OfferSell;
 use App\OfferType;
+use App\Picture;
 use App\PictureType;
 use App\Tag;
 use Carbon\Carbon;
@@ -40,7 +41,6 @@ class OfferController extends Controller
         ];
         return view('offer/new_offer', ["data"=>collect($data)]);
     }
-
     private function format_deliveries($del)
     {
         $final = [];
@@ -59,7 +59,6 @@ class OfferController extends Controller
         }
         return collect($final);
     }
-
     public function getOffer($id)
     {
         $offer = $this->offer_exists($id);
@@ -78,7 +77,6 @@ class OfferController extends Controller
             }
         }
     }
-
     public function getEditOffer($id)
     {
         $offer = $this->offer_exists($id);
@@ -87,13 +85,26 @@ class OfferController extends Controller
             return view("offer/renew_offer", ["offer" => $offer]);
         }
 
+        $data = [
+            "name"=>$offer->name,
+            "type"=>$offer->type->name,
+            "end_date"=>$offer->end_date->toDateTimeLocalString(),
+            "description"=>$offer->description,
+            "currency"=>$offer->currency->short,
+            "delivery"=>$offer->delivery_type->label,
+            "payment"=>$offer->payment_type->label,
+            "price"=>$offer->price,
+            "tags"=>$offer->tags->map(function ($x) {
+                return $x->name;
+            }),
+        ];
+
         $tags = $offer->tags->map(function ($x) {
             return $x->name;
         });
 
-        return view("offer/edit_offer", ["offer" => $offer, "tags" => $tags]);
+        return view("offer/edit_offer", ["data"=>collect($data),"images"=>collect($this->format_pictures($offer)),"offer" => $offer, "tags" => $tags]);
     }
-
     public function postNewOffer(NewOffer $request)
     {
         $data = $request->validated();
@@ -118,12 +129,22 @@ class OfferController extends Controller
         if ($offer->save()) {
             $offer->tags()->attach($ids);
 
+            $pics = [];
+            $creator_id = Auth::id();
+            foreach($data["images_upl"] as $p){
+                $path = $this->uploadFile(["type_id"=>2,"image"=>$p]);
+                if($path != false){
+                    $img = Picture::create(["picture_path"=>$path,"creator_id"=>$creator_id,"type_id"=>2]);
+                    $pics[] = $img->id_p;
+                }
+            }
+            $offer->pictures()->attach($pics);
+
             return redirect()->route('offers.offer', ["id" => $uuid])->with("Nabídka úspěšně přidána!");
         } else {
             return back()->with("Nebylo možné přidat nabídku")->withInput($data);
         }
     }
-
     public function postEditOffer(EditOffer $request, $id)
     {
         $data = $request->validated();
@@ -142,7 +163,6 @@ class OfferController extends Controller
             return redirect()->route('offers.edit', ["id" => $id])->with("danger", "Nebylo možné upravit nabídku!");
         }
     }
-
     public function postRenew($id)
     {
         $offer = $this->offer_exists($id);
@@ -155,7 +175,6 @@ class OfferController extends Controller
         }
         return back()->with("danger", "Nebylo možné obnovit nabídku!");
     }
-
     public function deleteOffer(Request $request, $id)
     {
         $offer = Offer::where('uuid', $id)->first();
@@ -211,7 +230,6 @@ class OfferController extends Controller
         //vrať odpověď
 
     }
-
     public function ajaxRemoveOfferSell(Request $request){
         $data = $request->validate([
             "offer_id"=>"required|exists:offers,uuid"
@@ -231,7 +249,40 @@ class OfferController extends Controller
         }
         return response()->json(["message"=>$res[0]],$res[1]);
     }
+    public function ajaxUpdateImages(Request $request){
+        $data = $request->validate([
+            "uuid"=>"required|exists:offers,uuid",
+            "existing"=>"nullable|array",
+            "image.*"=>"nullable|mimes:jpeg,png,jpg,gif,svg|max:8192"
+        ]);
 
+        $offer = Offer::where('uuid',$data["uuid"])->first();
+        $ids = [];
+        $uid = Auth::id();
+        if(isset($data["existing"])){
+            foreach($data["existing"] as $e){
+                if(Picture::where('id_p',$e)->where('creator_id',$uid)->exists()) $ids[] = intval($e);
+            }
+        }
+        if(isset($data["image"])){
+            foreach($data["image"] as $i){
+                $path = $this->uploadFile(["type_id"=>2,"image"=>$i]);
+                if($path != false){
+                    $pic = Picture::create([
+                       "type_id"=>2,
+                       "creator_id"=>$uid,
+                       "picture_path"=>$path
+                    ]);
+                    $ids[] = $pic->id_p;
+                }else{
+                    return response()->json(["message"=>"Obrázky nelze uložit","status"=>500]);
+                }
+            }
+        }
+
+        $offer->pictures()->sync($ids);
+        return response()->json(["message"=>"Obrázky byly úspěšně uloženy!","data"=>$this->format_pictures($offer),"status"=>200]);
+    }
 
     private function offer_exists($id)
     {
@@ -241,7 +292,9 @@ class OfferController extends Controller
         }
         return $offer;
     }
-
+    private function format_pictures($offer){
+        return $offer->pictures->map(function($x){return ["url"=>$x->path,"id"=>$x->id_p];});
+    }
     private function prepareSellData($offer)
     {
         $timestamp = strtotime($offer->end_date);
@@ -253,6 +306,7 @@ class OfferController extends Controller
                 "can_buy"=>!OfferSell::where('offer_id',$offer->id_o)->where('buyer_id', Auth::id())->whereNull('deleted_at')->exists()
             ],
             "name" => $offer->name,
+            "pictures"=>$offer->pictures->map(function($x){return $x->path;}),
             "owner" => [
                 "fullname" => $offer->owner->fullname,
                 "address"=>$offer->owner->fulladress,
@@ -280,7 +334,6 @@ class OfferController extends Controller
         ];
     }
 
-
     private function tags_to_array($str)
     {
         $tags = json_decode($str);
@@ -301,7 +354,6 @@ class OfferController extends Controller
         }
         return $ids;
     }
-
     private function correct_payment($delivery, $payment)
     {
         $dt = DeliveryType::find($delivery)->all_available_payments();
@@ -313,7 +365,6 @@ class OfferController extends Controller
         return false;
 
     }
-
     private function generateUuid()
     {
         do {
@@ -321,7 +372,6 @@ class OfferController extends Controller
         } while (Offer::where('uuid', $str)->exists());
         return $str;
     }
-
     private function uploadFile($data){
         $type = PictureType::find($data["type_id"]);
         $abs = "images/".$type->name."s";

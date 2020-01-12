@@ -1,18 +1,25 @@
 <div class="navi col-12 d-flex">
-    <div class="col-md-5 justify-content-start d-flex align-items-center">
-        <a href="{{route('home.home')}}" class="letter-logo"><span class="letter-logo col-1">B</span></a>
-        <div class="search d-none d-md-block offset-md-5 col-md-7">
-            <form method="get" action="{{route('search.search')}}">
-                <input type="search" class="col-10" name="q">
-                <!--<i class="fa fa-search" type="button"></i>!-->
-            </form>
+    <div class="col-md-3">
+        <a href="{{route('home.home')}}" class="justify-content-start d-flex align-items-center logo">
+        <img src="{{URL::asset('/assets/images/logo.png')}}"><!--<span class="letter-logo col-1">B</span>!-->
+        <div class="logo-text">
+            <span class="main-text">Auction</span>
+            <span class="second-text">protože proč ne</span>
         </div>
+        </a>
     </div>
-    <div class="col-md-7 d-flex justify-content-end align-items-center">
-        <span>Obchod</span>
+    <div class="col-md-9 d-flex justify-content-end align-items-center">
+        <form method="get" action="{{route('search.search')}}">
+            <searchbar></searchbar>
+        </form>
+        <a href="{{route('search.search')}}"><span>Nabídky</span></a>
         @if(Auth::check())
         <div class="user-nav d-flex justify-content-between align-items-center">
             <notifications notifications="{{$notifications->toJson()}}" url="{{Auth::user()->profpic_path()}}"></notifications>
+            <div class="name">
+                <span class="name-first">{{Auth::user()->firstname}}</span>
+                <span class="name-sur">{{Auth::user()->surname}}</span>
+            </div>
             <div class="btn-group">
                 <button type="button" class="dd-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-caret-down"></i>

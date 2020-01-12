@@ -54,10 +54,11 @@
                 <label>Tagy</label>
                 <tags @change="tagsChange"></tags>
             </div>
-            <!--<div class="form-group">
+            <div class="form-group">
                 <label>Obrázky</label>
-                <input type="file" multiple="multiple" class="form-control" name="images_upl">
-            </div>!-->
+                <input type="file" multiple="multiple" class="form-control" name="images_upl[]" @change="fileChanged">
+                <gallery :can-remove="false" :files="imgs"></gallery>
+            </div>
 
         </div>
         <input type="hidden" name="_tags" id="_tags" :value="compileTags">

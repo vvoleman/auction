@@ -1,6 +1,8 @@
 :root{
     --second:#192f9c;
     --main-blue:#3B4263;
+    --main-purple:#222638;
+    --main-orange:#CD6612;
     --main-font:"Century Gothic";
 }
 
@@ -35,7 +37,9 @@ body{
     background:#f0f0f0;
     font-family: var(--main-font);
 }
-
+[v-cloak]{
+    display:none;
+}
 .letter-logo{
     font-family:Calibri;
     color:var(--main-blue);
@@ -52,10 +56,47 @@ body{
     z-index: 101;
     color:white;
 }
+.border{
+    border:1px solid black;
+}
 .navi{
     z-index: 99;
     background: white;
     /*box-shadow: 0px 0px 6px 3px rgba(224,224,224,1);*/
+}
+.navi img{
+    width: 70px;
+}
+.navi .main-text{
+    color:var(--main-purple);
+    font-size:30px;
+    display:block;
+}
+.navi .logo-text{
+    margin-left:10px;
+    font-family:Calibri;
+    line-height: 20px;
+}
+.navi .name{
+    margin-left:10px;
+    text-align: center;
+    color:var(--main-purple);
+    font-family: Calibri;
+    line-height: 20px;
+    margin-right:10px;
+}
+.navi .name .name-first{
+    font-size:21px;
+    display:block;
+}
+.navi .name .name-sur{
+    font-size:13px;
+}
+.logo{
+    padding:10px;
+}
+a.logo:hover{
+    text-decoration: none;
 }
 .navi a{
     color:inherit;
@@ -74,6 +115,7 @@ body{
     background: #e0e0e0;
 }
 .picture-nav{
+    border:2px solid #d3d3d3;
     border-radius:50%;
     background: #e5e5e5;
     width: 50px;
@@ -627,4 +669,63 @@ ul.breadcrumbs{
     height: 20px;
     color:white;
     border-radius: 100%;
+}
+.home-background{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home-background .mask{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    position: absolute;
+    background: rgba(0,0,0,0.75);
+}
+.mask .content .title{
+    display:flex;
+}
+.mask .content{
+    margin-top:-70px;
+}
+.mask .content h3{
+    font-size:50px;
+    font-family:Calibri;
+    color:white;
+}
+.mask .content .marked{
+    font-weight: bolder;
+    color:var(--main-orange);
+}
+.content .input{
+    margin-top:30px;
+}
+.content .input input{
+    padding:15px;
+    border:none;
+    border-radius: 5px;
+}
+.content .input button{
+    margin-left:12px;
+    background: var(--main-orange);
+    border:none;
+    color:white;
+    font-size:23px;
+    font-family: Calibri;
+    border-radius: 5px;
+    padding: 10px 25px;
+}
+.content .title a:hover{
+    text-decoration: none;
+}
+.breadcrumbs a:hover{
+    color:white;
+}
+.bold_heh thead td{
+    font-weight: bold;
 }

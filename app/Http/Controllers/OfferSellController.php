@@ -6,15 +6,32 @@ use App\OfferSell;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Offer;
+use Illuminate\Support\Facades\Auth;
 
 class OfferSellController extends Controller
 {
     public function getSells($id){
         $offer = Offer::where('uuid',$id)->firstOrFail();
-        dd($offer);
+        $this->canAccess($offer);
+        $sells = $offer->sells()->whereNull('deleted_at')->get();
+        //fullname, created_at [timestamp], score, flag, region, country
+        $sells = $sells->map(function($x)use($id){
+            return [
+                "fullname"=>$x->buyer->fullname,
+                "created_at"=>$x->created_at->timestamp,
+                "score"=>$x->buyer->review_score(),
+                "flag_img"=>$x->buyer->country->img,
+                "region"=>$x->buyer->region->name,
+                "url"=>route('offers.confirm',["id"=>$id,"os_id"=>$x->id_os])
+            ];
+        });
+        $sold = ($offer->sold_to_sell != null) ? $offer->sold_to_sell : false;
+
+        return view('offer/confirm_offer_list',["sold"=>$sold,"sells"=>$sells]);
     }
     public function getConfirmOffer($id, OfferSell $os_id){
-        $offer = Offer::where('uuid',$id)->firstOrFail();
+        $offer = Offer::where('uuid',$os_id->offer->uuid)->firstOrFail();
+        $this->canAccess($offer);
         return view('offer/confirm_offer',["os"=>$os_id]);
     }
     public function postConfirmOffer($id,$id_os){
@@ -51,5 +68,10 @@ class OfferSellController extends Controller
             return false;
         }
         return $os;
+    }
+    private function canAccess($offer){
+        if($offer->owner->id_u != Auth::id()){
+            abort(403);
+        }
     }
 }

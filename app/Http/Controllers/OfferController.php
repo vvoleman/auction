@@ -306,7 +306,7 @@ class OfferController extends Controller
                 "can_buy"=>!OfferSell::where('offer_id',$offer->id_o)->where('buyer_id', Auth::id())->whereNull('deleted_at')->exists()
             ],
             "name" => $offer->name,
-            "pictures"=>$offer->pictures->map(function($x){return $x->path;}),
+            "pictures"=>$offer->safe_pictures(),
             "owner" => [
                 "fullname" => $offer->owner->fullname,
                 "address"=>$offer->owner->fulladress,

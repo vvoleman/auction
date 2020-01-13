@@ -75,7 +75,7 @@ class SearchController extends Controller
                 "id" => $o->id_o,
                 "name" => $o->name,
                 "type" => $o->type->name,
-                "picture" => (sizeof($o->pictures) > 0) ? $o->pictures[0]->path : null,
+                "picture" => $o->safe_pictures()[0],
                 "price" => $o->price,
                 "delivery" => $o->delivery_type->label,
                 "payment" => $o->payment_type->label,

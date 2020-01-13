@@ -5,7 +5,7 @@
                 <a :href="o.url" class="no-a">
                     <div class="col-12 mx-auto d-md-flex">
                         <div class="shadow item-img mx-auto"
-                             style="background-image: url('https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp')">
+                             :style="{'background-image': 'url('+o.picture+')'}">
                         </div>
                         <div class="right-side col-md-4">
                             <b>{{o.name}}</b>

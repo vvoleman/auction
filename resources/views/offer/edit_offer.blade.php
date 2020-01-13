@@ -1,6 +1,10 @@
 @extends('mains/main')
 @section('title','Úprava nabídky | ')
 @section('content')
+    @component('partials._breadcrumbs')
+        <li><a href="{{route('offers.offer',["id"=>$offer->uuid])}}">Nabídka</a></li>
+        <li><a class="current">Úprava nabídky</a></li>
+    @endcomponent
     <form method="post" action="{{route('offers.postEdit',["id"=>$offer->uuid])}}">
         @csrf
     <edit-offer dat="{{$data->toJson(JSON_UNESCAPED_UNICODE)}}"></edit-offer>

@@ -2263,7 +2263,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _confirm_offer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./confirm-offer */ "./resources/js/components/pages/confirmoffers/confirm-offer.vue");
 //
 //
 //
@@ -2291,194 +2290,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "confirm-offer-list",
-  components: {
-    ConfirmOffer: _confirm_offer__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
+  props: ['dat'],
   data: function data() {
     return {
       orderBy: 0,
-      os: [{
-        "fullname": "Vojtěch Voleman",
-        created_at: new Date().getTime(),
-        score: 4.8
-      }, {
-        "fullname": "Vojtěch Voleman",
-        created_at: new Date().getTime(),
-        score: 4.7
-      }, {
-        "fullname": "Vojtěch Voleman",
-        created_at: new Date().getTime(),
-        score: 4.6
-      }, {
-        "fullname": "Vojtěch Voleman",
-        created_at: new Date().getTime(),
-        score: 4.5
-      }]
+      os: []
     };
+  },
+  mounted: function mounted() {
+    this.os = JSON.parse(this.dat);
   },
   methods: {
     formatDate: function formatDate(timestamp) {
-      var d = new Date(timestamp);
-      console.log(timestamp);
+      var d = new Date(timestamp * 1000);
       return this.fillZero(d.getDate()) + "." + this.fillZero(d.getMonth() + 1) + "." + d.getFullYear() + " " + this.fillZero(d.getHours()) + ":" + this.fillZero(d.getMinutes()) + ":" + this.fillZero(d.getSeconds());
     },
     fillZero: function fillZero(val) {
       return (val < 10 ? "0" : "") + val;
     }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "confirm-offer",
-  props: [],
-  data: function data() {
-    return {
-      customer: {
-        fullname: "Vojtěch Voleman",
-        address: "Random ulice, 40001 Ústí nad Labem" //"Plynárenská 10, 40010 Ústí nad Labem"
-
-      },
-      offer: {
-        name: "Koště Nymbus 2000",
-        price: "150 CZK",
-        delivery: "Osobně",
-        payment: "Osobně"
-      }
-    };
   },
-  mounted: function mounted() {},
-  methods: {
-    loadMap: function loadMap() {
-      var _this = this;
-
-      var obrazek = "https://api.mapy.cz/img/api/marker/drop-red.png";
-      var m = new test.SMap(JAK.gel("m"));
-      m.addControl(new SMap.Control.Sync());
-      m.addDefaultLayer(SMap.DEF_BASE).enable();
-      /* Turistický podklad */
-
-      var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM);
-      /* Ovládání myší */
-
-      m.addControl(mouse);
-      var adr1 = "Kollárova 226/2, 40003 Ústí nad Labem";
-      var adr2 = "Plynárenská 10, 40010 Ústí nad Labem";
-      new SMap.Geocoder([adr1, adr2], function (data) {
-        var body = [];
-        var results = data.getResults();
-
-        for (var i = 0; i < results.length; i++) {
-          if (results[i].results.length == 0) {
-            console.log("Neplatná adresa!");
-          } else {
-            body.push(results[i].results[0].coords);
-          }
-        }
-
-        _this.vykresliBody(body);
-      });
-    },
-    vykresliBody: function vykresliBody(body) {
-      var znacky = [];
-      console.log(body);
-      znacky.push(new SMap.Marker(body[0], null, {
-        title: "Prodejce"
-      }));
-      znacky.push(new SMap.Marker(body[1], null, {
-        title: "Vy"
-      })); //console.log(znacky);
-
-      var layer = new SMap.Layer.Marker();
-      /* Vrstva se značkami */
-
-      console.log(m);
-      m.addLayer(layer);
-      layer.enable();
-
-      for (var i = 0; i < znacky.length; i++) {
-        layer.addMarker(znacky[i]);
+  computed: {
+    ordered: function ordered() {
+      //0 = datum
+      //1 = hodnocení
+      if (this.orderBy == 0) {
+        return this.os.sort(function (a, b) {
+          a.created_at > b.created_at ? 1 : -1;
+        });
       }
 
-      var cz = m.computeCenterZoom(body);
-      m.setCenterZoom(cz[0], cz[1]);
+      return this.os.sort(function (a, b) {
+        a.score > b.score ? 1 : -1;
+      });
     }
   }
 });
@@ -7423,7 +7272,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.badge-filter[data-v-1c31e26c] {\n    text-align: center;\n    background: var(--main-blue);\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n    font-size: 16px;\n    margin-left: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 1);\n    -webkit-transition: 0.1s;\n    transition: 0.1s;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n.filter-active[data-v-1c31e26c] {\n    background: var(--main-orange);\n}\n.badge-filter[data-v-1c31e26c]:not(.filter-active):hover {\n    background: var(--main-purple);\n}\n", ""]);
+exports.push([module.i, "\n.badge-filter[data-v-1c31e26c] {\n    text-align: center;\n    background: var(--main-blue);\n    color: white;\n    padding: 5px 10px;\n    border-radius: 5px;\n    font-size: 16px;\n    margin-left: 5px;\n    box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 1);\n    -webkit-transition: 0.1s;\n    transition: 0.1s;\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n}\n.filter-active[data-v-1c31e26c] {\n    background: var(--main-orange);\n}\n.badge-filter[data-v-1c31e26c]:not(.filter-active):hover {\n    background: var(--main-purple);\n}\n.white_box a[data-v-1c31e26c]{\n    color:inherit;\n}\n.white_box a[data-v-1c31e26c]:hover{\n    text-decoration: none;\n}\n.link[data-v-1c31e26c]{\n    -webkit-transition: 0.1s;\n    transition: 0.1s;\n}\n.link[data-v-1c31e26c]:hover{\n    background-color: #f6f6f6;\n}\n", ""]);
 
 // exports
 
@@ -38876,161 +38725,96 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "col-md-6 mx-auto" },
-    [_c("confirm-offer")],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._t("test"),
-      _vm._v(" "),
-      _c("div", { staticClass: "white_box m-top3 text-center" }, [
-        _c("h3", [_vm._v('Zájem o "' + _vm._s(_vm.offer.name) + '"')])
+  return _c("div", { staticClass: "col-md-6 mx-auto" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex align-items-end m-top" }, [
+      _c("h5", { staticStyle: { "margin-right": "15px" } }, [
+        _vm._v("Řadit dle:")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "white_box m-top" }, [
-        _c("h4", [_vm._v("Zájemce")]),
+      _c("div", { staticClass: "d-flex" }, [
+        _c(
+          "div",
+          {
+            staticClass: "badge-filter",
+            class: { "filter-active": _vm.orderBy == 0 },
+            on: {
+              click: function($event) {
+                _vm.orderBy = 0
+              }
+            }
+          },
+          [_vm._v("Data přidání")]
+        ),
         _vm._v(" "),
-        _c("table", { staticClass: "col-md-10 mx-auto table m-top2" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("td", [_vm._v(_vm._s(_vm.customer.fullname))]),
+        _c(
+          "div",
+          {
+            staticClass: "badge-filter",
+            class: { "filter-active": _vm.orderBy == 1 },
+            on: {
+              click: function($event) {
+                _vm.orderBy = 1
+              }
+            }
+          },
+          [_vm._v("Hodnocení")]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "white_box link m-top col-md-11 mx-auto" },
+      _vm._l(_vm.ordered, function(o, i) {
+        return _c("a", { attrs: { href: o.url } }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "d-flex justify-content-between align-items-start col-md-10 mx-auto"
+            },
+            [
+              _c("div", { staticClass: "d-flex align-items-start" }, [
+                _c("span", { staticStyle: { "margin-right": "15px" } }, [
+                  _vm._v(_vm._s(i + 1))
+                ]),
+                _vm._v(" "),
+                _c("h5", [_vm._v(_vm._s(o.fullname))])
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.customer.address))]),
-              _vm._v(" "),
-              _vm._m(1)
-            ])
-          ])
+              _c("div", { staticClass: "d-flex align-items-center" }, [
+                _c("span", { staticStyle: { "margin-right": "15px" } }, [
+                  _vm._v(_vm._s(_vm.formatDate(o.created_at)))
+                ]),
+                _vm._v(" "),
+                _c("span", { staticStyle: { "margin-right": "15px" } }, [
+                  _vm._v("/")
+                ]),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v(_vm._s(o.score) + " "),
+                  _c("i", { staticClass: "fas fa-star text-danger" })
+                ])
+              ])
+            ]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "white_box m-top" }, [
-        _c("h4", [_vm._v("Produkt")]),
-        _vm._v(" "),
-        _c("table", { staticClass: "col-md-10 mx-auto table m-top2" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("td", [_vm._v(_vm._s(_vm.offer.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.offer.price))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.offer.delivery))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.offer.payment))])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4)
-    ],
-    2
-  )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("td", [_vm._v("Jméno")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Adresa")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Hodnocení")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _vm._v("4,7 "),
-      _c("i", { staticClass: "fas fa-star text-danger" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("td", [_vm._v("Název")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Cena")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Doprava")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Platba")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "white_box m-top" }, [
-      _c("h4", [_vm._v("Mapa")]),
+    return _c("div", { staticClass: "white_box m-top3 text-center" }, [
+      _c("h3", [_vm._v("Žádosti o koupi")]),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "d-flex justify-content-center align-items-center",
-          staticStyle: { height: "400px", background: "#f0f0f0" },
-          attrs: { id: "m" }
-        },
-        [_c("span", [_vm._v("Zde by se měla nacházet mapa :)")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "white_box m-top m-bottom" }, [
-      _c("div", { staticClass: "col-md-6 mx-auto d-flex" }, [
-        _c("button", { staticClass: "btn btn-danger col-md-6" }, [
-          _vm._v("Zamítnout")
-        ]),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn btn-success col-md-6" }, [
-          _vm._v("Potvrdit")
-        ])
-      ])
+      _c("span", [_vm._v('k produktu "Vysavač fdsaf"')])
     ])
   }
 ]
@@ -42053,10 +41837,7 @@ var render = function() {
                 _c("div", { staticClass: "col-12 mx-auto d-md-flex" }, [
                   _c("div", {
                     staticClass: "shadow item-img mx-auto",
-                    staticStyle: {
-                      "background-image":
-                        "url('https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp')"
-                    }
+                    style: { "background-image": "url(" + o.picture + ")" }
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "right-side col-md-4" }, [
@@ -58098,75 +57879,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_confirm_offer_list_vue_vue_type_template_id_1c31e26c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_confirm_offer_list_vue_vue_type_template_id_1c31e26c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/confirmoffers/confirm-offer.vue":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/pages/confirmoffers/confirm-offer.vue ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _confirm_offer_vue_vue_type_template_id_25abc6d1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true& */ "./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true&");
-/* harmony import */ var _confirm_offer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./confirm-offer.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _confirm_offer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _confirm_offer_vue_vue_type_template_id_25abc6d1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _confirm_offer_vue_vue_type_template_id_25abc6d1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "25abc6d1",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/pages/confirmoffers/confirm-offer.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_confirm_offer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./confirm-offer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_confirm_offer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true&":
-/*!******************************************************************************************************************!*\
-  !*** ./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true& ***!
-  \******************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_confirm_offer_vue_vue_type_template_id_25abc6d1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/confirmoffers/confirm-offer.vue?vue&type=template&id=25abc6d1&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_confirm_offer_vue_vue_type_template_id_25abc6d1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_confirm_offer_vue_vue_type_template_id_25abc6d1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

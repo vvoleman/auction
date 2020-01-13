@@ -35,6 +35,9 @@ class Offer extends Model
     public function category(){
         return $this->belongsTo("\App\Category","category_id");
     }
+    public function sold_to_sell(){
+        return $this->belongsTo("\App\OfferSell","sold_to");
+    }
     public function sells(){
         return $this->hasMany("\App\OfferSell","offer_id");
     }
@@ -53,5 +56,12 @@ class Offer extends Model
     }
     public function getDescAttribute(){
         return clean($this->description);
+    }
+
+    public function safe_pictures(){
+        if($this->pictures()->count() > 0){
+            return $this->pictures->map(function($x){return $x->path;});
+        }
+        return collect([asset("/assets/images/default_offer.png")]);
     }
 }

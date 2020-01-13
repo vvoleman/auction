@@ -2393,9 +2393,7 @@ __webpack_require__.r(__webpack_exports__);
         this.imgs.splice(i, 1);
       } else {
         var temp = i - ex_length - 1;
-        console.log(temp);
         this.uploaded.splice(temp, 1);
-        console.log(this.uploaded);
         this.uploaded_urls.splice(temp, 1);
       }
     },

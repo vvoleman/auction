@@ -32,7 +32,7 @@ class EmailChangeController extends Controller
         }catch(\Exception $e){
             $request->session()->flash("danger","Nebylo možné vytvořit token pro nový email!");
         }
-        return redirect()->route("setting.edit");
+        return redirect()->route("setting.setting");
     }
     public function edit(Request $request, $token){
         $validToken = Verifier::check([IsTokenValid::check($token)]);

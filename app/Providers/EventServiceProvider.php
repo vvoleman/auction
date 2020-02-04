@@ -17,6 +17,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         "App\Events\OfferSellCreated"=>[
             "App\Listeners\SendOfferSellNotification"
+        ],
+        "App\Events\UserCreated"=>[
+            "App\Listeners\SendUserCreatedNotification"
         ]
     ];
 

@@ -10,10 +10,12 @@
                     <div class="status_bar" :class="o.status">{{getStatus(o.status)}}</div>
                     <div class="white_box">
                         <div class="d-md-flex align-items-center flex-wrap">
-                            <img class="col-rl-5"
-                                 src="https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp">
-                            <div class="col-rl-8" style="margin-left:5px;">
-                                <h3>{{o.name}}</h3>
+                            <div class="col-rl-7 imgbg" :style="{'background-image':'url('+o.picture+')'}">
+                                
+
+                            </div>
+                            <div class="col-rl-10 m-top" style="margin-left:5px;">
+                                <h5>{{o.name}}</h5>
                                 <div class="m-top2">
                                     <b>Počet nabídek: {{o.offersell_amount}}</b>
                                 </div>
@@ -162,5 +164,12 @@
 
     .changeview i:not(.grid-select):hover {
         background: #f5f5f5;
+    }
+    .imgbg{
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 200px;
+        width: 100%;
     }
 </style>

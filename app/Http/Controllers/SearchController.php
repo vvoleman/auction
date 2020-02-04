@@ -108,6 +108,8 @@ class SearchController extends Controller
     private function buildQuery($data)
     {
         $q = Offer::query();
+        $q->whereNull("delete_reason");
+        $q->whereNull("sold_to");
         $q->join("users", "offers.owner_id", "=", "users.id_u")
             ->join("regions", "users.region_id", "=", "regions.id_r");
         if (isset($data["query"])) $q->where("offers.name","LIKE","%".$data["query"]."%");

@@ -3411,6 +3411,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OffersList",
   props: ["ofs", "page"],
@@ -4318,6 +4320,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sub_GoUp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../sub/GoUp */ "./resources/js/components/sub/GoUp.vue");
+//
+//
 //
 //
 //
@@ -7422,7 +7426,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.status_bar[data-v-35af9e8a] {\n    text-align: center;\n    font-weight: bold;\n}\n.active[data-v-35af9e8a] {\n    background-color: #1ED761;\n}\n.deleted[data-v-35af9e8a] {\n    background-color: #ed2939;\n}\n.expired[data-v-35af9e8a] {\n    background-color: #F8E816;\n}\n.sold[data-v-35af9e8a] {\n    background-color: #7a7a7a;\n}\n.white_box[data-v-35af9e8a] {\n    box-shadow: 0px 6px 10px 0px rgba(224, 224, 224, 1);\n    border-radius: 0px 0px 5px 5px;\n}\n.grid-select[data-v-35af9e8a] {\n    background: var(--main-purple) !important;\n    color:white;\n}\n.changeview i[data-v-35af9e8a] {\n    background: white;\n    border-radius: 100%;\n    width: 40px;\n    height: 40px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 1);\n    -webkit-transition: 0.1s;\n    transition: 0.1s;\n    cursor: pointer;\n}\n.changeview i[data-v-35af9e8a]:not(.grid-select):hover {\n    background: #f5f5f5;\n}\n", ""]);
+exports.push([module.i, "\n.status_bar[data-v-35af9e8a] {\n    text-align: center;\n    font-weight: bold;\n}\n.active[data-v-35af9e8a] {\n    background-color: #1ED761;\n}\n.deleted[data-v-35af9e8a] {\n    background-color: #ed2939;\n}\n.expired[data-v-35af9e8a] {\n    background-color: #F8E816;\n}\n.sold[data-v-35af9e8a] {\n    background-color: #7a7a7a;\n}\n.white_box[data-v-35af9e8a] {\n    box-shadow: 0px 6px 10px 0px rgba(224, 224, 224, 1);\n    border-radius: 0px 0px 5px 5px;\n}\n.grid-select[data-v-35af9e8a] {\n    background: var(--main-purple) !important;\n    color:white;\n}\n.changeview i[data-v-35af9e8a] {\n    background: white;\n    border-radius: 100%;\n    width: 40px;\n    height: 40px;\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 1);\n    -webkit-transition: 0.1s;\n    transition: 0.1s;\n    cursor: pointer;\n}\n.changeview i[data-v-35af9e8a]:not(.grid-select):hover {\n    background: #f5f5f5;\n}\n.imgbg[data-v-35af9e8a]{\n    background-size: cover; \n    background-position: center;\n    background-repeat: no-repeat;\n    height: 200px;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -7631,7 +7635,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nbody[data-v-01850963] {\n    padding: 4rem;\n}\n[v-cloak][data-v-01850963] {\n    display: none;\n}\n.modal-mask[data-v-01850963] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: table;\n    -webkit-transition: opacity 0.3s ease;\n    transition: opacity 0.3s ease;\n}\n.modal-wrapper[data-v-01850963] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-01850963] {\n    margin: 0px auto;\n    padding: 20px 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-01850963] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-01850963] {\n    margin: 20px 0;\n}\n.modal-button[data-v-01850963] {\n    float: right;\n}\n.modal-enter[data-v-01850963],\n.modal-leave[data-v-01850963] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-01850963],\n.modal-leave .modal-container[data-v-01850963] {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\n\n/*\n.modal-backdrop {\n    position: fixed;\n    margin:auto;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.modal {\n    background: #FFFFFF;\n    box-shadow: 2px 2px 20px 1px;\n    overflow-x: auto;\n    display: flex;\n    flex-direction: column;\n}\n\n.modal-header,\n.modal-footer {\n    padding: 15px;\n    display: flex;\n}\n\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    justify-content: space-between;\n}\n\n.modal-footer {\n    border-top: 1px solid #eeeeee;\n    justify-content: flex-end;\n}\n\n.modal-body {\n    position: relative;\n    overflow: auto;\n    padding: 20px 10px;\n}\n\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}*/\n", ""]);
+exports.push([module.i, "\nbody[data-v-01850963] {\n    padding: 4rem;\n}\n[v-cloak][data-v-01850963] {\n    display: none;\n}\n.modal-mask[data-v-01850963] {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100% !important;\n    height: 100% !important;\n    background-color: rgba(0, 0, 0, 0.5);\n    display: table;\n    -webkit-transition: opacity 0.3s ease;\n    transition: opacity 0.3s ease;\n}\n.modal-wrapper[data-v-01850963] {\n    display: table-cell;\n    vertical-align: middle;\n}\n.modal-container[data-v-01850963] {\n    margin: 0px auto;\n    padding: 20px 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    font-family: Helvetica, Arial, sans-serif;\n}\n.modal-header h3[data-v-01850963] {\n    margin-top: 0;\n    color: #42b983;\n}\n.modal-body[data-v-01850963] {\n    margin: 20px 0;\n    height: 400px;\n    overflow: auto;\n}\n.modal-button[data-v-01850963] {\n    float: right;\n}\n.modal-enter[data-v-01850963],\n.modal-leave[data-v-01850963] {\n    opacity: 0;\n}\n.modal-enter .modal-container[data-v-01850963],\n.modal-leave .modal-container[data-v-01850963] {\n    -webkit-transform: scale(1.1);\n            transform: scale(1.1);\n}\n\n/*\n.modal-backdrop {\n    position: fixed;\n    margin:auto;\n    background-color: rgba(0, 0, 0, 0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.modal {\n    background: #FFFFFF;\n    box-shadow: 2px 2px 20px 1px;\n    overflow-x: auto;\n    display: flex;\n    flex-direction: column;\n}\n\n.modal-header,\n.modal-footer {\n    padding: 15px;\n    display: flex;\n}\n\n.modal-header {\n    border-bottom: 1px solid #eeeeee;\n    color: #4AAE9B;\n    justify-content: space-between;\n}\n\n.modal-footer {\n    border-top: 1px solid #eeeeee;\n    justify-content: flex-end;\n}\n\n.modal-body {\n    position: relative;\n    overflow: auto;\n    padding: 20px 10px;\n}\n\n.btn-close {\n    border: none;\n    font-size: 20px;\n    padding: 20px;\n    cursor: pointer;\n    font-weight: bold;\n    color: #4AAE9B;\n    background: transparent;\n}\n\n.btn-green {\n    color: white;\n    background: #4AAE9B;\n    border: 1px solid #4AAE9B;\n    border-radius: 2px;\n}*/\n", ""]);
 
 // exports
 
@@ -39687,7 +39691,7 @@ var render = function() {
                 { attrs: { name: "fade", mode: "out-in" } },
                 [
                   _vm.groups.length == 0
-                    ? _c("loader", { key: "load" })
+                    ? _c("loader", { key: "load", staticClass: "m-top" })
                     : _c("groups-list", {
                         key: "content",
                         attrs: { groups: _vm.groups },
@@ -39987,22 +39991,19 @@ var render = function() {
                   "div",
                   { staticClass: "d-md-flex align-items-center flex-wrap" },
                   [
-                    _c("img", {
-                      staticClass: "col-rl-5",
-                      attrs: {
-                        src:
-                          "https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp"
-                      }
+                    _c("div", {
+                      staticClass: "col-rl-7 imgbg",
+                      style: { "background-image": "url(" + o.picture + ")" }
                     }),
                     _vm._v(" "),
                     _c(
                       "div",
                       {
-                        staticClass: "col-rl-8",
+                        staticClass: "col-rl-10 m-top",
                         staticStyle: { "margin-left": "5px" }
                       },
                       [
-                        _c("h3", [_vm._v(_vm._s(o.name))]),
+                        _c("h5", [_vm._v(_vm._s(o.name))]),
                         _vm._v(" "),
                         _c("div", { staticClass: "m-top2" }, [
                           _c("b", [
@@ -40812,6 +40813,7 @@ var render = function() {
       "div",
       {
         staticClass: "col-xl-10 mx-auto",
+        staticStyle: { "margin-top": "130px" },
         attrs: { slot: "body" },
         slot: "body"
       },
@@ -41405,54 +41407,55 @@ var render = function() {
     "div",
     { staticClass: "m-top2 d-flex flex-wrap" },
     [
-      _vm._l(_vm.offers, function(o, i) {
-        return _c("div", { staticClass: "m-top search-item col-md-6" }, [
-          _c("div", { staticClass: "col-12 white_box " }, [
-            _c("a", { staticClass: "no-a", attrs: { href: o.url } }, [
-              _c("div", { staticClass: "col-12 mx-auto" }, [
-                _c("div", {
-                  staticClass: "shadow item-img mx-auto",
-                  staticStyle: {
-                    "background-image":
-                      "url('https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp')"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "right-side col-md-12" }, [
-                  _c("h5", { staticClass: "text-center m-top" }, [
-                    _vm._v(_vm._s(o.name))
-                  ]),
+      _c(
+        "div",
+        { staticClass: "col-12 d-flex justify-content-end" },
+        _vm._l(_vm.offers, function(o, i) {
+          return _c("div", { staticClass: "m-top search-item col-md-6" }, [
+            _c("div", { staticClass: "col-12 white_box " }, [
+              _c("a", { staticClass: "no-a", attrs: { href: o.url } }, [
+                _c("div", { staticClass: "col-12 mx-auto" }, [
+                  _c("div", {
+                    staticClass: "shadow item-img mx-auto",
+                    style: { "background-image": "url(" + o.picture + ")" }
+                  }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "m-top2 border" }, [
-                    _c("table", [
-                      _c("tr", [
-                        _vm._m(0, true),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", [
-                            _vm._v(_vm._s(o.currency) + " " + _vm._s(o.price))
+                  _c("div", { staticClass: "right-side col-md-12" }, [
+                    _c("h5", { staticClass: "text-center m-top" }, [
+                      _vm._v(_vm._s(o.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "m-top2" }, [
+                      _c("table", [
+                        _c("tr", [
+                          _vm._m(0, true),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", [
+                              _vm._v(_vm._s(o.currency) + " " + _vm._s(o.price))
+                            ])
                           ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _vm._m(1, true),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", [_vm._v("do " + _vm._s(o.end_date))])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _vm._m(2, true),
+                          _vm._v(" "),
+                          _c("td", [_c("span", [_vm._v(_vm._s(o.delivery))])])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _vm._m(3, true),
+                          _vm._v(" "),
+                          _c("td", [_c("span", [_vm._v(_vm._s(o.payment))])])
                         ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _vm._m(1, true),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", [_vm._v("do " + _vm._s(o.end_date))])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _vm._m(2, true),
-                        _vm._v(" "),
-                        _c("td", [_c("span", [_vm._v(_vm._s(o.delivery))])])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _vm._m(3, true),
-                        _vm._v(" "),
-                        _c("td", [_c("span", [_vm._v(_vm._s(o.payment))])])
                       ])
                     ])
                   ])
@@ -41460,16 +41463,25 @@ var render = function() {
               ])
             ])
           ])
-        ])
-      }),
+        }),
+        0
+      ),
       _vm._v(" "),
-      _c("button", { staticClass: "btn btn-blue m-top2 btn-block" }, [
-        _vm._v("Načíst další")
-      ]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-blue m-top2 btn-block",
+          attrs: {
+            disabled: "",
+            title: "Bohužel jsem líný a nestihl jsem to dodělat"
+          }
+        },
+        [_vm._v("Načíst další")]
+      ),
       _vm._v(" "),
       _c("go-up", { attrs: { el_id: "start" } })
     ],
-    2
+    1
   )
 }
 var staticRenderFns = [
@@ -42035,8 +42047,8 @@ var render = function() {
               _c("i", {
                 staticClass: "fas w-100 text-center m-top",
                 class: {
-                  "fa-chevron-down": _vm.show_control,
-                  "fa-chevron-up": !_vm.show_control
+                  "fa-chevron-down": !_vm.show_control,
+                  "fa-chevron-up": _vm.show_control
                 },
                 staticStyle: { "margin-bottom": "0px", cursor: "pointer" },
                 on: {
@@ -42150,6 +42162,7 @@ var render = function() {
                     expression: "group_id"
                   }
                 ],
+                staticClass: "form-control",
                 on: {
                   change: function($event) {
                     var $$selectedVal = Array.prototype.filter

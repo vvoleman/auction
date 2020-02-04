@@ -119,7 +119,7 @@ class ProfileController extends Controller
             $temp = $x->sells()->whereNull('deleted_at')->count();
             return [
                 "name"=>$x->name,
-                "picture"=>($x->pictures()->count() > 0) ? $x->pictures[0]->path : null,
+                "picture"=>$x->safe_pictures()[0],
                 "url"=>route('offers.offer',["id"=>$x->uuid]),
                 "status"=>$this->getStatus($x),
                 "type"=>[
@@ -134,8 +134,8 @@ class ProfileController extends Controller
                 "delivery"=>$x->delivery_type->label,
                 "payment"=>$x->payment_type->label,
 
-                "created_at"=>strtotime($x->created_at),
-                "end_date"=>strtotime($x->end_date)
+                "created_at"=>$x->created_at->timestamp,
+                "end_date"=>$x->end_date->timestamp
             ];
         });
     }

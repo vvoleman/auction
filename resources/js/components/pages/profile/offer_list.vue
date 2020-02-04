@@ -1,15 +1,16 @@
 <template>
     <div class="m-top2 d-flex flex-wrap" v-cloak>
+        <div class="col-12 d-flex justify-content-end">
         <div class="m-top search-item col-md-6" v-for="(o,i) in offers">
             <div class="col-12 white_box ">
                 <a :href="o.url" class="no-a">
                     <div class="col-12 mx-auto">
                         <div class="shadow item-img mx-auto"
-                             style="background-image: url('https://ae01.alicdn.com/kf/HTB1X9GBvuuSBuNjy1Xcq6AYjFXay/1PCS-New-24-Pages-Mandalas-Flower-Coloring-Book-For-Children-Adult-Relieve-Stress-Kill-Time-Graffiti.jpg_220x220xz.jpg.webp')">
+                             :style="{'background-image': 'url('+o.picture+')'}">
                         </div>
                         <div class="right-side col-md-12">
                             <h5 class="text-center m-top">{{o.name}}</h5>
-                            <div class="m-top2 border">
+                            <div class="m-top2">
                                 <table>
                                     <tr>
                                         <td><i class="fas fa-coins" title="Cena"></i></td>
@@ -34,7 +35,8 @@
                 </a>
             </div>
         </div>
-        <button class="btn btn-blue m-top2 btn-block">Načíst další</button>
+    </div>
+        <button class="btn btn-blue m-top2 btn-block" disabled title="Bohužel jsem líný a nestihl jsem to dodělat">Načíst další</button>
         <go-up el_id="start"></go-up>
     </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <modal @close="close">
         <h5 slot="header">Smazat žádost o koupi</h5>
-        <div slot="body" class="col-xl-10 mx-auto">
+        <div slot="body" class="col-xl-10 mx-auto" style="margin-top:130px;">
             <h4 class="text-center">Opravdu si přejete smazat vaší nepotvrzenou žádost?</h4>
             <hr>
             <div class="col-md-6 col-10 d-flex confirm mx-auto m-top2">

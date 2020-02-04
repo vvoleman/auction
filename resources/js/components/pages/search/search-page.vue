@@ -5,7 +5,7 @@
             <filterbox v-show="show_control" :class="{'d-flex':show_control}" @changed="filterChanged" :boot="boot"
                            class="subbox col-md-11 m-top mx-auto"></filterbox>
             <i @click="show_control = !show_control"
-               :class="{'fa-chevron-down':show_control,'fa-chevron-up':!show_control}"
+               :class="{'fa-chevron-down':!show_control,'fa-chevron-up':show_control}"
                class="fas w-100 text-center m-top" style="margin-bottom: 0px;cursor:pointer"></i>
         </div>
         <transition name="fade" mode="out-in">

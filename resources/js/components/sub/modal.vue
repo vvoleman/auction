@@ -87,6 +87,8 @@
 
     .modal-body {
         margin: 20px 0;
+        height: 400px;
+        overflow: auto;
     }
 
     .modal-button {

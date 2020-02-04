@@ -17,11 +17,13 @@ class NotificationTypesSeeder extends Seeder
          */
         $icons = [
             "offer"=>"fas fa-store-alt",
+            "user"=>"fas fa-user"
         ];
 
         $types = [
             ["name"=>"offersell_created","priority_id"=>2,"icon"=>$icons["offer"]],
-            ["name"=>"offersell_confirmed","priority_id"=>2,"icon"=>$icons["offer"]]
+            ["name"=>"offersell_confirmed","priority_id"=>2,"icon"=>$icons["offer"]],
+            ["name"=>"user_created","priority_id"=>2,"icon"=>$icons["user"]]
         ];
 
         DB::table('notification_types')->insert($types);

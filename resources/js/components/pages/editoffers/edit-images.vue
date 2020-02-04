@@ -52,6 +52,9 @@
                     this.uploaded_urls.splice(temp,1);
                 }
             },
+
+
+
             uploadImages(){
                 if(!confirm('Opravdu chcete uložit?')) return;
 
@@ -78,12 +81,18 @@
                         this.$snotify.error("Vyskytla se chyba!");
                     })
             },
+
+
+            
             reset(data){
                 this.imgs = data.slice();
                 this.og = data.slice();
                 this.uploaded = [];
                 this.uploaded_urls = [];
             },
+
+
+
             imageFile(data) {
                 var temp = data.target.files[0];
                 if (temp != null) {
@@ -110,6 +119,9 @@
                 }
                 reader.readAsDataURL(file);
             },
+
+
+
             cancel(){
               if(confirm("Opravdu si přejete smazat změny?")){
                   this.imgs = this.og.slice();
@@ -122,6 +134,9 @@
                 return supported.includes(type);
             }
         },
+
+
+
         computed: {
             img_urls() {
                 return this.imgs.map((x) => {
@@ -136,6 +151,9 @@
                 return !_.isEqual(this.og,this.imgs) || this.uploaded_urls.length > 0;
             }
         }
+
+
+
 
     }
 </script>

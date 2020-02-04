@@ -62,7 +62,7 @@ class OfferController extends Controller
     public function getOffer($id)
     {
         $offer = $this->offer_exists($id);
-
+    
         if ($offer->is_time_active()) {
             if ($offer->type->name == "Prodej") {
                 $timestamp = Carbon::parse($offer->end_date);
@@ -70,7 +70,7 @@ class OfferController extends Controller
                 return view("offer/offer_sale", ["offer"=>$offer,"data" => collect($temp)->toJson(JSON_UNESCAPED_UNICODE)]);
             }
         } else {
-            if (Auth::user()->id_u = $offer->owner_id) {
+            if (Auth::user()->id_u == $offer->owner_id) {
                 return view("offer/renew_offer", ["offer" => $offer]);
             } else {
                 return view("offer/expired");
@@ -212,7 +212,6 @@ class OfferController extends Controller
                 if ($os->save()) {
                     $response = [200, "Žádost o koupi byla odeslána!"];
                     event(new OfferSellCreated($os));
-                    Log::info("venku");
                 } else {
                     $response = [500, "Nelze vytvořit žádost o koupi!"];
                 }
@@ -220,8 +219,7 @@ class OfferController extends Controller
                 $response = [400, "Nabídka není aktuální!"];
             }
         }
-        $response[0] = 500;
-        return response()->json(["message" => $response[1]],500);
+        return response()->json(["message" => $response[1]],$response[0]);
         //je offer aktivní?
         //není prodaná?
 

@@ -5,7 +5,7 @@
                 <button class="btn btn-block btn-success bp" @click="openNew">Nová skupina</button>
                 <div>
                     <transition name="fade" mode="out-in">
-                        <loader key="load" v-if="groups.length == 0"></loader>
+                        <loader key="load" v-if="groups.length == 0" class="m-top"></loader>
                         <groups-list v-else key="content" :groups="groups" @delete="deleteGroup" @clicked="listClicked"></groups-list>
                     </transition>
                 </div>

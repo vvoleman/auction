@@ -39,14 +39,14 @@ class SendOfferSellNotification
         $data = [
             "offer_name"=>$event->offersell->offer->name,
             "buyer_fullname"=>$event->offersell->buyer->fullname,
-            "date"=>$event->offersell->created_at->format("d. m. y H:i")
+            "date"=>$event->offersell->created_at
         ];
-        Mail::to($event->offersell->offer->owner->email)->send(new \App\Mail\OfferSellCreatedOwner($data));
-        Mail::to($event->offersell->buyer->email)->send(new \App\Mail\OfferSellCreatedBuyer($data));
+        //Mail::to($event->offersell->offer->owner->email)->send(new \App\Mail\OfferSellCreatedOwner($data));
+        //Mail::to($event->offersell->buyer->email)->send(new \App\Mail\OfferSellCreatedBuyer($data));
         $n = Notification::create([
             "type_id"=>1,
             "notification"=>'Nová žádost o koupi "'.$event->offersell->offer->name.'"!',
-            "url"=>"dodelej url"
+            "url"=>route('offers.confirm',['id'=>$event->offersell->offer->uuid,"id_os"=>$event->offersell->id_os])
         ]);
         $n->users()->attach($event->offersell->offer->owner->id_u);
         $n->save();

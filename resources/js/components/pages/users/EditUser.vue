@@ -7,7 +7,7 @@
             <div slot="body">
                 <div class="form-group">
                     <label>Skupina</label>
-                    <select v-model="group_id">
+                    <select v-model="group_id" class="form-control">
                         <option v-for="(o,i) in groups" :value="o.id_g">{{o.name}}</option>
                     </select>
                 </div>

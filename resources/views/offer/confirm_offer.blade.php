@@ -19,9 +19,9 @@
 
                 <tbody>
                 <tr>
-                    <td>{{$os->buyer->fullname}}</td>
-                    <td>{{$os->buyer->address}}</td>
-                    <td>4,7 <i class="fas fa-star text-danger"></i></td>
+                    <td>{{$os->name}}</td>
+                    <td>{{$os->address}}</td>
+                    <td>{{$os->buyer->review_score()}} <i class="fas fa-star text-danger"></i></td>
                 </tr>
                 </tbody>
             </table>
@@ -54,11 +54,11 @@
         </div>
         <div class="white_box m-top m-bottom">
             <div class="mx-auto d-flex justify-content-center">
-                <form> <!--method="post" action="{{route('offers.confirm.deny',["id"=>$os->offer->uuid,"os_id"=>$os->id_os])}}"!-->
+                <!--<form> method="post" action="{{route('offers.confirm.deny',["id"=>$os->offer->uuid,"os_id"=>$os->id_os])}}"
 
                     @csrf
                     <button class="btn btn-danger btn-block">Zamítnout</button>
-                </form>
+                </form>!-->
                 <form method="post" action="{{route('offers.confirm.confirm',["id"=>$os->offer->uuid,"os_id"=>$os->id_os])}}">
                     @csrf
                     <button class="btn btn-success btn-block">Potvrdit</button>
@@ -78,8 +78,8 @@
         m.addDefaultLayer(SMap.DEF_BASE).enable(); /* Turistický podklad */
         var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM); /* Ovládání myší */
         m.addControl(mouse);
-        var adr1 = "{{$os->offer->owner->fulladdress}}";
-        var adr2 = "Plynárenská 10, 40010 Ústí nad Labem"//"{{Auth::user()->fulladdress}}";
+        var adr1 = "{{$os->address}}";
+        var adr2 = "{{Auth::user()->fulladdress}}";
 
         new SMap.Geocoder([adr1,adr2],(data)=>{
             var body = [];

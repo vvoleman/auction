@@ -45,8 +45,14 @@ class OfferSellController extends Controller
         $os->offer->save();
         return redirect()->route('home.home')->with("success","Žádost potvrzena!");
     }
-    public function postDenyOffer($id, OfferSell $id_os){
-
+    public function postDenyOffer($id,$id_os){
+        $os = $this->checkcheck($id,$id_os);
+        if(!$os){
+            return redirect()->route('offers.confirm',["id"=>$id,"os_id"=>$id_os])->with("danger","Neplatné údaje!");
+        }
+        $os->denied_at = Carbon::now();
+        $os->save();
+        return redirect()->route('home.home')->with("success","Žádost zamítnuta!");
     }
 
     private function canCreateSell($offer_id){

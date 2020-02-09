@@ -7,6 +7,7 @@
         <transition name="zoom">
             <div v-cloak class="not-bar col-rl-3 col-lg-4" v-if="show" v-on-click-outside="close" @click.stop="">
                 <div v-for="(o,i) in nots" class="">
+                    <a :href="o.url">
                     <div class="item d-flex align-items-center justify-content-between">
                         <div class="d-none d-md-flex big-circle">
                             <i :class="o.icon"></i>
@@ -20,6 +21,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                     <hr v-if="nots.length-1 > i">
                 </div>
                 <div v-if="nots.length == 0" class="empty">

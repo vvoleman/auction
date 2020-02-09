@@ -5093,6 +5093,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [vue_on_click_outside__WEBPACK_IMPORTED_MODULE_0__["mixin"]],
@@ -42473,54 +42475,56 @@ var render = function() {
               [
                 _vm._l(_vm.nots, function(o, i) {
                   return _c("div", {}, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "item d-flex align-items-center justify-content-between"
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "d-none d-md-flex big-circle" },
-                          [_c("i", { class: o.icon })]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "offset-md-3" }, [
-                          _c("a"),
-                          _c("span", { staticClass: "title" }, [
-                            _vm._v(_vm._s(o.title))
-                          ]),
-                          _vm._v(" "),
+                    _c("a", { attrs: { href: o.url } }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "item d-flex align-items-center justify-content-between"
+                        },
+                        [
                           _c(
                             "div",
-                            {
-                              staticClass:
-                                "w-100 date d-flex justify-content-between align-items-center"
-                            },
-                            [
-                              _c("span", { staticClass: "d-block" }, [
-                                _vm._v(_vm._s(o.time))
-                              ]),
-                              _vm._v(" "),
-                              _c("i", {
-                                staticClass: "fas",
-                                class: {
-                                  "fa-eye-slash": !o.seen,
-                                  "fa-eye": o.seen
-                                },
-                                on: {
-                                  click: function($event) {
-                                    $event.stopPropagation()
-                                    return _vm.toggleSeen(i)
+                            { staticClass: "d-none d-md-flex big-circle" },
+                            [_c("i", { class: o.icon })]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "offset-md-3" }, [
+                            _c("a"),
+                            _c("span", { staticClass: "title" }, [
+                              _vm._v(_vm._s(o.title))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "w-100 date d-flex justify-content-between align-items-center"
+                              },
+                              [
+                                _c("span", { staticClass: "d-block" }, [
+                                  _vm._v(_vm._s(o.time))
+                                ]),
+                                _vm._v(" "),
+                                _c("i", {
+                                  staticClass: "fas",
+                                  class: {
+                                    "fa-eye-slash": !o.seen,
+                                    "fa-eye": o.seen
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.stopPropagation()
+                                      return _vm.toggleSeen(i)
+                                    }
                                   }
-                                }
-                              })
-                            ]
-                          )
-                        ])
-                      ]
-                    ),
+                                })
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ]),
                     _vm._v(" "),
                     _vm.nots.length - 1 > i ? _c("hr") : _vm._e()
                   ])
@@ -60343,8 +60347,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\auction\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\auction\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

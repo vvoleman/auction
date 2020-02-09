@@ -1,5 +1,5 @@
-@extends('mains/admin')
+@extends('mains/main')
 @section('title','Administrace | ')
-@section('a_content')
-  
+@section('content')
+    <admin-panel></admin-panel>
 @stop

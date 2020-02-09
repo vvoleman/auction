@@ -54,11 +54,10 @@
         </div>
         <div class="white_box m-top m-bottom">
             <div class="mx-auto d-flex justify-content-center">
-                <!--<form> method="post" action="{{route('offers.confirm.deny',["id"=>$os->offer->uuid,"os_id"=>$os->id_os])}}"
-
+                <form method="post" action="{{route('offers.confirm.deny',["id"=>$os->offer->uuid,"os_id"=>$os->id_os])}}">
                     @csrf
                     <button class="btn btn-danger btn-block">Zamítnout</button>
-                </form>!-->
+                </form>
                 <form method="post" action="{{route('offers.confirm.confirm',["id"=>$os->offer->uuid,"os_id"=>$os->id_os])}}">
                     @csrf
                     <button class="btn btn-success btn-block">Potvrdit</button>

@@ -102,7 +102,7 @@ Route::name('offers.')->group(function (){
     Route::get("/offers/{id}/sells","OfferSellController@getSells")->name('sells')->middleware(['auth'])->where("id","[A-Za-z0-9]+");
     Route::get("/offers/{id}/sells/{os_id}","OfferSellController@getConfirmOffer")->name('confirm')->middleware(['auth'])->where("id","[A-Za-z0-9]+")->where("os_id","[A-Za-z0-9]+");
     Route::post("/offers/{id}/sells/{os_id}/confirm","OfferSellController@postConfirmOffer")->name('confirm.confirm')->middleware(['auth'])->where("id","[A-Za-z0-9]+")->where("os_id","[A-Za-z0-9]+");
-    Route::get("/offers/{id}/sells/{os_id}/deny","OfferSellController@postDenyOffer")->name('confirm.deny')->middleware(['auth'])->where("id","[A-Za-z0-9]+")->where("os_id","[A-Za-z0-9]+");
+    Route::post("/offers/{id}/sells/{os_id}/deny","OfferSellController@postDenyOffer")->name('confirm.deny')->middleware(['auth'])->where("id","[A-Za-z0-9]+")->where("os_id","[A-Za-z0-9]+");
 });
 
 //SEARCH
@@ -110,6 +110,8 @@ Route::get("/search","SearchController@getSearch")->name("search.search")->middl
 
 //ADMIN
 Route::name("admin.")->prefix("admin")->group(function (){
+    Route::get("/","AdminPanelController@getPanel")->middleware(['auth'])->name('panel');
+
     Route::get("/categories","CategoryController@getAdminCategories")->middleware(['auth','hasPerm:admin.categories'])->name("adminCategories");
     Route::get("/groups","AdminGroupsController@getGroups")->middleware(['auth','hasPerm:admin.groups'])->name("groups");
     Route::get("/users","AdminUsersController@getUsers")->middleware(['auth','hasPerm:admin.users'])->name("users");
@@ -120,3 +122,4 @@ Route::get('/ajax/myoffers','ProfileController@ajaxGetMyOffers');
 Route::get('/myoffers','ProfileController@getMyOffers')->name('profile.myOffers')->middleware('auth');
 
 //OFFERSELL
+

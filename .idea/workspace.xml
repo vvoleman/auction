@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="224deccc-da56-4a3c-9699-6dc6eece53b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/newoffers/add-offer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/newoffers/gallery.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/newoffers/tags.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/pages/adminpanel/AdminPanel.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OfferController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OfferController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/NewOffer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/NewOffer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/OfferSell.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OfferSell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_30_122020_create_offer_sells_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_30_122020_create_offer_sells_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/offer/new_offer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/offer/new_offer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/sub/Notifications.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/sub/Notifications.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/panel/panel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/panel/panel.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/offer/confirm_offer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/offer/confirm_offer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,202 +97,108 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.61185604">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/add-offer.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#2892#2930#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/offer/new_offer.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="3" column="90" selection-start-line="3" selection-start-column="90" selection-end-line="3" selection-end-column="90" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="918">
-                  <caret line="118" column="41" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
-                  <folding>
-                    <element signature="e#1042#1574#0#PHP" />
-                    <element signature="e#1118#1536#0#PHP" />
-                    <element signature="e#1161#1495#0#PHP" />
-                    <element signature="e#1265#1481#1#PHP" />
-                    <element signature="e#1308#1480#2#PHP" />
-                    <element signature="e#1351#1461#0#PHP" />
-                    <element signature="e#1580#2248#0#PHP" />
-                    <element signature="e#1668#2242#0#PHP" />
-                    <element signature="e#1712#2006#0#PHP" />
-                    <element signature="e#2017#2242#0#PHP" />
-                    <element signature="e#2036#2232#0#PHP" />
-                    <element signature="e#2166#2232#0#PHP" />
-                    <element signature="e#2254#2633#0#PHP" />
-                    <element signature="e#2346#2455#0#PHP" />
-                    <element signature="e#2473#2546#0#PHP" />
-                    <element signature="e#2491#2545#2#PHP" />
-                    <element signature="e#3714#3812#0#PHP" />
-                    <element signature="e#3824#4516#0#PHP" />
-                    <element signature="e#4029#4510#0#PHP" />
-                    <element signature="e#4360#4510#0#PHP" />
-                    <element signature="e#4522#4980#0#PHP" />
-                    <element signature="e#4610#4726#0#PHP" />
-                    <element signature="e#4790#4902#0#PHP" />
-                    <element signature="e#4986#5407#0#PHP" />
-                    <element signature="e#5413#7051#0#PHP" />
-                    <element signature="e#5482#5654#0#PHP" />
-                    <element signature="e#5501#5653#1#PHP" />
-                    <element signature="e#5855#6851#0#PHP" />
-                    <element signature="e#6039#6851#0#PHP" />
-                    <element signature="e#6129#6841#0#PHP" />
-                    <element signature="e#6218#6426#1#PHP" />
-                    <element signature="e#6445#6745#0#PHP" />
-                    <element signature="e#6648#6745#0#PHP" />
-                    <element signature="e#6760#6841#0#PHP" />
-                    <element signature="e#7057#7884#0#PHP" />
-                    <element signature="e#7128#7213#0#PHP" />
-                    <element signature="e#7147#7212#1#PHP" />
-                    <element signature="e#7479#7815#0#PHP" />
-                    <element signature="e#7512#7724#0#PHP" />
-                    <element signature="e#7644#7724#0#PHP" />
-                    <element signature="e#7734#7815#0#PHP" />
-                    <element signature="e#7891#8077#0#PHP" />
-                    <element signature="e#7993#8048#0#PHP" />
-                    <element signature="e#8083#9709#0#PHP" />
-                    <element signature="e#8225#9702#0#PHP" />
-                    <element signature="e#8253#8500#1#PHP" />
-                    <element signature="e#8561#8833#1#PHP" />
-                    <element signature="e#9073#9154#1#PHP" />
-                    <element signature="e#9091#9153#2#PHP" />
-                    <element signature="e#9498#9616#1#PHP" />
-                    <element signature="e#9716#10323#0#PHP" />
-                    <element signature="e#9859#10296#0#PHP" />
-                    <element signature="e#9895#10286#0#PHP" />
-                    <element signature="e#9949#10272#0#PHP" />
-                    <element signature="e#10075#10272#0#PHP" />
-                    <element signature="e#10117#10177#1#PHP" />
-                    <element signature="e#10329#10612#0#PHP" />
-                    <element signature="e#10468#10583#0#PHP" />
-                    <element signature="e#10502#10573#0#PHP" />
-                    <element signature="e#10618#10787#0#PHP" />
-                    <element signature="e#10664#10760#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#buy-offer#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/web.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="582">
-                  <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewOffer.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#40#68#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-                  <folding>
-                    <element signature="n#style#0;n#i#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="578">
-                  <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
-                  <folding>
-                    <element signature="e#289#602#0#PHP" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="104" column="15" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/panel/panel.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#100#144#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/pages/adminpanel/AdminPanel.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="451" column="5" selection-start-line="451" selection-start-column="5" selection-end-line="451" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Events/OfferSellCreated.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listeners/SendUserCreatedNotification.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listeners/SendOfferSellNotification.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/sub/Notifications.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
       </list>
     </option>
@@ -330,6 +230,11 @@
       <find>uuid</find>
       <find>zoom</find>
       <find>tag</find>
+      <find>.navi</find>
+      <find>logo</find>
+      <find>curr</find>
+      <find>compile</find>
+      <find>v-cloak</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -338,57 +243,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Notification.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/offers/remove-sell.vue" />
-        <option value="$PROJECT_DIR$/database/seeds/PrioritiesSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_03_211135_create_notifications_table.php" />
-        <option value="$PROJECT_DIR$/app/Jobs/SendWelcomeEmail.php" />
-        <option value="$PROJECT_DIR$/app/Channels/InnerChannel.php" />
-        <option value="$PROJECT_DIR$/app/Notifications/OfferSellCreated.php" />
-        <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Events/OfferSellCreated.php" />
-        <option value="$PROJECT_DIR$/app/Mail/OfferSellCreatedBuyer.php" />
-        <option value="$PROJECT_DIR$/app/Mail/OfferSellCreatedOwner.php" />
-        <option value="$PROJECT_DIR$/resources/views/emails/offers/offersellcreated_buyer.blade.php" />
-        <option value="$PROJECT_DIR$/app/OfferSell.php" />
-        <option value="$PROJECT_DIR$/resources/views/emails/offers/offersellcreated_owner.blade.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/animations.css" />
-        <option value="$PROJECT_DIR$/app/View/Composers/NotificationComposer.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Providers/ViewComposerServiceProvider.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_02_195018_create_notification_types_table.php" />
-        <option value="$PROJECT_DIR$/database/seeds/NotificationTypesSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/sub/modal.vue" />
-        <option value="$PROJECT_DIR$/database/seeds/OfferSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_01_02_195136_create_notifications_table.php" />
         <option value="$PROJECT_DIR$/app/Listeners/SendOfferSellNotification.php" />
         <option value="$PROJECT_DIR$/database/factories/OfferFactory.php" />
         <option value="$PROJECT_DIR$/app/Http/View/Composers/NotificationComposer.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/sub/Notifications.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/offer/offer_sale.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/Permissions.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/partials/_nav.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_01_02_195416_create_not_use_table.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" />
-        <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/newoffers/gallery.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/newoffers/tags.vue" />
-        <option value="$PROJECT_DIR$/resources/views/offer/new_offer.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OfferController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/newoffers/add-offer.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/NewOffer.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue" />
+        <option value="$PROJECT_DIR$/resources/views/partials/_nav.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/sub/searchbar.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/search/search-page.vue" />
+        <option value="$PROJECT_DIR$/resources/views/setting/setting.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/search/SearchList.vue" />
+        <option value="$PROJECT_DIR$/resources/views/profile/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/profile/offer_list.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/newoffers/inputs.vue" />
+        <option value="$PROJECT_DIR$/resources/views/offer/new_offer.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/NewOffer.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/editoffers.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/newoffers/tags.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/editoffers/editoffers.vue" />
+        <option value="$PROJECT_DIR$/resources/views/mains/main.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/newoffers/gallery.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/newoffers/add-offer.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/editoffers/edit-images.vue" />
+        <option value="$PROJECT_DIR$/resources/views/offer/edit_offer.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/groups/ShowHistory.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/confirmpages/confirm-offer.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/confirmoffers/confirm-offer-list.vue" />
+        <option value="$PROJECT_DIR$/resources/views/home/test.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/confirmoffers/test.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/confirmoffers/confirm-offer.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OfferController.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/resources/views/home/home.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_10_30_122020_create_offer_sells_table.php" />
+        <option value="$PROJECT_DIR$/app/OfferSell.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/sub/Notifications.vue" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/offer/confirm_offer.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/adminpanel/AdminPanel.vue" />
+        <option value="$PROJECT_DIR$/resources/views/admin/panel/panel.blade.php" />
       </list>
     </option>
   </component>
@@ -490,10 +395,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="434" />
-    <option name="y" value="-21" />
-    <option name="width" value="975" />
-    <option name="height" value="521" />
+    <option name="x" value="408" />
+    <option name="y" value="-8" />
+    <option name="width" value="1376" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -529,55 +434,6 @@
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
               <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-              <item name="new_offer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -600,39 +456,27 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="myoffers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="newoffers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="offers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
               <item name="4projekt" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
@@ -672,11 +516,11 @@
       <recent name="C:\xampp\htdocs\4projekt\storage\app\public\images\profile_pictures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\4projekt\resources\js\components\pages\editoffers" />
+      <recent name="C:\xampp\htdocs\4projekt\public\assets\images" />
       <recent name="C:\xampp\htdocs\4projekt\app\Http" />
       <recent name="C:\xampp\htdocs\4projekt\resources\js\components\sub" />
       <recent name="C:\xampp\htdocs\4projekt\resources\js\components\pages\search" />
-      <recent name="C:\xampp\htdocs\4projekt\resources\js\components\pages\categories" />
-      <recent name="C:\xampp\htdocs\4projekt\resources\js\components\pages" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -810,12 +654,22 @@
       <workItem from="1578246589076" duration="3022000" />
       <workItem from="1578323083620" duration="5777000" />
       <workItem from="1578329766583" duration="9648000" />
-      <workItem from="1578497833986" duration="22135000" />
+      <workItem from="1578497833986" duration="22264000" />
+      <workItem from="1578671527681" duration="8932000" />
+      <workItem from="1578735205814" duration="25636000" />
+      <workItem from="1578782085130" duration="107000" />
+      <workItem from="1578825825143" duration="37223000" />
+      <workItem from="1578933099485" duration="4377000" />
+      <workItem from="1580745676302" duration="1534000" />
+      <workItem from="1580814709311" duration="3346000" />
+      <workItem from="1581009635023" duration="170000" />
+      <workItem from="1581179126034" duration="4599000" />
+      <workItem from="1581262028359" duration="1225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="573611000" />
+    <option name="totallyTimeSpent" value="660889000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -830,7 +684,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24466951" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26972282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -848,6 +702,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5010661" side_tool="true" weight="0.22860238" />
       <window_info active="true" anchor="bottom" id="REST Client" order="12" visible="true" weight="0.34019503" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -922,468 +777,379 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Mail/OfferSellCreatedOwner.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/search/FilterBox.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="32" column="96" selection-start-line="32" selection-start-column="96" selection-end-line="32" selection-end-column="96" />
+        <state relative-caret-position="-238" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/search/SearchList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="49" column="18" selection-start-line="3" selection-start-column="12" selection-end-line="49" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/OfferSellCreatedBuyer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Mail/EmailChange.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PrioritiesSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Events/OfferSellCreated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Offer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#224#313#0#PHP" />
-            <element signature="e#410#504#0#PHP" />
-            <element signature="e#509#654#0#PHP" />
-            <element signature="e#659#764#0#PHP" />
-            <element signature="e#769#880#0#PHP" />
-            <element signature="e#885#993#0#PHP" />
-            <element signature="e#998#1095#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/OfferSell.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/offers/offersellcreated_buyer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="107" selection-start-line="3" selection-start-column="107" selection-end-line="3" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/offers/offersellcreated_owner.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="88" selection-start-line="3" selection-start-column="88" selection-end-line="3" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/animations.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="2437" column="28" selection-start-line="2437" selection-start-column="28" selection-end-line="2437" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding>
-            <element signature="e#480#573#0#PHP" />
-            <element signature="e#579#807#0#PHP" />
-            <element signature="e#614#788#0#PHP" />
-            <element signature="e#813#910#0#PHP" />
-            <element signature="e#916#1024#0#PHP" />
-            <element signature="e#1030#1123#0#PHP" />
-            <element signature="e#1129#1293#0#PHP" />
-            <element signature="e#1523#1758#0#PHP" />
-            <element signature="e#1588#1716#0#PHP" />
-            <element signature="e#1622#1715#2#PHP" />
-            <element signature="e#1548#1742#0#PHP" />
-            <element signature="e#1771#1874#0#PHP" />
-            <element signature="e#1880#2057#0#PHP" />
-            <element signature="e#2063#2169#0#PHP" />
-            <element signature="e#2175#2352#0#PHP" />
-            <element signature="e#2358#2418#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/ViewComposerServiceProvider.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2020-01-04.log">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111333">
-          <caret line="260" column="50" selection-start-line="260" selection-start-column="50" selection-end-line="260" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Notification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_02_195018_create_notification_types_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/NotificationTypesSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="83" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/sub/modal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/OfferSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_02_195136_create_notifications_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_31_181006_create_offers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/app.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/NotificationComposer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="84" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
-          <folding>
-            <element signature="e#43#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/OfferFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/SendOfferSellNotification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-          <folding>
-            <element signature="e#33#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/sub/Notifications.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_01_02_195416_create_not_use_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/_nav.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/offer/offer_sale.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Permissions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminUsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
+        <state relative-caret-position="170">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="262">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
           <folding>
             <element signature="e#40#54#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/sub/GoUp.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding>
-            <element signature="e#654#684#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="85" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/custom/new_offer/editor.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/gallery.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="267" column="4" selection-start-line="267" selection-start-column="1" selection-end-line="267" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/tags.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ImageUploaderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/offer/new_offer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="90" selection-start-line="3" selection-start-column="90" selection-end-line="3" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/add-offer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
-          <folding>
-            <element signature="e#2892#2930#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewOffer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
-          <folding>
-            <element signature="e#289#602#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/Navbar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myoffers/OffersList.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="323">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#i#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/inputs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+          <folding>
+            <element signature="e#3188#3226#0" expanded="true" />
+            <element signature="e#3954#4603#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/offer/new_offer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        <state relative-caret-position="1003">
+          <caret line="111" column="58" selection-start-line="111" selection-start-column="58" selection-end-line="111" selection-end-column="58" />
           <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#buy-offer#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#6216#6251#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/app/OfferType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/tags.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/_scripts.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mains/main.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/editoffers/editoffers.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="10" column="84" selection-start-line="10" selection-start-column="84" selection-end-line="10" selection-end-column="84" />
+          <folding>
+            <element signature="e#2416#2453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/gallery.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/categories/EditCategory.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-748" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/newoffers/add-offer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="134" column="16" selection-start-line="134" selection-start-column="16" selection-end-line="142" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/categories/AddCategory.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-611" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/categories/CategoriesShower.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/categories/config-categories.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Picture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewOffer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Offer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/editoffers/edit-images.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/groups/ShowHistory.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="72" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/offer/offer_sale.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/test.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/confirmoffers/confirm-offer-list.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/confirmoffers/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="349" column="5" selection-start-line="349" selection-start-column="5" selection-end-line="349" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/offer/edit_offer.blade.php" />
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="125" column="43" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/profile/offer_list.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12393">
+          <caret line="729" column="22" selection-start-line="729" selection-start-column="22" selection-end-line="729" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/confirmoffers/confirm-offer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="10" selection-start-line="4" selection-start-column="8" selection-end-line="61" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/storage/images/profile_pictures/default.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/OfferSell.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_30_122020_create_offer_sells_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/offer/confirm_offer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="118" column="41" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
+        <state relative-caret-position="2635">
+          <caret line="188" column="5" selection-start-line="188" selection-start-column="5" selection-end-line="188" selection-end-column="5" />
           <folding>
-            <element signature="e#1042#1574#0#PHP" />
-            <element signature="e#1118#1536#0#PHP" />
-            <element signature="e#1161#1495#0#PHP" />
-            <element signature="e#1265#1481#1#PHP" />
-            <element signature="e#1308#1480#2#PHP" />
-            <element signature="e#1351#1461#0#PHP" />
-            <element signature="e#1580#2248#0#PHP" />
-            <element signature="e#1668#2242#0#PHP" />
-            <element signature="e#1712#2006#0#PHP" />
-            <element signature="e#2017#2242#0#PHP" />
-            <element signature="e#2036#2232#0#PHP" />
-            <element signature="e#2166#2232#0#PHP" />
-            <element signature="e#2254#2633#0#PHP" />
-            <element signature="e#2346#2455#0#PHP" />
-            <element signature="e#2473#2546#0#PHP" />
-            <element signature="e#2491#2545#2#PHP" />
-            <element signature="e#3714#3812#0#PHP" />
-            <element signature="e#3824#4516#0#PHP" />
-            <element signature="e#4029#4510#0#PHP" />
-            <element signature="e#4360#4510#0#PHP" />
-            <element signature="e#4522#4980#0#PHP" />
-            <element signature="e#4610#4726#0#PHP" />
-            <element signature="e#4790#4902#0#PHP" />
-            <element signature="e#4986#5407#0#PHP" />
-            <element signature="e#5413#7051#0#PHP" />
-            <element signature="e#5482#5654#0#PHP" />
-            <element signature="e#5501#5653#1#PHP" />
-            <element signature="e#5855#6851#0#PHP" />
-            <element signature="e#6039#6851#0#PHP" />
-            <element signature="e#6129#6841#0#PHP" />
-            <element signature="e#6218#6426#1#PHP" />
-            <element signature="e#6445#6745#0#PHP" />
-            <element signature="e#6648#6745#0#PHP" />
-            <element signature="e#6760#6841#0#PHP" />
-            <element signature="e#7057#7884#0#PHP" />
-            <element signature="e#7128#7213#0#PHP" />
-            <element signature="e#7147#7212#1#PHP" />
-            <element signature="e#7479#7815#0#PHP" />
-            <element signature="e#7512#7724#0#PHP" />
-            <element signature="e#7644#7724#0#PHP" />
-            <element signature="e#7734#7815#0#PHP" />
-            <element signature="e#7891#8077#0#PHP" />
-            <element signature="e#7993#8048#0#PHP" />
-            <element signature="e#8083#9709#0#PHP" />
-            <element signature="e#8225#9702#0#PHP" />
-            <element signature="e#8253#8500#1#PHP" />
-            <element signature="e#8561#8833#1#PHP" />
-            <element signature="e#9073#9154#1#PHP" />
-            <element signature="e#9091#9153#2#PHP" />
-            <element signature="e#9498#9616#1#PHP" />
-            <element signature="e#9716#10323#0#PHP" />
-            <element signature="e#9859#10296#0#PHP" />
-            <element signature="e#9895#10286#0#PHP" />
-            <element signature="e#9949#10272#0#PHP" />
-            <element signature="e#10075#10272#0#PHP" />
-            <element signature="e#10117#10177#1#PHP" />
-            <element signature="e#10329#10612#0#PHP" />
-            <element signature="e#10468#10583#0#PHP" />
-            <element signature="e#10502#10573#0#PHP" />
-            <element signature="e#10618#10787#0#PHP" />
-            <element signature="e#10664#10760#0#PHP" />
+            <element signature="e#40#57#0#PHP" expanded="true" />
+            <element signature="e#573#1139#0#PHP" />
+            <element signature="e#765#1066#0#PHP" />
+            <element signature="e#830#955#1#PHP" />
+            <element signature="e#1144#1676#0#PHP" />
+            <element signature="e#1220#1638#0#PHP" />
+            <element signature="e#1263#1597#0#PHP" />
+            <element signature="e#1367#1583#1#PHP" />
+            <element signature="e#1410#1582#2#PHP" />
+            <element signature="e#1453#1563#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/UserCreated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Events/OfferSellCreated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/SendUserCreatedNotification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/SendOfferSellNotification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/sub/Notifications.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="323">
+          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="104" column="15" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/adminpanel/AdminPanel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="451" column="5" selection-start-line="451" selection-start-column="5" selection-end-line="451" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#100#144#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/panel/panel.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
         </state>
       </provider>
     </entry>

@@ -26,6 +26,7 @@ Vue.component('edit-offer',require('./components/pages/editoffers/editoffers').d
 Vue.component('edit-images',require('./components/pages/editoffers/edit-images').default);
 Vue.component('confirm-offer-list',require('./components/pages/confirmoffers/confirm-offer-list').default);
 Vue.component('admin-panel',require('./components/pages/adminpanel/AdminPanel').default);
+Vue.component('messenger',require('./components/pages/messages/messenger.vue').default);
 
 Vue.component('searchbar',require('./components/sub/searchbar').default);
 Vue.component('gallery',require('./components/pages/newoffers/gallery').default);

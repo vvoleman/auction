@@ -121,5 +121,6 @@ Route::name("admin.")->prefix("admin")->group(function (){
 Route::get('/ajax/myoffers','ProfileController@ajaxGetMyOffers');
 Route::get('/myoffers','ProfileController@getMyOffers')->name('profile.myOffers')->middleware('auth');
 
-//OFFERSELL
+//MESSAGE
+Route::get('/messages','MessageController@getMessage')->name('message.message')->middleware('auth');
 

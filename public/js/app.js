@@ -3475,15 +3475,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "chat",
   data: function data() {
     return {
-      messages: [],
+      messages: [{
+        user: 0,
+        message: "Ahoj",
+        sent_at: 1582662531
+      }, {
+        user: 0,
+        message: "Jak se daří?",
+        sent_at: 1582662536
+      }, {
+        user: 1,
+        message: "Dobrý, zrovna papám puding",
+        sent_at: 1582662556
+      }],
       users: [{
-        name: "Marco"
+        name: "Trang",
+        img: "https://scontent.fprg1-1.fna.fbcdn.net/v/t1.0-1/p100x100/24993384_1639540139495372_1359110629522545278_n.jpg?_nc_cat=103&_nc_oc=AQk5dGCEbMSYCvHP6FXw3khiJyswpPf5jfo7BlIzRAUv_BZILyTZ-Mdq35D8xRPoR0xd0gih3onFxF5W_MyE97pH&_nc_ht=scontent.fprg1-1.fna&_nc_tp=6&oh=1fef8aceffba276ab17ca6e019c8c9d3&oe=5EBD220E"
+      }, {
+        name: "Vojta",
+        img: "https://imgc.allpostersimages.com/img/print/u-g-Q1A2C4K0.jpg?w=550&h=550&p=0"
       }]
     };
+  },
+  methods: {
+    getUser: function getUser(i) {
+      var u = this.users[i];
+
+      if (u == null) {
+        u = {
+          name: "",
+          img: "https://i.ytimg.com/vi/8CFwPaohYCk/maxresdefault.jpg"
+        };
+      }
+
+      return u;
+    }
   }
 });
 
@@ -3553,17 +3584,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "sidebar",
   data: function data() {
     return {
       contacts: [{
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
+      }, {
+        name: "Marco",
+        text: "Text ot ofjsajk",
+        img: "https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
+      }, {
         name: "Marco",
         text: "Text ot ofjsajk",
         img: "https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
@@ -7766,7 +7827,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.type_msg[data-v-b34f6596] {border-top: 1px solid #c4c4c4;position: relative;}\n.msg_send_btn[data-v-b34f6596] {\n    background: #05728f none repeat scroll 0 0;\n    border: medium none;\n    border-radius: 50%;\n    color: #fff;\n    cursor: pointer;\n    font-size: 17px;\n    height: 33px;\n    position: absolute;\n    right: 0;\n    top: 11px;\n    width: 33px;\n}\n.messaging[data-v-b34f6596] { padding: 0 0 50px 0;}\n.msg_history[data-v-b34f6596] {\n    height: 516px;\n    overflow-y: auto;\n}.inbox_msg[data-v-b34f6596] {\n     border: 1px solid #c4c4c4;\n     clear: both;\n     overflow: hidden;\n}\n.top_spac[data-v-b34f6596]{ margin: 20px 0 0;}\n.active_chat[data-v-b34f6596]{ background:#ebebeb;}\n.incoming_msg_img[data-v-b34f6596] {\n    display: inline-block;\n    width: 6%;\n}\n.received_msg[data-v-b34f6596] {\n    display: inline-block;\n    padding: 0 0 0 10px;\n    vertical-align: top;\n    width: 92%;\n}\n.time_date[data-v-b34f6596] {\n    color: #747474;\n    display: block;\n    font-size: 12px;\n    margin: 8px 0 0;\n}\n.received_withd_msg[data-v-b34f6596] { width: 57%;}\n.mesgs[data-v-b34f6596] {\n    float: left;\n    padding: 30px 15px 0 25px;\n    width: 60%;\n}\n.outgoing_msg[data-v-b34f6596]{ overflow:hidden; margin:26px 0 26px;}\n.sent_msg[data-v-b34f6596] {\n    float: right;\n    width: 46%;\n}\n\n", ""]);
+exports.push([module.i, "\n.img_bubble[data-v-b34f6596]{\n    width: 50px;\n    height: 50px;\n    background-position:center;\n    background-size:cover;\n}\n.header .name[data-v-b34f6596]{\n    font-size:20px;\n}\n.header[data-v-b34f6596]{\n    padding:5px;\n    background: #f9f9f9;\n    border-bottom:1px solid #dfdfdf;\n}\n", ""]);
 
 // exports
 
@@ -7785,7 +7846,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.img_bubble[data-v-419dba8f]{\n        background-position: center;\n        background-size:cover;\n        width:50px;\n        height:50px;\n        border:2px solid #888;\n}\n.sidebar[data-v-419dba8f]{\n        background:#f9f9f9;\n}\n.contact[data-v-419dba8f]{\n        margin:20px 0;\n}\n.search-input input[data-v-419dba8f]{\n        border:1px solid #dedede;\n        padding:8px 1px;\n        height:40px;\n}\n.search-input button[data-v-419dba8f]{\n        height:40px;\n        border-top-left-radius:0px;\n        border-bottom-left-radius:0px;\n}\n.label[data-v-419dba8f]{\n        margin-left:25px;\n}\n.container[data-v-419dba8f]{max-width:1170px; margin:auto;}\nimg[data-v-419dba8f]{ max-width:100%;}\n.inbox_people[data-v-419dba8f] {\n  background: #f8f8f8 none repeat scroll 0 0;\n  float: left;\n  overflow: hidden;\n  width: 40%; border-right:1px solid #c4c4c4;\n}\n.inbox_msg[data-v-419dba8f] {\n  border: 1px solid #c4c4c4;\n  clear: both;\n  overflow: hidden;\n}\n.top_spac[data-v-419dba8f]{ margin: 20px 0 0;}\n.recent_heading[data-v-419dba8f] {float: left; width:40%;}\n.srch_bar[data-v-419dba8f] {\n  display: inline-block;\n  text-align: right;\n  width: 60%; padding:\n}\n.headind_srch[data-v-419dba8f]{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}\n.recent_heading h4[data-v-419dba8f] {\n  color: #05728f;\n  font-size: 21px;\n  margin: auto;\n}\n.srch_bar input[data-v-419dba8f]{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; padding:2px 0 4px 6px; background:none;}\n.srch_bar .input-group-addon button[data-v-419dba8f] {\n  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;\n  border: medium none;\n  padding: 0;\n  color: #707070;\n  font-size: 18px;\n}\n.srch_bar .input-group-addon[data-v-419dba8f] { margin: 0 0 0 -27px;}\n.chat_ib h5[data-v-419dba8f]{ font-size:15px; color:#464646; margin:0 0 8px 0;}\n.chat_ib h5 span[data-v-419dba8f]{ font-size:13px; float:right;}\n.chat_ib p[data-v-419dba8f]{ font-size:14px; color:#989898; margin:auto}\n.chat_img[data-v-419dba8f] {\n  float: left;\n}\n.chat_ib[data-v-419dba8f] {\n  float: left;\n  padding: 0 0 0 15px;\n  width: 88%;\n}\n.chat_people[data-v-419dba8f]{ overflow:hidden; clear:both;}\n.chat_list[data-v-419dba8f] {\n  border-bottom: 1px solid #c4c4c4;\n  margin: 0;\n  padding: 18px 16px 10px;\n}\n.inbox_chat[data-v-419dba8f] { height: 550px; overflow-y: scroll;}\n.active_chat[data-v-419dba8f]{ background:#ebebeb;}\n.incoming_msg_img[data-v-419dba8f] {\n  display: inline-block;\n  width: 6%;\n}\n.received_msg[data-v-419dba8f] {\n  display: inline-block;\n  padding: 0 0 0 10px;\n  vertical-align: top;\n  width: 92%;\n}\n.received_withd_msg p[data-v-419dba8f] {\n  background: #ebebeb none repeat scroll 0 0;\n  border-radius: 3px;\n  color: #646464;\n  font-size: 14px;\n  margin: 0;\n  padding: 5px 10px 5px 12px;\n  width: 100%;\n}\n.time_date[data-v-419dba8f] {\n  color: #747474;\n  display: block;\n  font-size: 12px;\n  margin: 8px 0 0;\n}\n.received_withd_msg[data-v-419dba8f] { width: 57%;}\n.mesgs[data-v-419dba8f] {\n  float: left;\n  padding: 30px 15px 0 25px;\n  width: 60%;\n}\n.sent_msg p[data-v-419dba8f] {\n  background: #05728f none repeat scroll 0 0;\n  border-radius: 3px;\n  font-size: 14px;\n  margin: 0; color:#fff;\n  padding: 5px 10px 5px 12px;\n  width:100%;\n}\n.outgoing_msg[data-v-419dba8f]{ overflow:hidden; margin:26px 0 26px;}\n.sent_msg[data-v-419dba8f] {\n  float: right;\n  width: 46%;\n}\n.input_msg_write input[data-v-419dba8f] {\n  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;\n  border: medium none;\n  color: #4c4c4c;\n  font-size: 15px;\n  min-height: 48px;\n  width: 100%;\n}\n.type_msg[data-v-419dba8f] {border-top: 1px solid #c4c4c4;position: relative;}\n.msg_send_btn[data-v-419dba8f] {\n  background: #05728f none repeat scroll 0 0;\n  border: medium none;\n  border-radius: 50%;\n  color: #fff;\n  cursor: pointer;\n  font-size: 17px;\n  height: 33px;\n  position: absolute;\n  right: 0;\n  top: 11px;\n  width: 33px;\n}\n.messaging[data-v-419dba8f] { padding: 0 0 50px 0;}\n.msg_history[data-v-419dba8f] {\n  overflow-y: auto;\n}\n", ""]);
+exports.push([module.i, "\n.img_bubble[data-v-419dba8f]{\n    background-position: center;\n    background-size:cover;\n    width:50px;\n    height:50px;\n    border:2px solid #888;\n}\n.upper[data-v-419dba8f]{\n    padding:10px;\n    background:#f9f9f9;\n    border-bottom:1px solid #dfdfdf;\n}\n.sidebar[data-v-419dba8f]{\n    background:#f9f9f9;\n    position:absolute;\n    height:90vh;\n    overflow:auto;\n}\n.contact[data-v-419dba8f]{\n    margin:20px 0;\n}\n.search-input input[data-v-419dba8f]{\n    border:1px solid #dfdfdf;\n    border-radius:5px;\n    background: #f0f0f0;\n    padding:8px 1px;\n    height:40px;\n}\n.search-input button[data-v-419dba8f]{\n    height:40px;\n    border-top-left-radius:0px;\n    border-bottom-left-radius:0px;\n}\n.upper .h[data-v-419dba8f]{\n    font-size:25px;\n    font-weight: bold;\n}\n.new-message[data-v-419dba8f]{\n    font-size:22px;\n    padding:10px;\n    border-radius:100%;\n    -webkit-transition:0.2s;\n    transition:0.2s;\n    cursor:pointer;\n}\n.new-message[data-v-419dba8f]:hover{\n    background:#e9e9e9;\n}\n.contact[data-v-419dba8f]{\n    padding:0 2px;\n}\n.contact .name[data-v-419dba8f]{\n    color:black;\n}\n.contact .second[data-v-419dba8f]{\n    font-size:15px;\n    color:#aaa;\n}\n", ""]);
 
 // exports
 
@@ -40595,16 +40656,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", {}, [
+    _c(
+      "div",
+      { staticClass: "header d-flex col-12 align-items-center sticky-top" },
+      [
+        _c("div", {
+          staticClass: "img_bubble",
+          style: { "background-image": "url(" + _vm.users[0].img + ")" }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "name m-left" }, [
+          _vm._v(_vm._s(_vm.users[0].name))
+        ])
+      ]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-red" }, [_c("div", {}, [_c("div")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -40626,7 +40695,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("sidebar"), _vm._v(" "), _c("chat")], 1)
+  return _c(
+    "div",
+    { staticClass: "d-flex" },
+    [
+      _c("sidebar", { staticClass: "col-lg-2" }),
+      _vm._v(" "),
+      _c("chat", {
+        staticClass: "offset-lg-2 col-lg-10",
+        staticStyle: { "padding-left": "0", "padding-right": "0" }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40650,39 +40731,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
-    _c("div", { staticClass: "inbox_people" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "inbox_chat" },
-        _vm._l(_vm.contacts, function(o, i) {
-          return _c(
-            "div",
-            { staticClass: "chat_list", class: { active_chat: i == 0 } },
-            [
-              _c("div", { staticClass: "chat_people" }, [
-                _c("div", {
-                  staticClass: "chat_img img_bubble",
-                  style: { "background-image": "url(" + o.img + ")" }
-                }),
+  return _c("div", { staticClass: "sidebar" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "contacts" },
+      _vm._l(_vm.contacts, function(o, i) {
+        return _c(
+          "div",
+          { staticClass: "contact d-flex justify-content-between" },
+          [
+            _c("div", { staticClass: "d-flex" }, [
+              _c("div", {
+                staticClass: "img_bubble",
+                style: { "background-image": "url(" + o.img + ")" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "m-left" }, [
+                _c("div", { staticClass: "name" }, [_vm._v(_vm._s(o.name))]),
                 _vm._v(" "),
-                _c("div", { staticClass: "chat_ib" }, [
-                  _c("h5", [
-                    _vm._v(_vm._s(o.name) + " "),
-                    _c("span", { staticClass: "chat_date" }, [_vm._v("Dec 25")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(o.text))])
-                ])
+                _c("div", { staticClass: "second" }, [_vm._v(_vm._s(o.text))])
               ])
-            ]
-          )
-        }),
-        0
-      )
-    ])
+            ]),
+            _vm._v(" "),
+            _vm._m(2, true)
+          ]
+        )
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = [
@@ -40690,29 +40772,35 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "headind_srch" }, [
-      _c("div", { staticClass: "recent_heading" }, [
-        _c("h4", [_vm._v("Konverzace")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "srch_bar" }, [
-        _c("div", { staticClass: "stylish-input-group" }, [
-          _c("input", {
-            staticClass: "search-bar",
-            attrs: { type: "text", placeholder: "Search" }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "input-group-addon" }, [
-            _c("button", { attrs: { type: "button" } }, [
-              _c("i", {
-                staticClass: "fa fa-search",
-                attrs: { "aria-hidden": "true" }
-              })
-            ])
-          ])
-        ])
-      ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "upper d-flex justify-content-between align-items-center col-12 mx-auto sticky-top"
+      },
+      [
+        _c("div", { staticClass: "h" }, [_vm._v("Chaty")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "fas fa-edit new-message" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-top search-input" }, [
+      _c("input", {
+        staticClass: "col-12 mx-auto",
+        attrs: { type: "text", autocomplete: "off" }
+      })
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("span", { staticClass: "second" }, [_vm._v("22.2")])])
   }
 ]
 render._withStripped = true

@@ -48,6 +48,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany("\App\Notification", "not_use", "user_id", "notification_id")->withPivot("seen_at");
     }
+    public function sent_messages(){
+        return $this->hasMany("\App\Message","from");
+    }
+    public function received_messages(){
+        return $this->hasMany("\App\Message","to");
+    }
 
     //methods
     public function hasPermission($permission)
@@ -81,5 +87,16 @@ class User extends Authenticatable
     public function review_score()
     {
         return 5;
+    }
+    public function messages_with(User $u){
+        $all = Message::where(function($query){
+            $query->where('from',$this->id_u)
+                ->orWhere('to',$this->id_u);
+        })
+        ->orWhere(function($query)use($u){
+            $query->where('from',$u->id_u)
+                ->orWhere('to',$u->id_u);
+        })->get();
+
     }
 }

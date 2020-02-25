@@ -23,7 +23,7 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
     </div>
@@ -66,7 +66,6 @@
     }
     .sidebar{
         background:#f9f9f9;
-        height:100vh;
     }
     .contact{
         margin:20px 0;
@@ -215,7 +214,6 @@ img{ max-width:100%;}
 }
 .messaging { padding: 0 0 50px 0;}
 .msg_history {
-  height: 516px;
   overflow-y: auto;
 }
 </style>

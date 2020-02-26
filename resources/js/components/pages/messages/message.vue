@@ -1,12 +1,10 @@
 <template>
 	<div class="message d-flex align-items-center" :class="{'msg-left':!you,'msg-right':you}">
-		<div>
-			<div v-tooltip="getTime(message.sent_at)" class="msg_content">
+        <div v-tooltip="getTime(message.sent_at)" class="msg_content">
 				{{message.message}}
-			</div>
-			<reactions :reactions="getReactions"></reactions>
-		</div>
-		
+            <reactions :reactions="getReactions"></reactions>
+        </div>
+
 		<v-popover>
 			  <i class="tooltip-target b3 far fa-smile"></i>
 

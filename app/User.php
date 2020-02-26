@@ -54,6 +54,9 @@ class User extends Authenticatable
     public function received_messages(){
         return $this->hasMany("\App\Message","to");
     }
+    public function conversations(){
+        return $this->belongsToMany("\App\Conversation","con_use","user_id","conversation_id");
+    }
 
     //methods
     public function hasPermission($permission)
@@ -97,6 +100,13 @@ class User extends Authenticatable
             $query->where('from',$u->id_u)
                 ->orWhere('to',$u->id_u);
         })->get();
+        return $all;
+    }
+    public function contacts(){
+        $msgs = Message::where('from',$this->id_u)->orWhere('to',$this->id_u);
 
+    }
+    public function conversation_with(User $user){
+        return $this->conversations()->where('user_id',$user->id-u)->first();
     }
 }

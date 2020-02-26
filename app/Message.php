@@ -10,6 +10,9 @@ class Message extends Model
     protected $timestamps = false;
     protected $guarded = ["id_m"];
 
+    public function conversation(){
+        return $this->belongsTo("\App\Conversation","conversation_id");
+    }
     public function from(){
         return $this->belongsTo("\App\User","from");
     }

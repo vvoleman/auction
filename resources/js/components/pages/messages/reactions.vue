@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<div class="img_bubble" v-for="(o,i) in grouped" :style="{'background-image':'url('+o.img+')'}">{{o.count}}</div>
+	<div class="position-absolute m-top d-flex">
+		<div v-tooltip="o.name" class="img_bubble" v-for="(o,i) in grouped" :style="{'background-image':'url('+o.img+')'}">{{o.count}}</div>
 	</div>
 </template>
 <script>
@@ -36,7 +36,7 @@
 	.img_bubble{
 		background-position: center;
 		background-size: cover;
-		width:15px;
-		height: 15px;
+		width:30px;
+		height: 30px;
 	}
 </style>

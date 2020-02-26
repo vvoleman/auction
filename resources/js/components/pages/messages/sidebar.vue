@@ -116,7 +116,7 @@
         },
         computed:{
             contacts_filtered(){
-                return this.contacts.filter((x)=>{return x.name.toLowerCase().indexOf(this.search) != -1});
+                return this.contacts.filter((x)=>{return x.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1});
             }
         },
         methods:{

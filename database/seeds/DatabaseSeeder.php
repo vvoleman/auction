@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GroPerSeeder::class);
         $this->call(PrioritiesSeeder::class);
         $this->call(NotificationTypesSeeder::class);
+        $this->call(ColorsSeeder::class);
     }
 }

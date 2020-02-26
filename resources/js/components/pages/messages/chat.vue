@@ -4,11 +4,20 @@
             <div class="img_bubble" :style="{'background-image':'url('+users[0].img+')'}"></div>
             <div class="name m-left">{{users[0].name}}</div>
         </div>
+        <div>
+        	<message v-for="(o,i) in messages" :key="i" :message="messages[i]" :user="getUser(messages[i].user)" :you="messages[i].user==1"></message>
+        </div>
+        <div class="fixed-bottom offset-rl-2 offset-md-3 col-rl-10 col-md-9" style="padding-left: 0;padding-right: 0">
+        	<inputbox @send="newMessage"></inputbox>
+        </div>
     </div>
 </template>
 <script>
+	import Message from "./message";
+	import Inputbox from "./inputbox";
 	export default{
 		name:"chat",
+		components:{Message,Inputbox},
 		data(){
 			return {
 				messages:[
@@ -24,7 +33,7 @@
                     },
                     {
                         user:1,
-                        message:"Dobrý, zrovna papám puding",
+                        message:"Dobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám pudingDobrý, zrovna papám puding",
                         sent_at:1582662556
                     }
                 ],
@@ -50,6 +59,9 @@
                     }
                 }
                 return u;
+            },
+            newMessage(str){
+            	alert(str);
             }
         }
 	}

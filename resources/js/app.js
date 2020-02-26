@@ -1,8 +1,11 @@
 import Vue from 'vue';
+import VTooltip from 'v-tooltip';
+import vSelect from 'vue-select';
 import Snotify, { SnotifyPosition } from 'vue-snotify'; // 1. Import Snotify
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 import 'vue-snotify/styles/material.css';
+import 'vue-select/dist/vue-select.css';
 require('./bootstrap');
 
 const options = {
@@ -14,6 +17,9 @@ const options = {
 }
 
 Vue.use(Snotify,options);
+Vue.use(VTooltip);
+
+Vue.component('v-select', vSelect);
 
 Vue.component('search-page', require('./components/pages/search/search-page.vue').default);
 Vue.component('config-categories',require('./components/pages/categories/config-categories').default);

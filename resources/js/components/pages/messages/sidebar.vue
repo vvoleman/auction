@@ -2,14 +2,33 @@
     <div class="sidebar">
         <div class="upper d-flex justify-content-between align-items-center col-12 mx-auto sticky-top">
             <div class="h">Chaty</div>
-            <i class="fas fa-edit new-message"></i>
+            <i @click="new_msg = true" class="fas fa-edit new-message"></i>
         </div>
+        <modal v-if="new_msg">
+            <div slot="header"><h3>Nová zpráva</h3></div>
+            <div slot="body">
+                <div class="col-md-6 mx-auto">
+                    <div class="form-group">
+                        <label>Jméno</label>
+                        <v-select @search="load"></v-select>
+                    </div>
+                    <div class="form-group">
+                        <label>Zpráva</label>
+                        <textarea class="form-control" style="height: 30vh"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div slot="footer">
+                <button class="btn btn-danger" @click="closeNewMsg">Zavřít</button>
+                <button class="btn btn-success" @click="sendNewMsg">Odeslat</button>
+            </div>
+        </modal>
         <div class="m-top search-input">
-            <input type="text" autocomplete="off" class="col-12 mx-auto">
+            <input @keydown.esc="search = ''" v-model="search" type="text" autocomplete="off" class="col-12 mx-auto">
         </div>
         <hr>
         <div class="contacts">
-            <div v-for="(o,i) in contacts" class="contact d-flex justify-content-between">
+            <div v-for="(o,i) in contacts_filtered" class="contact d-flex justify-content-between">
                 <div class="d-flex">
                     <div class="img_bubble" :style="{'background-image':'url('+o.img+')'}"></div>
                     <div class="m-left">
@@ -28,6 +47,7 @@
         name: "sidebar",
         data(){
             return {
+                new_msg:false,
                 contacts:[
                     {
                         name:"Marco",
@@ -35,7 +55,7 @@
                         img:"https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
                     },
                     {
-                        name:"Marco",
+                        name:"Memo",
                         text:"Text ot ofjsajk",
                         img:"https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
                     },
@@ -45,7 +65,7 @@
                         img:"https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
                     },
                     {
-                        name:"Marco",
+                        name:"Tet",
                         text:"Text ot ofjsajk",
                         img:"https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
                     },
@@ -89,7 +109,24 @@
                         text:"Text ot ofjsajk",
                         img:"https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
                     }
-                ]
+                ],
+                search:"",
+                msg:""
+            }
+        },
+        computed:{
+            contacts_filtered(){
+                return this.contacts.filter((x)=>{return x.name.toLowerCase().indexOf(this.search) != -1});
+            }
+        },
+        methods:{
+            closeNewMsg(){
+                this.new_msg = false;
+                this.msg = "";
+            },
+            load(search,loading){
+                loading(true);
+                setTimeout(()=>{loading(false)},500);
             }
         }
     }
@@ -152,5 +189,9 @@
     .contact .second{
         font-size:15px;
         color:#aaa;
+    }
+    ::-webkit-scrollbar-track{
+        background: transparent;
+        border-right: 1px solid #dfdfdf;
     }
 </style>

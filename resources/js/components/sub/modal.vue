@@ -54,8 +54,8 @@
     }
 
     .modal-mask {
+        z-index: 9988;
         position: fixed;
-        z-index: 9998;
         top: 0;
         left: 0;
         width: 100% !important;
@@ -64,7 +64,6 @@
         display: table;
         transition: opacity 0.3s ease;
     }
-
     .modal-wrapper {
         display: table-cell;
         vertical-align: middle;

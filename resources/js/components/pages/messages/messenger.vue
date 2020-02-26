@@ -1,7 +1,7 @@
 <template>
-    <div class="d-flex">
-        <sidebar class="col-lg-2"></sidebar>
-        <chat class="offset-lg-2 col-lg-10" style="padding-left:0;padding-right:0"></chat>
+    <div class="d-flex position-fixed">
+        <sidebar class="col-rl-2 col-md-3"></sidebar>
+        <chat class="offset-rl-2 offset-md-3 col-rl-10 col-md-9" style="padding-left:0;padding-right:0"></chat>
     </div>
 </template>
 

@@ -81,11 +81,12 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::post('/offers/removeOfferSell','OfferController@ajaxRemoveOfferSell')->middleware(['auth']);
     Route::post('/offers/updateImages','OfferController@ajaxUpdateImages')->middleware(['auth']);
 
-    //Route::get('/messages','MessageController@ajaxGetContacts')->middleware(['auth']);
+    Route::get('/messages/users','MessageController@ajaxGetUsers')->middleware(['auth']);
+    Route::get('/messages/contacts','MessageController@ajaxGetContacts')->middleware(['auth']);
+    Route::get('/messages/conversation','MessageController@ajaxGetConversation')->middleware(['auth']);
+    Route::post('/messages','MessageController@ajaxCreateMessage')->middleware(['auth']);
 
 });
-Route::get('/ajax/messages','MessageController@ajaxGetContacts')->middleware(['auth']);
-Route::post('/ajax/messages','MessageController@ajaxCreateMessage');
 
 //PROFILEPIC CHANGE
 Route::get('/profile/img','ProfileController@getProfileImage')->name('profile.profileimg')->middleware(['auth','hasPerm:profile.pic_change']);

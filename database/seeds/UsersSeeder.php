@@ -41,5 +41,19 @@ class UsersSeeder extends Seeder
             "activation_token"=>Str::random(16),
             "email_verified_at"=>Carbon::now()
         ]);
+        DB::table('users')->insert([
+            "firstname"=>"Jan",
+            "surname"=>"Novák",
+            "email"=>"vojtavol@gmail.com",
+            "password"=>Hash::make("heslo123"),
+            "group_id"=>2,
+            "uuid"=>Str::random(8),
+            "region_id"=>6,
+            "city"=>"Ústí nad Labem",
+            "zipcode"=>"40010",
+            "address"=>"Plynárenská 10",
+            "activation_token"=>Str::random(16),
+            "email_verified_at"=>Carbon::now()
+        ]);
     }
 }

@@ -4,135 +4,107 @@
             <div class="h">Chaty</div>
             <i @click="new_msg = true" class="fas fa-edit new-message"></i>
         </div>
-        <modal v-if="new_msg">
-            <div slot="header"><h3>Nová zpráva</h3></div>
-            <div slot="body">
-                <div class="col-md-6 mx-auto">
-                    <div class="form-group">
-                        <label>Jméno</label>
-                        <v-select @search="load"></v-select>
-                    </div>
-                    <div class="form-group">
-                        <label>Zpráva</label>
-                        <textarea class="form-control" style="height: 30vh"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div slot="footer">
-                <button class="btn btn-danger" @click="closeNewMsg">Zavřít</button>
-                <button class="btn btn-success" @click="sendNewMsg">Odeslat</button>
-            </div>
-        </modal>
+        <new-conversation @msgSend="sendNewMsg" @close="new_msg = false" v-if="new_msg"></new-conversation>
         <div class="m-top search-input">
             <input @keydown.esc="search = ''" v-model="search" type="text" autocomplete="off" class="col-12 mx-auto">
         </div>
         <hr>
         <div class="contacts">
-            <div v-for="(o,i) in contacts_filtered" class="contact d-flex justify-content-between">
-                <div class="d-flex">
-                    <div class="img_bubble" :style="{'background-image':'url('+o.img+')'}"></div>
-                    <div class="m-left">
-                        <div class="name">{{o.name}}</div>
-                        <div class="second">{{o.text}}</div>
+            <transition name="fade" mode="out-in">
+                <div key="empty" class="text-center" v-if="!loading && contacts_filtered.length == 0">Žádné kontakty</div>
+                <loader key="load" v-if="loading"></loader>
+                <div key="data" v-if="!loading && contacts_filtered.length > 0">
+                    <div :class="{'selected':o.conversation_uuid==opened,'unread':o.last_msg.seen_at==null}" @click="open(o.conversation_uuid)" v-for="(o,i) in contacts_filtered" class="contact d-flex justify-content-between">
+                        <div class="d-flex">
+                            <div class="img_bubble" :style="{'background-image':'url('+o.user.img+')'}"></div>
+                            <div class="m-left">
+                                <div class="name">{{o.user.name}}</div>
+                                <div class="second"><span v-if="o.last_msg.you">Vy: </span>{{short_str(o.last_msg.message)}}</div>
+                            </div>
+                        </div>
+                        <div><span class="second">{{o.last_msg.sent_at}}</span></div>
                     </div>
                 </div>
-                <div><span class="second">22.2</span></div>
-            </div>
+                <div key="error" v-if="error">
+                    <div class="alert alert-danger text-center">Nelze načíst kontakty</div>
+                </div>
+            </transition>
         </div>
     </div>
 </template>
 
 <script>
+    import NewConversation from "./newConversation";
+    import Loader from "../../sub/Loader";
     export default {
         name: "sidebar",
+        components: {Loader, NewConversation},
+        props:{
+            loading:{
+                type:Boolean,
+                default:()=>{return false}
+            },
+            error:{
+                type:Boolean,
+                default:()=>{return false}
+            },
+            contacts:{
+                type:Array,
+                default:()=>{return []}
+            },
+            opened:{
+                type:String,
+                default:()=>{return ""}
+            }
+        },
         data(){
             return {
                 new_msg:false,
-                contacts:[
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
-                    },
-                    {
-                        name:"Memo",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
-                    },
-                    {
-                        name:"Tet",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.aldergrovestar.com/wp-content/uploads/2019/07/17649457_web1_raccoon-pic-GPS.jpg"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Mammals/mammal_raccoon-wisconsin_mary-braatz_600x300.ashx"
-                    },
-                    {
-                        name:"Marco",
-                        text:"Text ot ofjsajk",
-                        img:"https://curiodyssey.org/wp-content/uploads/bb-plugin/cache/xMammals-Raccoon-square.jpg.pagespeed.ic.W5-0FMTZBa.jpg"
-                    }
-                ],
                 search:"",
-                msg:""
             }
         },
         computed:{
             contacts_filtered(){
-                return this.contacts.filter((x)=>{return x.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1});
+                return this.contacts.filter((x)=>{return x.user.name.toLowerCase().indexOf(this.search.toLowerCase()) != -1});
             }
         },
         methods:{
+            open(uuid){
+                this.$emit("open",uuid);
+            },
             closeNewMsg(){
                 this.new_msg = false;
-                this.msg = "";
             },
-            load(search,loading){
-                loading(true);
-                setTimeout(()=>{loading(false)},500);
+            sendNewMsg(data){
+                this.$emit("newMsg",data);
+            },
+            alterSidebar(data){
+                var match = this.contacts.findIndex((x)=>{
+                    return x.conversation_uuid == data.conversation_uuid;
+                });
+
+                //if match != -1, replace last msg of that index, otherwise put new msg as first
+                if(match != -1){
+                    var temp = this.contacts[match];
+                    temp.last_msg = data.last_msg;
+                    this.contacts.splice(match,1);
+                    this.contacts.unshift(temp);
+                }else{
+                    this.contacts.unshift(data);
+                }
+            },
+            short_str(str){
+                return str.substring(0,12)+((str.length>12)?"...":"");
             }
         }
     }
 </script>
 
 <style scoped>
+
+    .unseen{
+        background: gold;
+    }
     .img_bubble{
         background-position: center;
         background-size:cover;
@@ -150,9 +122,7 @@
         position:absolute;
         height:90vh;
         overflow:auto;
-    }
-    .contact{
-        margin:20px 0;
+        border-right:1px solid #dfdfdf;
     }
     .search-input input{
         border:1px solid #dfdfdf;
@@ -181,7 +151,12 @@
         background:#e9e9e9;
     }
     .contact{
-        padding:0 2px;
+        padding:15px;
+        cursor:pointer;
+        transition:0.1s;
+    }
+    .contact:hover:not(.selected){
+        background:#f0f0f0;
     }
     .contact .name{
         color:black;
@@ -189,6 +164,12 @@
     .contact .second{
         font-size:15px;
         color:#aaa;
+    }
+    .selected{
+        background:#d0d0d0;
+    }
+    .selected .second{
+        color:#888;
     }
     ::-webkit-scrollbar-track{
         background: transparent;

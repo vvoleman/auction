@@ -5,10 +5,13 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use AjCastro\EagerLoadPivotRelations\EagerLoadPivotTrait;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use EagerLoadPivotTrait;
 
     protected $hidden = ['password', 'remember_token',];
     protected $guarded = ['id_u'];
@@ -106,7 +109,21 @@ class User extends Authenticatable
         $msgs = Message::where('from',$this->id_u)->orWhere('to',$this->id_u);
 
     }
+    public function test(){
+        return $this->hasManyThrough("\App\User","\App\Conversation");
+    }
     public function conversation_with(User $user){
-        return $this->conversations()->where('user_id',$user->id-u)->first();
+        if($this->id_u == $user->id_u){
+            return false;
+        }
+        $sql = "SELECT cu.conversation_id FROM users JOIN con_use cu ON cu.user_id = users.id_u WHERE users.id_u = ? AND cu.conversation_id IN (SELECT con_use.conversation_id FROM users JOIN con_use ON con_use.user_id = users.id_u WHERE users.id_u = ?)";
+        $temp = User::select('cu.conversation_id as conversation_id')->join('con_use as cu','cu.user_id','=','users.id_u')->where('users.id_u',$this->id_u)->whereIn('cu.conversation_id',function($query)use($user){
+           $query->select("con_use.conversation_id")->from('users')->join('con_use','con_use.user_id','=','users.id_u')->where('users.id_u',$user->id_u);
+        })->get();
+        if(sizeof($temp) == 0){
+            return null;
+        }
+        return Conversation::find($temp[0]["conversation_id"]);
+
     }
 }

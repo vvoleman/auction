@@ -1,6 +1,6 @@
 <template>
 	<div class="message d-flex align-items-center" :class="{'msg-left':!you,'msg-right':you}">
-        <div v-tooltip="getTime(message.sent_at)" class="msg_content">
+        <div v-tooltip="message.sent_at" class="msg_content">
 				{{message.message}}
             <reactions :reactions="getReactions"></reactions>
         </div>
@@ -25,10 +25,6 @@
 				type:Object,
 				required:true
 			},
-			you:{
-				type:Boolean,
-				default:()=>{return true}
-			},
 			user:{
 				type:Object,
 				required:true
@@ -39,17 +35,11 @@
 				reactions:{
 					you:null,
 					opposite:null
-				}
+				},
+                you:this.user.you
 			}
 		},
 		methods:{
-			getTime(u){
-				var d = new Date(u*1000);
-				return this.withZero(d.getDate())+". "+this.withZero(d.getMonth()+1)+". "+d.getFullYear()+" "+this.withZero(d.getHours())+":"+this.withZero(d.getMinutes());
-			},
-			withZero(n){
-				return ((n<=9) ? "0" : "")+n;
-			},
 			changeReaction(obj){
 				this.reactions.you = obj;
 			}
@@ -76,7 +66,7 @@
 	  border-color: #f9f9f9;
 	}
 	.message{
-		margin:5px;
+		margin:2px;
 	}
 	.msg_content{
 		max-width: 40%;

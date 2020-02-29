@@ -22,7 +22,6 @@
 						temp[r_id].count += 1;
 					}
 				}
-				console.log(temp);
 				var ret = [];
 				for (var i = 0; i < list.length; i++) {
 					ret.push(temp[list[i]]);

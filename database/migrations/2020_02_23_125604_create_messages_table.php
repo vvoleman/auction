@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedInteger("to");
             $table->dateTime("sent_at")->useCurrent();
             $table->text("message");
-            $table->unsignedInteger("offer_id");
+            $table->unsignedInteger("offer_id")->nullable();;
             $table->string("uuid",8);
             $table->dateTime("seen_at")->nullable();
 

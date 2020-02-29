@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $primaryKey = "id_m";
-    protected $timestamps = false;
+    public $timestamps = false;
+    protected $dates = ["seen_at","sent_at"];
     protected $guarded = ["id_m"];
 
     public function conversation(){
         return $this->belongsTo("\App\Conversation","conversation_id");
     }
-    public function from(){
+    public function from_user(){
         return $this->belongsTo("\App\User","from");
     }
-    public function to(){
+    public function to_user(){
         return $this->belongsTo("\App\User","to");
     }
     public function offer(){

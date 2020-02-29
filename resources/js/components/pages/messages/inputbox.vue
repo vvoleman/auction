@@ -3,10 +3,10 @@
 		<button class="col-1" disabled>
 			<i class="far fa-image"></i>
 		</button>
-		<textarea @keyup.enter.prevent="send" class="col-10" v-model="input"></textarea>
+		<textarea @keyup.enter.exact.prevent="send" class="col-10" v-model="input"></textarea>
 		<button class="col-1">
 		<v-popover>
-			
+
 			  <i class="tooltip-target b3 far fa-smile"></i>
 
 			<template slot="popover">
@@ -31,11 +31,16 @@
 				this.input+=text;
 			},
 			send(e){
-				e.preventDefault();
-				if(this.input.length > 0){
-					this.$emit("send",this.input);
-					this.input = "";
-				}
+                if (e.keyCode == 13 && !e.shiftKey)
+                {
+                    // prevent default behavior
+                    e.preventDefault();
+                    if(this.input.length > 0){
+                        this.$emit("send",this.input);
+                        this.input = "";
+                    }
+                }
+
 			}
 		}
 	}

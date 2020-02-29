@@ -18,6 +18,7 @@ class CreateConversationsTable extends Migration
             $table->unsignedInteger("color_id");
             $table->string("uuid",8);
             $table->dateTime("created_at")->useCurrent();
+            $table->dateTime("updated_at")->useCurrent();
 
             $table->foreign("color_id")->references("id_c")->on("colors");
         });

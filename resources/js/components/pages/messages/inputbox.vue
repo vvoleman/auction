@@ -49,6 +49,7 @@
 	.box{
 		background-color: #f9f9f9;
 		border-top:1px solid #dfdfdf;
+        height:100%;
 	}
 	i{
 		font-size:25px;
@@ -60,7 +61,6 @@
 	textarea{
 		border:1px solid #dfdfdf;
 		resize: none;
-		height:80px;
 		background:#fcfcfc;
 	}
 </style>

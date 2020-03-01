@@ -1,10 +1,10 @@
 <template>
-    <div class="d-flex w-100">
+    <div class="w-100">
         <sidebar :loading="contacts.loading"
                  :error="contacts.error"
                  :contacts="contacts.data"
                  :opened="opened"
-                 class="col-rl-2 col-md-3"
+                 class="col-rl-2 col-md-3 d-none"
                  @newMsg="sendMsg"
                  @open="changeChat"
         ></sidebar>
@@ -15,7 +15,7 @@
                     :msgs="currentChat.msgs"
                     :canNext="currentChat.next != false"
                     @newMsg="newChatMsg"
-                    class="offset-rl-2 offset-md-3 col-rl-10 col-md-9"
+                    class=""
                     style="padding-left:0;padding-right:0"
             ></chat>
         </transition>
@@ -23,6 +23,9 @@
 </template>
 
 <script>
+    /*
+        offset-rl-2 offset-md-3
+     */
     import Sidebar from "./sidebar";
     import Chat from "./chat";
     export default {
@@ -46,6 +49,9 @@
         },
         mounted(){
             this.loadContacts();
+            Echo.channel('home').listen('NewMessage',(e)=>{
+                console.log(e);
+            })
         },
         methods:{
             loadContacts(){

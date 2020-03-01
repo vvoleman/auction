@@ -1,5 +1,5 @@
 <template>
-	<div class="">
+	<div class="position-fixed chat">
         <div class="header d-flex col-12 align-items-center justify-content-between sticky-top">
             <div class="d-flex align-items-center">
                 <div class="img_bubble" :style="{'background-image':'url('+users[0].img+')'}"></div>
@@ -10,10 +10,10 @@
                 <i v-else class="fas fa-expand"></i>
             </button>
         </div>
-        <div class="d-flex flex-wrap flex-column-reverse chatbox" style="padding:5px 15px;">
+        <div class="d-flex flex-column-reverse chatbox" style="padding:5px 15px;">
         	<message class="w-100" v-for="(o,i) in msgs" :key="i" :message="o" :user="getUser(o.author)"></message>
         </div>
-        <div class="sticky-bottom inputbox offset-rl-2 offset-md-3 col-rl-10 col-md-9" style="padding-left: 0;padding-right: 0">
+        <div class="inputbox" style="padding-left: 0;padding-right: 0">
         	<inputbox @send="newMessage"></inputbox>
         </div>
     </div>
@@ -70,10 +70,15 @@
 	}
 </script>
 <style scoped>
+    .chat{
+        height:100vh;
+    }
+    .inputbox{
+        height:20%;
+    }
     .chatbox{
-        position:absolute;
         overflow:auto;
-        height:90%;
+        height:60%;
     }
     .img_bubble{
         width: 50px;
@@ -85,6 +90,7 @@
         font-size:20px;
     }
     .header{
+        height:10%;
         position:sticky;
         padding:5px;
         background: #f9f9f9;

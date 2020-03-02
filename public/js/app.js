@@ -3826,6 +3826,7 @@ __webpack_require__.r(__webpack_exports__);
     Sidebar: _sidebar__WEBPACK_IMPORTED_MODULE_0__["default"],
     Chat: _chat__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  props: ["y_uuid"],
   data: function data() {
     return {
       contacts: {
@@ -3843,33 +3844,42 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.loadContacts();
-    Echo.channel('home').listen('NewMessage', function (e) {
+    Echo["private"]("user.messages." + this.y_uuid).listen('NewMessage', function (e) {
       console.log(e);
+
+      _this.alterContacts({
+        conversation_uuid: e.message.conversation_uuid,
+        last_msg: e.message.msg
+      });
+
+      _this.chat_history[_this.opened].msgs.unshift(e.message.msg);
     });
   },
   methods: {
     loadContacts: function loadContacts() {
-      var _this = this;
+      var _this2 = this;
 
       this.contacts.loading = true;
       axios.get("/ajax/messages/contacts").then(function (response) {
         if (response.data.status != 200) {
-          _this.contacts.error = true;
+          _this2.contacts.error = true;
         } else {
-          _this.contacts.error = false;
-          _this.contacts.data = response.data.data;
+          _this2.contacts.error = false;
+          _this2.contacts.data = response.data.data;
 
-          if (_this.contacts.data.length > 0) {
-            _this.changeChat(_this.contacts.data[0].conversation_uuid);
+          if (_this2.contacts.data.length > 0) {
+            _this2.changeChat(_this2.contacts.data[0].conversation_uuid);
           }
 
-          _this.you = response.data.you;
+          _this2.you = response.data.you;
         }
       })["catch"](function () {
-        _this.contacts.error = true;
+        _this2.contacts.error = true;
       }).then(function () {
-        _this.contacts.loading = false;
+        _this2.contacts.loading = false;
       });
     },
     alterContacts: function alterContacts(data) {
@@ -3887,22 +3897,22 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     sendMsg: function sendMsg(data) {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.post("/ajax/messages", data).then(function (response) {
         if (response.data.status != 200) {
-          _this2.$snotify.error("Nebylo možné odeslat zprávu!");
+          _this3.$snotify.error("Nebylo možné odeslat zprávu!");
         } else {
-          _this2.alterContacts(response.data.data);
+          _this3.alterContacts(response.data.data);
 
-          _this2.chat_history[_this2.opened].msgs.unshift(response.data.data.last_msg);
+          _this3.chat_history[_this3.opened].msgs.unshift(response.data.data.last_msg);
 
-          _this2.changeChat(response.data.data.conversation_uuid);
+          _this3.changeChat(response.data.data.conversation_uuid);
         }
       })["catch"](function (e) {
         console.log(e);
 
-        _this2.$snotify.error("Nebylo možné odeslat zprávu!");
+        _this3.$snotify.error("Nebylo možné odeslat zprávu!");
       });
     },
     newChatMsg: function newChatMsg(str) {
@@ -3912,7 +3922,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     loadMsgs: function loadMsgs() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("/ajax/messages/conversation", {
         params: {
@@ -3921,10 +3931,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         if (response.data.status == 200) {
-          _this3.chat.next = response.data.next;
-          _this3.chat.msgs = response.data.data.reverse();
+          _this4.chat.next = response.data.next;
+          _this4.chat.msgs = response.data.data.reverse();
 
-          _this3.$set(_this3.chat_history, _this3.opened, {
+          _this4.$set(_this4.chat_history, _this4.opened, {
             next: response.data.next,
             msgs: response.data.data.reverse()
           });
@@ -3945,10 +3955,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     currentContact: function currentContact() {
-      var _this4 = this;
+      var _this5 = this;
 
       var match = this.contacts.data.filter(function (x) {
-        return x.conversation_uuid == _this4.opened;
+        return x.conversation_uuid == _this5.opened;
       });
 
       if (match.length == 1 && this.opened.length > 0) {
@@ -8594,7 +8604,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.unseen[data-v-419dba8f]{\n    background: gold;\n}\n.img_bubble[data-v-419dba8f]{\n    background-position: center;\n    background-size:cover;\n    width:50px;\n    height:50px;\n    border:2px solid #888;\n}\n.upper[data-v-419dba8f]{\n    padding:10px;\n    background:#f9f9f9;\n    border-bottom:1px solid #dfdfdf;\n}\n.sidebar[data-v-419dba8f]{\n    background:#f9f9f9;\n    position:absolute;\n    height:90vh;\n    overflow:auto;\n    border-right:1px solid #dfdfdf;\n}\n.search-input input[data-v-419dba8f]{\n    border:1px solid #dfdfdf;\n    border-radius:5px;\n    background: #f0f0f0;\n    padding:8px 1px;\n    height:40px;\n}\n.search-input button[data-v-419dba8f]{\n    height:40px;\n    border-top-left-radius:0px;\n    border-bottom-left-radius:0px;\n}\n.upper .h[data-v-419dba8f]{\n    font-size:25px;\n    font-weight: bold;\n}\n.new-message[data-v-419dba8f]{\n    font-size:22px;\n    padding:10px;\n    border-radius:100%;\n    -webkit-transition:0.2s;\n    transition:0.2s;\n    cursor:pointer;\n}\n.new-message[data-v-419dba8f]:hover{\n    background:#e9e9e9;\n}\n.contact[data-v-419dba8f]{\n    padding:15px;\n    cursor:pointer;\n    -webkit-transition:0.1s;\n    transition:0.1s;\n}\n.contact[data-v-419dba8f]:hover:not(.selected){\n    background:#f0f0f0;\n}\n.contact .name[data-v-419dba8f]{\n    color:black;\n}\n.contact .second[data-v-419dba8f]{\n    font-size:15px;\n    color:#aaa;\n}\n.selected[data-v-419dba8f]{\n    background:#d0d0d0;\n}\n.selected .second[data-v-419dba8f]{\n    color:#888;\n}\n[data-v-419dba8f]::-webkit-scrollbar-track{\n    background: transparent;\n    border-right: 1px solid #dfdfdf;\n}\n", ""]);
+exports.push([module.i, "\n.unread[data-v-419dba8f]{\n    background: gold;\n}\n.img_bubble[data-v-419dba8f]{\n    background-position: center;\n    background-size:cover;\n    width:50px;\n    height:50px;\n    border:2px solid #888;\n}\n.upper[data-v-419dba8f]{\n    padding:10px;\n    background:#f9f9f9;\n    border-bottom:1px solid #dfdfdf;\n}\n.sidebar[data-v-419dba8f]{\n    background:#f9f9f9;\n    position:absolute;\n    height:90vh;\n    overflow:auto;\n    border-right:1px solid #dfdfdf;\n}\n.search-input input[data-v-419dba8f]{\n    border:1px solid #dfdfdf;\n    border-radius:5px;\n    background: #f0f0f0;\n    padding:8px 1px;\n    height:40px;\n}\n.search-input button[data-v-419dba8f]{\n    height:40px;\n    border-top-left-radius:0px;\n    border-bottom-left-radius:0px;\n}\n.upper .h[data-v-419dba8f]{\n    font-size:25px;\n    font-weight: bold;\n}\n.new-message[data-v-419dba8f]{\n    font-size:22px;\n    padding:10px;\n    border-radius:100%;\n    -webkit-transition:0.2s;\n    transition:0.2s;\n    cursor:pointer;\n}\n.new-message[data-v-419dba8f]:hover{\n    background:#e9e9e9;\n}\n.contact[data-v-419dba8f]{\n    padding:15px;\n    cursor:pointer;\n    -webkit-transition:0.1s;\n    transition:0.1s;\n}\n.contact[data-v-419dba8f]:hover:not(.selected):not(.unread){\n    background:#f0f0f0;\n}\n.contact .name[data-v-419dba8f]{\n    color:black;\n}\n.contact .second[data-v-419dba8f]{\n    font-size:15px;\n    color:#aaa;\n}\n.selected[data-v-419dba8f]{\n    background:#d0d0d0;\n}\n.selected .second[data-v-419dba8f]{\n    color:#888;\n}\n[data-v-419dba8f]::-webkit-scrollbar-track{\n    background: transparent;\n    border-right: 1px solid #dfdfdf;\n}\n", ""]);
 
 // exports
 
@@ -57479,7 +57489,13 @@ var render = function() {
           staticClass: "msg_content"
         },
         [
-          _vm._v("\n\t\t\t\t" + _vm._s(_vm.message.message) + "\n            "),
+          _vm._v(
+            "\n\t\t\t\t" +
+              _vm._s(_vm.message.message) +
+              " - " +
+              _vm._s(_vm.you) +
+              "\n            "
+          ),
           _c("reactions", { attrs: { reactions: _vm.getReactions } })
         ],
         1
@@ -57527,10 +57543,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-100" },
+    { staticClass: "w-100 position-fixed" },
     [
       _c("sidebar", {
-        staticClass: "col-rl-2 col-md-3 d-none",
+        staticClass: "col-rl-2 col-md-3",
         attrs: {
           loading: _vm.contacts.loading,
           error: _vm.contacts.error,
@@ -57546,6 +57562,7 @@ var render = function() {
         [
           _vm.chatUsers.length > 0
             ? _c("chat", {
+                staticClass: "offset-rl-2 offset-md-3 col-rl-10 col-md-9",
                 staticStyle: { "padding-left": "0", "padding-right": "0" },
                 attrs: {
                   users: _vm.chatUsers,

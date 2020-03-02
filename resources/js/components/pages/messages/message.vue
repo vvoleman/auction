@@ -1,7 +1,7 @@
 <template>
 	<div class="message d-flex align-items-center" :class="{'msg-left':!you,'msg-right':you}">
         <div v-tooltip="message.sent_at" class="msg_content">
-				{{message.message}}
+				{{message.message}} - {{you}}
             <reactions :reactions="getReactions"></reactions>
         </div>
 

@@ -1,5 +1,7 @@
 <?php
 
+use \App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -11,6 +13,8 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('user.messages.{userUuid}',function($user,$userUuid){
+    $u = User::where('uuid',$userUuid)->first();
+    if($u == null) return false;
+    return $user->uuid === $u->uuid;
 });

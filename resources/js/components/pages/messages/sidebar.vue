@@ -102,7 +102,7 @@
 
 <style scoped>
 
-    .unseen{
+    .unread{
         background: gold;
     }
     .img_bubble{
@@ -155,7 +155,7 @@
         cursor:pointer;
         transition:0.1s;
     }
-    .contact:hover:not(.selected){
+    .contact:hover:not(.selected):not(.unread){
         background:#f0f0f0;
     }
     .contact .name{

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Conversation;
+use App\Events\NewMessage;
 use App\Message;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -61,11 +62,15 @@ class MessageController extends Controller
                 "message"=>$data["message"],
                 "from"=>$user->id_u,
                 "to"=>$to->id_u,
-                "uuid"=>$this->generateUUID("messages")
+                "uuid"=>$this->generateUUID("messages"),
+                "sent_at"=>Carbon::now()
             ]);
             $msg->save();
             $c->updated_at = Carbon::now();
-            $c->save();
+            if($c->save()){
+                $temp = $this->generateMessage($msg,true);
+                broadcast(new NewMessage($msg->to_user->uuid,["msg"=>$temp,"conversation_uuid"=>$c->uuid]));
+            }
             $temp = [
                 "status"=>200
             ];
@@ -113,22 +118,6 @@ class MessageController extends Controller
         $user = Auth::user();
         $msgs = $user->messages_with(User::where('id_u',$data["with_id"])->first());
         return $msgs;
-    }
-    public function ajaxSentMessageTo(Request $request){
-        $data =  $request->validate([
-            "to"=>"required|exists:conversations,id_c",
-            "message"=>"required"
-        ]);
-        $c = Conversation::where('id_c',$data["to"])->first();
-        $user = Auth::user();
-        $msg = new Message([
-            "from" => $user->id_u,
-            "to"=>$c->getOppositeUser($user)->id_u,
-            "uuid"=>$this->generateUUID("messages"),
-            "conversation_id"=>$c->id_c,
-            "message"=>$data["message"]
-        ]);
-        return $msg->save();
     }
     public function ajaxGetConversation(Request $request){
         $data = $request->validate([

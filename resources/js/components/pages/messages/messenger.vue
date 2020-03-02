@@ -1,10 +1,10 @@
 <template>
-    <div class="w-100">
+    <div class="w-100 position-fixed">
         <sidebar :loading="contacts.loading"
                  :error="contacts.error"
                  :contacts="contacts.data"
                  :opened="opened"
-                 class="col-rl-2 col-md-3 d-none"
+                 class="col-rl-2 col-md-3"
                  @newMsg="sendMsg"
                  @open="changeChat"
         ></sidebar>
@@ -15,7 +15,7 @@
                     :msgs="currentChat.msgs"
                     :canNext="currentChat.next != false"
                     @newMsg="newChatMsg"
-                    class=""
+                    class="offset-rl-2 offset-md-3 col-rl-10 col-md-9"
                     style="padding-left:0;padding-right:0"
             ></chat>
         </transition>
@@ -31,6 +31,7 @@
     export default {
         name: "messenger",
         components: {Sidebar, Chat},
+        props:["y_uuid"],
         data(){
             return {
                 contacts:{
@@ -49,8 +50,14 @@
         },
         mounted(){
             this.loadContacts();
-            Echo.channel('home').listen('NewMessage',(e)=>{
-                console.log(e);
+            Echo.private(`user.messages.`+this.y_uuid)
+                .listen('NewMessage',(e)=>{
+                    console.log(e);
+                    this.alterContacts({
+                        conversation_uuid:e.message.conversation_uuid,
+                        last_msg:e.message.msg
+                    });
+                    this.chat_history[this.opened].msgs.unshift(e.message.msg);
             })
         },
         methods:{

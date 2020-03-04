@@ -52,7 +52,8 @@
             messages:{
                 type:Array,
                 default:()=>{return []}
-            }
+            },
+            sound:null
         },
         props:["y_uuid","notify","messages"],
         data(){
@@ -70,9 +71,17 @@
         },
         methods:{
             subscribe(){
+                if(this.sound == null){
+                    this.sound = new Howl({
+                        src:"/assets/sounds/sound.mp3",
+                        volume:1
+                    });
+                }
+
                 Echo.private(`user.indicator.`+this.y_uuid)
                     .listen('ChangeIndicator',(e)=>{
                         this.msgs = e.messages;
+                        this.sound.play();
                     });
             },
             open(){

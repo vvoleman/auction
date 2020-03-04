@@ -6189,7 +6189,8 @@ __webpack_require__(/*! howler */ "./node_modules/howler/dist/howler.js");
       "default": function _default() {
         return [];
       }
-    }
+    },
+    sound: null
   }
 }, _defineProperty(_mixins$name$props$pr, "props", ["y_uuid", "notify", "messages"]), _defineProperty(_mixins$name$props$pr, "data", function data() {
   return {
@@ -6206,8 +6207,17 @@ __webpack_require__(/*! howler */ "./node_modules/howler/dist/howler.js");
   subscribe: function subscribe() {
     var _this = this;
 
+    if (this.sound == null) {
+      this.sound = new Howl({
+        src: "/assets/sounds/sound.mp3",
+        volume: 1
+      });
+    }
+
     Echo["private"]("user.indicator." + this.y_uuid).listen('ChangeIndicator', function (e) {
       _this.msgs = e.messages;
+
+      _this.sound.play();
     });
   },
   open: function open() {

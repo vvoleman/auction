@@ -33,6 +33,7 @@
 </template>
 
 <script>
+    require('howler');
     import {mixin as onClickOutside} from 'vue-on-click-outside'
 
     export default {
@@ -41,13 +42,15 @@
         props: ['url','notifications','you'],
         mounted(){
             this.nots = JSON.parse(this.notifications);
-            
+
             this.subscribe(this.you);
         },
         data() {
             return {
                 show: false,
-                nots: []
+                nots: [],
+                src:"/assets/sounds/sound.mp3",
+                sound:null
             }
         },
         methods: {
@@ -55,11 +58,21 @@
                 console.log(`user.notifications.${uuid}`);
                 Echo.private(`user.notifications.`+uuid)
                     .listen("NewNotification",(e)=>{
-                        console.log(e);
+                        this.nots.unshift(e.data);
+                        this.playSound();
                     });
             },
             close() {
                 this.show = false;
+            },
+            playSound(){
+                if(this.sound == null){
+                    this.sound = new Howl({
+                        src: this.src,
+                        volume: 0.5,
+                    });
+                }
+                this.sound.play();
             },
             open() {
                 this.show = true;

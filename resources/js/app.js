@@ -38,6 +38,7 @@ Vue.component('searchbar',require('./components/sub/searchbar').default);
 Vue.component('gallery',require('./components/pages/newoffers/gallery').default);
 Vue.component('offerlist',require('./components/pages/profile/offer_list').default);
 Vue.component('notifications',require('./components/sub/Notifications').default);
+Vue.component('message-indicator',require('./components/sub/MessageIndicator').default);
 Vue.component('modal', require("./components/sub/modal.vue").default);
 Vue.component('slider', VueSlider);
 const app = new Vue({

@@ -24,9 +24,8 @@ class HomeController extends Controller
             "not_id"=>"required|exists:notifications,id_n"
         ]);
 
-        $n = Notification::find($data["not_id"])->first();
+        $n = Notification::where('id_n',$data["not_id"])->first();
         $u = $n->users()->where('user_id',Auth::id());
-
         if($u->first() != null){
             $res = DB::table('not_use')->where('user_id',Auth::id())->where('notification_id',$data["not_id"])->update(["seen_at"=>($data["seen"]) ? Carbon::now() : null]);
             return response()->json([],($res) ? 200 : 500);

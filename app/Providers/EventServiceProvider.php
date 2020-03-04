@@ -20,6 +20,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         "App\Events\UserCreated"=>[
             "App\Listeners\SendUserCreatedNotification"
+        ],
+        "App\Events\NewMessage"=>[
+            "App\Listeners\RefreshMessageIndicator"
         ]
     ];
 

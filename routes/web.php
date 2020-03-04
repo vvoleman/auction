@@ -84,6 +84,7 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::get('/messages/users','MessageController@ajaxGetUsers')->middleware(['auth']);
     Route::get('/messages/contacts','MessageController@ajaxGetContacts')->middleware(['auth']);
     Route::get('/messages/conversation','MessageController@ajaxGetConversation')->middleware(['auth']);
+    Route::post('/messages/markAsSeen','MessageController@ajaxMarkAsSeen')->middleware('auth');
     Route::post('/messages','MessageController@ajaxCreateMessage')->middleware(['auth']);
 
 });

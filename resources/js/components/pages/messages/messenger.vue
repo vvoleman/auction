@@ -4,7 +4,7 @@
                  :error="contacts.error"
                  :contacts="contacts.data"
                  :opened="opened"
-                 class="col-rl-2 col-md-3 d-none"
+                 class="col-rl-2 col-md-3 "
                  @newMsg="sendMsg"
                  @open="changeChat"
         ></sidebar>
@@ -53,12 +53,13 @@
             Echo.private(`user.messages.`+this.y_uuid)
                 .listen('NewMessage',(e)=>{
                     console.log(e);
+                    this.markAsSeen([e.message.msg.message_uuid]);
                     this.alterContacts({
                         conversation_uuid:e.message.conversation_uuid,
                         last_msg:e.message.msg
                     });
                     this.chat_history[this.opened].msgs.unshift(e.message.msg);
-            })
+            });
         },
         methods:{
             loadContacts(){
@@ -76,7 +77,8 @@
                             this.you = response.data.you;
                         }
                     })
-                    .catch(()=>{
+                    .catch((e)=>{
+                        console.log(e);
                         this.contacts.error = true;
                     })
                     .then(()=>{
@@ -133,6 +135,10 @@
                                 next:response.data.next,
                                 msgs:response.data.data.reverse()
                             });
+                            var unseen = this.getUnseen();
+                            if(unseen.length > 0){
+                                this.markAsSeen(unseen);
+                            }
                         }
                     })
                     .catch((e)=>{
@@ -149,6 +155,26 @@
                     this.chat = Object.assign({}, this.chat_history[uuid]);
                 }
 
+
+            },
+            getUnseen(){
+                var unseen = this.chat.msgs.filter((x)=>{
+                    return x.seen_at == null && !x.you;
+                });
+                return unseen.map(x=>{
+                    return x.message_uuid;
+                });
+            },
+            markAsSeen(seen){
+                axios.post("/ajax/messages/markAsSeen",{
+                    uuids:seen
+                })
+                    .then(response=>{
+
+                    })
+                    .catch(e=>{
+                        console.log(e);
+                    });
             }
         },
         computed:{

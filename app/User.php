@@ -124,6 +124,29 @@ class User extends Authenticatable
             return null;
         }
         return Conversation::find($temp[0]["conversation_id"]);
+    }
+    public function unread_conversations(){
+        $convs = [];
+        $send = [];
+        $msgs = $this->received_messages()->whereNull('seen_at')->get();
+        foreach($msgs as $m){
+            $convs[$m->conversation->uuid] = $m;
+        }
+        foreach($convs as $key => $value){
+            $send[] = [
+                "url"=>route('message.message',["open"=>$key]),
+                "conversation_uuid"=>$key,
+                "from"=>[
+                    "name"=>$value->from_user->fullname,
+                    "img"=>$value->from_user->profpic_path()
+                ],
+                "message"=>[
+                    "message"=>$value->message,
+                    "send_at"=>$value->sent_at->timestamp
+                ]
+            ];
+        }
+        return $send;
 
     }
 }

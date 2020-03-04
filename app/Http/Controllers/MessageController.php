@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Conversation;
+use App\Events\ChangeIndicator;
 use App\Events\NewMessage;
 use App\Message;
 use Carbon\Carbon;
@@ -12,6 +13,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Notification;
+use App\Events\NewNotification;
 
 class MessageController extends Controller
 {
@@ -72,12 +74,6 @@ class MessageController extends Controller
                 $ff = $this->generateMessage($msg,true);
                 $ff["you"] = !$ff["you"];
                 event(new NewMessage($msg->to_user->uuid,["msg"=>$ff,"conversation_uuid"=>$c->uuid]));
-                $n = Notification::create([
-                    "type_id"=>4,
-                    "notification"=>"Nová zpráva (".$msg->from_user->fullname.")",
-                    "url"=>route("message.message")
-                ]);
-                event(new NewNotification($msg->to_user->uuid,$n));
             }
             $temp = [
                 "status"=>200
@@ -88,7 +84,7 @@ class MessageController extends Controller
         }catch(\Exception $e){
             return [
                 "status"=>500,
-                "error"=>$e
+                "error"=>$e->getTrace()
             ];
         }
 
@@ -115,7 +111,7 @@ class MessageController extends Controller
         }catch(\Exception $e){
             return [
                 "status"=>500,
-                "error"=>$e
+                "error"=>$e->getMessage()
             ];
         }
     }
@@ -140,8 +136,9 @@ class MessageController extends Controller
             $count = $c->messages()->count();
             $res = $c->messages()
                 ->orderBy('sent_at',"desc")
-                ->skip($data["start"])
-                ->take($limit)->get();
+                /*->skip($data["start"])
+                ->take($limit)*/
+                ->get();
 
             return [
                 "status"=>200,
@@ -152,9 +149,24 @@ class MessageController extends Controller
             //return $e;
             return [
                 "status"=>500,
-                "error"=>$e
+                "error"=>$e->getMessage()
             ];
         }
+
+    }
+    public function ajaxMarkAsSeen(Request $request){
+        $data = $request->validate([
+            "uuids"=>"required|array"
+        ]);
+        $done = Message::whereIn("uuid",$data["uuids"])->update(["seen_at"=>Carbon::now()]);
+        if($done){
+            $user = Message::where('uuid',$data["uuids"][0])->first()->to_user;
+            event(new ChangeIndicator($user->unread_conversations(),$user->uuid));
+        }
+        return [
+            "status"=>($done) ? 200 : 500,
+            "data"=>$done
+        ];
 
     }
 
@@ -172,7 +184,7 @@ class MessageController extends Controller
             $format = [
                 "po","út","st","čt","pá","so","ne"
             ];
-            $time = $format[$d->dayOfWeek()];
+            $time = $format[$d->dayOfWeek];
         }else if($d->diffInYears($carbon) < 1){ //weeks ago
             $time = $d->format("d. m.");
         }else{
@@ -200,6 +212,7 @@ class MessageController extends Controller
     private function generateMessage($msg,$short = false){
         $uuid = Auth::user()->uuid;
         $temp = [
+            "message_uuid"=>$msg->uuid,
             "you"=>$msg->from_user->uuid == $uuid,
             "author"=>$msg->from_user->uuid,
             "message"=>$msg->message,

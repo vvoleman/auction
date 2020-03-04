@@ -32,6 +32,9 @@ class NotificationComposer
                 "seen"=>$x->pivot->seen_at != null
             ];
         }));
+        $msgs = collect(($this->user != null) ? $this->user->unread_conversations() : []);
+
+        $view->with('messages',$msgs);
 
     }
 }

@@ -18,3 +18,8 @@ Broadcast::channel('user.messages.{userUuid}',function($user,$userUuid){
     if($u == null) return false;
     return $user->uuid === $u->uuid;
 });
+Broadcast::channel('user.notifications.{userUuid}',function($user,$userUuid){
+	$u = User::where('uuid',$userUuid)->first();
+    if($u == null) return false;
+    return $user->uuid === $u->uuid;
+});

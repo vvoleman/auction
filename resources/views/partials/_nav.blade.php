@@ -15,7 +15,7 @@
         <a href="{{route('search.search')}}"><span>Nabídky</span></a>
         @if(Auth::check())
         <div class="user-nav d-flex justify-content-between align-items-center">
-            <notifications notifications="{{$notifications->toJson()}}" url="{{Auth::user()->profpic_path()}}"></notifications>
+            <notifications you="{{Auth::user()->uuid}}" notifications="{{$notifications->toJson()}}" url="{{Auth::user()->profpic_path()}}"></notifications>
             <div class="name">
                 <span class="name-first">{{Auth::user()->firstname}}</span>
                 <span class="name-sur">{{Auth::user()->surname}}</span>

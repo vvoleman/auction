@@ -4,7 +4,7 @@
                  :error="contacts.error"
                  :contacts="contacts.data"
                  :opened="opened"
-                 class="col-rl-2 col-md-3"
+                 class="col-rl-2 col-md-3 d-none"
                  @newMsg="sendMsg"
                  @open="changeChat"
         ></sidebar>

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Notification;
 
 class MessageController extends Controller
 {
@@ -68,8 +69,15 @@ class MessageController extends Controller
             $msg->save();
             $c->updated_at = Carbon::now();
             if($c->save()){
-                $temp = $this->generateMessage($msg,true);
-                broadcast(new NewMessage($msg->to_user->uuid,["msg"=>$temp,"conversation_uuid"=>$c->uuid]));
+                $ff = $this->generateMessage($msg,true);
+                $ff["you"] = !$ff["you"];
+                event(new NewMessage($msg->to_user->uuid,["msg"=>$ff,"conversation_uuid"=>$c->uuid]));
+                $n = Notification::create([
+                    "type_id"=>4,
+                    "notification"=>"Nová zpráva (".$msg->from_user->fullname.")",
+                    "url"=>route("message.message")
+                ]);
+                event(new NewNotification($msg->to_user->uuid,$n));
             }
             $temp = [
                 "status"=>200

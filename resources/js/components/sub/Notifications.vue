@@ -38,9 +38,11 @@
     export default {
         mixins: [onClickOutside],
         name: "Notifications",
-        props: ['url','notifications'],
+        props: ['url','notifications','you'],
         mounted(){
             this.nots = JSON.parse(this.notifications);
+            
+            this.subscribe(this.you);
         },
         data() {
             return {
@@ -49,6 +51,13 @@
             }
         },
         methods: {
+            subscribe(uuid){
+                console.log(`user.notifications.${uuid}`);
+                Echo.private(`user.notifications.`+uuid)
+                    .listen("NewNotification",(e)=>{
+                        console.log(e);
+                    });
+            },
             close() {
                 this.show = false;
             },

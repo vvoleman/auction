@@ -11,7 +11,7 @@
             </button>
         </div>
         <div class="d-flex flex-column-reverse chatbox" style="padding:5px 15px;">
-        	<message class="w-100" v-for="(o,i) in msgs" :key="i" :message="o" :user="getUser(o.author)"></message>
+        	<message class="w-100" v-for="(o,i) in msgs" :key="o.uuid" :message="o" :user="getUser(o.author)"></message>
         </div>
         <div class="inputbox" style="padding-left: 0;padding-right: 0">
         	<inputbox @send="newMessage"></inputbox>

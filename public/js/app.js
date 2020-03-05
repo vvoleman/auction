@@ -3575,67 +3575,13 @@ __webpack_require__.r(__webpack_exports__);
         text: "😀",
         img: ""
       }, {
-        text: "😀",
+        text: "😮",
         img: ""
       }, {
-        text: "😀",
+        text: "😠",
         img: ""
       }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
-        img: ""
-      }, {
-        text: "😀",
+        text: "😢",
         img: ""
       }]
     };
@@ -3904,7 +3850,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post("/ajax/messages", data).then(function (response) {
         if (response.data.status != 200) {
-          _this3.$snotify.error("Nebylo možné odeslat zprávu!");
+          _this3.$snotify.error("Nebylo možné odeslat zprávuu!");
         } else {
           _this3.alterContacts(response.data.data);
 
@@ -6199,10 +6145,7 @@ __webpack_require__(/*! howler */ "./node_modules/howler/dist/howler.js");
   };
 }), _defineProperty(_mixins$name$props$pr, "mounted", function mounted() {
   this.msgs = JSON.parse(this.messages);
-
-  if (this.notify == "1") {
-    this.subscribe();
-  }
+  this.subscribe();
 }), _defineProperty(_mixins$name$props$pr, "methods", {
   subscribe: function subscribe() {
     var _this = this;
@@ -6217,7 +6160,9 @@ __webpack_require__(/*! howler */ "./node_modules/howler/dist/howler.js");
     Echo["private"]("user.indicator." + this.y_uuid).listen('ChangeIndicator', function (e) {
       _this.msgs = e.messages;
 
-      _this.sound.play();
+      if (_this.notify == "1") {
+        _this.sound.play();
+      }
     });
   },
   open: function open() {
@@ -61267,7 +61212,8 @@ var render = function() {
                           staticClass: "contact d-flex justify-content-between",
                           class: {
                             selected: o.conversation_uuid == _vm.opened,
-                            unread: o.last_msg.seen_at == null && !o.user.you
+                            unread:
+                              o.last_msg.seen_at == null && !o.last_msg.you
                           },
                           on: {
                             click: function($event) {
@@ -83151,8 +83097,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\4projekt\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\auction\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\auction\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -64,10 +64,7 @@
         },
         mounted(){
             this.msgs = JSON.parse(this.messages);
-
-            if((this.notify == "1")){
-                this.subscribe();
-            }
+            this.subscribe();
         },
         methods:{
             subscribe(){
@@ -81,7 +78,9 @@
                 Echo.private(`user.indicator.`+this.y_uuid)
                     .listen('ChangeIndicator',(e)=>{
                         this.msgs = e.messages;
-                        this.sound.play();
+                        if(this.notify == "1"){
+                                this.sound.play();
+                        }
                     });
             },
             open(){

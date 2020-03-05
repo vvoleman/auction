@@ -28,3 +28,7 @@ Broadcast::channel('user.indicator.{userUuid}',function($user,$userUuid){
     if($u == null) return false;
     return $user->uuid === $u->uuid;
 });
+
+Broadcast::channel('offer.activity.${offerId}',function($user){
+	return $user;
+});

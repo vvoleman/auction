@@ -103,7 +103,7 @@
                 axios.post("/ajax/messages",data)
                     .then((response)=>{
                         if(response.data.status != 200){
-                            this.$snotify.error("Nebylo možné odeslat zprávu!");
+                            this.$snotify.error("Nebylo možné odeslat zprávuu!");
                         }else{
                             this.alterContacts(response.data.data);
                             this.chat_history[this.opened].msgs.unshift(response.data.data.last_msg);

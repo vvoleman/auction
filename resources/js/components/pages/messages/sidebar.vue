@@ -14,7 +14,7 @@
                 <div key="empty" class="text-center" v-if="!loading && contacts_filtered.length == 0">Žádné kontakty</div>
                 <loader key="load" v-if="loading"></loader>
                 <div key="data" v-if="!loading && contacts_filtered.length > 0">
-                    <div :class="{'selected':o.conversation_uuid==opened,'unread':o.last_msg.seen_at==null&&!o.user.you}" @click="open(o.conversation_uuid)" v-for="(o,i) in contacts_filtered" class="contact d-flex justify-content-between">
+                    <div :class="{'selected':o.conversation_uuid==opened,'unread':o.last_msg.seen_at==null&&!o.last_msg.you}" @click="open(o.conversation_uuid)" v-for="(o,i) in contacts_filtered" class="contact d-flex justify-content-between">
                         <div class="d-flex">
                             <div class="img_bubble" :style="{'background-image':'url('+o.user.img+')'}"></div>
                             <div class="m-left">

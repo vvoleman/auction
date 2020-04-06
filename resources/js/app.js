@@ -2,6 +2,9 @@ import Vue from 'vue';
 import VTooltip from 'v-tooltip';
 import vSelect from 'vue-select';
 import Snotify, { SnotifyPosition } from 'vue-snotify'; // 1. Import Snotify
+import Vuesax from 'vuesax'
+
+import 'vuesax/dist/vuesax.css' //Vuesax styles
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 import 'vue-snotify/styles/material.css';
@@ -16,6 +19,7 @@ const options = {
     }
 }
 
+Vue.use(Vuesax);
 Vue.use(Snotify,options);
 Vue.use(VTooltip);
 

@@ -74,6 +74,10 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::post('/admin/deleteGroup','AdminGroupsController@ajaxDeleteGroup')->middleware(['auth','hasPerm:admin.groups']);
     Route::get('/admin/getGroupHistory','AdminGroupsController@ajaxGetHistory')->middleware(['auth','hasPerm:admin.groups']);
 
+    Route::get('/admin/getBits',"AdminPanelController@ajaxGetBits")->middleware(['auth']);
+    Route::get('/admin/getByYear',"AdminPanelController@ajaxGetByYear")->middleware(['auth']);
+    Route::get('/admin/getCategoryPercentage',"AdminPanelController@ajaxGetCategoryPercentage")->middleware(['auth']);
+
     Route::get('/admin/getUsers','AdminUsersController@ajaxGetUsers')->middleware(['auth','hasPerm:admin.users']);
     Route::post('/admin/editUser','AdminUsersController@ajaxEditUser')->middleware(['auth','hasPerm:admin.users']);
 
@@ -118,7 +122,7 @@ Route::get("/search","SearchController@getSearch")->name("search.search")->middl
 //ADMIN
 Route::name("admin.")->prefix("admin")->group(function (){
     Route::get("/","AdminPanelController@getPanel")->middleware(['auth'])->name('panel');
-
+    Route::get("/helpdesk","HelpdeskController@getHelpdesk")->middleware(['auth'])->name('helpdek');
     Route::get("/categories","CategoryController@getAdminCategories")->middleware(['auth','hasPerm:admin.categories'])->name("adminCategories");
     Route::get("/groups","AdminGroupsController@getGroups")->middleware(['auth','hasPerm:admin.groups'])->name("groups");
     Route::get("/users","AdminUsersController@getUsers")->middleware(['auth','hasPerm:admin.users'])->name("users");
@@ -126,7 +130,9 @@ Route::name("admin.")->prefix("admin")->group(function (){
 
 
 Route::get('/ajax/myoffers','ProfileController@ajaxGetMyOffers');
+Route::get('/ajax/myorders','ProfileController@ajaxGetMyOrders');
 Route::get('/myoffers','ProfileController@getMyOffers')->name('profile.myOffers')->middleware('auth');
+Route::get('/myorders','ProfileController@getMyOrders')->name('profile.myOrders')->middleware('auth');
 
 //MESSAGE
 Route::get('/messages','MessageController@getMessage')->name('message.message')->middleware('auth');

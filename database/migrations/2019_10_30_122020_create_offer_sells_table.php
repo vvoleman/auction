@@ -19,9 +19,10 @@ class CreateOfferSellsTable extends Migration
             $table->unsignedInteger("offer_id");
             $table->string("address")->nullable();
             $table->string("name")->nullable();
+            $table->dateTime("deleted_at")->nullable();
             $table->dateTime("confirmed_at")->nullable();
             $table->dateTime("denied_at")->nullable();
-            $table->dateTime("deleted_at")->nullable();
+            $table->dateTime('shipped_at')->nullable();
             $table->dateTime("received_at")->nullable();
             $table->dateTime("created_at")->useCurrent();
         });

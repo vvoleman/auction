@@ -2,8 +2,9 @@
 	<div class="message d-flex align-items-center" :class="{'msg-left':!message.you,'msg-right':message.you}">
         <div v-tooltip="message.sent_at" class="msg_content">
 				{{message.message}}
-            <reactions :reactions="getReactions"></reactions>
+
         </div>
+        <reactions :reactions="getReactions"></reactions>
 
 		<v-popover>
 			  <i class="tooltip-target b3 far fa-smile"></i>

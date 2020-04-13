@@ -9,7 +9,7 @@ class OfferSell extends Model
     protected $primaryKey = "id_os";
     protected $table = "offer_sells";
     protected $guarded = ["id_os"];
-    protected $dates = ["confirmed_at","deleted_at","received_at","created_at"];
+    protected $dates = ["confirmed_at","deleted_at","received_at","created_at","shipped_at"];
     public $timestamps = false;
 
 
@@ -22,6 +22,9 @@ class OfferSell extends Model
     public function isDenied(){
         return ($this->denied_at != null);
     }
+    public function isShipping(){
+        return ($this->shipped_at != null);
+    }
     public function isFinished(){
         return ($this->received_at != null);
     }
@@ -32,12 +35,16 @@ class OfferSell extends Model
         if($this->isDenied()){
             return "denied";
         }
-        if($this->isConfirmed()){
-            return "confirmed";
-        }
         if($this->isFinished()){
             return "finished";
         }
+        if($this->isShipping()){
+            return "shipped";
+        }
+        if($this->isConfirmed()){
+            return "confirmed";
+        }
+
 
         return "waiting";
     }

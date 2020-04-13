@@ -43,7 +43,8 @@ class MessageController extends Controller
     public function ajaxCreateMessage(Request $request){
         $data = $request->validate([
             "to"=>"required|exists:users,uuid",
-            "message"=>"required"
+            "message"=>"required",
+            "offersell_uuid"=>"sometimes|required|exists:offer_sells,uuid"
         ]);
         $user = Auth::user();
         $to = User::where('uuid',$data["to"])->first();

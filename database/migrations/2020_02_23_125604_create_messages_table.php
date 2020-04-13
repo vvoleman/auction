@@ -20,14 +20,14 @@ class CreateMessagesTable extends Migration
             $table->unsignedInteger("to");
             $table->dateTime("sent_at")->useCurrent();
             $table->text("message");
-            $table->unsignedInteger("offer_id")->nullable();;
+            $table->unsignedInteger("offersell_id")->nullable();;
             $table->string("uuid",8);
             $table->dateTime("seen_at")->nullable();
 
             $table->foreign("conversation_id")->references("id_c")->on("conversations");
             $table->foreign("from")->references("id_u")->on("users");
             $table->foreign("to")->references("id_u")->on("users");
-            $table->foreign("offer_id")->references("id_o")->on("offers");
+            $table->foreign("offersell_id")->references("id_os")->on("offer_sells");
         });
     }
 

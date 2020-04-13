@@ -1,4 +1,4 @@
-<template>
+    <template>
 	<div class="d-flex align-items-center">
 		<button @click="select(i)" v-for="(o,i) in emotes">
 			<div :class="{'clicked':clicked==i}" :title="o.name" class="img_bubble" :style="{'background-image':'url('+o.img+')'}" :key="i"></div>
@@ -13,18 +13,18 @@
 				emotes:[
 					{
 						id:1,
-						name:"Super!",
-						img:"https://cdn140.picsart.com/292494756016201.jpg?type=webp&to=min&r=1024"
+						name:"Wtf?",
+						img:"https://i.imgflip.com/34t5np.png"
 					},
 					{
 						id:2,
-						name:"Smutný",
-						img:"https://cdn140.picsart.com/292494756016201.jpg?type=webp&to=min&r=1024"
+						name:"It ain't much",
+						img:"https://i.kym-cdn.com/photos/images/newsfeed/001/445/963/523.jpg"
 					},
 					{
 						id:3,
-						name:"More wtf",
-						img:"https://cdn140.picsart.com/292494756016201.jpg?type=webp&to=min&r=1024"
+						name:"Smutný",
+						img:"https://i.ytimg.com/vi/hAsZCTL__lo/maxresdefault.jpg"
 					},
 				],
 				clicked:null
@@ -53,5 +53,5 @@
 	.img_bubble.clicked{
 		border:3px solid var(--main-orange);
 	}
-	
+
 </style>

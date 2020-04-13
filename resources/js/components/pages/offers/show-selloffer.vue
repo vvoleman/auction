@@ -12,7 +12,9 @@
                     <div class="row justify-content-end" style="margin-right:5px" v-if="data.is_owner">
                         <a :href="data.edit_url" class="fas fa-cog text-muted"></a>
                     </div>
-                    <img :src="data.owner.profpic_path" class="img_bubble mx-auto d-block" width="100px">
+                    <div style="width:100px;height: 100px;" class="mx-auto d-block img_bubble img_bg" :style="{'background-image':'url('+data.owner.profpic_path+')'}">
+
+                    </div>
                     <h5 class="m-top text-center">{{data.owner.fullname}}</h5>
                     <div class="d-flex justify-content-center align-items-center"><img
                             :src="data.country_img" class="flag-sm" style="margin-right: 5px;">{{data.region}}

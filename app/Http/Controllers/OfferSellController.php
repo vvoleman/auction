@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewNotification;
 use App\OfferSell;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -43,6 +44,11 @@ class OfferSellController extends Controller
         $os->save();
         $os->offer->sold_to = $id_os;
         $os->offer->save();
+        event(new NewNotification($os->buyer,[
+            "type_id"=>2,
+            "notification"=>"Žádost o koupi '".$os->offer->name."' byla přijata",
+            "url"=>""
+        ]));
         return redirect()->route('home.home')->with("success","Žádost potvrzena!");
     }
     public function postDenyOffer($id,$id_os){
@@ -52,6 +58,11 @@ class OfferSellController extends Controller
         }
         $os->denied_at = Carbon::now();
         $os->save();
+        event(new NewNotification($os->buyer,[
+            "type_id"=>2,
+            "notification"=>"Žádost o koupi '".$os->offer->name."' byla zamítnuta!",
+            "url"=>""
+        ]));
         return redirect()->route('home.home')->with("success","Žádost zamítnuta!");
     }
 

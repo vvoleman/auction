@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use App\Notification;
 
 class NewNotification implements ShouldBroadcast
 {
@@ -22,10 +23,21 @@ class NewNotification implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($uuid,$data)
+    public function __construct($user,$data)
     {
-        $this->uuid = $uuid;
-        $this->data = $data;
+        $this->uuid = $user->uuid;
+
+        $n = Notification::create($data);
+        $n->users()->attach([$user->id_u]);
+        $n->save();
+        $this->data = [
+            "icon"=>$n->type->icon,
+            "title"=>$n->notification,
+            "not_id"=>$n->id_n,
+            "url"=>$n->url,
+            "time"=>"právě teď",
+            "seen"=>false
+        ];
     }
 
     /**
@@ -35,6 +47,7 @@ class NewNotification implements ShouldBroadcast
      */
     public function broadcastOn()
     {
+
         return new PrivateChannel('user.notifications.'.$this->uuid);
     }
 }

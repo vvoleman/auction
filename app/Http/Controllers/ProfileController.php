@@ -65,6 +65,9 @@ class ProfileController extends Controller
     public function getMyOffers(){
         return view('profile.my_offers');
     }
+    public function getMyOrders(){
+        return view('profile.my_orders');
+    }
     public function ajaxGetMyOffers(Request $request){
         $data = $request->validate([
             "page"=>"required|integer",
@@ -113,6 +116,60 @@ class ProfileController extends Controller
             "next_page"=>($count > ($data["page"]*$limit+$limit)) ? intval($data["page"])+1 : false
         ];
     }
+    public function ajaxGetMyOrders(Request $request){
+        $data = $request->validate([
+            "page"=>"required|integer",
+            "order_by"=>"required|string",
+            "dir" => "required|boolean",
+            "filter"=>"required|string"
+        ]);
+        $limit = 9;
+        $user = Auth::user();
+        //orderby - název, date,
+        //filter - smazané, prodané, běžící, expirované
+        $dir = ($data["dir"] == "0") ? "asc" : "desc";
+        $q = $user->bought()->whereNull('deleted_at');
+        switch ($data["order_by"]) {
+            case 'name':
+                $q->orderBy("name",$dir);
+                break;
+            case 'date':
+                $q->orderBy("created_at",$dir);
+                break;
+            default:
+                return response('Invalid argument',422);
+        }
+        switch ($data["filter"]){
+            case "waiting":
+                $q->whereNull('confirmed_at')
+                    ->whereNull('denied_at');
+                break;
+            case "confirmed":
+                $q->whereNotNull('confirmed_at')
+                    ->whereNull('denied_at')
+                    ->whereNull('received_at');
+                break;
+            case "denied":
+                $q->whereNotNull('denied_at');
+                break;
+            case "shipped":
+                $q->whereNotNull('shipped_at')
+                    ->whereNull('received_at');
+                break;
+            case "finished":
+                $q->whereNotNull('received_at');
+            default:
+                break;
+        }
+        $count = $q->count();
+        $results = $q->skip($data["page"]*$limit)->take($limit);
+        $results = $this->formatSells($results);
+        return [
+            "count"=>$count,
+            "data"=>$results,
+            "next_page"=>($count > ($data["page"]*$limit+$limit)) ? intval($data["page"])+1 : false
+        ];
+    }
 
     private function formatOffers($data){
         return $data->get()->map(function($x){
@@ -136,6 +193,24 @@ class ProfileController extends Controller
 
                 "created_at"=>$x->created_at->timestamp,
                 "end_date"=>$x->end_date->timestamp
+            ];
+        });
+    }
+    private function formatSells($data){
+        return $data->get()->map(function($x){
+            return [
+                "name"=>$x->offer->name,
+                "picture"=>$x->offer->safe_pictures()[0],
+                "url"=>route('offers.offer',["id"=>$x->offer->uuid]),
+                "status"=>$x->getStatus(),
+                "price"=>$x->offer->price,
+                "currency"=>$x->offer->currency->short,
+                "category"=>$x->offer->category->label,
+                "id"=>$x->id_os,
+                "delivery"=>$x->offer->delivery_type->label,
+                "payment"=>$x->offer->payment_type->label,
+
+                "created_at"=>$x->offer->created_at->timestamp,
             ];
         });
     }

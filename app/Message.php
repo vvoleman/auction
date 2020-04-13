@@ -20,7 +20,7 @@ class Message extends Model
     public function to_user(){
         return $this->belongsTo("\App\User","to");
     }
-    public function offer(){
-        return $this->belongsTo("\App\Offer","offer_id");
+    public function offersell(){
+        return $this->belongsTo("\App\OfferSell","offersell_id");
     }
 }

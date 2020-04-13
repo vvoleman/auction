@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 class HelpdeskController extends Controller
 {
     use Uuidable;
+
+    public function getHelpdesk(){
+        return view();
+    }
+
     //API
     public function ajaxGetThreads(Request $request){
         $data = $request->validate([
@@ -32,7 +37,6 @@ class HelpdeskController extends Controller
             "next"=>($count-($data["page"]*$limit) > 0) ? $data["page"]+1 : false
         ];
     }
-
     public function ajaxAddThread(Request $request){
         $data = $request->validate([
             "title"=>"required|string",
@@ -58,7 +62,6 @@ class HelpdeskController extends Controller
             ];
         }
     }
-
     public function ajaxReplyOnThread(Request $request){
         $data = $request->validate([
             "ht_uuid"=>"required|exists:helpthreads,uuid",
@@ -93,10 +96,7 @@ class HelpdeskController extends Controller
             "error"=> $err_msg
         ];
 
-
-
     }
-
     public function ajaxMarkAsAnswered(Request $request){
         $data = $request->validate([
             "ha_uuid"=>"required|exists:helpanswers,uuid",

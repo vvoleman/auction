@@ -60,6 +60,9 @@ class User extends Authenticatable
     public function conversations(){
         return $this->belongsToMany("\App\Conversation","con_use","user_id","conversation_id");
     }
+    public function bought(){
+        return $this->hasMany("\App\OfferSell","buyer_id");
+    }
 
     //methods
     public function hasPermission($permission)

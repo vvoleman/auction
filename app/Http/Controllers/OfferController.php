@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Events\NewNotification;
 
 class OfferController extends Controller
 {
@@ -62,9 +63,12 @@ class OfferController extends Controller
     public function getOffer($id)
     {
         $offer = $this->offer_exists($id);
-    
+
         if ($offer->is_time_active()) {
             if ($offer->type->name == "Prodej") {
+                if($offer->sold_to != null && $offer->owner->id_u != Auth::id()){
+                    return redirect()->route('home.home')->with("danger","Nabídka již není aktuální!");
+                }
                 $timestamp = Carbon::parse($offer->end_date);
                 $temp = $this->prepareSellData($offer);
                 return view("offer/offer_sale", ["offer"=>$offer,"data" => collect($temp)->toJson(JSON_UNESCAPED_UNICODE)]);
@@ -197,7 +201,8 @@ class OfferController extends Controller
         ]);
         //byla by fajn validace adres, ale víme jak to je :--)
         //nechtěl jsem to už koupit?
-        $offer_id = Offer::select("id_o")->where('uuid',$data["offer_id"])->first()->id_o;
+        $offer = Offer::where('uuid',$data["offer_id"])->first();
+        $offer_id = $offer->id_o;
         if (OfferSell::where('offer_id',$offer_id)->where('buyer_id', Auth::id())->whereNull('deleted_at')->exists()) {
             $response = [400,"Žádost o koupi již existuje!"];
         } else {
@@ -239,6 +244,11 @@ class OfferController extends Controller
         if($temp->exists()){
             if($temp->update(["deleted_at"=>Carbon::now()])){
                 $res = ["Žádost o koupi byla úspěšně smazána!",200];
+                event(new NewNotification($offer->owner,[
+                    "type_id"=>2,
+                    "notification"=>"Uživatel stáhl žádost o '".$offer->name."'",
+                    "url"=>""
+                ]));
             }else{
                 $res = ["Nelze smazat žádost o koupi!",500];
             }

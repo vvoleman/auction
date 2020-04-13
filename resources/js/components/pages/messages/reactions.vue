@@ -1,6 +1,6 @@
 <template>
-	<div class="position-absolute m-top d-flex">
-		<div v-tooltip="o.name" class="img_bubble" v-for="(o,i) in grouped" :style="{'background-image':'url('+o.img+')'}">{{o.count}}</div>
+	<div class=" m-top d-flex" v-if="reactions.length > 0">
+		<div v-tooltip="o.name" class="img_bubble" v-for="(o,i) in grouped" :style="{'background-image':'url('+o.img+')'}"></div>
 	</div>
 </template>
 <script>

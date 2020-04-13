@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\NewNotification;
 use App\Events\OfferSellCreated;
 use App\Mail\OfferSellCreatedOwner;
 use App\Notification;
@@ -43,12 +44,11 @@ class SendOfferSellNotification
         ];
         //Mail::to($event->offersell->offer->owner->email)->send(new \App\Mail\OfferSellCreatedOwner($data));
         //Mail::to($event->offersell->buyer->email)->send(new \App\Mail\OfferSellCreatedBuyer($data));
-        $n = Notification::create([
+        event(new NewNotification($event->offersell->offer->owner,[
             "type_id"=>1,
             "notification"=>'Nová žádost o koupi "'.$event->offersell->offer->name.'"!',
-            "url"=>route('offers.confirm',['id'=>$event->offersell->offer->uuid,"id_os"=>$event->offersell->id_os])
-        ]);
-        $n->users()->attach($event->offersell->offer->owner->id_u);
-        $n->save();
+
+            "url"=>route('offers.confirm',['id'=>$event->offersell->offer->uuid,"os_id"=>$event->offersell->id_os])
+        ]));
     }
 }

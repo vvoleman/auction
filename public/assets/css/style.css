@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+
 :root{
     --second:#192f9c;
     --main-blue:#3B4263;
@@ -857,4 +859,55 @@ ul.breadcrumbs{
   visibility: visible;
   opacity: 1;
   transition: opacity .15s;
+}
+.asidebar{
+    text-align:center;
+    background: #666;
+    color:white;
+    position: absolute !important;
+    height:100%;
+    z-index:1;
+    padding:5px;
+    box-shadow: 2px 0px 6px -2px rgba(0,0,0,0.75);
+}
+.asidebar a{
+    color:inherit;
+    padding:3px;
+}
+.asidebar a:hover{
+    text-decoration: none;
+    color:#ccc;
+}
+@media only screen and (max-width: 767px){
+    .asidebar{
+        position:static !important;
+    }
+}
+.asidebar ul{
+    list-style-type: none;
+    padding:0;
+}
+.asidebar li{
+    padding:12px;
+}
+.asidebar li:hover{
+    background:#999;
+}
+.block{
+    text-align:center;
+    padding:10px;
+    user-select:none;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.40);
+}
+.block.red{
+    background:#ff4053;
+}
+.block.green{
+    background:#42b883;
+}
+.block.orange{
+    background:#ef4b4b;
+}
+.block.blue{
+    background:#4592af;
 }

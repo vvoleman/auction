@@ -36,9 +36,6 @@
                 </div>
 
             </div>
-            <div>
-                <pie-graph :datasets="categories.datasets" :labels="categories.labels" class="col-3"></pie-graph>
-            </div>
         </div>
     </div>
 </template>
@@ -128,7 +125,7 @@
             },
             years_for(){
                 var temp = this.byYear[this.selected.graphs_by_year];
-                if(temp == null){
+                if(temp == null || temp.length == 0){
                     return [];
                 }
                 var years = [];

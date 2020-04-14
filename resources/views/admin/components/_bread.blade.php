@@ -1,4 +1,4 @@
 @component('partials._breadcrumbs')
-    <li><a href="">Administrace</a></li>
+    <li><a href="{{route('admin.panel')}}">Administrace</a></li>
     {{$slot}}
 @endcomponent

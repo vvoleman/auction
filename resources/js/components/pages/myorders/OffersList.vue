@@ -9,24 +9,30 @@
                 <a :href="o.url" class="no-a">
                     <div class="status_bar" :class="o.status">{{getStatus(o.status)}}</div>
                     <div class="white_box">
-                        <div class="d-md-flex align-items-center flex-wrap">
-                            <div class="col-rl-7 imgbg" :style="{'background-image':'url('+o.picture+')'}">
-                                
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div :class="{'col-rl-7':grid,'col-rl-4':!grid}"  class=" mx-auto imgbg" :style="{'background-image':'url('+o.picture+')'}">
+
 
                             </div>
                             <div class="col-rl-10 m-top" style="margin-left:5px;">
                                 <h5>{{o.name}}</h5>
-                                <div class="m-top2">
-                                    <b>Počet nabídek: {{o.offersell_amount}}</b>
-                                </div>
                                 <table>
                                     <tr>
                                         <td><i class="fas fa-coins" title="Cena"></i></td>
                                         <td><span>{{o.currency}} {{o.price}}</span></td>
                                     </tr>
                                     <tr>
-                                        <td><i class="fas fa-clock" title="Otevřeno do"></i></td>
-                                        <td><span>do {{formatDate(o.end_date)}}</span></td>
+                                        <td><i class="fas fa-coins" title="Typ platby"></i></td>
+                                        <td><span>{{o.payment}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-truck" title="Typ dopravy"></i></td>
+                                        <td><span>{{o.delivery}}</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><i class="fas fa-clock" title="Datum změny stavu"></i></td>
+                                        <td><span>{{o.changed_at}}</span></td>
                                     </tr>
                                 </table>
                             </div>
@@ -89,14 +95,16 @@
             },
             getStatus(status) {
                 switch (status) {
-                    case "active":
-                        return "Aktivní";
-                    case "deleted":
-                        return "Smazáno";
-                    case "expired":
-                        return "Vypršelo";
-                    case "sold":
-                        return "Prodáno";
+                    case "waiting":
+                        return "Čeká se na odpověď";
+                    case "confirmed":
+                        return "Žádost přijata";
+                    case "denied":
+                        return "Žádost zamítnuta";
+                    case "shipped":
+                        return "Objednávka odeslána";
+                    case "finished":
+                        return "Objednávka doručena";
                     default:
                         return "";
                 }
@@ -121,21 +129,25 @@
     .status_bar {
         text-align: center;
         font-weight: bold;
+        padding:3px;
     }
 
-    .active {
+    .confirmed{
+        background-color:#007cff;
+    }
+    .finished{
         background-color: #1ED761;
     }
 
-    .deleted {
+    .denied {
         background-color: #ed2939;
     }
 
-    .expired {
+    .shipped {
         background-color: #F8E816;
     }
 
-    .sold {
+    .waiting {
         background-color: #7a7a7a;
     }
 
@@ -166,10 +178,13 @@
         background: #f5f5f5;
     }
     .imgbg{
-        background-size: cover; 
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         height: 200px;
         width: 100%;
+    }
+    td span{
+        margin-left:10px;
     }
 </style>

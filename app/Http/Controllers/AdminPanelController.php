@@ -48,9 +48,14 @@ class AdminPanelController extends Controller
     public function ajaxGetByYear(){
         $users = $this->getUsers();
         $offers = $this->getOffers();
-        return [
-            $users,$offers
-        ];
+        $toReturn = [];
+        if(sizeof($users) > 0){
+            $toReturn[] = $users;
+        }
+        if(sizeof($offers) > 0){
+            $toReturn[] = $offers;
+        }
+        return $toReturn;
     }
     public function ajaxGetCategoryPercentage(){
         return $this->getCategoryPercentage();
@@ -61,6 +66,7 @@ class AdminPanelController extends Controller
         foreach($res as $r){
             $data[$r["year"]][$r["month"]-1] = $r["amount"];
         }
+
         $data = $this->addZero($data);
 
         $years = [];

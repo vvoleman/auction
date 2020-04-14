@@ -13,6 +13,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
+        $now = Carbon::now();
         DB::table('users')->insert([
             "firstname"=>"Vojtěch",
             "surname"=>"Voleman",
@@ -25,7 +26,9 @@ class UsersSeeder extends Seeder
             "zipcode"=>"40003",
             "address"=>"Kollárova 226/2",
             "activation_token"=>Str::random(16),
-            "email_verified_at"=>Carbon::now()
+            "email_verified_at"=>Carbon::now(),
+            "created_at"=>$now,
+            "updated_at"=>$now
         ]);
         DB::table('users')->insert([
             "firstname"=>"Marco",
@@ -39,7 +42,9 @@ class UsersSeeder extends Seeder
             "zipcode"=>"40010",
             "address"=>"Plynárenská 10",
             "activation_token"=>Str::random(16),
-            "email_verified_at"=>Carbon::now()
+            "email_verified_at"=>Carbon::now(),
+            "created_at"=>$now,
+            "updated_at"=>$now
         ]);
         DB::table('users')->insert([
             "firstname"=>"Jan",
@@ -53,7 +58,9 @@ class UsersSeeder extends Seeder
             "zipcode"=>"40010",
             "address"=>"Plynárenská 10",
             "activation_token"=>Str::random(16),
-            "email_verified_at"=>Carbon::now()
+            "email_verified_at"=>Carbon::now(),
+            "created_at"=>$now,
+            "updated_at"=>$now
         ]);
     }
 }

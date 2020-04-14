@@ -74,16 +74,16 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::post('/admin/deleteGroup','AdminGroupsController@ajaxDeleteGroup')->middleware(['auth','hasPerm:admin.groups']);
     Route::get('/admin/getGroupHistory','AdminGroupsController@ajaxGetHistory')->middleware(['auth','hasPerm:admin.groups']);
 
-    Route::get('/admin/getBits',"AdminPanelController@ajaxGetBits")->middleware(['auth']);
-    Route::get('/admin/getByYear',"AdminPanelController@ajaxGetByYear")->middleware(['auth']);
-    Route::get('/admin/getCategoryPercentage',"AdminPanelController@ajaxGetCategoryPercentage")->middleware(['auth']);
+    Route::get('/admin/getBits',"AdminPanelController@ajaxGetBits")->middleware(['auth','hasPerm:admin.dashboard']);
+    Route::get('/admin/getByYear',"AdminPanelController@ajaxGetByYear")->middleware(['auth','hasPerm:admin.dashboard']);
+    Route::get('/admin/getCategoryPercentage',"AdminPanelController@ajaxGetCategoryPercentage")->middleware(['auth','hasPerm:admin.dashboard']);
 
     Route::get('/admin/getUsers','AdminUsersController@ajaxGetUsers')->middleware(['auth','hasPerm:admin.users']);
     Route::post('/admin/editUser','AdminUsersController@ajaxEditUser')->middleware(['auth','hasPerm:admin.users']);
 
-    Route::post('/offers/newBuy','OfferController@ajaxBuyOffer')->middleware(['auth']);
-    Route::post('/offers/removeOfferSell','OfferController@ajaxRemoveOfferSell')->middleware(['auth']);
-    Route::post('/offers/updateImages','OfferController@ajaxUpdateImages')->middleware(['auth']);
+    Route::post('/offers/newBuy','OfferController@ajaxBuyOffer')->middleware(['auth','hasPerm:offers.buy']);
+    Route::post('/offers/removeOfferSell','OfferController@ajaxRemoveOfferSell')->middleware(['auth','hasPerm:offers.buy']);
+    Route::post('/offers/updateImages','OfferController@ajaxUpdateImages')->middleware(['auth','hasPerm:offers.edit']);
 
     Route::get('/messages/users','MessageController@ajaxGetUsers')->middleware(['auth']);
     Route::get('/messages/contacts','MessageController@ajaxGetContacts')->middleware(['auth']);
@@ -91,7 +91,6 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
     Route::get('/messages/conversation','MessageController@ajaxGetConversation')->middleware(['auth']);
     Route::post('/messages/markAsSeen','MessageController@ajaxMarkAsSeen')->middleware('auth');
     Route::post('/messages','MessageController@ajaxCreateMessage')->middleware(['auth']);
-
 });
 
 //PROFILEPIC CHANGE
@@ -122,7 +121,7 @@ Route::get("/search","SearchController@getSearch")->name("search.search")->middl
 
 //ADMIN
 Route::name("admin.")->prefix("admin")->group(function (){
-    Route::get("/","AdminPanelController@getPanel")->middleware(['auth'])->name('panel');
+    Route::get("/","AdminPanelController@getPanel")->middleware(['auth','hasPerm:admin.dashboard'])->name('panel');
     Route::get("/helpdesk","HelpdeskController@getHelpdesk")->middleware(['auth'])->name('helpdek');
     Route::get("/categories","CategoryController@getAdminCategories")->middleware(['auth','hasPerm:admin.categories'])->name("adminCategories");
     Route::get("/groups","AdminGroupsController@getGroups")->middleware(['auth','hasPerm:admin.groups'])->name("groups");
@@ -139,5 +138,5 @@ Route::get('/offersell/{uuid}','OfferSellController@getSell')->name('offersell.o
 Route::post('/offersell/{uuid}/changeStatus','OfferSellController@ajaxPostChangeStatus')->name('offersell.changeStatus')->middleware('auth');
 
 //MESSAGE
-Route::get('/messages','MessageController@getMessage')->name('message.message')->middleware('auth');
+Route::get('/messages','MessageController@getMessage')->name('message.message')->middleware(['auth','hasPerm:chat.chat']);
 

@@ -1,6 +1,9 @@
 <template>
-    <div class="col-md-8 mx-auto">
-        <navbar class="" @change="filtersChanged" id="toolbar"></navbar>
+    <div class="col-md-8 mx-auto m-top3">
+        <div>
+            <h2 class="text-center">Moje objednávky</h2>
+        </div>
+        <navbar class="m-top2" @change="filtersChanged" id="toolbar"></navbar>
         <div class="m-top">
         <transition name="fade" mode="out-in">
             <!--<loader key="load" v-if="load && !error"></loader>!-->

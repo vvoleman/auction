@@ -4,7 +4,7 @@
     </div>
     <hr>
     <div class="m-top-2 list">
-        <a href="#">
+        <a href="{{route('admin.panel')}}">
             <div class="d-flex align-items-center box">
                 <div class="col-3 d-flex justify-content-center">
                     <i class="fas fa-home "></i>
@@ -12,20 +12,28 @@
                 <span class="offset-0">Dashboard</span>
             </div>
         </a>
-        <a href="#">
+        <a href="{{route('admin.adminCategories')}}">
             <div class="d-flex align-items-center box">
                 <div class="col-3 d-flex justify-content-center">
-                    <i class="fas fa-home "></i>
+                    <i class="fas fa-heart"></i>
                 </div>
-                <span class="offset-0">Dashboard</span>
+                <span class="offset-0">Správa kategorií</span>
             </div>
         </a>
-        <a href="#">
+        <a href="{{route('admin.groups')}}">
             <div class="d-flex align-items-center box">
                 <div class="col-3 d-flex justify-content-center">
-                    <i class="fas fa-home "></i>
+                    <i class="fas fa-users-cog"></i>
                 </div>
-                <span class="offset-0">Dashboard</span>
+                <span class="offset-0">Správa skupin</span>
+            </div>
+        </a>
+        <a href="{{route('admin.users')}}">
+            <div class="d-flex align-items-center box">
+                <div class="col-3 d-flex justify-content-center">
+                    <i class="fas fa-users "></i>
+                </div>
+                <span class="offset-0">Správa uživatelů</span>
             </div>
         </a>
     </div>

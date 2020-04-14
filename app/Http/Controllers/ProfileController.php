@@ -201,7 +201,7 @@ class ProfileController extends Controller
             return [
                 "name"=>$x->offer->name,
                 "picture"=>$x->offer->safe_pictures()[0],
-                "url"=>route('offers.offer',["id"=>$x->offer->uuid]),
+                "url"=>route('offersell.offersell',["uuid"=>$x->id_os ]),
                 "status"=>$x->getStatus(),
                 "price"=>$x->offer->price,
                 "currency"=>$x->offer->currency->short,
@@ -211,6 +211,7 @@ class ProfileController extends Controller
                 "payment"=>$x->offer->payment_type->label,
 
                 "created_at"=>$x->offer->created_at->timestamp,
+                "changed_at"=>$x->getStatusTimestamp()
             ];
         });
     }

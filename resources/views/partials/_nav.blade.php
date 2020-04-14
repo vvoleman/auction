@@ -27,8 +27,14 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{{route('profile.profile')}}">Profil</a>
+                    <a class="dropdown-item" href="{{route('message.message')}}">Chat</a>
                     <a class="dropdown-item" href="{{route('profile.myOffers')}}">Moje nabídky</a>
+                    <a class="dropdown-item" href="{{route('profile.myOrders')}}">Moje objednávky</a>
                     <a class="dropdown-item" href="{{route('setting.setting')}}">Nastavení</a>
+                    @if(Auth::user()->hasPermission('admin.dashboard'))
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{route('admin.panel')}}">Administrace</a>
+                    @endif
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{route('login.logout')}}">Odhlásit se</a>
                 </div>

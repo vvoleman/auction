@@ -97,8 +97,14 @@ class User extends Authenticatable
     {
         return 5;
     }
-    public function messages_with(User $u){
-        $all = Message::where(function($query){
+    public function messages_with(User $u,$os_id = null){
+        $q = Message::query();
+        if($os_id != null){
+            $q->where('offersell_id',$os_id);
+        }else{
+            $q->whereNull('offersell_id');
+        }
+        $all = $q->where(function($query){
             $query->where('from',$this->id_u)
                 ->orWhere('to',$this->id_u);
         })
@@ -131,7 +137,7 @@ class User extends Authenticatable
     public function unread_conversations(){
         $convs = [];
         $send = [];
-        $msgs = $this->received_messages()->whereNull('seen_at')->get();
+        $msgs = $this->received_messages()->whereNull('offersell_id')->whereNull('seen_at')->get();
         foreach($msgs as $m){
             $convs[$m->conversation->uuid] = $m;
         }

@@ -87,6 +87,7 @@ Route::name('ajax.')->prefix('ajax')->middleware('ajax')->group(function (){
 
     Route::get('/messages/users','MessageController@ajaxGetUsers')->middleware(['auth']);
     Route::get('/messages/contacts','MessageController@ajaxGetContacts')->middleware(['auth']);
+    Route::get('/messages/offersells','MessageController@ajaxGetOfferMessagesWith')->middleware(['auth']);
     Route::get('/messages/conversation','MessageController@ajaxGetConversation')->middleware(['auth']);
     Route::post('/messages/markAsSeen','MessageController@ajaxMarkAsSeen')->middleware('auth');
     Route::post('/messages','MessageController@ajaxCreateMessage')->middleware(['auth']);
@@ -133,6 +134,9 @@ Route::get('/ajax/myoffers','ProfileController@ajaxGetMyOffers');
 Route::get('/ajax/myorders','ProfileController@ajaxGetMyOrders');
 Route::get('/myoffers','ProfileController@getMyOffers')->name('profile.myOffers')->middleware('auth');
 Route::get('/myorders','ProfileController@getMyOrders')->name('profile.myOrders')->middleware('auth');
+
+Route::get('/offersell/{uuid}','OfferSellController@getSell')->name('offersell.offersell')->middleware('auth');
+Route::post('/offersell/{uuid}/changeStatus','OfferSellController@ajaxPostChangeStatus')->name('offersell.changeStatus')->middleware('auth');
 
 //MESSAGE
 Route::get('/messages','MessageController@getMessage')->name('message.message')->middleware('auth');

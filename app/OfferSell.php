@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class OfferSell extends Model
@@ -48,7 +49,38 @@ class OfferSell extends Model
 
         return "waiting";
     }
+    public function setStatus($status){
+        switch ($status){
+            case "shipped":
+                $this->shipped_at = Carbon::now();
+                break;
+            case "finished":
+                $this->received_at = Carbon::now();
+                break;
+            default:
+                return false;
+        }
+        return $this->save();
+    }
+    public function getStatusTimestamp(){
+        $format = "d. m. Y H:i";
 
+        if($this->isDeleted() != null){
+            return $this->deleted_at->format($format);
+        }
+        if($this->isDenied()){
+            return $this->denied_at->format($format);
+        }
+        if($this->isFinished()){
+            return $this->received_at->format($format);
+        }
+        if($this->isShipping()){
+            return $this->shipped_at->format($format);
+        }
+        if($this->isConfirmed()){
+            return $this->confirmed_at->format($format);
+        }
+    }
     public function buyer(){
         return $this->belongsTo("\App\User","buyer_id");
     }

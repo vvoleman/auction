@@ -1,7 +1,7 @@
 <?php
 
 use \App\User;
-
+use App\OfferSell;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -31,4 +31,12 @@ Broadcast::channel('user.indicator.{userUuid}',function($user,$userUuid){
 
 Broadcast::channel('offer.activity.${offerId}',function($user){
 	return $user;
+});
+
+Broadcast::channel('offersell.info.{osId}',function($user,$osId){
+    $os = OfferSell::where('id_os',$osId)->first();
+    if($os == null) return false;
+    return true;
+
+    return $user->id_u == $os->buyer->id_u || $user->id_u == $os->offer->owner->id_u;
 });

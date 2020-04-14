@@ -16,13 +16,14 @@ class NewMessage implements ShouldBroadcast
 
     public $message;
     public $conversation_id;
+    private $offersell;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($c_id,$message)
+    public function __construct($c_id,$offersell,$message)
     {
         $this->message = $message;
         $this->conversation_id = $c_id;
@@ -35,6 +36,6 @@ class NewMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('user.messages.'.$this->conversation_id);
+        return new PrivateChannel('user.messages.'.(($this->offersell == true)?"offersell":"").$this->conversation_id);
     }
 }

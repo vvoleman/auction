@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Conversation;
 use App\Events\ChangeIndicator;
 use App\Events\NewMessage;
+use App\Events\NewOffersellMessage;
 use App\Message;
+use App\OfferSell;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,11 +46,12 @@ class MessageController extends Controller
         $data = $request->validate([
             "to"=>"required|exists:users,uuid",
             "message"=>"required",
-            "offersell_uuid"=>"sometimes|required|exists:offer_sells,uuid"
+            "offersell_id"=>"sometimes|required|exists:offer_sells,id_os"
         ]);
         $user = Auth::user();
         $to = User::where('uuid',$data["to"])->first();
         $c = $user->conversation_with($to);
+        if(!isset($data["offersell_id"])) $data["offersell_id"] = null;
         $new = false;
         try{
             if($user->id_u == $to->id_u) throw new Exception();
@@ -67,14 +70,31 @@ class MessageController extends Controller
                 "from"=>$user->id_u,
                 "to"=>$to->id_u,
                 "uuid"=>$this->generateUUID("messages"),
-                "sent_at"=>Carbon::now()
+                "sent_at"=>Carbon::now(),
+                "offersell_id"=>$data["offersell_id"]
             ]);
             $msg->save();
             $c->updated_at = Carbon::now();
             if($c->save()){
                 $ff = $this->generateMessage($msg,true);
                 $ff["you"] = !$ff["you"];
-                event(new NewMessage($msg->to_user->uuid,["msg"=>$ff,"conversation_uuid"=>$c->uuid]));
+
+                if($data["offersell_id"] == null){
+                    event(new NewMessage($msg->to_user->uuid,($msg->offersell != null),["msg"=>$ff,"conversation_uuid"=>$c->uuid]));
+                }else{
+                    $os = OfferSell::where('id_os',$data["offersell_id"])->first();
+                    event(new NewOffersellMessage([
+                        "message"=>$msg->message,
+                        "author"=>$msg->from_user->uuid,
+                        "message_uuid"=>$msg->uuid,
+                        "created_at"=>Carbon::now()->format("H:i")
+                    ],$os->id_os));
+                    event(new NewNotification($to,[
+                        "type_id"=>2,
+                        "notification"=>"Nová zpráva v objednávce '".$os->offer->name."'",
+                        "url"=>route('offersell.offersell',["uuid"=>$os->id_os])
+                    ]));
+                }
             }
             $temp = [
                 "status"=>200
@@ -124,6 +144,23 @@ class MessageController extends Controller
         $msgs = $user->messages_with(User::where('id_u',$data["with_id"])->first());
         return $msgs;
     }
+    public function ajaxGetOfferMessagesWith(Request $request){
+        $data =  $request->validate([
+            "with_uuid"=>"required|exists:users,uuid",
+            "os_id"=>"required|exists:offer_sells,id_os"
+        ]);
+        $you = Auth::user();
+        $opp = User::where('uuid',$data["with_uuid"])->first();
+
+        $c = $you->conversation_with($opp);
+        if($c == null){
+            return [];
+        }else{
+            return $c->messages()->where('offersell_id',$data["os_id"])->get()->map(function($x){
+                return $this->generateMessage($x,true);
+            });
+        }
+    }
     public function ajaxGetConversation(Request $request){
         $data = $request->validate([
             "c_uuid"=>"required|exists:conversations,uuid",
@@ -136,6 +173,7 @@ class MessageController extends Controller
             $c = Conversation::where('uuid',$data["c_uuid"])->first();
             $count = $c->messages()->count();
             $res = $c->messages()
+                ->whereNull('offersell_id')
                 ->orderBy('sent_at',"desc")
                 /*->skip($data["start"])
                 ->take($limit)*/

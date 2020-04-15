@@ -1,48 +1,55 @@
 <template>
     <div class="m-top2 d-flex flex-wrap" v-cloak>
-        <div class="col-12 d-flex justify-content-end">
-        <div class="m-top search-item col-md-6" v-for="(o,i) in offers">
-            <div class="col-12 white_box ">
-                <a :href="o.url" class="no-a">
-                    <div class="col-12 mx-auto">
-                        <div class="shadow item-img mx-auto"
-                             :style="{'background-image': 'url('+o.picture+')'}">
-                        </div>
-                        <div class="right-side col-md-12">
-                            <h5 class="text-center m-top">{{o.name}}</h5>
-                            <div class="m-top2">
-                                <table>
-                                    <tr>
-                                        <td><i class="fas fa-coins" title="Cena"></i></td>
-                                        <td><span>{{o.currency}} {{o.price}}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="fas fa-clock" title="Otevřeno do"></i></td>
-                                        <td><span>do {{o.end_date}}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="fas fa-truck" title="Typ dopravy"></i></td>
-                                        <td><span>{{o.delivery}}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><i class="fas fa-credit-card" title="Typ platby"></i></td>
-                                        <td><span>{{o.payment}}</span></td>
-                                    </tr>
-                                </table>
+        <div class="col-12 d-flex justify-content-end flex-wrap">
+            <div class="m-top search-item col-md-12" v-for="(o,i) in offers" v-if="offers!=null && offers.length > 0">
+                <div class="col-md-8 mx-auto white_box ">
+                    <a :href="o.url" class="no-a">
+                        <div class="col-12 mx-auto d-flex justify-content-between">
+                            <div class="shadow item-img mx-auto col-md-5"
+                                 :style="{'background-image': 'url('+o.picture+')'}">
+                            </div>
+                            <div class="right-side col-md-5">
+                                <h5 class="m-top">{{o.name}}</h5>
+                                <div class="m-top2">
+                                    <table>
+                                        <tr>
+                                            <td><i class="fas fa-coins" title="Cena"></i></td>
+                                            <td><span>{{o.currency}} {{o.price}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-clock" title="Otevřeno do"></i></td>
+                                            <td><span>do {{getDate(o.end_date)}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-truck" title="Typ dopravy"></i></td>
+                                            <td><span>{{o.delivery}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-credit-card" title="Typ platby"></i></td>
+                                            <td><span>{{o.payment}}</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
+
         </div>
-    </div>
-        <button class="btn btn-blue m-top2 btn-block" disabled title="Bohužel jsem líný a nestihl jsem to dodělat">Načíst další</button>
+        <button v-if="false" class="btn btn-blue m-top2 btn-block" disabled title="Bohužel jsem líný a nestihl jsem to dodělat">
+            Načíst další
+        </button>
+        <div v-if="offers==null || offers.length == 0" class="text-center white_box mx-auto">
+            Žádná data
+        </div>
         <go-up el_id="start"></go-up>
     </div>
 </template>
 
 <script>
     import GoUp from "../../sub/GoUp";
+
     export default {
         name: "offer_list",
         components: {GoUp},
@@ -56,6 +63,9 @@
         methods: {
             toggleBadge(i) {
                 this.$set(this.badges[i], 1, !this.badges[i][1]);
+            },
+            getDate(timestamp){
+                return new Date(timestamp*1000).toLocaleDateString();
             }
         },
         mounted() {

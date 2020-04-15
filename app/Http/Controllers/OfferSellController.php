@@ -80,7 +80,7 @@ class OfferSellController extends Controller
         event(new NewNotification($os->buyer,[
             "type_id"=>2,
             "notification"=>"Žádost o koupi '".$os->offer->name."' byla přijata",
-            "url"=>""
+            "url"=>route('offersell.offersell',['uuid'=>$os->id_os])
         ]));
         return redirect()->route('home.home')->with("success","Žádost potvrzena!");
     }
@@ -94,7 +94,7 @@ class OfferSellController extends Controller
         event(new NewNotification($os->buyer,[
             "type_id"=>2,
             "notification"=>"Žádost o koupi '".$os->offer->name."' byla zamítnuta!",
-            "url"=>""
+            "url"=>route('offersell.offersell',['uuid'=>$os->id_os])
         ]));
         return redirect()->route('home.home')->with("success","Žádost zamítnuta!");
     }

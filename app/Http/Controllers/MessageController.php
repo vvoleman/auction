@@ -132,7 +132,7 @@ class MessageController extends Controller
         }catch(\Exception $e){
             return [
                 "status"=>500,
-                "error"=>$e->getMessage()
+                "error"=>$e
             ];
         }
     }
@@ -237,7 +237,6 @@ class MessageController extends Controller
             "last_msg"=>$this->generateMessage($last,true),
             "conversation_uuid"=>$c->uuid
         ];
-
         if($includeUser){
             $temp["user"] = [
                 "name"=>$u->fullname,

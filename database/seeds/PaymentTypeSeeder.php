@@ -19,7 +19,7 @@ class PaymentTypeSeeder extends Seeder
             "label"=>"Osobně",
             "delivery_type_id"=>1
         ]);
-        DB::table("payment_types")->insert([
+        /*DB::table("payment_types")->insert([
             "name"=>"ondelivery",
             "label"=>"Dobírka",
             "delivery_type_id"=>2
@@ -27,6 +27,6 @@ class PaymentTypeSeeder extends Seeder
         DB::table("payment_types")->insert([
             "name"=>"online",
             "label"=>"Online",
-        ]);
+        ]);*/
     }
 }

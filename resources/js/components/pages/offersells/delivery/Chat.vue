@@ -8,7 +8,7 @@
             <textarea class="form-control col-10" v-model="text">
 
             </textarea>
-            <button class="col-2" @click="sendMsg">Odeslat</button>
+            <button class="col-2" @click="sendMsg">></button>
         </div>
     </div>
 </template>

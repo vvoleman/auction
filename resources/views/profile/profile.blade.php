@@ -30,7 +30,7 @@
             <div class="white_box ">
                 <h4 id="start" class="text-muted">@if($you) Vaše nabídky @else Nabídky @endif</h4>
             </div>
-            <!--<offerlist dat="{{$offers->toJson(JSON_UNESCAPED_UNICODE)}}"></offerlist>!-->
+            <offerlist dat="{{$offers->toJson(JSON_UNESCAPED_UNICODE)}}"></offerlist>
         </div>
 
     </div>

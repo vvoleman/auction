@@ -2,22 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="224deccc-da56-4a3c-9699-6dc6eece53b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/GroPerSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/GroPerSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UsersSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UsersSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DeliveryTypesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DeliveryTypesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/OfferTypesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/OfferTypesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PaymentTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PaymentTypeSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/adminpanel/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/adminpanel/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myorders/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myorders/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myorders/OffersList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myorders/OffersList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/myorders/show-myorders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/myorders/show-myorders.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/components/_bread.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/components/_bread.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_admin-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_admin-sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/_nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/my_orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/my_orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/messages/inputbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/messages/inputbox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/messages/messenger.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/messages/messenger.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/offersells/delivery/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/offersells/delivery/Chat.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/pages/profile/offer_list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/pages/profile/offer_list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/profile.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +59,7 @@
     <favorites_list name="4projekt" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50123304">
+    <splitter split-orientation="horizontal" split-proportion="0.53170407">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -86,8 +83,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/resources/js/components/pages/adminpanel/Dashboard.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="257">
-                  <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+                <state relative-caret-position="629">
+                  <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -95,11 +92,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/views/partials/_admin-sidebar.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
+                <state relative-caret-position="303">
                   <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -107,11 +101,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="407">
+                <state relative-caret-position="884">
                   <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#1464#2257#0#PHP" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -119,7 +110,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/database/seeds/UsersSeeder.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="523">
+                <state relative-caret-position="1037">
                   <caret line="63" column="11" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
                   <folding>
                     <element signature="e#7#38#0#PHP" expanded="true" />
@@ -158,27 +149,246 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/routes/web.php">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="136" column="82" selection-start-line="136" selection-start-column="82" selection-end-line="136" selection-end-column="82" />
+                <state relative-caret-position="255">
+                  <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
                   <folding>
-                    <element signature="e#956#1120#2#PHP" />
-                    <element signature="e#1195#1611#2#PHP" />
-                    <element signature="e#1855#2013#2#PHP" />
-                    <element signature="e#2113#2327#2#PHP" />
+                    <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/seeds/PermissionsSeeder.php">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="28" />
+                <state relative-caret-position="629">
+                  <caret line="218" column="50" selection-start-line="218" selection-start-column="50" selection-end-line="218" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#605#1171#0#PHP" />
+                    <element signature="e#797#1098#0#PHP" />
+                    <element signature="e#862#987#1#PHP" />
+                    <element signature="e#1176#1708#0#PHP" />
+                    <element signature="e#1252#1670#0#PHP" />
+                    <element signature="e#1295#1629#0#PHP" />
+                    <element signature="e#1399#1615#1#PHP" />
+                    <element signature="e#1442#1614#2#PHP" />
+                    <element signature="e#1485#1595#0#PHP" />
+                    <element signature="e#1713#2586#0#PHP" />
+                    <element signature="e#1801#2580#0#PHP" />
+                    <element signature="e#1845#2343#0#PHP" />
+                    <element signature="e#1899#2086#0#PHP" />
+                    <element signature="e#2354#2580#0#PHP" />
+                    <element signature="e#2373#2570#0#PHP" />
+                    <element signature="e#2504#2570#0#PHP" />
+                    <element signature="e#2591#3556#0#PHP" />
+                    <element signature="e#2683#2792#0#PHP" />
+                    <element signature="e#2810#3304#0#PHP" />
+                    <element signature="e#3212#3293#1#PHP" />
+                    <element signature="e#3230#3292#2#PHP" />
+                    <element signature="e#3323#3396#0#PHP" />
+                    <element signature="e#3341#3395#2#PHP" />
+                    <element signature="e#3561#5187#0#PHP" />
+                    <element signature="e#3715#3872#0#PHP" />
+                    <element signature="e#3939#4445#1#PHP" />
+                    <element signature="e#4456#5181#0#PHP" />
+                    <element signature="e#4595#4919#0#PHP" />
+                    <element signature="e#4718#4905#0#PHP" />
+                    <element signature="e#5083#5181#0#PHP" />
+                    <element signature="e#5192#5884#0#PHP" />
+                    <element signature="e#5397#5878#0#PHP" />
+                    <element signature="e#5728#5878#0#PHP" />
+                    <element signature="e#5889#6347#0#PHP" />
+                    <element signature="e#5977#6093#0#PHP" />
+                    <element signature="e#6157#6269#0#PHP" />
+                    <element signature="e#6352#6773#0#PHP" />
+                    <element signature="e#6848#7020#0#PHP" />
+                    <element signature="e#6867#7019#1#PHP" />
+                    <element signature="e#8372#9424#0#PHP" />
+                    <element signature="e#8443#8528#0#PHP" />
+                    <element signature="e#8462#8527#1#PHP" />
+                    <element signature="e#8794#9355#0#PHP" />
+                    <element signature="e#8827#9264#0#PHP" />
+                    <element signature="e#8962#9169#0#PHP" />
+                    <element signature="e#9002#9167#0#PHP" />
+                    <element signature="e#9184#9264#0#PHP" />
+                    <element signature="e#9274#9355#0#PHP" />
+                    <element signature="e#9429#10772#0#PHP" />
+                    <element signature="e#9497#9691#0#PHP" />
+                    <element signature="e#9516#9690#1#PHP" />
+                    <element signature="e#9810#10012#0#PHP" />
+                    <element signature="e#9852#10002#0#PHP" />
+                    <element signature="e#10021#10593#0#PHP" />
+                    <element signature="e#10060#10583#0#PHP" />
+                    <element signature="e#10178#10569#0#PHP" />
+                    <element signature="e#10225#10390#0#PHP" />
+                    <element signature="e#10241#10389#1#PHP" />
+                    <element signature="e#10450#10569#0#PHP" />
+                    <element signature="e#10778#10964#0#PHP" />
+                    <element signature="e#10880#10935#0#PHP" />
+                    <element signature="e#10969#11110#0#PHP" />
+                    <element signature="e#11115#12790#0#PHP" />
+                    <element signature="e#11257#12783#0#PHP" />
+                    <element signature="e#11285#11532#1#PHP" />
+                    <element signature="e#11642#11914#1#PHP" />
+                    <element signature="e#12154#12235#1#PHP" />
+                    <element signature="e#12172#12234#2#PHP" />
+                    <element signature="e#12579#12697#1#PHP" />
+                    <element signature="e#12796#13403#0#PHP" />
+                    <element signature="e#12939#13376#0#PHP" />
+                    <element signature="e#12975#13366#0#PHP" />
+                    <element signature="e#13029#13352#0#PHP" />
+                    <element signature="e#13155#13352#0#PHP" />
+                    <element signature="e#13197#13257#1#PHP" />
+                    <element signature="e#13408#13691#0#PHP" />
+                    <element signature="e#13547#13662#0#PHP" />
+                    <element signature="e#13581#13652#0#PHP" />
+                    <element signature="e#13696#13865#0#PHP" />
+                    <element signature="e#13742#13838#0#PHP" />
+                    <element signature="e#13870#14279#0#PHP" />
+                    <element signature="e#14053#14153#0#PHP" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="109" column="39" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/offersell-info.vue">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/delivery/Chat.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/profile/offer_list.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="34">
+                  <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/messages/messenger.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="394">
+                  <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+                  <folding>
+                    <element signature="n#style#0;n#chat#0;n#transition#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                    <element signature="e#900#932#0" expanded="true" />
+                    <element signature="e#2050#3024#0" />
+                    <element signature="e#3057#3674#0" />
+                    <element signature="e#4598#5598#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/messages/inputbox.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="238">
+                  <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/js/components/pages/messages/sidebar.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-859" />
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MessageController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="286">
+                  <caret line="236" column="49" selection-start-line="236" selection-start-column="49" selection-end-line="236" selection-end-column="49" />
+                  <folding>
+                    <element signature="e#459#538#0#PHP" />
+                    <element signature="e#544#1293#0#PHP" />
+                    <element signature="e#608#672#0#PHP" />
+                    <element signature="e#627#671#1#PHP" />
+                    <element signature="e#739#1286#0#PHP" />
+                    <element signature="e#766#988#0#PHP" />
+                    <element signature="e#766#1014#0#PHP" />
+                    <element signature="e#766#1042#0#PHP" />
+                    <element signature="e#1070#1148#0#PHP" />
+                    <element signature="e#1159#1286#0#PHP" />
+                    <element signature="e#1201#1275#0#PHP" />
+                    <element signature="e#1298#3977#0#PHP" />
+                    <element signature="e#1367#1555#0#PHP" />
+                    <element signature="e#1386#1554#1#PHP" />
+                    <element signature="e#1789#3969#0#PHP" />
+                    <element signature="e#1870#2178#0#PHP" />
+                    <element signature="e#1953#2072#1#PHP" />
+                    <element signature="e#2210#2538#1#PHP" />
+                    <element signature="e#2623#3662#0#PHP" />
+                    <element signature="e#2755#3648#0#PHP" />
+                    <element signature="e#2940#3648#0#PHP" />
+                    <element signature="e#3050#3342#0#PHP" />
+                    <element signature="e#3080#3329#0#PHP" />
+                    <element signature="e#3364#3629#0#PHP" />
+                    <element signature="e#3394#3627#0#PHP" />
+                    <element signature="e#3683#3728#0#PHP" />
+                    <element signature="e#3831#3969#0#PHP" />
+                    <element signature="e#3872#3958#0#PHP" />
+                    <element signature="e#4782#5081#0#PHP" />
+                    <element signature="e#4854#4937#0#PHP" />
+                    <element signature="e#4873#4936#1#PHP" />
+                    <element signature="e#5086#5693#0#PHP" />
+                    <element signature="e#5163#5306#0#PHP" />
+                    <element signature="e#5182#5305#1#PHP" />
+                    <element signature="e#5454#5687#0#PHP" />
+                    <element signature="e#5502#5687#0#PHP" />
+                    <element signature="e#5527#5676#0#PHP" />
+                    <element signature="e#5592#5675#2#PHP" />
+                    <element signature="e#5698#6712#0#PHP" />
+                    <element signature="e#5769#5900#0#PHP" />
+                    <element signature="e#5788#5899#1#PHP" />
+                    <element signature="e#5933#6705#0#PHP" />
+                    <element signature="e#6074#6132#0#PHP" />
+                    <element signature="e#6074#6176#0#PHP" />
+                    <element signature="e#6193#6250#0#PHP" />
+                    <element signature="e#6296#6528#0#PHP" />
+                    <element signature="e#6539#6705#0#PHP" />
+                    <element signature="e#6606#6694#0#PHP" />
+                    <element signature="e#6717#7242#0#PHP" />
+                    <element signature="e#6783#6852#0#PHP" />
+                    <element signature="e#6802#6851#1#PHP" />
+                    <element signature="e#6955#7138#0#PHP" />
+                    <element signature="e#7154#7234#0#PHP" />
+                    <element signature="e#7248#7425#0#PHP" />
+                    <element signature="e#7295#7398#0#PHP" />
+                    <element signature="e#7430#7981#0#PHP" />
+                    <element signature="e#7507#7953#0#PHP" />
+                    <element signature="e#7607#7953#0#PHP" />
+                    <element signature="e#7673#7739#0#PHP" />
+                    <element signature="e#7799#7953#0#PHP" />
+                    <element signature="e#7895#7953#0#PHP" />
+                    <element signature="e#8969#9368#0#PHP" />
+                    <element signature="e#9056#9357#0#PHP" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -236,15 +446,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Listeners/SendOfferSellNotification.php" />
-        <option value="$PROJECT_DIR$/app/Events/NewNotification.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OfferController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/messages/emojibar.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/messages/reactionbar.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/messages/reactions.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/messages/sidebar.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/messages/chat.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/messages/message.vue" />
         <option value="$PROJECT_DIR$/database/migrations/2019_10_30_122020_create_offer_sells_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_23_125604_create_messages_table.php" />
@@ -263,14 +464,11 @@
         <option value="$PROJECT_DIR$/app/Events/NewOffersellMessage.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/pages/offersells/delivery/Chat.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" />
         <option value="$PROJECT_DIR$/app/OfferSell.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/offersells/confirm-delivery.vue" />
         <option value="$PROJECT_DIR$/app/Events/ChangeOffersellStatus.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/offersells/phase.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/offersells/show-offersell.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/myorders/show-myorders.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/pages/myoffers/show-myoffers.vue" />
@@ -287,6 +485,18 @@
         <option value="$PROJECT_DIR$/resources/js/components/pages/adminpanel/Dashboard.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/_admin-sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/database/seeds/OfferTypesSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PaymentTypeSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DeliveryTypesSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/profile/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/offersells/delivery/Chat.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/profile/offer_list.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/messages/messenger.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/pages/messages/inputbox.vue" />
       </list>
     </option>
   </component>
@@ -412,10 +622,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="251" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1371" />
-    <option name="height" value="739" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -423,7 +633,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -513,15 +722,6 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="adminpanel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="messages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -531,7 +731,7 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="myorders" type="462c0819:PsiDirectoryNode" />
+              <item name="offers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
@@ -541,6 +741,16 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="offersells" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="offersells" type="462c0819:PsiDirectoryNode" />
+              <item name="delivery" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
@@ -551,6 +761,15 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="offersells" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
@@ -602,6 +821,13 @@
               <item name="4projekt" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="offer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4projekt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4projekt" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -620,6 +846,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -846,12 +1073,15 @@
       <workItem from="1586704287998" duration="16937000" />
       <workItem from="1586770356049" duration="29615000" />
       <workItem from="1586813044311" duration="5694000" />
-      <workItem from="1586857822902" duration="18001000" />
+      <workItem from="1586857822902" duration="19242000" />
+      <workItem from="1586888223976" duration="395000" />
+      <workItem from="1586896619696" duration="1781000" />
+      <workItem from="1586932190767" duration="8784000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="995577000" />
+    <option name="totallyTimeSpent" value="1007778000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -864,9 +1094,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49861112" visible="true" weight="0.13539445" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49861112" visible="true" weight="0.16684435" />
       <window_info id="Structure" order="1" sideWeight="0.5013889" side_tool="true" weight="0.15565032" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5013889" side_tool="true" weight="0.15565032" />
@@ -877,7 +1106,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4989339" visible="true" weight="0.2156013" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4989339" visible="true" weight="0.32502708" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32936078" />
@@ -961,72 +1190,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/myorders/Offersell-info" />
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/temp.vue" />
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/user/temp.vue" />
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/user/vue.vue" />
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/user/ff" />
-    <entry file="file://$PROJECT_DIR$/app/Events/NewNotification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding>
-            <element signature="e#30#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/offersell/offersell.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/offersell-info.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="100" selection-start-line="6" selection-start-column="100" selection-end-line="6" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="139" column="68" selection-start-line="139" selection-start-column="68" selection-end-line="139" selection-end-column="68" />
-          <folding>
-            <element signature="e#602#695#0#PHP" />
-            <element signature="e#700#928#0#PHP" />
-            <element signature="e#747#921#0#PHP" />
-            <element signature="e#933#1030#0#PHP" />
-            <element signature="e#1035#1143#0#PHP" />
-            <element signature="e#1148#1241#0#PHP" />
-            <element signature="e#1246#1410#0#PHP" />
-            <element signature="e#1415#1507#0#PHP" />
-            <element signature="e#1512#1606#0#PHP" />
-            <element signature="e#1611#1745#0#PHP" />
-            <element signature="e#1861#2096#0#PHP" />
-            <element signature="e#1926#2054#0#PHP" />
-            <element signature="e#1960#2053#2#PHP" />
-            <element signature="e#2101#2295#0#PHP" />
-            <element signature="e#2316#2419#0#PHP" />
-            <element signature="e#2424#2601#0#PHP" />
-            <element signature="e#2606#2712#0#PHP" />
-            <element signature="e#2899#2959#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/sub/MessageIndicator.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/View/Composers/NotificationComposer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1047,22 +1210,6 @@
           <caret line="35" column="65" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
           <folding>
             <element signature="e#7#21#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/messages/messenger.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#chat#0;n#transition#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#900#932#0" expanded="true" />
-            <element signature="e#2050#3024#0" />
-            <element signature="e#3057#3674#0" />
-            <element signature="e#3701#4452#0" />
-            <element signature="e#4481#4574#0" />
-            <element signature="e#4598#5598#0" />
           </folding>
         </state>
       </provider>
@@ -1102,27 +1249,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/delivery/Chat.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="98" selection-start-line="3" selection-start-column="92" selection-end-line="3" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/confirm-delivery.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MessageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="87" column="31" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1151,156 +1281,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="65" column="59" selection-start-line="65" selection-start-column="59" selection-end-line="65" selection-end-column="59" />
-          <folding>
-            <element signature="e#281#1148#0#PHP" />
-            <element signature="e#560#980#0#PHP" />
-            <element signature="e#572#979#2#PHP" />
-            <element signature="e#613#968#0#PHP" />
-            <element signature="e#1153#2468#0#PHP" />
-            <element signature="e#1276#1341#0#PHP" />
-            <element signature="e#1357#2461#0#PHP" />
-            <element signature="e#1384#2460#0#PHP" />
-            <element signature="e#1404#2450#1#PHP" />
-            <element signature="e#1430#2059#1#PHP" />
-            <element signature="e#1747#1898#1#PHP" />
-            <element signature="e#2090#2436#1#PHP" />
-            <element signature="e#2122#2258#1#PHP" />
-            <element signature="e#2473#2701#0#PHP" />
-            <element signature="e#2706#3352#0#PHP" />
-            <element signature="e#2805#2942#0#PHP" />
-            <element signature="e#3081#3261#0#PHP" />
-            <element signature="e#3118#3259#0#PHP" />
-            <element signature="e#3357#3934#0#PHP" />
-            <element signature="e#3453#3590#0#PHP" />
-            <element signature="e#3660#3843#0#PHP" />
-            <element signature="e#3697#3841#0#PHP" />
-            <element signature="e#3940#4532#0#PHP" />
-            <element signature="e#4012#4145#0#PHP" />
-            <element signature="e#4031#4144#1#PHP" />
-            <element signature="e#4221#4526#0#PHP" />
-            <element signature="e#4385#4432#0#PHP" />
-            <element signature="e#4443#4526#0#PHP" />
-            <element signature="e#4468#4515#0#PHP" />
-            <element signature="e#4538#4766#0#PHP" />
-            <element signature="e#4771#4905#0#PHP" />
-            <element signature="e#4910#4988#0#PHP" />
-            <element signature="e#4993#5247#0#PHP" />
-            <element signature="e#5151#5221#0#PHP" />
-            <element signature="e#5252#5374#0#PHP" />
-            <element signature="e#5296#5368#0#PHP" />
-            <element signature="e#5379#5521#0#PHP" />
-            <element signature="e#5526#6119#0#PHP" />
-            <element signature="e#5571#6112#0#PHP" />
-            <element signature="e#5744#6102#1#PHP" />
-            <element signature="e#5886#5996#1#PHP" />
-            <element signature="e#6024#6088#1#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="292" column="5" lean-forward="true" selection-start-line="292" selection-start-column="5" selection-end-line="292" selection-end-column="5" />
-          <folding>
-            <element signature="e#605#1171#0#PHP" />
-            <element signature="e#797#1098#0#PHP" />
-            <element signature="e#862#987#1#PHP" />
-            <element signature="e#1176#1708#0#PHP" />
-            <element signature="e#1252#1670#0#PHP" />
-            <element signature="e#1295#1629#0#PHP" />
-            <element signature="e#1399#1615#1#PHP" />
-            <element signature="e#1442#1614#2#PHP" />
-            <element signature="e#1485#1595#0#PHP" />
-            <element signature="e#1713#2586#0#PHP" />
-            <element signature="e#1801#2580#0#PHP" />
-            <element signature="e#1845#2343#0#PHP" />
-            <element signature="e#1899#2086#0#PHP" />
-            <element signature="e#2354#2580#0#PHP" />
-            <element signature="e#2373#2570#0#PHP" />
-            <element signature="e#2504#2570#0#PHP" />
-            <element signature="e#2591#3556#0#PHP" />
-            <element signature="e#2683#2792#0#PHP" />
-            <element signature="e#2810#3304#0#PHP" />
-            <element signature="e#3212#3293#1#PHP" />
-            <element signature="e#3230#3292#2#PHP" />
-            <element signature="e#3323#3396#0#PHP" />
-            <element signature="e#3341#3395#2#PHP" />
-            <element signature="e#3561#5187#0#PHP" />
-            <element signature="e#3715#3872#0#PHP" />
-            <element signature="e#3939#4445#1#PHP" />
-            <element signature="e#4456#5181#0#PHP" />
-            <element signature="e#4595#4919#0#PHP" />
-            <element signature="e#4718#4905#0#PHP" />
-            <element signature="e#5083#5181#0#PHP" />
-            <element signature="e#5192#5884#0#PHP" />
-            <element signature="e#5397#5878#0#PHP" />
-            <element signature="e#5728#5878#0#PHP" />
-            <element signature="e#5889#6347#0#PHP" />
-            <element signature="e#5977#6093#0#PHP" />
-            <element signature="e#6157#6269#0#PHP" />
-            <element signature="e#6352#6773#0#PHP" />
-            <element signature="e#6779#8367#0#PHP" />
-            <element signature="e#6848#7020#0#PHP" />
-            <element signature="e#6867#7019#1#PHP" />
-            <element signature="e#7230#8186#0#PHP" />
-            <element signature="e#7414#8186#0#PHP" />
-            <element signature="e#7504#8176#0#PHP" />
-            <element signature="e#7593#7801#1#PHP" />
-            <element signature="e#7820#8080#0#PHP" />
-            <element signature="e#7983#8080#0#PHP" />
-            <element signature="e#8095#8176#0#PHP" />
-            <element signature="e#8372#9424#0#PHP" />
-            <element signature="e#8443#8528#0#PHP" />
-            <element signature="e#8462#8527#1#PHP" />
-            <element signature="e#8794#9355#0#PHP" />
-            <element signature="e#8827#9264#0#PHP" />
-            <element signature="e#8962#9169#0#PHP" />
-            <element signature="e#9002#9167#0#PHP" />
-            <element signature="e#9184#9264#0#PHP" />
-            <element signature="e#9274#9355#0#PHP" />
-            <element signature="e#9429#10772#0#PHP" />
-            <element signature="e#9497#9691#0#PHP" />
-            <element signature="e#9516#9690#1#PHP" />
-            <element signature="e#9810#10012#0#PHP" />
-            <element signature="e#9852#10002#0#PHP" />
-            <element signature="e#10021#10593#0#PHP" />
-            <element signature="e#10060#10583#0#PHP" />
-            <element signature="e#10178#10569#0#PHP" />
-            <element signature="e#10225#10390#0#PHP" />
-            <element signature="e#10241#10389#1#PHP" />
-            <element signature="e#10450#10569#0#PHP" />
-            <element signature="e#10778#10964#0#PHP" />
-            <element signature="e#10880#10935#0#PHP" />
-            <element signature="e#10969#11110#0#PHP" />
-            <element signature="e#11115#12790#0#PHP" />
-            <element signature="e#11257#12783#0#PHP" />
-            <element signature="e#11285#11532#1#PHP" />
-            <element signature="e#11642#11914#1#PHP" />
-            <element signature="e#12154#12235#1#PHP" />
-            <element signature="e#12172#12234#2#PHP" />
-            <element signature="e#12579#12697#1#PHP" />
-            <element signature="e#12796#13403#0#PHP" />
-            <element signature="e#12939#13376#0#PHP" />
-            <element signature="e#12975#13366#0#PHP" />
-            <element signature="e#13029#13352#0#PHP" />
-            <element signature="e#13155#13352#0#PHP" />
-            <element signature="e#13197#13257#1#PHP" />
-            <element signature="e#13408#13691#0#PHP" />
-            <element signature="e#13547#13662#0#PHP" />
-            <element signature="e#13581#13652#0#PHP" />
-            <element signature="e#13696#13865#0#PHP" />
-            <element signature="e#13742#13838#0#PHP" />
-            <element signature="e#13870#14279#0#PHP" />
-            <element signature="e#14053#14153#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1445,6 +1425,13 @@
     <entry file="file://$PROJECT_DIR$/resources/views/admin/configure/categories.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/_nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="68" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/components/_bread.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1452,10 +1439,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/_nav.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/adminpanel/Dashboard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="68" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="68" />
+        <state relative-caret-position="629">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UsersSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="63" column="11" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1473,53 +1477,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PermissionsSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminPanelController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-          <folding>
-            <element signature="e#1464#2257#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/adminpanel/Dashboard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/UsersSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="63" column="11" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/_admin-sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="303">
           <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="2074">
           <caret line="136" column="82" selection-start-line="136" selection-start-column="82" selection-end-line="136" selection-end-column="82" />
           <folding>
             <element signature="e#956#1120#2#PHP" />
@@ -1527,6 +1494,274 @@
             <element signature="e#1855#2013#2#PHP" />
             <element signature="e#2113#2327#2#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/offer/offer.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/OfferTypesSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PaymentTypeSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PermissionsSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DeliveryTypesSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="32" column="85" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offers/show-selloffer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="218" column="50" selection-start-line="218" selection-start-column="50" selection-end-line="218" selection-end-column="50" />
+          <folding>
+            <element signature="e#605#1171#0#PHP" />
+            <element signature="e#797#1098#0#PHP" />
+            <element signature="e#862#987#1#PHP" />
+            <element signature="e#1176#1708#0#PHP" />
+            <element signature="e#1252#1670#0#PHP" />
+            <element signature="e#1295#1629#0#PHP" />
+            <element signature="e#1399#1615#1#PHP" />
+            <element signature="e#1442#1614#2#PHP" />
+            <element signature="e#1485#1595#0#PHP" />
+            <element signature="e#1713#2586#0#PHP" />
+            <element signature="e#1801#2580#0#PHP" />
+            <element signature="e#1845#2343#0#PHP" />
+            <element signature="e#1899#2086#0#PHP" />
+            <element signature="e#2354#2580#0#PHP" />
+            <element signature="e#2373#2570#0#PHP" />
+            <element signature="e#2504#2570#0#PHP" />
+            <element signature="e#2591#3556#0#PHP" />
+            <element signature="e#2683#2792#0#PHP" />
+            <element signature="e#2810#3304#0#PHP" />
+            <element signature="e#3212#3293#1#PHP" />
+            <element signature="e#3230#3292#2#PHP" />
+            <element signature="e#3323#3396#0#PHP" />
+            <element signature="e#3341#3395#2#PHP" />
+            <element signature="e#3561#5187#0#PHP" />
+            <element signature="e#3715#3872#0#PHP" />
+            <element signature="e#3939#4445#1#PHP" />
+            <element signature="e#4456#5181#0#PHP" />
+            <element signature="e#4595#4919#0#PHP" />
+            <element signature="e#4718#4905#0#PHP" />
+            <element signature="e#5083#5181#0#PHP" />
+            <element signature="e#5192#5884#0#PHP" />
+            <element signature="e#5397#5878#0#PHP" />
+            <element signature="e#5728#5878#0#PHP" />
+            <element signature="e#5889#6347#0#PHP" />
+            <element signature="e#5977#6093#0#PHP" />
+            <element signature="e#6157#6269#0#PHP" />
+            <element signature="e#6352#6773#0#PHP" />
+            <element signature="e#6848#7020#0#PHP" />
+            <element signature="e#6867#7019#1#PHP" />
+            <element signature="e#8372#9424#0#PHP" />
+            <element signature="e#8443#8528#0#PHP" />
+            <element signature="e#8462#8527#1#PHP" />
+            <element signature="e#8794#9355#0#PHP" />
+            <element signature="e#8827#9264#0#PHP" />
+            <element signature="e#8962#9169#0#PHP" />
+            <element signature="e#9002#9167#0#PHP" />
+            <element signature="e#9184#9264#0#PHP" />
+            <element signature="e#9274#9355#0#PHP" />
+            <element signature="e#9429#10772#0#PHP" />
+            <element signature="e#9497#9691#0#PHP" />
+            <element signature="e#9516#9690#1#PHP" />
+            <element signature="e#9810#10012#0#PHP" />
+            <element signature="e#9852#10002#0#PHP" />
+            <element signature="e#10021#10593#0#PHP" />
+            <element signature="e#10060#10583#0#PHP" />
+            <element signature="e#10178#10569#0#PHP" />
+            <element signature="e#10225#10390#0#PHP" />
+            <element signature="e#10241#10389#1#PHP" />
+            <element signature="e#10450#10569#0#PHP" />
+            <element signature="e#10778#10964#0#PHP" />
+            <element signature="e#10880#10935#0#PHP" />
+            <element signature="e#10969#11110#0#PHP" />
+            <element signature="e#11115#12790#0#PHP" />
+            <element signature="e#11257#12783#0#PHP" />
+            <element signature="e#11285#11532#1#PHP" />
+            <element signature="e#11642#11914#1#PHP" />
+            <element signature="e#12154#12235#1#PHP" />
+            <element signature="e#12172#12234#2#PHP" />
+            <element signature="e#12579#12697#1#PHP" />
+            <element signature="e#12796#13403#0#PHP" />
+            <element signature="e#12939#13376#0#PHP" />
+            <element signature="e#12975#13366#0#PHP" />
+            <element signature="e#13029#13352#0#PHP" />
+            <element signature="e#13155#13352#0#PHP" />
+            <element signature="e#13197#13257#1#PHP" />
+            <element signature="e#13408#13691#0#PHP" />
+            <element signature="e#13547#13662#0#PHP" />
+            <element signature="e#13581#13652#0#PHP" />
+            <element signature="e#13696#13865#0#PHP" />
+            <element signature="e#13742#13838#0#PHP" />
+            <element signature="e#13870#14279#0#PHP" />
+            <element signature="e#14053#14153#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OfferSellController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="109" column="39" selection-start-line="109" selection-start-column="39" selection-end-line="109" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/offersell-info.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/profile/offer_list.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/offersells/delivery/Chat.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/messages/sidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-859" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MessageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="236" column="49" selection-start-line="236" selection-start-column="49" selection-end-line="236" selection-end-column="49" />
+          <folding>
+            <element signature="e#459#538#0#PHP" />
+            <element signature="e#544#1293#0#PHP" />
+            <element signature="e#608#672#0#PHP" />
+            <element signature="e#627#671#1#PHP" />
+            <element signature="e#739#1286#0#PHP" />
+            <element signature="e#766#988#0#PHP" />
+            <element signature="e#766#1014#0#PHP" />
+            <element signature="e#766#1042#0#PHP" />
+            <element signature="e#1070#1148#0#PHP" />
+            <element signature="e#1159#1286#0#PHP" />
+            <element signature="e#1201#1275#0#PHP" />
+            <element signature="e#1298#3977#0#PHP" />
+            <element signature="e#1367#1555#0#PHP" />
+            <element signature="e#1386#1554#1#PHP" />
+            <element signature="e#1789#3969#0#PHP" />
+            <element signature="e#1870#2178#0#PHP" />
+            <element signature="e#1953#2072#1#PHP" />
+            <element signature="e#2210#2538#1#PHP" />
+            <element signature="e#2623#3662#0#PHP" />
+            <element signature="e#2755#3648#0#PHP" />
+            <element signature="e#2940#3648#0#PHP" />
+            <element signature="e#3050#3342#0#PHP" />
+            <element signature="e#3080#3329#0#PHP" />
+            <element signature="e#3364#3629#0#PHP" />
+            <element signature="e#3394#3627#0#PHP" />
+            <element signature="e#3683#3728#0#PHP" />
+            <element signature="e#3831#3969#0#PHP" />
+            <element signature="e#3872#3958#0#PHP" />
+            <element signature="e#4782#5081#0#PHP" />
+            <element signature="e#4854#4937#0#PHP" />
+            <element signature="e#4873#4936#1#PHP" />
+            <element signature="e#5086#5693#0#PHP" />
+            <element signature="e#5163#5306#0#PHP" />
+            <element signature="e#5182#5305#1#PHP" />
+            <element signature="e#5454#5687#0#PHP" />
+            <element signature="e#5502#5687#0#PHP" />
+            <element signature="e#5527#5676#0#PHP" />
+            <element signature="e#5592#5675#2#PHP" />
+            <element signature="e#5698#6712#0#PHP" />
+            <element signature="e#5769#5900#0#PHP" />
+            <element signature="e#5788#5899#1#PHP" />
+            <element signature="e#5933#6705#0#PHP" />
+            <element signature="e#6074#6132#0#PHP" />
+            <element signature="e#6074#6176#0#PHP" />
+            <element signature="e#6193#6250#0#PHP" />
+            <element signature="e#6296#6528#0#PHP" />
+            <element signature="e#6539#6705#0#PHP" />
+            <element signature="e#6606#6694#0#PHP" />
+            <element signature="e#6717#7242#0#PHP" />
+            <element signature="e#6783#6852#0#PHP" />
+            <element signature="e#6802#6851#1#PHP" />
+            <element signature="e#6955#7138#0#PHP" />
+            <element signature="e#7154#7234#0#PHP" />
+            <element signature="e#7248#7425#0#PHP" />
+            <element signature="e#7295#7398#0#PHP" />
+            <element signature="e#7430#7981#0#PHP" />
+            <element signature="e#7507#7953#0#PHP" />
+            <element signature="e#7607#7953#0#PHP" />
+            <element signature="e#7673#7739#0#PHP" />
+            <element signature="e#7799#7953#0#PHP" />
+            <element signature="e#7895#7953#0#PHP" />
+            <element signature="e#8969#9368#0#PHP" />
+            <element signature="e#9056#9357#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/messages/messenger.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#chat#0;n#transition#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#900#932#0" expanded="true" />
+            <element signature="e#2050#3024#0" />
+            <element signature="e#3057#3674#0" />
+            <element signature="e#4598#5598#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/pages/messages/inputbox.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
         </state>
       </provider>
     </entry>

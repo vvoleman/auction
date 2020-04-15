@@ -15,9 +15,9 @@ class DeliveryTypesSeeder extends Seeder
             "name"=>"personal",
             "label"=>"Převzetí osobně"
         ]);
-        DB::table("delivery_types")->insert([
+        /*DB::table("delivery_types")->insert([
             "name"=>"cp",
             "label"=>"Česká pošta"
-        ]);
+        ]);*/
     }
 }

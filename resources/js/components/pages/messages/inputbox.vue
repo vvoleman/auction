@@ -1,6 +1,6 @@
 <template>
 	<div class="box d-flex justify-content-around align-items-stretch">
-		<button class="col-1">
+		<button class="col-1" disabled>
 			<i class="far fa-image"></i>
 		</button>
 		<textarea @keyup.enter.exact.prevent="send" class="col-10" v-model="input"></textarea>

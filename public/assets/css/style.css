@@ -286,7 +286,9 @@ img.col-12{
     pointer-events: stroke;
 }
 .img_bubble{
-    height: auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
     border-radius: 100%;
     border:1px solid #e3e3e3;
 }

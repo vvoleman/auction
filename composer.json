@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ext-pdo": "*",
+        "ajcastro/eager-load-pivot-relations": "^0.3.0",
         "axlon/laravel-postal-code-validation": "^2.0",
         "beyondcode/laravel-websockets": "^1.3",
         "fideloper/proxy": "^4.0",

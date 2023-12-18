@@ -62,5 +62,21 @@ class UsersSeeder extends Seeder
             "created_at"=>$now,
             "updated_at"=>$now
         ]);
+        DB::table('users')->insert([
+            "firstname"=>"Jan",
+            "surname"=>"Dvořák",
+            "email"=>"test@test.com",
+            "password"=>Hash::make("demo123"),
+            "group_id"=>2,
+            "uuid"=>Str::random(8),
+            "region_id"=>4,
+            "city"=>"Plasy",
+            "zipcode"=>"33101",
+            "address"=>"Polní 455",
+            "activation_token"=>Str::random(16),
+            "email_verified_at"=>Carbon::now(),
+            "created_at"=>$now,
+            "updated_at"=>$now
+        ]);
     }
 }

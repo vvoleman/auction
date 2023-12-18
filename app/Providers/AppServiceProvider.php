@@ -23,8 +23,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {   
-        \Illuminate\Support\Facades\URL::forceScheme('https');
+    {
         \Carbon\Carbon::setLocale('cs');
         Schema::defaultStringLength(191);
     }

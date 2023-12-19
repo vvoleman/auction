@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (App::environment('production')) {
             URL::forceScheme('https');
+            URL::forceRootUrl(config('app.url'));
         }
         \Carbon\Carbon::setLocale('cs');
         Schema::defaultStringLength(191);

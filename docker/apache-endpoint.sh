@@ -8,6 +8,4 @@ php artisan key:generate
 
 echo "Setup is done!"
 
-php artisan websockets:serve &
-
 apache2-foreground
